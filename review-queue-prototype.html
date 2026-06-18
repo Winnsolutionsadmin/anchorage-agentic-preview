@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>The Review Queue — Prototype · Winn.solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B; --paper:#F2ECDF;
+    --signal:#74B8C7; --text:#E9E3D6; --muted:#94A3B5;
+    --changes:#E08A5B; /* warm accent: changes requested */
+    --done:#94A3B5;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    /* SDG-style multicolor tile palette, re-skinned to sit on the navy frame */
+    --t1:#C5192D; --t2:#DDA63A; --t3:#4C9F38; --t4:#C5192D; --t5:#FF3A21;
+    --t6:#26BDE2; --t7:#FCC30B; --t8:#A21942; --t9:#FD6925; --t10:#DD1367;
+    --t11:#FD9D24; --t12:#BF8B2E; --t13:#3F7E44; --t14:#0A97D9; --t15:#56C02B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:radial-gradient(120% 120% at 80% -10%,var(--ink-3) 0%,var(--ink) 55%);
+    color:var(--text); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; line-height:1.5;
+  }
+  .wrap{max-width:1280px;margin:0 auto;padding:40px 32px 80px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:500}
+  h1{font-size:34px;font-weight:800;letter-spacing:-.01em;margin:8px 0 6px;color:var(--paper)}
+  .sub{color:var(--muted);font-size:15px;max-width:760px}
+  .proto-note{
+    margin:18px 0 30px;padding:12px 16px;border:1px solid rgba(216,169,74,.32);
+    border-left:3px solid var(--brass);border-radius:8px;background:rgba(216,169,74,.06);
+    font-size:13px;color:var(--text)
+  }
+  .proto-note b{color:var(--brass-2)}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 26px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .dot.pending{background:var(--brass)} .dot.inrev{background:var(--signal)}
+  .dot.changes{background:var(--changes)} .dot.done{background:var(--done)}
+
+  /* group headers */
+  .group-h{display:flex;align-items:center;gap:12px;margin:34px 0 14px}
+  .group-h:first-of-type{margin-top:6px}
+  .group-h h2{font-size:13px;font-family:var(--mono);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text)}
+  .group-h .count{font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--brass);border-radius:20px;padding:2px 9px;font-weight:600}
+  .group-h .rule{flex:1;height:1px;background:rgba(148,163,181,.18)}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+  .tile{
+    position:relative;border-radius:12px;padding:18px 16px 16px;min-height:158px;
+    cursor:pointer;overflow:hidden;color:#fff;display:flex;flex-direction:column;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 1px 0 rgba(255,255,255,.08) inset, 0 8px 22px rgba(0,0,0,.35);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .tile:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--brass-2), 0 14px 30px rgba(0,0,0,.5), 0 0 22px rgba(216,169,74,.25)}
+  .tile .num{
+    position:absolute;top:12px;right:14px;font-family:var(--mono);font-weight:600;
+    font-size:13px;color:rgba(255,255,255,.92);letter-spacing:.02em
+  }
+  .tile .client{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+  .tile .ttl{font-weight:700;font-size:16px;line-height:1.25;margin-top:auto;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+  .tile .need{font-size:12px;opacity:.92;margin-top:7px;line-height:1.35}
+  .tile .foot{display:flex;align-items:center;gap:8px;margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.95}
+  .tile .sdot{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+  /* aging ring: pending too long */
+  .tile.aging::after{
+    content:"";position:absolute;inset:0;border-radius:12px;border:2px solid var(--brass-2);
+    animation:pulse 1.8s ease-in-out infinite;pointer-events:none
+  }
+  @keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
+
+  /* status overlays applied on top of multicolor tile */
+  .tile[data-status="in_review"]{outline:2px solid var(--signal);outline-offset:-2px}
+  .tile[data-status="changes_requested"]{outline:2px solid var(--changes);outline-offset:-2px}
+  .tile[data-status="approved"]{filter:saturate(.5) brightness(.7);opacity:.78}
+
+  /* ===== review pane (modal) ===== */
+  .pane-bg{position:fixed;inset:0;background:rgba(5,11,20,.72);backdrop-filter:blur(3px);display:none;z-index:40}
+  .pane-bg.show{display:block}
+  .pane{
+    position:fixed;inset:24px;z-index:41;display:none;grid-template-columns:1.25fr 1fr;gap:0;
+    background:var(--ink-2);border:1px solid rgba(216,169,74,.3);border-radius:14px;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.6)
+  }
+  .pane.show{display:grid}
+  .pane-head{
+    grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:14px 20px;
+    border-bottom:1px solid rgba(148,163,181,.16);background:var(--ink-3)
+  }
+  .pane-head .pnum{font-family:var(--mono);font-weight:600;color:var(--brass)}
+  .pane-head .ptitle{font-weight:700;font-size:16px;color:var(--paper)}
+  .pane-head .pmeta{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+  .pane-head .close{margin-left:auto;background:transparent;border:1px solid rgba(148,163,181,.3);color:var(--muted);border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:16px}
+  .pane-head .close:hover{color:var(--paper);border-color:var(--brass)}
+
+  /* doc preview */
+  .doc{padding:0;overflow:auto;background:var(--ink)}
+  .doc-inner{margin:24px;background:var(--paper);color:#1d2733;border-radius:8px;padding:42px 46px;box-shadow:0 10px 30px rgba(0,0,0,.4);font-family:var(--sans)}
+  .doc-inner .doc-eye{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9a7b2e}
+  .doc-inner h3{font-size:24px;font-weight:800;margin:6px 0 4px;color:#14233a;line-height:1.15}
+  .doc-inner .lede{font-size:14px;color:#46566b;margin-bottom:18px}
+  .doc-inner h4{font-size:12px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#9a7b2e;margin:20px 0 8px}
+  .doc-inner p{font-size:13.5px;color:#28384c;margin-bottom:11px}
+  .doc-inner .stat{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 14px}
+  .doc-inner .stat div{flex:1;min-width:120px;border-left:3px solid var(--brass);padding:6px 0 6px 12px}
+  .doc-inner .stat b{display:block;font-size:22px;color:#14233a;font-weight:800}
+  .doc-inner .stat span{font-size:11px;color:#5a6b80;font-family:var(--mono)}
+  .doc-inner .flag{font-size:11px;color:#9a3a1e;font-family:var(--mono);background:#f6e3d6;border-radius:5px;padding:3px 8px;display:inline-block}
+
+  /* chat dialog */
+  .chat{display:flex;flex-direction:column;border-left:1px solid rgba(148,163,181,.16);background:var(--ink-2);min-height:0}
+  .chat-h{padding:12px 18px;border-bottom:1px solid rgba(148,163,181,.16);display:flex;align-items:center;gap:8px}
+  .chat-h .live{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal)}
+  .chat-h .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal)}
+  .chat-h .sid{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .chat-log{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:14px}
+  .msg{max-width:88%;font-size:13.5px;line-height:1.5;padding:11px 14px;border-radius:12px}
+  .msg.agent{align-self:flex-start;background:var(--ink-3);border:1px solid rgba(116,184,199,.22);border-top-left-radius:3px}
+  .msg.you{align-self:flex-end;background:rgba(216,169,74,.14);border:1px solid rgba(216,169,74,.32);border-top-right-radius:3px;color:var(--paper)}
+  .msg .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .msg.agent .who{color:var(--signal)} .msg.you .who{color:var(--brass)}
+  .qchip{align-self:flex-start;font-family:var(--mono);font-size:11px;color:var(--signal);border:1px dashed rgba(116,184,199,.4);border-radius:20px;padding:5px 12px;cursor:pointer;background:transparent}
+  .qchip:hover{background:rgba(116,184,199,.1)}
+  .chat-foot{padding:14px 16px;border-top:1px solid rgba(148,163,181,.16);background:var(--ink-3)}
+  .chat-foot textarea{width:100%;resize:none;background:var(--ink);color:var(--text);border:1px solid rgba(148,163,181,.25);border-radius:10px;padding:11px 13px;font-family:var(--sans);font-size:13px;min-height:64px}
+  .chat-foot textarea:focus{outline:none;border-color:var(--signal)}
+  .actions{display:flex;gap:10px;margin-top:11px}
+  .btn{flex:1;border:none;border-radius:9px;padding:11px 12px;font-family:var(--sans);font-weight:700;font-size:13px;cursor:pointer;letter-spacing:.01em}
+  .btn-approve{background:var(--brass);color:var(--ink)}
+  .btn-approve:hover{background:var(--brass-2)}
+  .btn-feedback{background:transparent;color:var(--signal);border:1px solid rgba(116,184,199,.4)}
+  .btn-feedback:hover{background:rgba(116,184,199,.1)}
+  .gate-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:9px;letter-spacing:.04em}
+
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);z-index:60;background:var(--ink-3);border:1px solid var(--brass);color:var(--paper);padding:12px 20px;border-radius:10px;font-size:13px;opacity:0;transition:.3s;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast b{color:var(--brass-2)}
+
+  @media(max-width:820px){.pane{inset:10px;grid-template-columns:1fr;grid-template-rows:auto 1fr 1fr}.doc{max-height:36vh}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Winn.solutions · Human-in-the-loop review layer</div>
+  <h1>The Review Queue</h1>
+  <p class="sub">Every artifact a subagent produces lands here as a tile. Click one to read the document and step into the session that wrote it.</p>
+
+  <div class="proto-note"><b>Prototype.</b> This is a clickable mockup of the review flow. The grid, the tile open and close, and the chat affordances all work against an inline sample queue. It is not yet wired to live Claude Code sessions, the resume service, or the queue.json ledger.</div>
+
+  <div class="legend">
+    <span><i class="dot pending"></i> Pending sign-off</span>
+    <span><i class="dot inrev"></i> In review</span>
+    <span><i class="dot changes"></i> Changes requested</span>
+    <span><i class="dot done"></i> Completed</span>
+  </div>
+
+  <div id="board"></div>
+</div>
+
+<!-- review pane -->
+<div class="pane-bg" id="paneBg"></div>
+<div class="pane" id="pane">
+  <div class="pane-head">
+    <span class="pnum" id="pNum">RQ-000</span>
+    <span class="ptitle" id="pTitle">Title</span>
+    <span class="pmeta" id="pMeta">agent</span>
+    <button class="close" id="pClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="doc"><div class="doc-inner" id="docInner"></div></div>
+  <div class="chat">
+    <div class="chat-h"><span class="live"></span><span class="lbl">Live session</span><span class="sid" id="pSid">session</span></div>
+    <div class="chat-log" id="chatLog"></div>
+    <div class="chat-foot">
+      <textarea id="fb" placeholder="Deep feedback to this subagent. Be specific; it has the full original context."></textarea>
+      <div class="actions">
+        <button class="btn btn-feedback" id="btnFb">Send feedback to this subagent</button>
+        <button class="btn btn-approve" id="btnAp">Approve and send to main agent</button>
+      </div>
+      <div class="gate-hint">Fail-closed: approve writes the verdict to the orchestrator callback. No publish or send fires from here.</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---- inline sample queue (4 to 6 pending items) ---- */
+const QUEUE = [
+  { id:"RQ-014", n:14, color:"var(--t6)", client:"Anchorage", status:"pending", aging:true,
+    title:"Who Banks the Agents? — P3 research-gap brief",
+    need:"Confirm the category framing before P4 partner phase.",
+    agent:"general-purpose", session:"a7f3c9e2",
+    doc:{ eye:"P3 · Research gap", h:"Who Banks the Agents?",
+      lede:"The wallet is crowded. The bank is empty. Every competitor builds a piece of the agent's wallet; only a chartered bank can hold its balance.",
+      stats:[["3,999","institutions powered"],["1","federally chartered crypto bank"]],
+      body:["Agentic banking is pre-launch under the public name Agentic Banking. The wedge is custody plus charter, not a wallet SDK.",
+            "Forward-looking capability claims are gated to COUNSEL. We tease the category, not the feature set."],
+      flag:"VERIFY: 'first federally chartered' not 'only chartered'." } },
+
+  { id:"RQ-013", n:13, color:"var(--t8)", client:"Anchorage", status:"changes_requested",
+    title:"P5 proof and demo storyboard",
+    need:"Reframe the Cloudflare line; otherwise approved.",
+    agent:"general-purpose", session:"b2d8f140",
+    doc:{ eye:"P5 · Proof / demo", h:"The first agent transaction",
+      lede:"A storyboard of an agent opening an account, passing KYA, and settling through chartered rails.",
+      stats:[["2.5B/sec","modeled ceiling"],["98.6%","USDC settlement"]],
+      body:["The demo shows allowance limits and Know-Your-Agent checks as first-class controls.",
+            "Mastercard appears as the named launch partner of Agent Pay for Machines, not as an exclusive."],
+      flag:"FIX: Cloudflare 2.5B/sec must read 'modeled ceiling', not 'volume'." } },
+
+  { id:"RQ-012", n:12, color:"var(--t3)", client:"Anchorage", status:"pending",
+    title:"Nathan belief tease — P1 social thread",
+    need:"Tone check on the S31 'never a better time' line.",
+    agent:"general-purpose", session:"c93a7e55",
+    doc:{ eye:"P1 · Belief tease", h:"There has never been a better time",
+      lede:"A three-post thread seeding the agent-native rails thesis from Nathan's own belief field.",
+      stats:[["5","grounded beliefs"],["0","invented quotes"]],
+      body:["Each post maps to a sourced belief: S24 bridge, S8 powering, S2 two-sides, S25 frontier civilized.",
+            "Urgency is our exhortation in the surrounding copy, never attributed to Nathan as a quote."],
+      flag:"GATE: agent-native angle uses S24 only. No invented Nathan quotes." } },
+
+  { id:"RQ-011", n:11, color:"var(--t10)", client:"Anchorage", status:"in_review",
+    title:"P6 launch page — category and waitlist",
+    need:"You opened this; finish the headline call.",
+    agent:"general-purpose", session:"d41f0aa9",
+    doc:{ eye:"P6 · Launch", h:"Agentic Banking",
+      lede:"The category-defining launch page with a waitlist capture and the 'Who Banks the Agents?' line above the fold.",
+      stats:[["1","category to own"],["Q3","target window"]],
+      body:["Public name is Agentic Banking. The internal codename does not appear anywhere on the page.",
+            "Waitlist is the only call to action; no capability is promised, only the category is claimed."],
+      flag:"GATE: public name 'Agentic Banking'. Codename never ships." } },
+
+  { id:"RQ-010", n:10, color:"var(--t1)", client:"Anchorage", status:"pending",
+    title:"P4 partner one-pager",
+    need:"Check the partner attribution wording.",
+    agent:"general-purpose", session:"e7711b03",
+    doc:{ eye:"P4 · Partner", h:"The rails, partnered",
+      lede:"A one-pager framing how named partners plug into chartered custody for machine payments.",
+      stats:[["1","named launch partner"],["KYA","control layer"]],
+      body:["Mastercard is named as the launch partner of Agent Pay for Machines.",
+            "Pantera and Lithic specifics are held internal and are not asserted in this external one-pager."],
+      flag:"VERIFY: Mastercard named, not exclusive. Pantera/Lithic internal only." } },
+
+  { id:"RQ-009", n:9, color:"var(--t13)", client:"Anchorage", status:"approved",
+    title:"P2 vision reveal deck section",
+    need:"Approved and shipped to the orchestrator.",
+    agent:"general-purpose", session:"f0a2c8d7",
+    doc:{ eye:"P2 · Vision reveal", h:"The bridge to agent-native finance",
+      lede:"The vision section establishing Anchorage as the bank for economic AI actors.",
+      stats:[["S24","bridge belief"],["1","operational charter"]],
+      body:["This section is approved. The verdict was written back to the orchestrator callback.",
+            "Kept here as a completed reference so the grouping shows the full lifecycle."],
+      flag:"APPROVED · verdict written to callback RQ-009.json" } },
+];
+
+const STATUS = {
+  pending:        {label:"Pending",            group:"Pending sign-off", dot:"pending"},
+  in_review:      {label:"In review",          group:"In review",        dot:"inrev"},
+  changes_requested:{label:"Changes requested",group:"Changes requested",dot:"changes"},
+  approved:       {label:"Completed",           group:"Completed",        dot:"done"},
+};
+const GROUP_ORDER = ["in_review","pending","changes_requested","approved"]; // needs-input floats up
+
+/* sample clarifying questions per item */
+function questionsFor(it){
+  return [
+    "Which audience reads this first, the Anchorage exec team or external partners?",
+    "Should I hold the forward-looking capability claim at COUNSEL, or is this cleared to tease?",
+  ];
+}
+
+const board = document.getElementById('board');
+function render(){
+  board.innerHTML = "";
+  GROUP_ORDER.forEach(st=>{
+    const items = QUEUE.filter(q=>q.status===st);
+    if(!items.length) return;
+    const gh = document.createElement('div'); gh.className='group-h';
+    gh.innerHTML = `<h2>${STATUS[st].group}</h2><span class="count">${items.length}</span><span class="rule"></span>`;
+    board.appendChild(gh);
+    const grid = document.createElement('div'); grid.className='grid';
+    items.forEach(it=>grid.appendChild(tileEl(it)));
+    board.appendChild(grid);
+  });
+}
+function tileEl(it){
+  const t = document.createElement('div');
+  t.className = 'tile' + (it.aging && it.status==='pending' ? ' aging':'');
+  t.dataset.status = it.status;
+  t.style.background = it.color;
+  t.innerHTML = `
+    <span class="num">${it.id}</span>
+    <span class="client">${it.client}</span>
+    <div class="ttl">${it.title}</div>
+    <div class="need">${it.need}</div>
+    <div class="foot"><span class="sdot"></span>${STATUS[it.status].label}</div>`;
+  t.addEventListener('click',()=>openItem(it));
+  return t;
+}
+
+/* ---- review pane ---- */
+const paneBg=document.getElementById('paneBg'), pane=document.getElementById('pane');
+let current=null;
+function openItem(it){
+  current=it;
+  document.getElementById('pNum').textContent=it.id;
+  document.getElementById('pTitle').textContent=it.title;
+  document.getElementById('pMeta').textContent=it.client+" · "+it.agent;
+  document.getElementById('pSid').textContent="session "+it.session;
+  // doc preview
+  const d=it.doc;
+  document.getElementById('docInner').innerHTML=`
+    <div class="doc-eye">${d.eye}</div>
+    <h3>${d.h}</h3>
+    <div class="lede">${d.lede}</div>
+    <div class="stat">${d.stats.map(s=>`<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>
+    <h4>Summary</h4>
+    ${d.body.map(p=>`<p>${p}</p>`).join('')}
+    <p class="flag">${d.flag}</p>`;
+  // chat seed
+  const log=document.getElementById('chatLog'); log.innerHTML="";
+  addMsg('agent', it.agent, `I drafted <b>${it.title}</b> and copied it to the review folder. A couple of clarifying questions before you sign off:`);
+  questionsFor(it).forEach(q=>{
+    const c=document.createElement('button'); c.className='qchip'; c.textContent='“'+q+'”';
+    c.addEventListener('click',()=>{ document.getElementById('fb').value=q; document.getElementById('fb').focus(); });
+    log.appendChild(c);
+  });
+  if(it.status==='changes_requested') addMsg('agent', it.agent, "I logged your earlier note. Confirm the fix and I will revise the canonical file.");
+  // reflect in_review
+  if(it.status==='pending'){ it.status='in_review'; }
+  paneBg.classList.add('show'); pane.classList.add('show');
+}
+function addMsg(role,who,html){
+  const log=document.getElementById('chatLog');
+  const m=document.createElement('div'); m.className='msg '+(role==='agent'?'agent':'you');
+  m.innerHTML=`<div class="who">${role==='agent'?who:'You'}</div>${html}`;
+  log.appendChild(m); log.scrollTop=log.scrollHeight;
+}
+function closePane(){ paneBg.classList.remove('show'); pane.classList.remove('show'); render(); }
+document.getElementById('pClose').addEventListener('click',closePane);
+paneBg.addEventListener('click',closePane);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&pane.classList.contains('show')) closePane(); });
+
+document.getElementById('btnFb').addEventListener('click',()=>{
+  const v=document.getElementById('fb').value.trim();
+  if(!v){ toast("Type some feedback first."); return; }
+  addMsg('you','You',v);
+  document.getElementById('fb').value="";
+  setTimeout(()=>addMsg('agent',current.agent,"Understood. I will revise the canonical file and re-enter the queue for your sign-off."),550);
+  if(current.status!=='changes_requested'){ current.status='changes_requested'; }
+  toast(`Feedback routed to <b>${current.id}</b> subagent.`);
+});
+document.getElementById('btnAp').addEventListener('click',()=>{
+  current.status='approved';
+  toast(`<b>${current.id}</b> approved · verdict written to orchestrator callback.`);
+  setTimeout(closePane,650);
+});
+
+let toastT;
+function toast(html){
+  const el=document.getElementById('toast'); el.innerHTML=html; el.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),2600);
+}
+
+render();
+</script>
+</body>
+</html>

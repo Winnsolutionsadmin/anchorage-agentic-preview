@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Agentic GTM Execution Schedule · Anchorage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B; --paper:#F2ECDF;
+    --signal:#74B8C7; --text:#E9E3D6; --muted:#94A3B5;
+    --w: 64px;            /* width of one week column */
+    --lane-label: 250px;  /* swimlane label gutter */
+    --row: 34px;          /* bar row height */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink); color:var(--text);
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+    font-weight:400; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding:48px 40px 80px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--brass);
+    font-weight:500;
+  }
+  h1{
+    font-family:'Hanken Grotesk',sans-serif; font-weight:800;
+    font-size:clamp(28px,4vw,42px); line-height:1.08; letter-spacing:-.01em;
+    color:var(--paper); margin:10px 0 6px;
+  }
+  .sub{color:var(--muted); font-size:15px; max-width:780px}
+  .wrap{max-width:1320px; margin:0 auto}
+
+  /* ESTIMATE / future-tool callout */
+  .callout{
+    border:1px solid rgba(216,169,74,.35);
+    background:linear-gradient(180deg,rgba(216,169,74,.08),rgba(216,169,74,.02));
+    border-radius:10px; padding:18px 22px; margin:26px 0 8px;
+    display:grid; grid-template-columns:1fr 1fr; gap:18px 34px;
+  }
+  @media(max-width:780px){.callout{grid-template-columns:1fr}}
+  .callout h3{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--brass-2); margin-bottom:6px; font-weight:600;
+  }
+  .callout p{font-size:13.5px; color:var(--text); opacity:.92}
+  .callout b{color:var(--brass-2); font-weight:700}
+
+  /* legend */
+  .legend{display:flex; flex-wrap:wrap; gap:8px 22px; margin:24px 0 14px; align-items:center}
+  .legend .k{display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--muted)}
+  .swatch{width:26px; height:13px; border-radius:3px; display:inline-block}
+  .s-phase{background:linear-gradient(180deg,var(--brass-2),var(--brass))}
+  .s-now{background:linear-gradient(180deg,#8fd0dd,var(--signal))}
+  .s-h{background:linear-gradient(180deg,#c98f3e,#a06a26); border:1px solid var(--brass)}
+  .s-m{background:rgba(148,163,181,.5); border:1px solid rgba(148,163,181,.7)}
+  .s-l{background:rgba(148,163,181,.18); border:1px dashed rgba(148,163,181,.55)}
+  .s-noinput{background:repeating-linear-gradient(45deg,var(--signal),var(--signal) 5px,#3d7a87 5px,#3d7a87 10px)}
+
+  /* chart shell */
+  .chart{
+    margin-top:18px; border:1px solid rgba(233,227,214,.12);
+    border-radius:12px; overflow:hidden; background:var(--ink-2);
+    overflow-x:auto;
+  }
+  .grid{
+    position:relative;
+    min-width:calc(var(--lane-label) + 13 * var(--w));
+  }
+  /* week header */
+  .axis{
+    display:grid;
+    grid-template-columns:var(--lane-label) repeat(13,var(--w));
+    border-bottom:1px solid rgba(233,227,214,.18);
+    position:sticky; top:0; z-index:5; background:var(--ink-3);
+  }
+  .axis .corner{
+    padding:10px 14px; font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); align-self:center;
+  }
+  .axis .wk{
+    text-align:center; padding:9px 0; font-family:'IBM Plex Mono',monospace;
+    font-size:11px; color:var(--brass-2); border-left:1px solid rgba(233,227,214,.07);
+    font-weight:500;
+  }
+  .axis .wk small{display:block; font-size:9px; color:var(--muted); letter-spacing:.06em}
+
+  /* section band */
+  .band{
+    display:grid; grid-template-columns:var(--lane-label) repeat(13,var(--w));
+    background:var(--ink-3);
+    border-top:1px solid rgba(216,169,74,.28);
+    border-bottom:1px solid rgba(233,227,214,.1);
+  }
+  .band .t{
+    grid-column:1 / -1; padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--brass);
+    font-weight:600;
+  }
+  .band .t span{color:var(--muted); letter-spacing:.04em; font-weight:400; text-transform:none; font-family:'Hanken Grotesk',sans-serif; font-size:12px}
+
+  /* lane row */
+  .lane{
+    display:grid; grid-template-columns:var(--lane-label) repeat(13,var(--w));
+    min-height:var(--row); border-bottom:1px solid rgba(233,227,214,.055);
+    position:relative;
+  }
+  .lane:hover{background:rgba(233,227,214,.03)}
+  .lane .label{
+    padding:7px 14px; font-size:12.5px; align-self:center;
+    border-right:1px solid rgba(233,227,214,.1); line-height:1.3;
+  }
+  .lane .label b{color:var(--paper); font-weight:600}
+  .lane .label .dep{
+    display:block; font-family:'IBM Plex Mono',monospace; font-size:9.5px;
+    color:var(--signal); letter-spacing:.04em; margin-top:2px;
+  }
+  .lane .label .tier{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9px;
+    color:var(--ink); background:var(--muted); border-radius:3px;
+    padding:0 4px; margin-left:6px; vertical-align:middle; font-weight:600;
+  }
+  /* week cell gridlines behind bars */
+  .cells{
+    grid-column:2 / -1; grid-row:1;
+    display:grid; grid-template-columns:repeat(13,var(--w));
+    pointer-events:none;
+  }
+  .cells i{border-left:1px solid rgba(233,227,214,.06)}
+  /* the bar layer sits on the same columns */
+  .bars{
+    grid-column:2 / -1; grid-row:1;
+    display:grid; grid-template-columns:repeat(13,var(--w));
+    align-items:center;
+  }
+  .bar{
+    grid-row:1; height:20px; border-radius:5px;
+    font-family:'IBM Plex Mono',monospace; font-size:9.5px;
+    color:var(--ink); font-weight:600; letter-spacing:.02em;
+    display:flex; align-items:center; padding:0 7px; white-space:nowrap;
+    overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.3);
+  }
+  .bar.phase{background:linear-gradient(180deg,var(--brass-2),var(--brass))}
+  .bar.now{background:linear-gradient(180deg,#8fd0dd,var(--signal)); color:#06222a}
+  .bar.h{background:linear-gradient(180deg,#c98f3e,#9c6624); color:var(--paper); border:1px solid var(--brass-2)}
+  .bar.m{background:rgba(148,163,181,.42); color:var(--paper); border:1px solid rgba(148,163,181,.6)}
+  .bar.l{background:rgba(148,163,181,.14); color:var(--muted); border:1px dashed rgba(148,163,181,.5)}
+  .bar.noinput{background:repeating-linear-gradient(45deg,var(--signal),var(--signal) 6px,#3d7a87 6px,#3d7a87 12px); color:#06222a; border:1px solid var(--signal)}
+  .bar.milestone{
+    background:none; box-shadow:none; color:var(--brass-2);
+    justify-content:flex-start; padding-left:2px; font-weight:700;
+  }
+  .bar.milestone::before{
+    content:"\25C6"; color:var(--brass-2); margin-right:5px; font-size:11px;
+  }
+  /* dependency note pill on bar */
+  .bar .arrow{color:rgba(10,23,38,.6); margin-left:6px; font-size:10px}
+
+  footer{
+    margin-top:34px; padding-top:18px; border-top:1px solid rgba(233,227,214,.12);
+    color:var(--muted); font-size:12px; max-width:980px; line-height:1.6;
+  }
+  footer b{color:var(--text); font-weight:600}
+  .legend-note{font-size:11.5px; color:var(--muted); margin-top:4px; font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Anchorage · Agentic Banking · Winn.solutions internal</div>
+  <h1>Agentic GTM Execution Schedule</h1>
+  <p class="sub">The whole agentic go-to-market rollout on one time axis: the 8-phase launch sprint (P1 tease through P8 amplify), the eighteen workstreams sequenced by priority and dependency, and the no-input items that can move now. Weeks W0 to W12.</p>
+
+  <div class="callout">
+    <div>
+      <h3>Dates are estimates</h3>
+      <p>Every position on this axis is a <b>planning estimate</b>, not a committed date. The real clock starts when Anchorage sets the launch date and the gating preconditions clear: <b>VOICE_SPINE v1.0 + compliance sign-off</b> (blocks all Nathan-voice copy), the <b>load-bearing stat source-check</b> (blocks the research paper), and the <b>bot guardrail review</b> (blocks bot launch). W0 anchors to "launch hour"; weeks before it are the T-14 pre-work runway.</p>
+    </div>
+    <div>
+      <h3>Seed for a future ClickUp skill</h3>
+      <p>This schedule is the <b>seed for a ClickUp build</b>. Each bar below is intended to become a ClickUp task with its swimlane as a list, its dependencies as task links, and the week axis as a synced ClickUp Gantt. Treat this HTML as the source of truth that the upcoming skill will materialize and keep in sync.</p>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="k"><span class="swatch s-phase"></span> Launch-sprint phase (P1–P8)</div>
+    <div class="k"><span class="swatch s-now"></span> Executing now (subtraction-gate bet)</div>
+    <div class="k"><span class="swatch s-h"></span> Priority H (do next)</div>
+    <div class="k"><span class="swatch s-m"></span> Priority M (sequence-dependent)</div>
+    <div class="k"><span class="swatch s-l"></span> Priority L (strategic bet / horizon)</div>
+    <div class="k"><span class="swatch s-noinput"></span> No-input item (move now)</div>
+  </div>
+  <div class="legend-note">Dependencies are noted in each lane label and on bars (e.g. "dep: WS-01"). A bar that starts later than its earliest possible week is held by its dependency or a gate.</div>
+
+  <div class="chart">
+  <div class="grid">
+
+    <!-- WEEK AXIS -->
+    <div class="axis">
+      <div class="corner">Swimlane / Task</div>
+      <div class="wk">W0<small>launch hr</small></div>
+      <div class="wk">W1</div>
+      <div class="wk">W2</div>
+      <div class="wk">W3</div>
+      <div class="wk">W4</div>
+      <div class="wk">W5</div>
+      <div class="wk">W6</div>
+      <div class="wk">W7</div>
+      <div class="wk">W8</div>
+      <div class="wk">W9</div>
+      <div class="wk">W10</div>
+      <div class="wk">W11</div>
+      <div class="wk">W12</div>
+    </div>
+
+    <!-- =================================================== -->
+    <!-- BAND A: THE 8-PHASE LAUNCH SPRINT                   -->
+    <!-- Note: pre-work runs before W0; we render the T-14    -->
+    <!-- pre-work as a W0-anchored note + the launch stack.   -->
+    <!-- =================================================== -->
+    <div class="band"><div class="t">A · The 8-phase launch sprint <span>— T-14 pre-work runway → launch hour (W0) → follow-on. P5 demo gated, may slip.</span></div></div>
+
+    <div class="lane">
+      <div class="label"><b>Pre-work gates</b><span class="dep">blocks ALL copy: voice spine v1.0, stat source-check, bot guardrail review</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar milestone" style="grid-column:1/2">T-14→T-3 runway (precedes W0)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P1 · Belief tease</b><span class="dep">Nathan tweet run (teases 1–3) · opens the sprint</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar phase" style="grid-column:1/2">P1 tweets</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P2 · Vision reveal</b><span class="dep">landing page + Nathan video #1 + concept teases</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar phase" style="grid-column:1/3">Page live · Video #1 · KYA/allowance teases</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P3 · Research gap</b><span class="dep">"Who Banks the Agents?" published as page anchor</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar phase" style="grid-column:1/2">Paper</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P4 · Partner</b><span class="dep">partner interview (investor co-author default) · category altitude</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar phase" style="grid-column:2/3">Partner interview (T+2→T+5)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P5 · Proof / demo</b><span class="dep">GATED-SUBSTANCE · ships only when an agent demoably settles a payment</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar l" style="grid-column:4/7">60-sec demo (gated · may slip entirely)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P6 · Launch</b><span class="dep">category + waitlist open + bot live + talent announce · NOT GA</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar phase" style="grid-column:1/2">Launch stack</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>Parallel lane · talent + waitlist + bot</b><span class="dep">employer brand, waitlist hype loop, agentic triage bot · spans the sprint</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar now" style="grid-column:1/5">Waitlist + bot + employer brand (position/referral loop)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P7 · Traction</b><span class="dep">first-60-day numbers: waitlist size, demo views, pilot count</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar phase" style="grid-column:2/9">P7 traction reporting (follow-on)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>P8 · Amplify</b><span class="dep">Nathan media hit + partner quote-tweets + recap + Twitter Space (if go)</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar phase" style="grid-column:2/5">Amplify · Space (T+7→T+14)</div></div>
+    </div>
+
+    <!-- =================================================== -->
+    <!-- BAND C (rendered second by design): NO-INPUT ITEMS  -->
+    <!-- near-term, move now                                  -->
+    <!-- =================================================== -->
+    <div class="band"><div class="t">C · No-input items <span>— move now, no Anchorage decision required. These are the near-term bars.</span></div></div>
+
+    <div class="lane">
+      <div class="label"><b>Trademark clearance</b><span class="dep">"Agentic Banking" / "Who Banks the Agents?" marks · file now</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar noinput" style="grid-column:1/3">TM search + file</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-16 · Churn-reframe advisory</b><span class="dep">ours to sell, not Anchorage's to build · separate track</span> <span class="tier">T4</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar noinput" style="grid-column:1/4">Pilot the retained-revenue diagnostic</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>Sprint text assets</b><span class="dep">draft tweet run, paper, page copy, bot caveat library · pre-gate drafts</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar noinput" style="grid-column:1/3">Draft (hold publish for voice spine + compliance)</div></div>
+    </div>
+
+    <!-- =================================================== -->
+    <!-- BAND B: WORKSTREAMS WS-01 .. WS-18                  -->
+    <!-- =================================================== -->
+    <div class="band"><div class="t">B · Workstreams WS-01 → WS-18 <span>— placed by priority (H/M/L) and dependency. Tier badge = portfolio tier. Charter-leverage in scope.</span></div></div>
+
+    <div class="lane">
+      <div class="label"><b>WS-01 · KYA / KYB-reliance trust root</b><span class="dep">the launch flag · executing now · highest partner pull</span> <span class="tier">T1</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar now" style="grid-column:1/6">WS-01 KYA trust root (foundation for 03/06/07/08/11)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-02 · Settlement + fiat-boundary spine</b><span class="dep">Atlas · multi-token · fiat crossing · executing now</span> <span class="tier">T1</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar now" style="grid-column:1/6">WS-02 settlement spine (foundation for 10/12/13)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-04 · Discovery-pilot sandbox</b><span class="dep">no dep · fast · free leverage for bet-on-category clients</span> <span class="tier">T1</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar h" style="grid-column:1/4">WS-04 pilot sandbox</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-03 · Agent account + allowance engine</b><span class="dep">dep: WS-01 · the consumption surface for 01/02</span> <span class="tier">T1</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar h" style="grid-column:4/9">WS-03 allowance engine <span class="arrow">← WS-01</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-05 · Business-card issuance (+ credit)</b><span class="dep">dep: Lithic/Mastercard · cards H, pooled credit M (gated)</span> <span class="tier">T1/3</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar h" style="grid-column:3/7">WS-05 cards <span class="arrow">← Lithic/MC</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-06 · Enhanced-KYB verification tier</b><span class="dep">dep: WS-01 · UBO-grade premium tier (Crossmint co-design)</span> <span class="tier">T2</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar m" style="grid-column:6/9">WS-06 enhanced KYB <span class="arrow">← WS-01</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-07 · Governance layer</b><span class="dep">dep: WS-01/03 · policy + kill-switch + audit</span> <span class="tier">T2</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar m" style="grid-column:7/11">WS-07 governance <span class="arrow">← 01/03</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-08 · Regulated agentic-buyer primitive</b><span class="dep">dep: WS-01, 03 · the hard unbuilt thing 09/12 sit on</span> <span class="tier">T2</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar m" style="grid-column:7/12">WS-08 buyer primitive <span class="arrow">← 01/03</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-09 · Two-tier verified marketplace</b><span class="dep">dep: WS-08 · build trust layer, cede catalog UI · beyond-Zev</span> <span class="tier">T2</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar m" style="grid-column:10/13">WS-09 marketplace trust layer <span class="arrow">← WS-08</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-10 · Multi-token + USDC-hedge framing</b><span class="dep">dep: WS-02 · mostly inside 02 · de-risk-the-monoculture story</span> <span class="tier">T2</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar m" style="grid-column:5/8">WS-10 multi-token framing <span class="arrow">← WS-02</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-11 · Bank-for-banks correspondent</b><span class="dep">dep: WS-01 · rent the charter to partner banks/fintechs</span> <span class="tier">T2/3</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar m" style="grid-column:6/10">WS-11 correspondent umbrella <span class="arrow">← WS-01</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-12 · Consumer onboarding stack</b><span class="dep">dep: spine (01/02) · embedder-first leads · beyond-Zev</span> <span class="tier">T3</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar m" style="grid-column:8/12">WS-12 consumer stack <span class="arrow">← spine</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-13 · Agent reputation / credit bureau</b><span class="dep">dep: history from 01/02 · instrument now, productize 2027</span> <span class="tier">T3</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar l" style="grid-column:9/13">WS-13 instrument now (horizon) <span class="arrow">← 01/02</span></div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-14 · EU / MiCA correspondent</b><span class="dep">dep: corp-dev decision · capital/legal-intensive</span> <span class="tier">T3</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar l" style="grid-column:10/13">WS-14 MiCA (horizon · corp-dev gated)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-15 · Capital-markets clearing / prime</b><span class="dep">dep: 2027 (15c3-5) · regulated agent clearing</span> <span class="tier">T3</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar l" style="grid-column:11/13">WS-15 clearing (2027 horizon)</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-17 · Autonomous treasury (clean only)</b><span class="dep">no dep · validate charter-clean version only · doctrine-risk</span> <span class="tier">T4</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar l" style="grid-column:8/11">WS-17 validate clean version</div></div>
+    </div>
+
+    <div class="lane">
+      <div class="label"><b>WS-18 · Governance SDK (charter-bound only)</b><span class="dep">dep: WS-07 · open question · only if charter-bound</span> <span class="tier">T4</span></div>
+      <div class="cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="bars"><div class="bar l" style="grid-column:11/13">WS-18 SDK (open question) <span class="arrow">← WS-07</span></div></div>
+    </div>
+
+  </div>
+  </div>
+
+  <footer>
+    <b>How to read this.</b> Band A is the launch sprint compressing P1–P6 into launch hour (W0), with the talent/waitlist/bot parallel lane spanning it and P7/P8 as the immediate follow-on; the T-14→T-3 pre-work runway precedes W0 and is gated by the voice spine, stat source-check, and bot guardrail review. Band C is the work that needs no Anchorage decision and can move now. Band B places the eighteen workstreams: WS-01 and WS-02 are executing now as the subtraction-gate foundation, the H items (WS-03 account engine, WS-04 sandbox, WS-05 cards) sequence next, the M items follow their dependencies, and the L items are instrumented now but productized on the 2027 horizon.<br><br>
+    <b>Estimate discipline.</b> No bar is a committed date. Positions shift the moment Anchorage sets the launch clock and the voice-spine / compliance gates clear. The gated P5 demo may slip out of the sprint entirely, which is by design: the sprint launches the category without it.<br><br>
+    Built by Winn.solutions · Anchorage Agentic Banking GTM · internal planning artifact · seed for the forthcoming ClickUp sync skill.
+  </footer>
+
+</div>
+</body>
+</html>
