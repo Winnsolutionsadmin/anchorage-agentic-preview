@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
+<title>The Agentic Priority Outline · Anchorage · Winn.solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0A1726;--ink-2:#0E2034;--ink-3:#13283F;--ink-line:rgba(231,226,214,.12);
+  --text:#E9E3D6;--paper:#F2ECDF;--muted:#94A3B5;--muted-2:#6B7C90;
+  --brass:#D8A94A;--brass-2:#EAC36B;--brass-soft:rgba(216,169,74,.13);--brass-line:rgba(216,169,74,.32);--signal:#74B8C7;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --sans:"Hanken Grotesk",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(900px 700px at 50% 6%,rgba(216,169,74,.13),transparent 60%),radial-gradient(800px 700px at 16% 60%,rgba(116,184,199,.05),transparent 55%),radial-gradient(900px 800px at 82% 72%,rgba(216,169,74,.06),transparent 60%),radial-gradient(1200px 900px at 50% 120%,rgba(19,40,63,.8),transparent 60%);
+  background-size:175% 175%;animation:fog 46s ease-in-out infinite alternate}
+@keyframes fog{0%{background-position:0% 10%;opacity:.5}50%{background-position:60% 55%;opacity:.7}100%{background-position:28% 88%;opacity:.55}}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.fog{position:fixed;inset:-30%;z-index:0;pointer-events:none}
+.fog i{position:absolute;display:block;border-radius:50%;filter:blur(80px);mix-blend-mode:screen}
+.fog .f1{width:70vw;height:70vw;left:-12%;top:-16%;background:radial-gradient(circle,rgba(216,169,74,.55),transparent 68%);opacity:.5;animation:drift1 30s ease-in-out infinite alternate}
+.fog .f2{width:62vw;height:62vw;right:-13%;top:14%;background:radial-gradient(circle,rgba(234,195,107,.42),transparent 68%);opacity:.42;animation:drift2 36s ease-in-out infinite alternate}
+.fog .f3{width:56vw;height:56vw;left:24%;bottom:-20%;background:radial-gradient(circle,rgba(116,184,199,.32),transparent 68%);opacity:.4;animation:drift3 33s ease-in-out infinite alternate}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(11vw,8vh) scale(1.18)}100%{transform:translate(-6vw,12vh) scale(1.06)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1.06)}50%{transform:translate(-10vw,9vh) scale(1.22)}100%{transform:translate(7vw,-6vh) scale(1)}}
+@keyframes drift3{0%{transform:translate(0,0) scale(1)}50%{transform:translate(9vw,-8vh) scale(1.2)}100%{transform:translate(-7vw,7vh) scale(1.1)}}
+
+/* progress rail */
+.rail{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--brass),var(--brass-2));z-index:50;width:0;transition:width .15s linear}
+
+/* slide shell */
+.slide{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:74px 56px 60px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;scroll-margin-top:0}
+.slide+.slide{border-top:1px solid var(--ink-line)}
+.top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);margin-bottom:30px}
+.top .num{color:var(--brass)}
+.top .tag{color:var(--brass);border:1px solid var(--brass-line);border-radius:30px;padding:4px 11px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);margin-bottom:16px}
+h1.title{font-weight:800;font-size:clamp(34px,5.6vw,62px);line-height:1.02;letter-spacing:-.02em;margin:0;color:var(--paper)}
+h2.title{font-weight:700;font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:-.018em;margin:0;color:var(--paper)}
+.title .br{color:var(--brass)}
+.sub{font-size:clamp(16px,2vw,21px);font-weight:400;color:#CBD3DE;max-width:62ch;margin:18px 0 0;line-height:1.45}
+.sub b{color:var(--brass);font-weight:600}
+
+/* body grids */
+.body{margin-top:34px}
+.lede{font-size:17px;line-height:1.6;color:#D4DAE3;max-width:64ch}.lede b{color:var(--text);font-weight:600}
+
+.ranked{list-style:none;margin:0;padding:0;display:grid;gap:11px;counter-reset:r}
+.ranked li{counter-increment:r;display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start;background:var(--ink-2);border:1px solid var(--ink-line);border-radius:12px;padding:15px 18px;transition:.35s var(--ease)}
+.ranked li:hover{border-color:var(--brass-line);transform:translateY(-2px)}
+.ranked li::before{content:counter(r);font-family:var(--mono);font-weight:600;font-size:14px;color:var(--ink);background:var(--brass);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.ranked .rt{font-weight:600;font-size:15.5px;color:var(--text)}
+.ranked .rd{font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+
+.points{list-style:none;margin:0;padding:0;display:grid;gap:13px}
+.points li{position:relative;padding-left:22px;font-size:15.5px;line-height:1.5;color:#D4DAE3}
+.points li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--brass)}
+.points li b{color:var(--text);font-weight:600}
+
+.ask{margin-top:26px;background:linear-gradient(180deg,rgba(216,169,74,.12),var(--ink-2));border:1px solid var(--brass-line);border-radius:14px;padding:20px 24px}
+.ask .al{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-bottom:9px}
+.ask p{margin:0;font-size:17px;line-height:1.5;color:var(--paper);font-weight:500}
+.ask p i{color:var(--brass-2);font-style:normal}
+
+/* stat callouts */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:26px}
+.stat{background:var(--ink-2);border:1px solid var(--ink-line);border-radius:12px;padding:16px 18px}
+.stat .sv{font-weight:800;font-size:clamp(22px,3vw,30px);color:var(--brass-2);letter-spacing:-.01em;line-height:1}
+.stat .sl{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+.stat .ss{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);margin-top:9px}
+
+/* note / caveat blocks */
+.note{margin-top:24px;border-left:2px solid var(--signal);padding:4px 0 4px 18px}
+.note .nl{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--signal);margin-bottom:7px}
+.note p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}.note p b{color:#CBD3DE}
+.belief{margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted-2);border-top:1px dashed var(--ink-line);padding-top:14px;line-height:1.6}
+.belief b{color:var(--brass)}
+
+/* tier board */
+.tiers{display:grid;gap:13px;margin-top:30px}
+.tier{background:var(--ink-2);border:1px solid var(--ink-line);border-radius:13px;padding:17px 20px;border-left-width:3px}
+.tier.t1{border-left-color:var(--brass)}.tier.t2{border-left-color:var(--brass-2)}.tier.t3{border-left-color:var(--signal)}.tier.t4{border-left-color:var(--muted-2)}
+.tier .th{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.tier .tn{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.tier .tname{font-weight:700;font-size:16px;color:var(--text)}
+.tier .titems{font-size:13.5px;color:var(--muted);line-height:1.5}.tier .titems b{color:#CBD3DE;font-weight:500}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:30px}
+.pill{background:var(--ink-2);border:1px solid var(--ink-line);border-radius:11px;padding:14px 16px;transition:.35s var(--ease)}
+.pill:hover{border-color:var(--brass-line)}
+.pill .pn{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.pill .pt{font-weight:700;font-size:14.5px;margin:4px 0 4px;color:var(--text)}
+.pill .pd{font-size:12.5px;color:var(--muted);line-height:1.45}
+
+/* concept cards */
+.concepts{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:30px}
+.concept{background:var(--ink-2);border:1px solid var(--ink-line);border-radius:13px;padding:18px 20px;transition:.35s var(--ease)}
+.concept:hover{border-color:var(--brass-line);transform:translateY(-2px)}
+.concept .cn{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.concept .ct{font-weight:700;font-size:17px;margin:7px 0 6px;color:var(--paper);line-height:1.2}
+.concept .cd{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+/* bridge three-up */
+.three{display:grid;grid-template-columns:1fr;gap:13px;margin-top:30px}
+.tcard{background:var(--ink-2);border:1px solid var(--ink-line);border-radius:13px;padding:17px 22px;border-top:2px solid var(--brass-line)}
+.tcard .tl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:7px}
+.tcard p{margin:0;font-size:14.5px;line-height:1.55;color:#D4DAE3}.tcard p b{color:var(--text);font-weight:600}
+
+/* phases */
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.phase{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--text);background:var(--ink-3);border:1px solid var(--ink-line);border-radius:8px;padding:8px 12px}
+.phase b{color:var(--brass);font-weight:600}
+.phase.lit{border-color:var(--brass-line);background:var(--brass-soft)}
+
+.cover{align-items:flex-start}
+.cover h1.title{margin-top:10px}
+.coverfoot{margin-top:48px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted-2);border-top:1px solid var(--ink-line);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.coverfoot b{color:var(--text)}
+
+@media(max-width:780px){
+  .slide{padding:56px 22px 48px}
+  .pillars,.concepts{grid-template-columns:1fr}
+  .ranked li{grid-template-columns:28px 1fr;gap:12px}
+}
+@media(prefers-reduced-motion:reduce){body::before,.fog i{animation:none}}
+
+@media print{
+  body{background:#fff;color:#111}
+  body::before,body::after,.fog,.rail{display:none}
+  .slide{min-height:auto;padding:26px 0;page-break-after:always;break-after:page;max-width:100%}
+  .slide,.ranked li,.stat,.tier,.pill,.concept,.tcard,.ask,.note,.phase{break-inside:avoid;page-break-inside:avoid}
+  h1.title,h2.title,.title .br{color:#0A1726}
+  .sub,.lede,.points li,.ranked .rt,.tier .titems b{color:#222}
+  .eyebrow,.belief b,.stat .sv,.concept .cn,.tier .tn{color:#9a751f}
+}
+</style>
+</head>
+<body>
+<div class="rail" id="rail"></div>
+<div class="fog"><i class="f1"></i><i class="f2"></i><i class="f3"></i></div>
+
+<!-- 1 · COVER -->
+<section class="slide cover">
+  <div class="top"><span>Winn.solutions × Anchorage</span><span class="tag">Confidential · Internal review</span></div>
+  <div class="eyebrow">Anchorage agentic GTM · H2 2026</div>
+  <h1 class="title">The Agentic<br><span class="br">Priority Outline</span></h1>
+  <p class="sub">What to build, what to announce, and what to subtract, now.</p>
+  <div class="body">
+    <ul class="points" style="max-width:66ch">
+      <li>Prepared for the Anchorage team. The one decision this deck exists to get: <b>which one or two beyond-roadmap bets ship alongside the in-roadmap spine.</b></li>
+      <li>This is a prioritization and activation document, not a build mandate. The discipline is subtraction.</li>
+    </ul>
+  </div>
+  <div class="belief">Belief grounding · <b>S31</b> "there's never been a better time... to make their move" (the why-now, without claiming urgency as Nathan's word).</div>
+  <div class="coverfoot"><span>Kate Roling · Erin DeMarco · Joe McNaney · Sam Gentile</span><span><b>Winn.solutions</b> · 2026-06-17</span></div>
+</section>
+
+<!-- 2 · THE DECISION -->
+<section class="slide">
+  <div class="top"><span class="num">02 · The decision, in one slide</span><span class="tag">Lead with this</span></div>
+  <h2 class="title">Build the spine. Pick one or two <span class="br">beyond-Zev bets.</span> Park the rest.</h2>
+  <p class="sub">The Tier-1 moves are ready now. The risk is building everything at once on a pre-launch platform.</p>
+  <div class="body">
+    <ol class="ranked">
+      <li><div><div class="rt">KYB-reliance / verification-as-a-service</div><div class="rd">Highest-blend item in the analysis. A named partner is waiting on the answer.</div></div></li>
+      <li><div><div class="rt">Regulated settlement + the fiat boundary as a regulated crossing</div><div class="rd">Extends Atlas.</div></div></li>
+      <li><div><div class="rt">The agent account primitive + allowance / control engine</div><div class="rd">Architect so the consumer stack is a re-skin, not a rebuild.</div></div></li>
+      <li><div><div class="rt">Core rails: wire / ACH / card live, then RTP / FedNow</div><div class="rd">Table-stakes. Execution, not scope.</div></div></li>
+      <li><div><div class="rt">Business-card issuance into the token flow</div><div class="rd">The partner-acquisition hook.</div></div></li>
+      <li><div><div class="rt">The discovery-pilot / agentic-readiness sandbox</div><div class="rd">Highest buildability. Unblocks committed-but-undefined partner names. Near-free leverage.</div></div></li>
+    </ol>
+    <div class="ask">
+      <div class="al">The ask · one line</div>
+      <p><i>Approve the in-roadmap spine plus ONE or TWO beyond-Zev bets (KYA chartered trust root is the cleanest), and explicitly park the rest behind a capacity gate.</i></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="sv">Only operational</div><div class="sl">Anchorage is the only fully operational federally chartered crypto bank. The moat is the bundle, and it is time-sensitive.</div><div class="ss">OCC granted five conditional crypto charters · Dec 2025</div></div>
+    </div>
+  </div>
+  <div class="belief">Belief grounding · <b>S24</b> (agentic banking needs real financial rails, governance, identity) · <b>S8</b> "in a world where there are 4,000 banks, we're powering 3,999 of them."</div>
+</section>
+
+<!-- 3 · THE WEDGE -->
+<section class="slide">
+  <div class="top"><span class="num">03 · The wedge</span><span class="tag">The spine of everything</span></div>
+  <h2 class="title">Who Banks <span class="br">the Agents?</span></h2>
+  <p class="sub">Every competitor is building a piece of the agent's wallet. <b>Anchorage is the only one that can be the agent's bank.</b></p>
+  <div class="body">
+    <ul class="points">
+      <li>The defensible, bank-shaped problem is the agentic <b>buyer</b>: a funded regulated wallet, spend mandates, KYA identity, dispute / clawback / liability, and treasury.</li>
+      <li>Wallets, catalogs, and SDKs are the crowded middle. The chartered floor (trust, identity, custody, governance) is the scarce layer, and it is exactly what the field's 2027 autonomy line is gated on.</li>
+      <li>The category question itself ("Who Banks the Agents?") is the seat to own.</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><div class="sv">~$15T</div><div class="sl">Projected agent-mediated activity by 2028. Direction-of-travel, not Anchorage volume.</div><div class="ss">Gartner · category framing</div></div>
+      <div class="stat"><div class="sv">~$73M</div><div class="sl">Across ~176M agent transactions already observed. Category framing, not Anchorage volume.</div><div class="ss">Keyrock</div></div>
+    </div>
+  </div>
+  <div class="belief">Belief grounding · <b>S24</b> "agents are going to be economic actors... what truly requires them to be able to act is having financial rails"; KYA as "underwriting the agent itself, developing a history and identity."</div>
+</section>
+
+<!-- 4 · WHY NOW -->
+<section class="slide">
+  <div class="top"><span class="num">04 · The urgency · why now</span><span class="tag">Our exhortation</span></div>
+  <h2 class="title">The buyer-side seat is unclaimed, <span class="br">and it is locking.</span></h2>
+  <p class="sub">Grounded in his beliefs. Move on the focused spine, not on everything.</p>
+  <div class="body">
+    <ul class="points">
+      <li>Competitors ship a major agentic beat every two to four weeks (x402 to Linux Foundation, Stripe / Tempo, Circle Agent Stack, Fireblocks, AWS AgentCore, Visa + OpenAI, Mastercard AP4M). <b>The default-wallet seat at the model point-of-sale is being claimed now, and defaults are sticky.</b></li>
+      <li>The charter moat is decaying (multiple new OCC trust charters). Argue the bundle and press timing before the window narrows.</li>
+      <li>The 2027 to 2028 autonomy window means the trust and identity rails must exist before volume arrives.</li>
+    </ul>
+    <div class="note">
+      <div class="nl">The counterweight · carried from the red-team</div>
+      <p><b>"Move now" means move on the spine plus one or two bets.</b> The subtraction gate is the discipline that makes urgency safe.</p>
+    </div>
+  </div>
+  <div class="belief">Belief grounding · <b>S10</b> (latent demand pre-existed) · <b>S2 / S5</b> (pioneer, "blazing a trail") · <b>S31</b> (best time to make the move) · <b>S25</b> ("the frontier becomes civilized"). Urgency phrasing is ours.</div>
+</section>
+
+<!-- 5 · WHAT THE DEMAND SAYS -->
+<section class="slide">
+  <div class="top"><span class="num">05 · What the demand says</span><span class="tag">Voiced honestly</span></div>
+  <h2 class="title">The partners are already <span class="br">naming the gaps.</span></h2>
+  <p class="sub">A sales-coverage snapshot, voiced honestly. Not a market-demand map.</p>
+  <div class="body">
+    <ul class="points">
+      <li><b>Verification-as-a-service / KYB-reliance</b> is the single strongest pull (a named card partner is waiting on the answer).</li>
+      <li>Settlement, multi-token, and the fiat boundary draw real fintech / PSP pull (Crossmint enhanced-KYB, Skyfire verified catalog are pulls for the verified trust layer specifically).</li>
+      <li><b>Business-card issuance</b> is the highest-confidence single partner pull and the cleanest acquisition hook.</li>
+    </ul>
+    <div class="note">
+      <div class="nl">Honesty caveat · state it on the slide</div>
+      <p>The demand spine is off-disk, single-pipeline, recall-over-precision, crypto-biased, two-week window. <b>Treat as one rep's coverage.</b> Its silences (consumer, traditional-bank ops) are coverage artifacts, not absence of demand. Pantera ToS and the Lithic PM agreement are UNVERIFIED and do not go external as fact.</p>
+    </div>
+  </div>
+  <div class="belief">Belief grounding · <b>S10</b> "the demand is already here."</div>
+</section>
+
+<!-- 6 · THE TIER BOARD -->
+<section class="slide">
+  <div class="top"><span class="num">06 · The four-tier priority board</span><span class="tag">One disciplined expansion</span></div>
+  <h2 class="title">Nine opportunity areas, four tiers, <span class="br">one disciplined expansion.</span></h2>
+  <p class="sub">Build-and-announce-now at the top. Validate-don't-resource at the bottom.</p>
+  <div class="tiers">
+    <div class="tier t1"><div class="th"><span class="tn">Tier 1</span><span class="tname">Build and announce now</span></div><div class="titems"><b>KYB-reliance / VaaS</b> · <b>regulated settlement + fiat boundary</b> · <b>agent account + allowance engine</b> · <b>core rails</b> (wire / ACH / card then RTP / FedNow) · <b>business-card issuance</b> · <b>the discovery-pilot sandbox</b>.</div></div>
+    <div class="tier t2"><div class="th"><span class="tn">Tier 2</span><span class="tname">Build next · the defensibility tier · mostly beyond Zev</span></div><div class="titems"><b>KYA chartered trust root</b> (treat as first-class now, not a deferred consequence) · enhanced-KYB tier · policy + kill-switch + audit governance layer · the regulated agentic-buyer primitive · the two-tier verified marketplace · multi-token settlement + the USDC-monoculture hedge · the bank-for-banks compliance umbrella.</div></div>
+    <div class="tier t3"><div class="th"><span class="tn">Tier 3</span><span class="tname">Strategic bets</span></div><div class="titems"><b>Agent reputation / credit bureau</b> (the one real network-effect play; instrument for it now) · collateral-backed agent credit · capital-markets clearing · EU / MiCA correspondent · the staged consumer stack.</div></div>
+    <div class="tier t4"><div class="th"><span class="tn">Tier 4</span><span class="tname">Validate · do not resource prematurely</span></div><div class="titems">The churn-reframe advisory · autonomous treasury (charter-clean sweeps only) · the governance SDK (charter-bound or drop).</div></div>
+  </div>
+  <div class="belief">Belief grounding · <b>S24</b> (the spine is the only agent-native ground).</div>
+</section>
+
+<!-- 7 · PILLAR-TO-CAMPAIGN MAP -->
+<section class="slide">
+  <div class="top"><span class="num">07 · Pillar-to-campaign map</span><span class="tag">The narrative engine</span></div>
+  <h2 class="title">Seven pillars, one trust asset, <span class="br">every campaign goal-tagged.</span></h2>
+  <p class="sub">The narrative engine behind the build priorities.</p>
+  <div class="pillars">
+    <div class="pill"><div class="pn">P1 · Financial infrastructure</div><div class="pt">The spine · only agent-native ground (S24)</div><div class="pd">KYA category-seat claim; the Allowance Model; stand up the trust layer before the rail.</div></div>
+    <div class="pill"><div class="pn">P2 · Stablecoins</div><div class="pt">The Neutral Rail</div><div class="pd">A 10x-better dollar for actors that never sleep; regulated issuance equals agent-grade money.</div></div>
+    <div class="pill"><div class="pn">P3 · Capital markets</div><div class="pt">Settlement is the rail agents run on (Atlas)</div><div class="pd">"What if the missing consumer is non-human" (a question, never an assertion); controls-first credit.</div></div>
+    <div class="pill"><div class="pn">P4 · Anchorage products</div><div class="pt">Assets shouldn't have a temperature</div><div class="pd">Usable custody for agents; self-custody with a perimeter; every bank becomes an AI bank (sub-custody).</div></div>
+    <div class="pill"><div class="pn">P5 · Policy</div><div class="pt">The rulebook for autonomous money</div><div class="pd">"Kill the rule that benefits us alone"; due process for autonomous actors.</div></div>
+    <div class="pill"><div class="pn">P6 · Wealth · thinnest</div><div class="pt">KYA for the advisor channel</div><div class="pd">Democratized access via advisors.</div></div>
+    <div class="pill"><div class="pn">P7 · Institutions</div><div class="pt">The demand is already here</div><div class="pd">Every bank becomes an AI bank; the enabling layer for institutional agents.</div></div>
+  </div>
+  <div class="belief">Belief grounding · <b>S24</b> (P1) · <b>S8</b> (P7 / P4) · <b>S2</b> (policy / identity).</div>
+</section>
+
+<!-- 8 · THE FOUR DEEP CONCEPTS -->
+<section class="slide">
+  <div class="top"><span class="num">08 · The four deep concepts</span><span class="tag">Charter-defensible</span></div>
+  <h2 class="title">Four concepts we can own, selected by <span class="br">ownability, grounding, and sprint leverage.</span></h2>
+  <p class="sub">Each is charter-defensible and beliefs-grounded. Capability stays gated.</p>
+  <div class="concepts">
+    <div class="concept"><div class="cn">01 · P1 / S24</div><div class="ct">Know Your Agent, the chartered trust root</div><div class="cd">The headline, on the spine, the highest-blend Tier-1 item. Gate "claim the seat" until a working credential plus a named pilot exists.</div></div>
+    <div class="concept"><div class="cn">02 · P5</div><div class="ct">"Kill the rule that benefits us alone"</div><div class="cd">The rarest, uncopyable character beat. High-share earned media. Zero product substance required.</div></div>
+    <div class="concept"><div class="cn">03 · P4</div><div class="ct">"Assets shouldn't have a temperature," extended to usable custody for agents</div><div class="cd">The cleanest on-voice metaphor. Ships in his voice now.</div></div>
+    <div class="concept"><div class="cn">04 · P7 / P4 · S8</div><div class="ct">"Every bank becomes an AI bank"</div><div class="cd">The CEO-roots-for-rivals reframe plus the bank-for-banks / sub-custody motion.</div></div>
+  </div>
+  <div class="belief">Belief grounding · <b>S24</b> · <b>S8</b>, plus the on-voice custody and policy beats above.</div>
+</section>
+
+<!-- 9 · THE CHURN-REFRAME WEDGE -->
+<section class="slide">
+  <div class="top"><span class="num">09 · The cost / churn-reframe wedge</span><span class="tag">The consulting wedge</span></div>
+  <h2 class="title">Don't sell the labor saved. <span class="br">Sell the revenue retained.</span></h2>
+  <p class="sub">The consulting wedge that moves agentic AI from a line-item pilot to a board-level re-platform.</p>
+  <div class="body">
+    <ul class="points">
+      <li>Banks scope agentic AI as a cost-cut. The differentiated advice: <b>lead with retained-revenue (churn) dollars.</b></li>
+      <li>In <b>six of ten value-leak functions</b> (KYC / AML, customer service, onboarding, fraud, loan origination, advisory), the revenue retained by cutting churn exceeds or rivals the labor cost saved.</li>
+      <li>Anchorage's own build cost front-loads onto the cheapest, most-defensible position (the regulated floor on existing primitives). High client value, low net-new build.</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><div class="sv">$206B</div><div class="sl">Annual AML spend. Sizes one function's value leak.</div><div class="ss">LexisNexis 2023</div></div>
+      <div class="stat"><div class="sv">6 of 10</div><div class="sl">Value-leak functions where retained revenue exceeds or rivals labor saved.</div><div class="ss">Opportunity analysis</div></div>
+    </div>
+    <div class="note">
+      <div class="nl">Label discipline</div>
+      <p>Onboarding-abandonment figures are useful but a known source-conflation. <b>Label as modeled.</b></p>
+    </div>
+  </div>
+  <div class="belief">Belief grounding · <b>S8</b> (powering 3,999 of 4,000 banks frames the bank-for-banks demand engine).</div>
+</section>
+
+<!-- 10 · BRIDGE + CONSUMER + MARKETPLACE -->
+<section class="slide">
+  <div class="top"><span class="num">10 · Bridge · consumer · marketplace verdict</span><span class="tag">Sequenced re-skins</span></div>
+  <h2 class="title">One trust asset, <span class="br">extended three times.</span></h2>
+  <p class="sub">The institutional bridge leads. Consumer and marketplace are sequenced re-skins, not separate builds.</p>
+  <div class="three">
+    <div class="tcard"><div class="tl">The bridge · GTM</div><p>The institutional motion is a cross-sell of a second product onto an existing custody / settlement relationship, not cold acquisition (<b>"the relationship is the rail," already live with two named clients</b>). Sequence: funds / custody, then fintechs / PSPs, then agent-builders / L1s, then banks, then prestige / data.</p></div>
+    <div class="tcard"><div class="tl">Consumer · do both, sequenced</div><p><b>Embedder-first (B2B2C) leads</b>, an embeddable get-agentic-wallet SDK behind someone else's brand; direct-to-consumer follows once the surface is proven. Tease the principle (the chartered "trust fall" entity), never the product, until the flow exists.</p></div>
+    <div class="tcard"><div class="tl">Marketplace · build the trust interface, cede the catalog</div><p>Cede the catalog / checkout UI (saturated: Google UCP / AP2, OpenAI / Stripe ACP, Visa, Circle). <b>Build the verified-both-sides trust interface</b> (KYA'd buyer, KYB'd merchant, regulated perimeter, human recourse). Be the trust the marketplaces route through, not a marketplace. Gate hard until one verified reference transaction exists.</p></div>
+  </div>
+  <div class="belief">Belief grounding · <b>S8</b> · <b>S24</b>.</div>
+</section>
+
+<!-- 11 · THE LAUNCH SPRINT -->
+<section class="slide">
+  <div class="top"><span class="num">11 · The launch sprint</span><span class="tag">Sprint 1</span></div>
+  <h2 class="title">Sprint 1 is the <span class="br">agentic banking launch.</span></h2>
+  <p class="sub">Compress phases 1 to 6 of the 8-phase suite into one sprint. Run talent, waitlist, and the bot as a parallel hype lane.</p>
+  <div class="phases">
+    <span class="phase lit"><b>P1</b> belief tease</span>
+    <span class="phase lit"><b>P2</b> vision reveal</span>
+    <span class="phase lit"><b>P3</b> research gap</span>
+    <span class="phase lit"><b>P4</b> partner</span>
+    <span class="phase lit"><b>P5</b> proof / demo</span>
+    <span class="phase lit"><b>P6</b> launch</span>
+    <span class="phase"><b>P7</b> traction</span>
+    <span class="phase"><b>P8</b> amplify</span>
+  </div>
+  <div class="body">
+    <ul class="points">
+      <li><b>The loud assets, each backed by a real thing:</b> the landing page (the noisy flag in the sand) fused with Nathan's "declaring the future" video; the <b>"Who Banks the Agents?" research paper</b> (the intellectual spine); a signup-order <b>waitlist</b> ("join the movement / earliest adopters"); the first-ever <b>agentic hiring / triage bot</b> whose funny jailbreak-refusals carry the KYA / accountability message and whose own guardrails demonstrate the thesis (compliance reviews the public refusal set); a partner interview (gate-safe investor co-author by default); a Nathan-voice tweet run; a conservatively-gated Twitter Space (default hold).</li>
+      <li><b>The governing discipline:</b> category, initiative, partner relationship, and waitlist are real now. Platform-as-GA, named capabilities, and volume numbers stay gated.</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><div class="sv">June 10 2026</div><div class="sl">Mastercard Agent Pay for Machines launched with Anchorage as a named launch partner (AP4M, not a consumer GA; not a bilateral exclusive).</div><div class="ss">Verified · external-safe</div></div>
+    </div>
+    <div class="note">
+      <div class="nl">Gate</div>
+      <p>Never present the Cloudflare 2.5B/sec figure as payment volume. <b>It is a modeled bot-traffic ceiling.</b></p>
+    </div>
+  </div>
+  <div class="belief">Belief grounding · <b>S24</b> (the spine and the videos) · <b>S10 + S8</b> (the waitlist) · <b>S31</b> (the why-now framing).</div>
+</section>
+
+<!-- 12 · ASKS / DECISIONS / NEXT STEPS -->
+<section class="slide">
+  <div class="top"><span class="num">12 · The asks · decisions · next steps</span><span class="tag">Then we move</span></div>
+  <h2 class="title">Three decisions, <span class="br">then we move.</span></h2>
+  <p class="sub">The deck exists to get one prioritization decision and clear two gates.</p>
+  <div class="body">
+    <ol class="ranked">
+      <li><div><div class="rt">The subtraction gate</div><div class="rd">Approve the in-roadmap spine plus one or two beyond-Zev bets (KYA the cleanest), and name what is parked.</div></div></li>
+      <li><div><div class="rt">Movement 1 · principle-grade, ship now</div><div class="rd">Approve the category narrative (the tweet run, the videos, the research paper) gated on voice-spine v1.0 plus compliance. Zero product substance required.</div></div></li>
+      <li><div><div class="rt">The verification step</div><div class="rd">Confirm the load-bearing claims to primary source before any external use. Pantera ToS and the Lithic PM agreement are a HARD external gate; confirm the build-status picture against the next Zev sync.</div></div></li>
+    </ol>
+    <div class="note">
+      <div class="nl">The two standing disciplines</div>
+      <p><b>Subtraction gate</b> (don't build everything on a pre-launch platform) and <b>announce-ahead-of-substance</b> (nothing announces ahead of demoable substance; the partner-named gaps are exactly what NOT to announce).</p>
+    </div>
+    <div class="ask">
+      <div class="al">Immediate next step</div>
+      <p>Codify the 8-phase suite as the reusable <i>/phase</i> protocol so every future rollout runs the full machine with goal-tagging and the CLEAN / COUNSEL gate baked in.</p>
+    </div>
+  </div>
+  <div class="belief">Belief grounding · <b>S31</b> (the move) · <b>S24</b> (the spine) · <b>S2</b> ("crypto and regulation are two sides of the same token," grounds the gated, compliance-first posture).</div>
+  <div class="coverfoot"><span>Architected by Winn.solutions · activation-first · 12 slides</span><span><b>Confidential</b> · 2026-06-17</span></div>
+</section>
+
+<script>
+(function(){
+  var rail=document.getElementById('rail');
+  function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;rail.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+})();
+</script>
+</body>
+</html>

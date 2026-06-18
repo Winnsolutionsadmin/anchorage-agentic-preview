@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Sprint 1 · The Agentic Banking Launch · Anchorage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B;
+    --paper:#F2ECDF; --signal:#74B8C7;
+    --text:#E9E3D6; --muted:#94A3B5; --muted-2:#6B7C90;
+    --line:rgba(216,169,74,.18);
+    --line-2:rgba(148,163,181,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-weight:400;
+    line-height:1.55;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;font-weight:500;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;font-weight:500;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--brass);
+    display:inline-block;margin-bottom:22px;
+  }
+  h1,h2,h3,h4{font-family:'Hanken Grotesk',sans-serif;font-weight:700;letter-spacing:-.01em;line-height:1.1;}
+
+  /* HERO */
+  .hero{
+    padding:96px 0 72px;
+    background:
+      radial-gradient(80% 120% at 78% 0%, rgba(216,169,74,.10) 0%, rgba(10,23,38,0) 55%),
+      linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-size:clamp(38px,6vw,68px);
+    font-weight:800;
+    color:var(--paper);
+    max-width:16ch;
+    margin-bottom:28px;
+  }
+  .hero h1 .accent{color:var(--brass-2);}
+  .spine{
+    font-size:clamp(18px,2.4vw,24px);
+    font-weight:500;
+    color:var(--text);
+    max-width:34ch;
+    line-height:1.4;
+    border-left:3px solid var(--brass);
+    padding-left:20px;
+    margin-bottom:32px;
+  }
+  .spine b{color:var(--brass-2);font-weight:700;}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:28px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:.08em;
+    color:var(--muted);
+    padding-top:28px;border-top:1px solid var(--line-2);
+  }
+  .hero-meta span b{color:var(--text);font-weight:600;}
+
+  /* SECTION SHELL */
+  section{padding:64px 0;border-bottom:1px solid var(--line-2);}
+  .sec-head{margin-bottom:40px;}
+  .sec-head h2{
+    font-size:clamp(26px,3.4vw,38px);
+    color:var(--paper);
+    margin:10px 0 14px;
+  }
+  .sec-head p{color:var(--muted);max-width:64ch;font-size:16px;}
+
+  /* PHASE TIMELINE */
+  .phase-grid{display:flex;flex-direction:column;gap:0;}
+  .phase{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:28px;
+    padding:24px 0;
+    border-top:1px solid var(--line-2);
+    position:relative;
+  }
+  .phase:first-child{border-top:1px solid var(--line);}
+  .phase-id{
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .phase-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;font-size:13px;
+    letter-spacing:.1em;
+    color:var(--brass);
+  }
+  .pill{
+    display:inline-block;width:fit-content;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    padding:3px 9px;border-radius:3px;
+  }
+  .pill.in{background:rgba(116,184,199,.14);color:var(--signal);border:1px solid rgba(116,184,199,.3);}
+  .pill.follow{background:rgba(148,163,181,.1);color:var(--muted);border:1px solid var(--line-2);}
+  .pill.partial{background:rgba(216,169,74,.12);color:var(--brass);border:1px solid var(--line);}
+  .phase-body h3{font-size:19px;color:var(--text);margin-bottom:6px;}
+  .phase-body .ships{color:var(--muted);font-size:15px;}
+  .phase-body .ships b{color:var(--brass-2);font-weight:600;}
+
+  /* PARALLEL LANE BANNER */
+  .lane{
+    background:linear-gradient(180deg, var(--ink-3) 0%, var(--ink-2) 100%);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:32px 32px 28px;
+    margin-top:8px;
+  }
+  .lane .tag{color:var(--signal);margin-bottom:10px;display:block;}
+  .lane h3{font-size:22px;color:var(--paper);margin-bottom:8px;}
+  .lane p.intro{color:var(--muted);max-width:60ch;margin-bottom:24px;}
+  .lane-items{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .lane-item{
+    background:rgba(10,23,38,.5);
+    border:1px solid var(--line-2);
+    border-radius:8px;padding:18px 20px;
+  }
+  .lane-item .nm{font-weight:700;color:var(--text);font-size:16px;margin-bottom:5px;}
+  .lane-item .goal{color:var(--muted);font-size:14px;line-height:1.5;}
+  .lane-item .goal b{color:var(--brass-2);font-weight:600;}
+
+  /* ELEMENTS TABLE (goal + phase) */
+  .elements{display:grid;gap:14px;}
+  .el-row{
+    display:grid;
+    grid-template-columns:200px 1fr 96px;
+    gap:24px;align-items:start;
+    background:var(--ink-2);
+    border:1px solid var(--line-2);
+    border-left:3px solid var(--brass);
+    border-radius:8px;
+    padding:20px 24px;
+  }
+  .el-row .el-name{font-weight:700;color:var(--text);font-size:16px;line-height:1.3;}
+  .el-row .el-name .sub{display:block;color:var(--muted-2);font-weight:400;font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;margin-top:4px;}
+  .el-row .el-goal{color:var(--muted);font-size:14.5px;}
+  .el-row .el-goal b{color:var(--text);font-weight:600;}
+  .el-row .el-phase{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;font-weight:600;letter-spacing:.06em;
+    color:var(--brass);text-align:right;
+  }
+
+  /* TIMELINE SEQUENCE */
+  .seq{display:flex;flex-direction:column;gap:0;}
+  .seq-step{
+    display:grid;grid-template-columns:160px 1fr;gap:28px;
+    padding:22px 0;border-top:1px solid var(--line-2);
+  }
+  .seq-step:first-child{border-top:1px solid var(--line);}
+  .seq-when{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;font-size:13px;color:var(--brass-2);
+    letter-spacing:.04em;
+  }
+  .seq-when .ph{display:block;color:var(--muted-2);font-size:11px;font-weight:500;margin-top:4px;letter-spacing:.1em;}
+  .seq-what{color:var(--text);font-size:15.5px;}
+  .seq-what b{color:var(--brass-2);font-weight:600;}
+  .seq-what.launch{color:var(--paper);font-weight:500;}
+
+  .deps{
+    margin-top:36px;
+    background:rgba(216,169,74,.06);
+    border:1px solid var(--line);
+    border-radius:10px;padding:28px 30px;
+  }
+  .deps h4{font-size:13px;color:var(--brass);letter-spacing:.14em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;font-weight:600;margin-bottom:16px;}
+  .deps ul{list-style:none;display:grid;gap:12px;}
+  .deps li{padding-left:24px;position:relative;color:var(--muted);font-size:15px;line-height:1.5;}
+  .deps li::before{content:"\2192";position:absolute;left:0;color:var(--brass);font-weight:700;}
+  .deps li b{color:var(--text);font-weight:600;}
+
+  /* GOALS + KPIs */
+  .goals{display:grid;gap:22px;}
+  .goal-card{
+    display:grid;grid-template-columns:56px 1fr;gap:22px;
+    background:linear-gradient(180deg,var(--ink-3) 0%,var(--ink-2) 100%);
+    border:1px solid var(--line);
+    border-radius:10px;padding:28px 30px;
+  }
+  .goal-card .gn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:34px;font-weight:600;color:var(--brass);line-height:1;
+  }
+  .goal-card h3{font-size:20px;color:var(--paper);margin-bottom:10px;}
+  .goal-card .kpi{
+    color:var(--muted);font-size:15px;line-height:1.55;
+    padding-top:12px;margin-top:6px;border-top:1px solid var(--line-2);
+  }
+  .goal-card .kpi .lab{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+    letter-spacing:.14em;color:var(--signal);text-transform:uppercase;
+    display:block;margin-bottom:6px;
+  }
+  .goal-card .kpi b{color:var(--text);font-weight:600;}
+
+  /* FOOTER */
+  footer{padding:48px 0 64px;}
+  footer .disc{color:var(--muted-2);font-size:13px;max-width:74ch;line-height:1.6;}
+  footer .stamp{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;
+    color:var(--muted);margin-top:20px;
+  }
+
+  @media (max-width:760px){
+    .wrap{padding:0 20px;}
+    .phase,.seq-step{grid-template-columns:1fr;gap:10px;}
+    .el-row{grid-template-columns:1fr;gap:10px;}
+    .el-row .el-phase{text-align:left;}
+    .lane-items{grid-template-columns:1fr;}
+    .goal-card{grid-template-columns:1fr;gap:12px;}
+    .hero{padding:64px 0 48px;}
+  }
+  @media print{
+    body{background:#fff;color:#111;}
+    .hero,section,.lane,.el-row,.goal-card,.deps,.phase{break-inside:avoid;}
+    section{border-color:#ddd;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Sprint 1 · Agentic Banking Launch · Winn.solutions</span>
+    <h1>The launch sprint that names the <span class="accent">category</span> before it claims the product.</h1>
+    <p class="spine">Every competitor is building a piece of the agent's wallet. <b>Anchorage is the only one that can be the agent's bank.</b></p>
+    <div class="hero-meta">
+      <span><b>Spine question:</b> Who Banks the Agents?</span>
+      <span><b>Compression:</b> P1 to P6 in one sprint</span>
+      <span><b>Governing rule:</b> no loud moment without a real thing behind it</span>
+    </div>
+  </div>
+</header>
+
+<!-- 1. THE 8-PHASE SUITE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">01 · The launch machine</span>
+      <h2>The 8-phase launch suite</h2>
+      <p>Sprint 1 compresses Phases 1 through 6 into the launch sprint. Phases 7 and 8 are the immediate follow-on, gated on real numbers that do not exist yet. Lead on the layer where being early and chartered is the whole advantage; tease partnership at competitor altitude; announce capability only as substance lands.</p>
+    </div>
+    <div class="phase-grid">
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P1</span><span class="pill in">In sprint · opens</span></div>
+        <div class="phase-body">
+          <h3>Belief tease</h3>
+          <p class="ships">Ships: <b>Nathan tweet run</b> (the bridge line, the allowance model, Know Your Agent) plus the two flagged belief-tease concepts. Opens the frame before the page.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P2</span><span class="pill in">In sprint · the flag</span></div>
+        <div class="phase-body">
+          <h3>Vision reveal</h3>
+          <p class="ships">Ships: <b>the landing page</b> + <b>Nathan video #1</b> ("declaring the agentic future") + the gated product-concept teases. The first major flag in the sand.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P3</span><span class="pill in">In sprint</span></div>
+        <div class="phase-body">
+          <h3>Research gap</h3>
+          <p class="ships">Ships: <b>"Who Banks the Agents?"</b> the macro gap paper. Principle-grade, zero product substance, the page's intellectual spine and the citeable artifact for press.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P4</span><span class="pill in">In sprint · tease altitude</span></div>
+        <div class="phase-body">
+          <h3>Partner</h3>
+          <p class="ships">Ships: <b>the partner interview</b> (default to the investor-voiced co-author; named-capability partner held to follow-on). Teases the relationship category, never an integration.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P5</span><span class="pill partial">Partial · gated</span></div>
+        <div class="phase-body">
+          <h3>Proof / demo</h3>
+          <p class="ships">Ships only if substance clears: <b>the 60-second demo</b> (an agent opens an account, holds USD, settles a machine payment). Otherwise held to the follow-on. The sprint launches the category without it.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P6</span><span class="pill in">In sprint · category, not capability</span></div>
+        <div class="phase-body">
+          <h3>Launch</h3>
+          <p class="ships">Ships: <b>"the Agentic Banking initiative is live"</b> framed as category, plus the <b>waitlist opens</b>. Not "the platform is generally available."</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P7</span><span class="pill follow">Follow-on</span></div>
+        <div class="phase-body">
+          <h3>Traction</h3>
+          <p class="ships">Follow-on: first-60-day numbers (waitlist size, demo views, pilot count). Gated on real figures.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-id"><span class="phase-num">P8</span><span class="pill follow">Follow-on</span></div>
+        <div class="phase-body">
+          <h3>Amplify</h3>
+          <p class="ships">Follow-on: Nathan media hit + partner quote-tweets + recap. The Twitter Space defaults here unless all go conditions are clean at launch.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2. PARALLEL LANE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">02 · Spans the whole sprint</span>
+      <h2>The parallel talent, waitlist, and bot lane</h2>
+      <p>The framework under-weights this, so we elevate it. It runs across every phase: it makes recruiting a marketing surface, turns attention into an ordered audience, and proves Anchorage builds agentically without a single forward capability claim.</p>
+    </div>
+    <div class="lane">
+      <span class="tag">Parallel lane · P2 / P6</span>
+      <h3>Talent brand + waitlist + the agentic bot, running together</h3>
+      <p class="intro">Each element drives the next: the bot is the fun front door, the front door feeds the waitlist, the waitlist measures the latent demand, and the talent push proves the initiative is real and resourced.</p>
+      <div class="lane-items">
+        <div class="lane-item">
+          <div class="nm">Talent announcement + employer brand</div>
+          <p class="goal"><b>Goal:</b> make Anchorage the destination for engineers who want to build agentic financial infrastructure, and make the hiring push read as proof the initiative is serious. <b>Phase:</b> P2 into P6.</p>
+        </div>
+        <div class="lane-item">
+          <div class="nm">The waitlist (the hype loop)</div>
+          <p class="goal"><b>Goal:</b> convert attention into a captured, ordered, ownable audience. Signup order is public-ish status, referral jumps the line, earliest adopters get a founding-cohort identity. <b>Phase:</b> P6 into P7.</p>
+        </div>
+        <div class="lane-item">
+          <div class="nm">The agentic hiring / triage bot</div>
+          <p class="goal"><b>Goal:</b> roughly 75% virality, 25% pipeline. A shareable agent that triages candidates and turns jailbreak attempts into on-brand, screenshot-worthy refusals that each carry the accountability message. <b>Phase:</b> P1 / P2.</p>
+        </div>
+        <div class="lane-item">
+          <div class="nm">The guardrails (the honest part)</div>
+          <p class="goal"><b>Goal:</b> the bot's own accountability demonstrates the thesis. It leaks no roadmap, dates, partner names, or capability claims. A curated, compliance-reviewed refusal set, not freewheeling generation. <b>Phase:</b> compliance gate before launch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ELEMENTS WITH GOAL + PHASE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">03 · Every element, its goal, its phase</span>
+      <h2>What ships, and why</h2>
+      <p>The category, the initiative, the partnership relationship, and the waitlist are all real and tease-eligible now. The platform as generally available, the named capabilities, and the volume numbers stay gated.</p>
+    </div>
+    <div class="elements">
+
+      <div class="el-row">
+        <div class="el-name">The landing page<span class="sub">The noisy flag</span></div>
+        <div class="el-goal"><b>Plant the category publicly</b> and convert attention to the waitlist. The page announces the initiative and the category, opens the waitlist, and teases concepts. It does not claim the platform is generally available.</div>
+        <div class="el-phase">P2 / P6</div>
+      </div>
+
+      <div class="el-row">
+        <div class="el-name">Product-concept teases<span class="sub">KYA · Allowance · Trust layer</span></div>
+        <div class="el-goal"><b>Make the buyer-side wedge legible.</b> Tease the concept and the category, never the shipped feature: Know Your Agent, the allowance model, and trust before the rail. Subtract the rest.</div>
+        <div class="el-phase">P1 / P2</div>
+      </div>
+
+      <div class="el-row">
+        <div class="el-name">"Who Banks the Agents?"<span class="sub">The research paper</span></div>
+        <div class="el-goal"><b>Own the question.</b> A macro gap doc that names the bottleneck (trust, not smarter models) and frames who is positioned to fill it, without claiming Anchorage has shipped the fill. The page's anchor artifact.</div>
+        <div class="el-phase">P3</div>
+      </div>
+
+      <div class="el-row">
+        <div class="el-name">Nathan video #1<span class="sub">The reveal</span></div>
+        <div class="el-goal"><b>Be the human face of the flag.</b> Nathan names the line on camera at launch hour: the hard part is not which model is fastest, it is who is accountable when an agent moves money. Fires the same hour as the page.</div>
+        <div class="el-phase">P2</div>
+      </div>
+
+      <div class="el-row">
+        <div class="el-name">Nathan video #2<span class="sub">The follow</span></div>
+        <div class="el-goal"><b>Deepen and make durable.</b> The explainer that turns the declaration into a reference: the allowance model made concrete, Know Your Agent landed as a quotable. Releases a few days after #1.</div>
+        <div class="el-phase">P2</div>
+      </div>
+
+      <div class="el-row">
+        <div class="el-name">The partner interview<span class="sub">Relationship at category altitude</span></div>
+        <div class="el-goal"><b>Read at competitor partnership altitude while committing no capability claim.</b> Two builders talking about why the agent economy needs a regulated trust anchor. The partner pulls; Anchorage frames.</div>
+        <div class="el-phase">P4</div>
+      </div>
+
+      <div class="el-row">
+        <div class="el-name">The tweet run<span class="sub">Nathan-voice belief teases</span></div>
+        <div class="el-goal"><b>Open the belief frame before the page, then amplify at launch.</b> Sequenced teases on accountability, the allowance, and Know Your Agent, stacking into launch-hour posts. Only verified lines and cleared principle framing.</div>
+        <div class="el-phase">P1 / P6</div>
+      </div>
+
+      <div class="el-row">
+        <div class="el-name">The Twitter Space<span class="sub">Optional · go / no-go</span></div>
+        <div class="el-goal"><b>Extend the launch into a live, high-reach conversation</b> on "Who Banks the Agents?" The most leak-prone surface in the sprint. Default: hold for the follow-on unless the voice spine, compliance, and a strong guest are all clean at launch.</div>
+        <div class="el-phase">P1 / P8</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. SPRINT TIMELINE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">04 · Sequence + dependencies</span>
+      <h2>The sprint timeline</h2>
+      <p>Ordered so no moment depends on substance a prior one has not established. "Launch hour" is the page-live moment.</p>
+    </div>
+    <div class="seq">
+
+      <div class="seq-step">
+        <div class="seq-when">T-14 to T-7<span class="ph">P1 belief tease</span></div>
+        <div class="seq-what">Nathan tweet run opens (teases 1 to 3). <b>Research paper finalized and source-checked.</b> Bot built and guardrail-reviewed. Waitlist plumbing and referral mechanic built. Exclusive outlet briefed under embargo at T-3.</div>
+      </div>
+
+      <div class="seq-step">
+        <div class="seq-when">Launch hour<span class="ph">P2 + P6</span></div>
+        <div class="seq-what launch">Page goes live + waitlist opens + bot goes live + Video #1 drops + launch-hour tweets + embargo lifts (the exclusive runs) + research paper published as the anchor + talent announcement live. <b>Everything stacks the same hour for maximum noise.</b></div>
+      </div>
+
+      <div class="seq-step">
+        <div class="seq-when">T+2 to T+5<span class="ph">P2 / P4 extension</span></div>
+        <div class="seq-what">Video #2 releases. <b>Partner interview releases.</b> Second wave of belief tweets extends the cycle.</div>
+      </div>
+
+      <div class="seq-step">
+        <div class="seq-when">T+7 to T+14<span class="ph">P6 / P7</span></div>
+        <div class="seq-what">Twitter Space (if go); otherwise more clips. <b>Waitlist hype loop runs</b>: position and referral mechanics drive ongoing signups.</div>
+      </div>
+
+      <div class="seq-step">
+        <div class="seq-when">Follow-on<span class="ph">P5 / P7 / P8</span></div>
+        <div class="seq-what">60-second demo ships <b>if and when its substance gate clears</b>. First-60-day numbers (waitlist size, demo views, pilot count). Nathan media hit + partner quote-tweets + recap.</div>
+      </div>
+
+    </div>
+
+    <div class="deps">
+      <h4>Hard dependencies (the gates that block everything)</h4>
+      <ul>
+        <li><b>Voice spine v1.0 + compliance sign-off</b> blocks all Nathan-voice copy: videos, tweets, and page voice.</li>
+        <li><b>Source-check the load-bearing stats</b> blocks the research paper and any number on the page.</li>
+        <li><b>Compliance review of the bot's refusal and guardrail set</b> blocks the bot launch.</li>
+        <li><b>The substance gate</b> blocks the demo (P5) and every capability claim. P5 may slip entirely to the follow-on, and that is fine; the sprint is designed to launch the category without it.</li>
+        <li><b>Partner consent</b> blocks the partner name in the interview.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5. GOALS + KPIs -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">05 · The scoreboard</span>
+      <h2>Top 3 sprint goals + KPIs</h2>
+      <p>Three goals, each with a measurable signal. The honesty KPI is load-bearing: a launch with a single capability over-claim is a failed launch regardless of the other numbers.</p>
+    </div>
+    <div class="goals">
+
+      <div class="goal-card">
+        <div class="gn">1</div>
+        <div>
+          <h3>Own the category publicly</h3>
+          <p style="color:var(--muted);font-size:15px;">Anchorage is established as the chartered bank building agentic banking, the one asking who banks the agents.</p>
+          <div class="kpi"><span class="lab">KPI</span><b>3+ tier-1 press pickups</b> using the category framing within 14 days; "Who Banks the Agents?", Know Your Agent, and "give your agent an allowance" quoted back externally.</div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="gn">2</div>
+        <div>
+          <h3>Capture an ordered, ownable audience</h3>
+          <p style="color:var(--muted);font-size:15px;">The waitlist turns launch attention into a captured, ordered audience Anchorage owns.</p>
+          <div class="kpi"><span class="lab">KPI</span><b>Waitlist signups above target</b> (proposed stretch: 2,500 in 30 days) with a healthy builder and institution mix, sustained signup velocity past launch week, and measurable referral-driven signups (the viral coefficient).</div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="gn">3</div>
+        <div>
+          <h3>Prove it is real without claiming a shipped platform</h3>
+          <p style="color:var(--muted);font-size:15px;">The initiative reads as real and resourced, with no over-claim about what Armada does today.</p>
+          <div class="kpi"><span class="lab">KPI</span><b>Qualified talent inbound above target</b>; bot interactions shared organically (jailbreak-caveat reshares); and <b>zero counsel or gated-substance leaks</b> across all launch surfaces (the honesty KPI).</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p class="disc">Sprint 1 compresses Phases 1 to 6 of the 8-phase launch suite into the launch sprint, runs the talent, waitlist, and bot track as a parallel lane, and holds Phases 7 and 8 (and the gated P5 demo) as the immediate follow-on. Every element states explicit goals, maps to a phase, carries its clean-versus-counsel gate, and is justified by a sourced Nathan belief. The governing discipline: no tease, announcement, or narrative claim ships ahead of demoable substance. Urgency is our call, evidenced by Nathan's pioneer beliefs, never a Nathan quote. No Nathan-voice content ships until the voice spine reaches v1.0 and compliance signs off.</p>
+    <p class="stamp">Built by Winn.solutions · 2026-06-17 · Confidential · For the Anchorage team</p>
+  </div>
+</footer>
+
+</body>
+</html>
