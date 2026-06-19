@@ -1,0 +1,31 @@
+when clicking the tweets in the gantt chart, i want it to popup with the full version tweet, not inline, but a popover with the engagement samples etc.... also this isn't really a gantt, but probably for the better. let's just adjust terminology. This is a launch calendar.
+
+the gold checks are not accurate visually. furthermore, nathan's is a blue check with the anchorage affiliate logo because he's not the gold check.
+
+I don't see a heavy callout to the research paper. Content pieces or actions need to have some sort of tag on them, like "Tweet" "Live Interview" "Research Paper"
+
+Add a moderator to the interview between nathan and ribbits.
+
+also, there's tons of em dashes in nathan's tweets. remove these.
+
+run a separate check to make sure we used the belief cluster mcp (30-40 beliefs) and style guide (which is part of the mcp) to align tone.
+
+also in the gant, these should not be separated by owner (y axis) they should be set by time.
+
+also remove gated elements and assume they're there. when clicking the items it should show the tweets of partners proposed etc.
+
+I don't see a strong representation of Nathan's hero video. it should show a mockup of a play button of nathan talking to the camera, and when we click on it, there should be a full script (with what i said nathan should talk about on his video in our last meeting with anchorage).
+
+In the content library, under the tweets, there should be a sub-narrative section (comment section), each with two comments/replies from random named blue check accounts (each with high engagement and replies (dont show their replies just numbers like x interface). These should be subnarratives, as in, what we want people to see, think, and believe as a result of this content. It's a deeper layer of intention.
+
+ironically, the "aligns with" section is not aligned with its adjacent sections. please fix these and make them look nicer.
+
+there should also be a google sheet version with a gantt chart, though less visually appealing, with dates from left to right and more normally gant appearing.
+
+Section 7, research paper, we should honestly just show a screenshot of the research paper and give a google doc link to it for review/feedback. Note that we need to scrub this research paper and ensure that it is drafted in a manner that is as though we personally just wrote it ourselves and are now handing it to anchorage for review/feedback (a polished/publish-ready version). Not one that you wrote to us with different perspectives or AI notations.
+
+Waitlist funnel and landing page... way too much text. There should be a screenshot of the waitlist landing page and callout indicators on it and side notes that can be expanded.
+
+Compliance and voice review seems completely erroneous for anchorage to see.
+
+for the agentic recruiting, there should be a placeholder that shows a screenshot of our agentic interview process with a play button. on click there can be a description of what this looks like.

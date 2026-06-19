@@ -1,0 +1,1 @@
+(Auto-snapshot from a git-hook test commit — no content prompt.)
