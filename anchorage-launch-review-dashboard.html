@@ -53,9 +53,9 @@ h1.serif{font-size:40px;line-height:1.06;font-weight:600;margin:0;letter-spacing
 .status{font-size:10px;letter-spacing:.08em;font-family:'IBM Plex Mono',monospace;padding:3px 9px;border-radius:5px;white-space:nowrap}
 .st-READY{background:rgba(95,185,138,.15);color:var(--green)}
 .st-REVIEW{background:rgba(91,155,213,.15);color:#9cc4ea}
-.st-GATED{background:rgba(205,163,73,.16);color:var(--brass2)}
 .st-JEN{background:rgba(216,101,79,.14);color:#ec9686}
 .st-LIVE{background:rgba(95,185,138,.1);color:#8fd0ac}
+.atag{font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;padding:2px 8px;border-radius:5px;background:rgba(91,155,213,.13);color:#9cc4ea;border:1px solid rgba(91,155,213,.28);white-space:nowrap}
 .links{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
 .links a{font-size:12px;border:1px solid var(--line2);border-radius:8px;padding:5px 11px;color:var(--brass2);background:rgba(8,17,31,.3)}
 .links a:hover{background:rgba(205,163,73,.1)}
@@ -90,7 +90,7 @@ h1.serif{font-size:40px;line-height:1.06;font-weight:600;margin:0;letter-spacing
   <a class="sprintcard" href="anchorage-agentic-launch-sprint.html">
     <div class="tag">THE PLAN &middot; START HERE</div>
     <h2>The Anchorage Agentic Launch Sprint</h2>
-    <p>Two weeks, four phases, the interactive content library (click any tweet to expand), the day-by-day Gantt, the Ribbit track, and the waitlist funnel. This is the master execution artifact for Sprint 1.</p>
+    <p>Two weeks, four phases, the interactive content library (click any tweet to open it), the time-axis Launch Calendar, the Ribbit track, and the waitlist funnel. This is the master execution artifact for Sprint 1.</p>
     <div class="row"><span class="p">10 working days</span><span class="p">Tease → Paper → Co-sign → Waitlist</span><span class="p" id="sprintCounts">interactive</span></div>
   </a>
 
@@ -99,7 +99,6 @@ h1.serif{font-size:40px;line-height:1.06;font-weight:600;margin:0;letter-spacing
     <div class="legend">
       <span class="lg"><span class="dot" style="background:var(--green)"></span>Ready</span>
       <span class="lg"><span class="dot" style="background:#9cc4ea"></span>In review</span>
-      <span class="lg"><span class="dot" style="background:var(--brass2)"></span>Gated</span>
       <span class="lg"><span class="dot" style="background:#ec9686"></span>Needs Jen</span>
     </div>
   </div>
@@ -113,26 +112,26 @@ h1.serif{font-size:40px;line-height:1.06;font-weight:600;margin:0;letter-spacing
   </div>
 
   <div class="foot">
-    <b>Review chain.</b> Kate reads before chop-up. Compliance clears the research paper before external use. Jen is brought in on the Tuesday call for the landing page. Ribbit content stays gated until they sign off.<br>
-    <b>Confidential.</b> Unlisted + noindexed. Engagement numbers in the sprint are illustrative projections, not performance claims. Built 2026-06-18.
+    <b>Review chain.</b> Kate reads before chop-up. Jen is brought in on the Tuesday call for the landing page. The Ribbit track is presented as proposed, co-authored content.<br>
+    <b>Confidential.</b> Unlisted and noindexed. Engagement numbers in the sprint are illustrative projections, not performance claims. Built 2026-06-18.
   </div>
 
 </div>
 
 <script>
 const ITEMS = [
-  {id:'sprint', nm:'The Agentic Launch Sprint (the plan)', st:'READY', stl:'Ready', ds:'The full interactive two-week plan: funnel, Gantt, content library, Ribbit track, waitlist. Review the arc and the day-by-day.', owner:'Winn.solutions', links:[['Open the sprint','anchorage-agentic-launch-sprint.html']]},
-  {id:'paper', nm:'Research paper — "Who Banks the Agents?"', st:'REVIEW', stl:'In review (compliance)', ds:'~3,800 words, evidence-backed. The credibility engine. Needs compliance clearance before external chop-up; pre-print teases run sooner.', owner:'Kate + Compliance', links:[['Paper integration','anchorage-agentic-launch-sprint.html#paper'],['PDF (Drive)','https://drive.google.com/file/d/1hzfnwCwUquSf5YlbhjshD0uxtGwwI-iG/view']]},
-  {id:'nathan', nm:'Nathan tweet set — tease + escalation', st:'REVIEW', stl:'In review', ds:'The three breadcrumbs (KYA / WHO BANKS THE AGENTS / PROOF OF AGENT) plus the escalation posts. Voice-aligned to his belief field, capability claims COUNSEL-marked.', owner:'Nathan + Kate', links:[['Content library','anchorage-agentic-launch-sprint.html#content']]},
-  {id:'script', nm:'Nathan\'s script — video + livestream', st:'REVIEW', stl:'In review', ds:'The draft selfie-video script for the start-of-a-new-era moment, his strongest livestream lines, and ready replies. His to amend or re-record. The video is COUNSEL (forward-framed).', owner:'Nathan + Kate', links:[['Nathan\'s script','anchorage-agentic-launch-sprint.html#script']]},
-  {id:'recruiting', nm:'Agentic recruiting — Builder Grant door', st:'GATED', stl:'Counsel (IP terms)', ds:'The hire-agentically proof: the candidate door (identity gate → $20 allowance → live workbench → session replay). KYA pointed at itself. Grant IP terms pending counsel; a content thread, not a launch.', owner:'Victor + AI team', links:[['Agentic recruiting','anchorage-agentic-launch-sprint.html#recruiting']]},
-  {id:'anchorage', nm:'Anchorage handle tweets', st:'REVIEW', stl:'In review', ds:'Corporate-handle amplification of Nathan, the category question, and the paper/waitlist tee-ups.', owner:'Joe + Sam', links:[['Content library','anchorage-agentic-launch-sprint.html#content']]},
-  {id:'ribbit', nm:'Ribbit co-authored tweets + co-sign', st:'GATED', stl:'Gated — pending Ribbit', ds:'Co-authored teasers, quote-inserts, and portfolio-community amplification. Drafts only until Ribbit signs off. The Tibber token is never referenced externally.', owner:'Carl + Ribbit', links:[['Ribbit track','anchorage-agentic-launch-sprint.html#ribbit'],['Gated tweets','anchorage-agentic-launch-sprint.html#content']]},
-  {id:'briefs', nm:'Livestream + interview briefs', st:'REVIEW', stl:'Draft for review', ds:'The Ribbit livestream / X Space run-of-show and the Nathan-x-Malka interview brief, including how we guarantee a performative viewer count.', owner:'Kate + Carl', links:[['Briefs','anchorage-agentic-launch-sprint.html#ribbit']]},
-  {id:'gantt', nm:'Two-week Gantt', st:'READY', stl:'Ready', ds:'Ten working days across six lanes with gate markers. The operational backbone — maps to ClickUp tasks.', owner:'Winn.solutions', links:[['Gantt','anchorage-agentic-launch-sprint.html#gantt']]},
-  {id:'waitlist', nm:'Waitlist funnel + landing CTA', st:'JEN', stl:'Needs Jen', ds:'What the landing page needs to capture demand: a waitlist signup, the Nathan vision-video slot, and the read-between-the-lines framing with no shipping claim. Jen owns the site.', owner:'Jen', links:[['Waitlist spec','anchorage-agentic-launch-sprint.html#waitlist']]},
-  {id:'megadeck', nm:'The strategy megadeck (v2)', st:'READY', stl:'Ready', ds:'The overarching strategy deck behind this sprint — the why. Funnel-depth, monetization, the be-agentic case, the two-week runbook.', owner:'Winn.solutions', links:[['Open megadeck','who-banks-the-agents-megadeck.html']]},
-  {id:'mktdeck', nm:'Campaign-intelligence deck', st:'READY', stl:'Ready', ds:'The first-campaign specifics deck (the tactical companion to the megadeck).', owner:'Winn.solutions', links:[['Open deck','agentic-banking-launch-campaign.html']]}
+  {id:'sprint', nm:'The Agentic Launch Sprint (the plan)', st:'READY', stl:'Ready', at:'Plan', ds:'The full interactive two-week plan: funnel, Launch Calendar, content library, Ribbit track, waitlist. Review the arc and the day-by-day.', owner:'Winn.solutions', links:[['Open the sprint','anchorage-agentic-launch-sprint.html']]},
+  {id:'paper', nm:'Research paper, "Who Banks the Agents?"', st:'READY', stl:'Ready for review', at:'Research Paper', ds:'~3,800 words, evidence-backed. The credibility engine and the source every paper-phase post is chopped from.', owner:'Kate', links:[['Paper callout','anchorage-agentic-launch-sprint.html#paper'],['PDF (Drive)','https://drive.google.com/file/d/1hzfnwCwUquSf5YlbhjshD0uxtGwwI-iG/view']]},
+  {id:'nathan', nm:'Nathan tweet set, tease and escalation', st:'REVIEW', stl:'In review', at:'Tweet', ds:'The three breadcrumbs (KYA / WHO BANKS THE AGENTS / PROOF OF AGENT) plus the escalation posts. Voice-aligned to his belief field.', owner:'Nathan + Kate', links:[['Content library','anchorage-agentic-launch-sprint.html#content']]},
+  {id:'script', nm:'Nathan\'s hero video and script', st:'REVIEW', stl:'In review', at:'Hero Video', ds:'The start-of-a-new-era selfie video (poster plus full script), his strongest livestream lines, and ready replies. His to amend or re-record.', owner:'Nathan + Kate', links:[['Nathan\'s script','anchorage-agentic-launch-sprint.html#script']]},
+  {id:'recruiting', nm:'Agentic recruiting, Builder Grant door', st:'REVIEW', stl:'In review', at:'Agentic Interview', ds:'The hire-agentically proof: an AI interviewer screens candidates with adaptive questioning and guardrails. KYA pointed at itself. A content thread, not a launch.', owner:'Victor + AI team', links:[['Agentic recruiting','anchorage-agentic-launch-sprint.html#recruiting']]},
+  {id:'anchorage', nm:'Anchorage handle tweets', st:'REVIEW', stl:'In review', at:'Tweet', ds:'Corporate-handle amplification of Nathan, the category question, and the paper/waitlist tee-ups.', owner:'Joe + Sam', links:[['Content library','anchorage-agentic-launch-sprint.html#content']]},
+  {id:'ribbit', nm:'Ribbit co-authored tweets and co-sign', st:'REVIEW', stl:'Proposed', at:'Live Interview', ds:'Proposed co-authored teasers, quote-inserts, and portfolio-community amplification, plus the fireside lineup (Nathan, Malka proposed, moderator proposed).', owner:'Carl + Ribbit', links:[['Ribbit track','anchorage-agentic-launch-sprint.html#ribbit'],['Co-authored tweets','anchorage-agentic-launch-sprint.html#content']]},
+  {id:'briefs', nm:'Livestream and interview briefs', st:'REVIEW', stl:'Draft for review', at:'Live Interview', ds:'The Ribbit livestream / X Space run-of-show and the Nathan-x-Malka interview brief, including the proposed moderator and how we guarantee a performative viewer count.', owner:'Kate + Carl', links:[['Briefs','anchorage-agentic-launch-sprint.html#ribbit']]},
+  {id:'calendar', nm:'Launch Calendar', st:'READY', stl:'Ready', at:'Calendar', ds:'Ten working days on a date timeline, with a visual view and a spreadsheet view. The operational backbone, maps to ClickUp tasks.', owner:'Winn.solutions', links:[['Launch Calendar','anchorage-agentic-launch-sprint.html#calendar'],['Spreadsheet view','anchorage-agentic-launch-sprint.html#spreadsheet']]},
+  {id:'waitlist', nm:'Waitlist funnel and landing CTA', st:'JEN', stl:'Needs Jen', at:'Landing Page', ds:'What the landing page needs to capture demand: a waitlist signup, the Nathan vision-video slot, and the read-between-the-lines framing with no shipping claim. Jen owns the site.', owner:'Jen', links:[['Waitlist spec','anchorage-agentic-launch-sprint.html#waitlist']]},
+  {id:'megadeck', nm:'The strategy megadeck (v2)', st:'READY', stl:'Ready', at:'Deck', ds:'The overarching strategy deck behind this sprint, the why. Funnel-depth, monetization, the be-agentic case, the two-week runbook.', owner:'Winn.solutions', links:[['Open megadeck','who-banks-the-agents-megadeck.html']]},
+  {id:'mktdeck', nm:'Campaign-intelligence deck', st:'READY', stl:'Ready', at:'Deck', ds:'The first-campaign specifics deck (the tactical companion to the megadeck).', owner:'Winn.solutions', links:[['Open deck','agentic-banking-launch-campaign.html']]}
 ];
 
 const elItems=document.getElementById('items');
@@ -140,7 +139,7 @@ elItems.innerHTML=ITEMS.map((it,i)=>
   '<div class="item" data-id="'+it.id+'"><div class="top">'+
     '<div class="ix">'+String(i+1).padStart(2,'0')+'</div>'+
     '<div class="mid">'+
-      '<div class="nm">'+it.nm+' <span class="status st-'+it.st+'">'+it.stl+'</span></div>'+
+      '<div class="nm">'+it.nm+(it.at?' <span class="atag">'+it.at+'</span>':'')+' <span class="status st-'+it.st+'">'+it.stl+'</span></div>'+
       '<div class="ds">'+it.ds+'</div>'+
       '<div class="meta"><span><b>Owner:</b> '+it.owner+'</span></div>'+
       '<div class="links">'+it.links.map(l=>'<a href="'+l[1]+'"'+(l[1].startsWith('http')?' target="_blank"':'')+'>'+l[0]+'</a>').join('')+
@@ -157,7 +156,7 @@ function toggleFB(id){const el=document.getElementById('fb-'+id);el.classList.to
 function saveFB(id,v){const o=load();if(v.trim())o[id]=v;else delete o[id];persist(o);const s=document.getElementById('sv-'+id);if(s){s.textContent='saved';setTimeout(()=>s.textContent='',1200);}}
 function count(){const n=Object.keys(load()).length;document.getElementById('fbcount').textContent=n?n+' item'+(n>1?'s':'')+' with notes':'no notes yet';}
 function exportFB(){const o=load();const ks=Object.keys(o);if(!ks.length){alert('No feedback entered yet.');return;}
-  let out='ANCHORAGE AGENTIC LAUNCH — REVIEW FEEDBACK\n'+new Date().toString()+'\n\n';
+  let out='ANCHORAGE AGENTIC LAUNCH, REVIEW FEEDBACK\n'+new Date().toString()+'\n\n';
   ks.forEach(k=>{const it=ITEMS.find(x=>x.id===k);out+='### '+(it?it.nm:k)+'\n'+o[k]+'\n\n';});
   navigator.clipboard.writeText(out).then(()=>alert('All feedback copied to clipboard. Paste it into Slack or the doc.')).catch(()=>{
     const b=new Blob([out],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='anchorage-launch-feedback.txt';a.click();});}
