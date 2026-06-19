@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Hero Video Poster · Concept Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#08111f;--panel:#10213a;--panel-2:#13283f;
+    --brass:#cda349;--brass2:#e3c578;--ink:#eaf0f8;--muted:#8ba0bd;
+    --line:rgba(205,163,73,.2);--line-2:rgba(139,160,189,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--navy);color:var(--ink);
+    font-family:'Hanken Grotesk',-apple-system,sans-serif;
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:48px;-webkit-font-smoothing:antialiased;
+  }
+  .poster{
+    position:relative;width:1120px;max-width:100%;aspect-ratio:16/9;
+    border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 36px 90px rgba(0,0,0,.5);
+    background:
+      radial-gradient(120% 90% at 84% 16%, rgba(205,163,73,.18) 0%, rgba(8,17,31,0) 52%),
+      radial-gradient(90% 120% at 12% 96%, rgba(116,184,199,.08) 0%, rgba(8,17,31,0) 50%),
+      linear-gradient(155deg, #0d1d35 0%, #08111f 70%);
+  }
+  /* abstract branded backdrop: concentric brass arcs + grain lines */
+  .arc{position:absolute;border-radius:50%;border:1px solid rgba(205,163,73,.10);}
+  .arc.a1{width:760px;height:760px;right:-220px;top:-200px;border-color:rgba(205,163,73,.16);}
+  .arc.a2{width:1080px;height:1080px;right:-360px;top:-340px;}
+  .arc.a3{width:1420px;height:1420px;right:-520px;top:-500px;border-color:rgba(205,163,73,.06);}
+  .grid{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(139,160,189,.045) 1px,transparent 1px);
+    background-size:100% 46px;opacity:.6;
+  }
+
+  /* top row: brand + raw tag */
+  .toprow{
+    position:absolute;top:30px;left:34px;right:34px;
+    display:flex;align-items:center;justify-content:space-between;z-index:3;
+  }
+  .brandmark{display:flex;align-items:center;gap:12px;}
+  .diamond{width:22px;height:22px;display:grid;grid-template-columns:1fr 1fr;gap:2px;transform:rotate(45deg);}
+  .diamond span{background:var(--brass);border-radius:1px;}
+  .diamond span:nth-child(2),.diamond span:nth-child(3){background:var(--brass2);}
+  .brandmark .name{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:18px;color:var(--ink);}
+  .rawtag{
+    display:flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--brass2);
+    border:1px solid var(--line);border-radius:5px;padding:6px 12px;
+    background:rgba(8,17,31,.4);
+  }
+  .rawtag .rec{width:8px;height:8px;border-radius:50%;background:#d8584a;box-shadow:0 0 8px rgba(216,88,74,.7);}
+
+  /* center play zone */
+  .playzone{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:128px;height:128px;border-radius:50%;
+    border:1.5px dashed rgba(227,197,120,.6);
+    display:grid;place-items:center;z-index:3;
+  }
+  .playzone .tri{
+    width:0;height:0;border-style:solid;border-width:18px 0 18px 30px;
+    border-color:transparent transparent transparent rgba(227,197,120,.75);
+    margin-left:7px;
+  }
+  .playzone .hint{
+    position:absolute;bottom:-32px;white-space:nowrap;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;
+    text-transform:uppercase;color:rgba(227,197,120,.62);
+  }
+
+  /* lower caption block */
+  .caption{
+    position:absolute;left:34px;bottom:34px;right:34px;z-index:3;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--brass);
+    margin-bottom:14px;
+  }
+  .caption h2{
+    font-family:'Fraunces',Georgia,serif;font-weight:600;
+    font-size:clamp(30px,4vw,46px);line-height:1.04;color:var(--ink);
+    letter-spacing:-.015em;max-width:18ch;
+  }
+  .caption .sub{
+    margin-top:14px;font-size:15px;color:var(--muted);max-width:46ch;line-height:1.5;
+  }
+
+  .conceptlab{
+    position:absolute;right:16px;bottom:10px;z-index:4;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(139,160,189,.55);
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="arc a1"></div>
+    <div class="arc a2"></div>
+    <div class="arc a3"></div>
+    <div class="grid"></div>
+
+    <div class="toprow">
+      <div class="brandmark">
+        <div class="diamond"><span></span><span></span><span></span><span></span></div>
+        <span class="name">Anchorage Digital</span>
+      </div>
+      <span class="rawtag"><span class="rec"></span>Raw / unpolished</span>
+    </div>
+
+    <div class="playzone">
+      <div class="tri"></div>
+      <span class="hint">Play button overlay</span>
+    </div>
+
+    <div class="caption">
+      <p class="eyebrow">Founder, to camera</p>
+      <h2>Nathan McCauley to camera</h2>
+      <p class="sub">An unscripted founder take on banking the agents. Direct, first-person, no production gloss.</p>
+    </div>
+
+    <span class="conceptlab">Concept mockup</span>
+  </div>
+</body>
+</html>

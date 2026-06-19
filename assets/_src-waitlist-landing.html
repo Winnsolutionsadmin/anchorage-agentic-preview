@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Agentic Banking · Waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#08111f;
+    --panel:#10213a;
+    --panel-2:#13283f;
+    --brass:#cda349;
+    --brass2:#e3c578;
+    --ink:#eaf0f8;
+    --muted:#8ba0bd;
+    --line:rgba(205,163,73,.18);
+    --line-2:rgba(139,160,189,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy);
+    color:var(--ink);
+    font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-weight:400;
+    line-height:1.55;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 40px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* TOP BAR */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:26px 0 0;
+  }
+  .brandmark{display:flex;align-items:center;gap:13px;}
+  .diamond{
+    width:26px;height:26px;
+    display:grid;grid-template-columns:1fr 1fr;gap:2.5px;
+    transform:rotate(45deg);
+  }
+  .diamond span{background:var(--brass);border-radius:1px;}
+  .diamond span:nth-child(2),.diamond span:nth-child(3){background:var(--brass2);}
+  .brandmark .name{
+    font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:19px;
+    color:var(--ink);letter-spacing:-.01em;
+  }
+  .navchip{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line-2);border-radius:5px;padding:7px 14px;
+  }
+
+  /* HERO */
+  .hero{
+    padding:84px 0 72px;
+    text-align:center;
+    background:
+      radial-gradient(72% 110% at 50% -8%, rgba(205,163,73,.10) 0%, rgba(8,17,31,0) 58%);
+    border-bottom:1px solid var(--line-2);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--brass);display:inline-block;margin-bottom:30px;
+  }
+  .eyebrow .beta{
+    color:var(--navy);background:var(--brass2);border-radius:4px;
+    padding:2px 8px;margin-left:10px;letter-spacing:.16em;font-weight:600;
+  }
+  .hero h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    font-size:clamp(44px,6.6vw,76px);
+    line-height:1.0;color:var(--ink);
+    letter-spacing:-.018em;
+    max-width:16ch;margin:0 auto 28px;
+  }
+  .hero h1 .accent{color:var(--brass2);}
+  .subhead{
+    font-size:clamp(18px,2.1vw,21px);
+    color:var(--muted);max-width:58ch;margin:0 auto 44px;line-height:1.5;
+  }
+  .subhead b{color:var(--ink);font-weight:500;}
+
+  /* EMAIL CAPTURE */
+  .capture{
+    display:flex;gap:12px;max-width:560px;margin:0 auto 22px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px 10px 10px 22px;
+    align-items:center;
+  }
+  .capture .field{
+    flex:1 1 auto;background:transparent;border:none;outline:none;
+    color:var(--ink);font-family:'Hanken Grotesk',sans-serif;font-size:16.5px;
+  }
+  .capture .field::placeholder{color:var(--muted);}
+  .cta{
+    flex:0 0 auto;white-space:nowrap;
+    font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:15.5px;
+    color:var(--navy);
+    background:linear-gradient(180deg,var(--brass2) 0%,var(--brass) 100%);
+    border:none;border-radius:8px;padding:14px 26px;cursor:pointer;
+    letter-spacing:.005em;
+  }
+  .queue{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    color:var(--muted);letter-spacing:.04em;
+  }
+  .queue b{color:var(--brass2);font-weight:600;}
+
+  /* TRUST ROW */
+  .trustrow{
+    margin-top:54px;padding-top:30px;
+    border-top:1px solid var(--line-2);
+    display:flex;flex-direction:column;align-items:center;gap:22px;
+  }
+  .trustline{
+    font-size:15px;color:var(--muted);max-width:62ch;line-height:1.55;
+  }
+  .trustline b{color:var(--ink);font-weight:500;}
+  .badges{
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
+  }
+  .badge{
+    display:flex;align-items:center;gap:10px;
+    background:var(--panel);border:1px solid var(--line-2);border-radius:8px;
+    padding:12px 18px;
+  }
+  .badge .ic{
+    width:18px;height:18px;border:1.6px solid var(--brass);border-radius:4px;
+    display:grid;place-items:center;color:var(--brass2);font-size:11px;
+    font-family:'IBM Plex Mono',monospace;font-weight:600;
+  }
+  .badge .lab{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink);
+  }
+
+  /* WEDGE STRIP */
+  .wedge{padding:56px 0;border-bottom:1px solid var(--line-2);text-align:center;}
+  .wedge p{
+    font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;
+    font-size:clamp(22px,3vw,30px);line-height:1.32;color:var(--ink);
+    max-width:24ch;margin:0 auto;
+  }
+  .wedge p .em{color:var(--brass2);font-style:normal;font-weight:600;}
+
+  footer{padding:40px 0 56px;text-align:center;}
+  footer .stamp{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);
+  }
+
+  .concept{
+    position:fixed;right:16px;bottom:14px;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(139,160,189,.55);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brandmark">
+      <div class="diamond"><span></span><span></span><span></span><span></span></div>
+      <span class="name">Anchorage Digital</span>
+    </div>
+    <span class="navchip">Agentic Banking</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">The agentic frontier of banking<span class="beta">Beta</span></span>
+    <h1>A bank account for <span class="accent">your agent.</span></h1>
+    <p class="subhead">Every other platform hands your agent a wallet. Anchorage gives it a <b>regulated bank account</b>: identity, an allowance, real recourse, and settlement at machine speed.</p>
+
+    <form class="capture" onsubmit="return false;">
+      <input class="field" type="email" placeholder="you@company.com" aria-label="Email address">
+      <button class="cta" type="submit">Join the waitlist</button>
+    </form>
+    <p class="queue">You will be <b>#1,204</b> in line. Refer a builder to move up.</p>
+
+    <div class="trustrow">
+      <p class="trustline"><b>Know Your Agent (KYA)</b> on regulated rails. Built on America's first federally chartered crypto bank, so every agent and the human behind it is underwritten, fenced, and accountable.</p>
+      <div class="badges">
+        <div class="badge"><span class="ic">&#10003;</span><span class="lab">OCC National Trust Charter</span></div>
+        <div class="badge"><span class="ic">K</span><span class="lab">Know Your Agent</span></div>
+        <div class="badge"><span class="ic">&#9670;</span><span class="lab">Bank-grade controls</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="wedge">
+  <div class="wrap">
+    <p>Capping the loss is a security pattern. <span class="em">Running the account is banking.</span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="stamp">Anchorage Digital · Agentic Banking · Confidential preview</p>
+  </div>
+</footer>
+
+<div class="concept">Concept mockup</div>
+
+</body>
+</html>

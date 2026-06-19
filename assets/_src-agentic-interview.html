@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Agentic Interview · Concept Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#08111f;--panel:#10213a;--panel-2:#13283f;
+    --brass:#cda349;--brass2:#e3c578;--ink:#eaf0f8;--muted:#8ba0bd;
+    --line:rgba(205,163,73,.18);--line-2:rgba(139,160,189,.16);
+    --live:#74b8c7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:radial-gradient(90% 120% at 50% 0%, #0b1830 0%, var(--navy) 60%);
+    color:var(--ink);
+    font-family:'Hanken Grotesk',-apple-system,sans-serif;
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:48px 40px;-webkit-font-smoothing:antialiased;
+  }
+  .frame{width:1100px;max-width:100%;}
+
+  .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+  .title{display:flex;align-items:center;gap:14px;}
+  .diamond{width:22px;height:22px;display:grid;grid-template-columns:1fr 1fr;gap:2px;transform:rotate(45deg);}
+  .diamond span{background:var(--brass);border-radius:1px;}
+  .diamond span:nth-child(2),.diamond span:nth-child(3){background:var(--brass2);}
+  .title h1{
+    font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:20px;
+    color:var(--ink);letter-spacing:-.01em;
+  }
+  .conceptlab{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--brass);
+    border:1px solid var(--line);border-radius:5px;padding:7px 13px;
+  }
+
+  /* CALL CANVAS */
+  .canvas{
+    position:relative;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+  }
+  .panels{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  }
+  .vpanel{
+    position:relative;aspect-ratio:16/10;
+    background:linear-gradient(160deg,var(--panel-2) 0%, #0c1c33 100%);
+    border:1px solid var(--line-2);border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .vpanel.ai{
+    background:
+      radial-gradient(60% 80% at 50% 35%, rgba(205,163,73,.16) 0%, rgba(12,28,51,0) 70%),
+      linear-gradient(160deg,#11243f 0%, #0a1830 100%);
+  }
+  /* candidate silhouette */
+  .silhouette{
+    width:104px;height:104px;border-radius:50%;
+    background:linear-gradient(180deg,#23344e 0%, #18293f 100%);
+    border:1px solid var(--line-2);
+    display:grid;place-items:center;position:relative;
+  }
+  .silhouette::before{
+    content:"";position:absolute;width:38px;height:38px;border-radius:50%;
+    background:#33455f;top:22px;
+  }
+  .silhouette::after{
+    content:"";position:absolute;width:62px;height:36px;border-radius:32px 32px 0 0;
+    background:#33455f;bottom:16px;
+  }
+  .initials{
+    width:104px;height:104px;border-radius:50%;
+    background:linear-gradient(180deg,#1c2e46 0%, #14253a 100%);
+    border:1px solid var(--line-2);
+    display:grid;place-items:center;
+    font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:38px;color:var(--muted);
+  }
+  /* AI orb */
+  .orb{
+    width:96px;height:96px;border-radius:50%;
+    background:radial-gradient(circle at 38% 34%, var(--brass2) 0%, var(--brass) 42%, #7d6428 100%);
+    box-shadow:0 0 44px rgba(205,163,73,.4), inset 0 0 22px rgba(255,255,255,.18);
+    position:relative;
+  }
+  .orb::after{
+    content:"";position:absolute;inset:-14px;border-radius:50%;
+    border:1px solid rgba(205,163,73,.3);
+  }
+  .nameplate{
+    position:absolute;left:14px;bottom:14px;
+    display:flex;align-items:center;gap:9px;
+    background:rgba(8,17,31,.72);backdrop-filter:blur(4px);
+    border:1px solid var(--line-2);border-radius:7px;padding:7px 12px;
+  }
+  .nameplate .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 8px var(--live);}
+  .nameplate .who{
+    font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:13.5px;color:var(--ink);
+  }
+  .nameplate .role{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .liveflag{
+    position:absolute;right:14px;top:14px;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--live);
+    border:1px solid rgba(116,184,199,.4);border-radius:4px;padding:4px 9px;
+    background:rgba(116,184,199,.08);
+  }
+
+  /* PLAY ZONE (empty center for overlay) */
+  .playzone{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:108px;height:108px;border-radius:50%;
+    border:1.5px dashed rgba(227,197,120,.55);
+    display:grid;place-items:center;
+    z-index:4;
+  }
+  .playzone .hint{
+    position:absolute;top:-26px;white-space:nowrap;
+    font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:rgba(227,197,120,.6);
+  }
+  .playzone .tri{
+    width:0;height:0;border-style:solid;border-width:15px 0 15px 26px;
+    border-color:transparent transparent transparent rgba(227,197,120,.7);
+    margin-left:6px;
+  }
+
+  /* TRANSCRIPT STRIP */
+  .transcript{
+    margin-top:20px;
+    background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;
+    padding:18px 22px;
+  }
+  .transcript .tlab{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--brass);
+    margin-bottom:14px;display:flex;align-items:center;gap:8px;
+  }
+  .transcript .tlab .dot{width:6px;height:6px;border-radius:50%;background:var(--live);}
+  .line{display:flex;gap:14px;margin-bottom:11px;align-items:baseline;}
+  .line:last-child{margin-bottom:0;}
+  .line .spk{
+    flex:0 0 142px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .line.ai .spk{color:var(--brass2);}
+  .line.cand .spk{color:var(--muted);}
+  .line .txt{color:var(--ink);font-size:14.5px;line-height:1.5;flex:1;}
+  .line .txt .live-caret{
+    display:inline-block;width:8px;height:15px;background:var(--brass);
+    margin-left:3px;transform:translateY(2px);opacity:.7;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="head">
+      <div class="title">
+        <div class="diamond"><span></span><span></span><span></span><span></span></div>
+        <h1>Agentic interview</h1>
+      </div>
+      <span class="conceptlab">Concept mockup</span>
+    </div>
+
+    <div class="canvas">
+      <div class="panels">
+
+        <!-- Candidate panel -->
+        <div class="vpanel">
+          <div class="silhouette"></div>
+          <div class="nameplate">
+            <span class="dot"></span>
+            <div>
+              <div class="who">Candidate</div>
+              <div class="role">Applicant</div>
+            </div>
+          </div>
+          <span class="liveflag">Live</span>
+        </div>
+
+        <!-- AI Interviewer panel -->
+        <div class="vpanel ai">
+          <div class="orb"></div>
+          <div class="nameplate">
+            <span class="dot"></span>
+            <div>
+              <div class="who">AI Interviewer</div>
+              <div class="role">Winn.solutions</div>
+            </div>
+          </div>
+          <span class="liveflag">Live</span>
+        </div>
+      </div>
+
+      <!-- center play zone, spanning both panels -->
+      <div class="playzone">
+        <div class="tri"></div>
+        <span class="hint">Play button overlay</span>
+      </div>
+
+      <!-- Transcript strip -->
+      <div class="transcript">
+        <div class="tlab"><span class="dot"></span>Live transcript</div>
+        <div class="line ai">
+          <span class="spk">AI Interviewer</span>
+          <span class="txt">Walk me through a time you shipped something agentic under a real compliance constraint.</span>
+        </div>
+        <div class="line cand">
+          <span class="spk">Candidate</span>
+          <span class="txt">I built a payment agent that had to clear KYA checks before it could move funds, so the controls sat outside the model<span class="live-caret"></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
