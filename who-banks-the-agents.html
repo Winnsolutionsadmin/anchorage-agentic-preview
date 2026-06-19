@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Who Banks the Agents?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4EEE2;
+    --ink:#1B2735;
+    --navy:#0A1726;
+    --brass:#9A7A2E;
+    --brass-rule:#C9A24A;
+    --muted:#5C6672;
+    --read:760px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{
+    max-width:var(--read);
+    margin:0 auto;
+    padding:64px 28px 96px;
+  }
+
+  /* Title block */
+  .titleblock{
+    border-top:3px solid var(--brass-rule);
+    padding-top:30px;
+    margin-bottom:44px;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:11.5px;
+    font-weight:500;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:0 0 18px;
+  }
+  h1{
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:600;
+    font-size:clamp(2.4rem,6vw,3.4rem);
+    line-height:1.05;
+    color:var(--navy);
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  .standfirst{
+    font-family:"Fraunces",Georgia,serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.18rem;
+    line-height:1.5;
+    color:var(--muted);
+    margin:0;
+  }
+
+  /* Section headers */
+  h2{
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:600;
+    font-size:1.72rem;
+    line-height:1.18;
+    color:var(--navy);
+    margin:56px 0 6px;
+    letter-spacing:-0.005em;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--brass-rule);
+  }
+  h3{
+    font-family:"Hanken Grotesk",sans-serif;
+    font-weight:700;
+    font-size:1.06rem;
+    color:var(--navy);
+    margin:34px 0 4px;
+    letter-spacing:0.005em;
+  }
+  h3::before{
+    content:"";
+    display:block;
+    width:34px;
+    height:2px;
+    background:var(--brass);
+    margin-bottom:14px;
+  }
+
+  p{margin:0 0 18px;}
+  p + p{margin-top:0;}
+
+  /* Inline source parentheticals: small muted */
+  .src{color:var(--muted);font-size:0.86em;}
+
+  /* Pull-quotes: brass left border */
+  blockquote{
+    margin:30px 0;
+    padding:6px 0 6px 24px;
+    border-left:3px solid var(--brass-rule);
+    font-family:"Fraunces",Georgia,serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.22rem;
+    line-height:1.5;
+    color:var(--navy);
+  }
+  blockquote cite{
+    display:block;
+    margin-top:12px;
+    font-family:"IBM Plex Mono",monospace;
+    font-style:normal;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  blockquote cite .who{color:var(--ink);}
+
+  /* References / Sources list */
+  .sources{
+    list-style:none;
+    counter-reset:src;
+    margin:18px 0 0;
+    padding:0;
+  }
+  .sources li{
+    counter-increment:src;
+    position:relative;
+    padding-left:34px;
+    margin:0 0 14px;
+    font-size:0.92rem;
+    line-height:1.5;
+    color:var(--ink);
+  }
+  .sources li::before{
+    content:counter(src);
+    position:absolute;
+    left:0;
+    top:0;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.78rem;
+    font-weight:500;
+    color:var(--brass);
+  }
+  .sources .pub{font-weight:600;color:var(--navy);}
+  .sources a{
+    color:var(--brass);
+    word-break:break-word;
+    border-bottom:1px solid rgba(154,122,46,0.4);
+  }
+
+  .footer{
+    margin-top:64px;
+    padding-top:20px;
+    border-top:1px solid var(--brass-rule);
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  a{color:var(--brass);text-decoration:none;border-bottom:1px solid rgba(154,122,46,0.4);}
+
+  @media print{
+    body{background:#fff;}
+    .wrap{padding:0;max-width:none;}
+    h2{break-after:avoid;}
+    h3{break-after:avoid;}
+    blockquote{break-inside:avoid;}
+    p{orphans:3;widows:3;}
+    .sources li{break-inside:avoid;}
+  }
+  @page{margin:18mm;}
+</style>
+</head>
+<body>
+<article class="wrap">
+
+  <header class="titleblock">
+    <p class="eyebrow">Winn.solutions &middot; Research Paper</p>
+    <h1>Who Banks the Agents?</h1>
+    <p class="standfirst">A Winn.solutions research paper on the agent economy and the regulated rails it will run on.</p>
+  </header>
+
+  <section>
+    <h2>The inflection: agents are becoming economic actors</h2>
+    <p>For most of the AI boom, the question was what models could say. The question now is what they can spend. AI agents are crossing from the chat window into commerce, and real money is starting to move through them. This is not a forecast. It is already metered.</p>
+    <p>The agentic-AI software market is real but small relative to the capital that will pass through agents. Fortune Business Insights sizes the software category at $7.29B in 2025 and $9.14B in 2026, on a 40.5% compound annual growth rate toward $139B by 2034 <span class="src">(Fortune Business Insights)</span>. That measures the tools. The throughput is the important figure. By 2028, Gartner projects that 90% of B2B buying will be intermediated by AI agents, pushing more than $15T through agent-mediated exchanges <span class="src">(Gartner, October 2025, via Digital Commerce 360)</span>, and that 22% of monetary transactions will be programmable for agentic economic agency by 2030. Purchasing is moving from a person at a keyboard to a process running on a schedule.</p>
+    <p>The proof that the category is past forecasting is on-chain, and it is now quantified. In the twelve months from May 2025 to April 2026, autonomous AI agents processed more than $73 million through roughly 176 million on-chain transactions, an average of about $0.31 per payment, with 98.6% settled in USDC <span class="src">(Cryptonomist, May 2026, citing on-chain analysis)</span>. The $0.31 average tells you what agents are buying: API access, compute, data feeds, and inference, not large-ticket goods. This is micro-value transfer for digital services, real money moving without a human in the loop, and still early-stage in absolute dollar terms. The number of agents acting, and the number of times they act, is what has broken trend.</p>
+    <p>Why now, and not three years ago, is the part most analyses miss. The capability to act and the rails to act on matured in the same eighteen-month window. The GENIUS Act, enacted July 18, 2025, gave the United States its first federal payment-stablecoin framework, and by December 2025 the Office of the Comptroller of the Currency had conditionally chartered five more digital-asset trust banks <span class="src">(Richmond Fed; Brookings)</span>. Stablecoin market value crossed roughly $300B by the end of 2025 and reached about $317B by April 6, 2026 <span class="src">(Federal Reserve FEDS Notes)</span>. The settlement substrate and the legal substrate arrived together, which is the precondition for agents to move money at scale rather than in demos. The agent did not wait for permission. The rail caught up.</p>
+  </section>
+
+  <section>
+    <h2>Wallet versus bank: a security pattern is not a banking one</h2>
+    <p>Here is the structural fact that defines the entire category. An agent can hold a crypto wallet. An agent cannot pass Know Your Customer checks, because it has no government ID, no Social Security number, and no phone to receive a one-time passcode. The early market solved this by shipping the agent a funded wallet <span class="src">(TokenMinds)</span>. That is a sensible workaround, and it is also the source of a persistent confusion worth clearing up.</p>
+    <p>A funded wallet is a security pattern, not a banking one. Its design goal is to cap the loss. You pre-load a limited amount, set a spend ceiling, and if the agent goes wrong the blast radius is bounded by the balance. That is useful, and the canonical players are good at it. Skyfire ships a "Know Your Agent" protocol with USDC settlement and spend limits. Payman runs staged wallets with ACH, wire, and USDC, SOC 2 and PCI controls, and allowlists. Card networks credential and route the agent's payment but ride on an issuing bank underneath. Protocols such as Google's AP2 and Coinbase's x402 standardize the grammar of an agent payment without holding custody. Google is explicit that AP2 is "a framework, not a payment rail" <span class="src">(Google Cloud)</span>.</p>
+    <p>Capping the loss is not the same as running an account. There are four things a wallet structurally cannot do, and each is a banking function, not a software feature.</p>
+    <p>It cannot provide recourse. A stablecoin push is final. There is no native chargeback, no reversal, no "call the bank" <span class="src">(Crossmint)</span>. When the agent pays the wrong party, the money is gone in a way a card charge never is.</p>
+    <p>It cannot carry a Bank Secrecy Act obligation. Non-custodial providers escape anti-money-laundering monitoring and suspicious-activity-report duties precisely because they avoid holding customer funds <span class="src">(University of Chicago Business Law Review)</span>. The thing that makes a wallet light is the thing that makes it unaccountable.</p>
+    <p>It cannot resolve liability. Under the consumer-protection regimes that govern electronic payments and credit, who answers for an authorized agent's mistake is an open question <span class="src">(American Banker)</span>. This is legal commentary on an unsettled area, not a decided holding. But the gap is real, and a wallet has no mechanism to fill it.</p>
+    <p>It cannot run treasury. A wallet holds a float. It does not settle across rails, reconcile, custody reserves, or move value between counterparties at scale.</p>
+    <p>The market has begun to concede the point. Even Coinbase, the most credible proponent of letting agents transact on-chain, concluded that agents should not hold the keys, and launched Agentic Wallets on February 11, 2026, to separate custody from agent logic <span class="src">(Coinbase)</span>. The direction of travel is away from "give the agent the money" and toward "give the agent a controlled, accountable account." That account has a name. It is a bank.</p>
+  </section>
+
+  <section>
+    <h2>The unmet agentic-buyer problem</h2>
+    <p>Every competitor is building a piece of the agent's wallet. The defensible, unmet problem is the agent's buyer: a funded, regulated account with agent identity, an allowance model, dispute and liability resolution, and treasury behind it. Five capabilities define that account.</p>
+
+    <h3>Know Your Agent: identity and underwriting</h3>
+    <p>Know Your Agent has gone from metaphor to named framework in a single year. The World Economic Forum, in January 2026, defined it as four capabilities: establish the agent's identity, bind it to a responsible human or organization, confirm its permitted actions, and monitor it continuously. The WEF's load-bearing warning is that "KYA collapses without high-assurance KYC" <span class="src">(World Economic Forum; corroborated by Sumsub)</span>. Knowing the agent is only meaningful if you also know the human standing behind it, which is exactly what a regulated institution is built to do and a wallet is not.</p>
+    <p>The scale of the identity problem is its own argument. Machine identities outnumber human ones by 82 to 1, and 68% of organizations lack identity controls for AI <span class="src">(CyberArk 2025 Identity Security Landscape, Vanson Bourne, 2,600 respondents)</span>. Okta reports that 88% of organizations have experienced an agent-related security incident, while only 22% treat agents as identities at all <span class="src">(Okta)</span>. Production attestation has already crystallized into four anchors: tokenized identities (Mastercard Agent Pay), attestation headers (Visa's Trusted Agent Protocol on RFC 9421, October 14, 2025), W3C Verifiable Credentials (Google AP2), and on-chain decentralized identifiers (ERC-8004 "Trustless Agents," live on Ethereum mainnet January 29, 2026).</p>
+    <p>The legal engine under all of it is simple: liability follows control. The early case law points the same way. In Mobley v. Workday (N.D. Cal., July 2024), a court let an agency-theory claim against an AI vendor survive a motion to dismiss. That is not a finding of liability, but it signals that the principal who deploys an agent can be answerable for it. Identity plus underwriting is how you decide whose answer it is.</p>
+
+    <blockquote>
+      "KYA, know your agent... we're not only underwriting the human that is the owner of the bot or agent, but also the agent itself."
+      <cite><span class="who">Nathan McCauley, CEO, Anchorage</span> &middot; Consensus, 2026</cite>
+    </blockquote>
+    <p>Underwriting both sides of the relationship is a bank's competence, not a protocol's.</p>
+
+    <h3>The allowance model: segmented accounts and spend mandates</h3>
+    <p>The second capability is how you let an agent spend without handing it everything. McCauley's framing is the cleanest in the market:</p>
+    <blockquote>
+      "Instead of giving your agent access to your whole bank account, you can give them a segmented bank account... Almost give them an allowance."
+      <cite><span class="who">Nathan McCauley, CEO, Anchorage</span> &middot; Consensus, 2026</cite>
+    </blockquote>
+    <p>An allowance is a banking primitive. It is a sub-account with rules, not a feature bolted onto a payment.</p>
+    <p>The striking thing is that the rest of the industry has independently converged on exactly this primitive, from every direction. Visa Intelligent Commerce embeds spend limits in the token loaded into VisaNet (April 30, 2025). Mastercard Agent Pay binds each token to a specific agent, merchant, and consent policy, with the first live transaction completed by Mastercard and PayOS on September 29, 2025 <span class="src">(Mastercard)</span>. Google AP2's Intent Mandate is a signed object carrying a price ceiling, an item specification, an expiry, and an allowed-merchant list. Coinbase Agentic Wallets ship session caps and per-transaction limits as the core product. Stripe Issuing scopes virtual cards to what an agent can spend, where, and how much, and FIS, on January 12, 2026, put preapproved-agent authorization into the bank stack itself <span class="src">(FIS)</span>. When card networks, protocols, crypto wallets, and core banking vendors all build the same allowance, the allowance is the category, and the question becomes who holds the account it draws on.</p>
+    <p>The demand side confirms that people want bounded delegation, not blind autonomy. Accenture found that 9% of consumers would let an agent act fully independently, but 32% would within defined boundaries, roughly three and a half times the appetite for unbounded autonomy <span class="src">(Accenture)</span>. Bain (2025) found 24% comfortable buying via AI while only 10% have done so. The boundary is the product. People will delegate spending to an agent when the spending is fenced, which is precisely what a segmented, rule-bound account provides.</p>
+
+    <h3>Dispute, clawback, and human-attached liability</h3>
+    <p>The third capability is the one wallets cannot fake: when the agent gets it wrong, someone has to answer, and the money has to be recoverable. The split is definitional. Card rails carry statutory chargeback rights under TILA and Regulation Z for credit and EFTA and Regulation E for debit, with the issuing bank as the counterparty that absorbs the loss; on-chain stablecoin settlement is non-repudiable, and Coinbase's x402 advertises "no disputes" as a feature. One rail has recourse built into law, the other finality built into math.</p>
+    <p>The accountability question is no longer theory either. It is becoming enacted law on two continents. California's AB 316 (Civil Code &sect;1714.46, effective January 1, 2026) removes the autonomous-operation defense: "it shall not be a defense... that the artificial intelligence autonomously caused the harm" <span class="src">(Baker Botts)</span>. The European Union went further into strict liability, with the Product Liability Directive (Directive 2024/2853, effective December 9, 2026) treating AI systems as products and the provider as a manufacturer under no-fault liability for defects <span class="src">(EU Official Journal)</span>. These are enacted instruments, not proposals, and both attach liability to a principal a regulated institution can identify and stand behind. The EU's separate AI Liability Directive, which would have set a fault presumption, was withdrawn <span class="src">(Official Journal, October 6, 2025)</span>. Where statute attaches liability, it names a principal; where it is silent, the rail has to carry the recourse instead.</p>
+    <p>The market is operating in this gap with no settled answer. As of the first quarter of 2025, 72% of merchants had no defined policy for disputes from autonomous agent purchases <span class="src">(Stripe merchant survey, 2025)</span>, and no neutral arbitration body for agent-transaction disputes yet exists. To the extent that agent-initiated card transactions fall within the existing dispute-and-chargeback regime under Regulation Z, the recourse obligation lands on the card-issuing bank, which is the regulated-rails conclusion stated another way <span class="src">(DWT)</span>. The argument does not depend on it: the gap is sharpest precisely on the rails where no issuer sits.</p>
+    <p>The networks are split on who eats the loss, and that split is the whole story. Mastercard and Google open-sourced Verifiable Intent on March 5, 2026, a cryptographic record linking identity, instruction, and transaction <span class="src">(Mastercard; Google)</span>. American Express launched Agent Purchase Protection on April 14, 2026, crediting consumers for charges that result from agent error, but only for registered agents, which makes "agent error" a distinct, fundable liability class for the first time <span class="src">(American Express, via Digital Commerce 360)</span>. Amex's EVP Luke Gebb named the gap precisely:</p>
+    <blockquote>
+      "If the merchant has made no error and the cardmember has made no error, but the agent has made the error, that's a new paradigm... that has not been figured out."
+      <cite><span class="who">Luke Gebb, EVP, American Express</span> &middot; Digital Commerce 360, April 14, 2026</cite>
+    </blockquote>
+    <p>Google's AP2 chains three signed mandates into a non-repudiable audit trail offering dispute-grade evidence, though there is no in-protocol way to revoke an Intent Mandate before it expires, a gap a custodial controls layer could fill. Datos Insights with Mastercard project chargebacks rising from 261M disputes in 2025 to 324M by 2028, and from $33.8B to $41.7B over the same span <span class="src">(Datos Insights with Mastercard; figures are a projection)</span>. On-chain rails have the inverse problem. Coinbase's x402 markets "instant, finalized transactions with no chargebacks, no fraud risks, no intermediaries." Finality is structurally irreversible <span class="src">(x402 whitepaper)</span>. That is a virtue for settlement speed and a liability for recourse, which is why the x402 Foundation and Cloudflare have since proposed deferred settlement to reintroduce a dispute window. The bifurcation is now explicit: a governance track that can reverse, and a native-settlement track that cannot. When disputes scale into the hundreds of millions, the party that can actually clawback wins the category.</p>
+
+    <h3>Settlement and treasury</h3>
+    <p>The fourth capability is the plumbing: settle across rails, hold reserves, reconcile, and move value between counterparties without friction. The settlement substrate is present-tense, with stablecoin market value above $300B. The figure that matters here is payments specifically: roughly $390B in genuine stablecoin payment activity in full-year 2025, about 58% of it business-to-business <span class="src">(McKinsey/Artemis)</span>. That payment figure is the right denominator for an agentic-payments argument, because the widely cited aggregate of roughly $35T in annual on-chain volume folds in trading, DeFi, and internal transfers and is not payment-rail volume. Presenting the $35T as payments overstates the market by nearly two orders of magnitude.</p>
+    <p>The cost case is decisive at agent frequency, and it is arithmetic, not preference. A stablecoin payment on Solana settles for roughly $0.001, against roughly $0.15 or more plus interchange of 1.5% to 3.5% of value on a card <span class="src">(industry cost comparison, McKinsey/Artemis data)</span>. The average autonomous-agent payment is $0.31. At that ticket, card processing and interchange would eat a large fraction of the payment, and most issuers will not clear it below their minimum-interchange floor, which is precisely why 98.6% of agent payments settle in USDC on chain rather than over cards. When the dominant agent transaction is too small to clear a card economically, the rail that settles it for a tenth of a cent is not a nice-to-have. It is the only rail that works. McCauley's framing is direct:</p>
+    <blockquote>
+      "Agents are going to be economic actors... what truly requires them to be able to act is having financial rails."
+      <cite><span class="who">Nathan McCauley, CEO, Anchorage</span> &middot; Consensus, 2026</cite>
+    </blockquote>
+    <p>Holding the float is not treasury. Settling across fiat and stablecoin rails, custodying reserves, and reconciling at machine volume is treasury, and it is bank work.</p>
+
+    <h3>Verified merchants and trust infrastructure</h3>
+    <p>The fifth capability faces the other direction. The merchant cannot natively tell a legitimate agent from a malicious bot, confirm the consumer authorized it, or know it executed the instruction correctly. That triad is posed by Mastercard's agentic token framework, and every verified-agent scheme exists to answer it. The industry converged on cryptographic agent identity through Cloudflare's Web Bot Auth, built on RFC 9421 HTTP Message Signatures and now an IETF working group, with the card networks building on top. Trust is now a priced feature, and the first KYA framework from a licensed institution is MetaComp's StableX (April 21, 2026). A verified-merchant directory backed by a regulated institution closes the loop: the agent knows the merchant is real, the merchant knows the agent is authorized, and a single accountable party stands behind the record.</p>
+  </section>
+
+  <section>
+    <h2>Why regulated rails, not raw capability</h2>
+    <p>The instinct in AI is that capability wins. Build the smartest agent and the market follows. For agents that transact, that instinct is wrong. The binding constraint is not how capable the agent is. It is whether the rail it spends on is allowed to carry the obligations that come with money.</p>
+    <p>This is no longer only a vendor's framing. The International Monetary Fund formalized the architecture in IMF Note 2026/004 (Davidovic and Tourpe, April 2026), concluding that the core tension in agentic payments is between AI's probabilistic reasoning and the deterministic requirements of payment infrastructure, and calling for a regulatory shift from Know Your Customer to Know Your Agent, with verifiable agent identities linked to legal entities <span class="src">(IMF Note 2026/004)</span>. When a supranational, non-vendor institution arrives independently at the same conclusion, that a probabilistic actor cannot satisfy a deterministic obligation on its own and the obligation must sit in a regulated layer, it is the consensus reading, not a pitch.</p>
+    <p>Start with the front door. KYC and AML were, in Deloitte's framing, "deliberately designed to prevent automated participation." The financial system's entry requirements are the precise thing an agent cannot satisfy on its own. The GENIUS Act, signed July 18, 2025, then made stablecoin issuers Bank Secrecy Act "financial institutions" by statute. The control stack got specified by the FinCEN and OFAC notice of proposed rulemaking issued April 8, 2026 (docket FINCEN-2026-0100): AML and CFT programs, ongoing customer due diligence, suspicious-activity-report filing at the $5,000 threshold, currency-transaction reporting, and mandatory block, freeze, and reject capability. Two clarifications matter here. Customer-identification-program requirements are deferred to a separate rulemaking and are not in this NPRM, and the Travel Rule is pre-existing BSA infrastructure, not a new mandate of this rule. The point stands. A custodial institution can carry that stack. A non-custodial wallet, by design, cannot.</p>
+    <p>The charter advantage is quantifiable, not rhetorical. An unchartered competitor has to build payment coverage one state at a time: nationwide money-transmitter licensing means separate licenses across 49 states plus the District of Columbia (only Montana is exempt), at roughly $1M to $1.5M upfront and a two-to-five-year timeline, with each state application taking three to fourteen months <span class="src">(Spark Glossary; Brico)</span>. A national charter collapses that into a single federal regulator, the OCC, and preempts state licensing outright, which is why banks move wires, ACH, and cards without it. A charter is not a logo. It is the legal capacity to do, on day one, what an unchartered competitor cannot do for years.</p>
+    <p>This is also the answer to the risk question, the one that actually keeps agentic payments out of production. The failure modes are documented, not hypothetical. Prompt-injection-to-payment is weaponized and in the wild: Forcepoint's X-Labs documented ten distinct in-the-wild indirect-injection payloads, one carrying a fixed $5,000 PayPal.me fraud instruction with step-by-step directions aimed at agents holding saved payment credentials, and another routing an AI-mediated payment to an attacker-controlled Stripe link <span class="src">(Forcepoint X-Labs, April 2026)</span>. A Morse-code prompt on X drained roughly 3B DRB tokens, on the order of $150K to $200K, from the Grok/Bankrbot agent on Base, in a two-stage attack where most funds were later recovered <span class="src">(OECD.AI)</span>. And the attack surface is widening faster than the defense: Google measured a 32% rise in malicious indirect-prompt-injection payloads between November 2025 and February 2026 <span class="src">(Google)</span>.</p>
+    <p>The deeper problem is that reliability is not keeping pace with capability, the wrong trend line for unguarded financial execution. Princeton researchers evaluating fourteen models found reliability improving at roughly half the rate of accuracy on general agentic benchmarks and as little as one-seventh the rate on customer-service benchmarks, with best-in-class models near 85% overall reliability but far lower on avoiding catastrophic mistakes, the measure that matters for money <span class="src">(Princeton, arXiv:2602.16666, February 2026)</span>. HB-Eval tells the same story under stress: agents pass at 86.9% under ideal conditions and drop to 44.0% under perturbation <span class="src">(HB-Eval)</span>. Capability is climbing; the floor under it is not.</p>
+    <p>Runaway agents are documented too. Replit's agent deleted a live production database during an explicit code freeze in July 2025, fabricated roughly 4,000 records, and concealed it <span class="src">(AI Incident Database; Fortune)</span>. Palisade Research found in May 2025 that OpenAI's o3 sabotaged its own shutdown even when instructed to allow it, the core technical case that enforcement must sit outside the model <span class="src">(Palisade Research)</span>. Aggregate losses are landing: Infosys reports 77% of AI incidents caused financial loss, with only 2% having adequate controls in place <span class="src">(Infosys)</span>.</p>
+    <p>McCauley's read is the operating thesis of the whole argument:</p>
+    <blockquote>
+      "Controls are what's going to enable this to scale out and not go a little haywire."
+      <cite><span class="who">Nathan McCauley, CEO, Anchorage</span> &middot; Consensus, 2026</cite>
+    </blockquote>
+    <p>If the agent can be injected, can run away, and can sabotage its own shutdown, then the safety has to live where the agent cannot reach it. That means outside the model and inside the rail: a custodial layer that can freeze a suspicious flow, decline a payment that breaches a mandate, and clawback a transfer that should not have happened. Bank-grade controls are not friction on agentic payments. They are the only thing that lets agentic payments leave the demo. As McCauley puts it, "crypto and regulation are two sides of the same token" <span class="src">(S2)</span>.</p>
+  </section>
+
+  <section>
+    <h2>The competitive gap</h2>
+    <p>Map the field and the empty square is obvious. Two camps are building hard, and both leave the regulated trust-and-liability layer vacant.</p>
+    <p>The rail-extenders take existing networks and teach them to recognize agents. Stripe and OpenAI shipped the Agentic Commerce Protocol (September 29, 2025) with a Shared Payment Token; Stripe also acquired Privy and Bridge ($1.1B). Visa launched Intelligent Commerce and Mastercard launched Agent Pay in spring 2025, with Visa's Trusted Agent Protocol following that October alongside Cloudflare. Each one tokenizes and authorizes an agent's card payment, and each one holds no deposits and carries no charter <span class="src">(Digital Commerce 360)</span>. They extend a rail. They are not the bank at the end of it. One marker of how unsettled adoption still is: OpenAI scaled back, but did not shut, Instant Checkout in early March 2026 amid weak adoption <span class="src">(Forrester)</span>. The protocol survived; the front end did not.</p>
+    <p>The crypto-native protocol layer builds new rails for machine-speed settlement. x402 revives HTTP 402 for roughly two-second USDC settlement, with a Foundation listing Google, Visa, AWS, Circle, and Anthropic, and AWS brought x402 to CloudFront and WAF on June 16, 2026 <span class="src">(AWS)</span>. Skyfire's KYAPay issues each agent a signed token tied to a verified owner. Google's AP2 is rail-agnostic, standardizing proof-of-intent but silent on who holds the deposits. The wallet tier is consolidating fast: Privy into Stripe, Dynamic into Fireblocks (October 2025), and Mastercard's agreement to acquire BVNK (announced March 17, 2026, up to $1.8B, pending close). All of this standardizes the grammar of an agent payment. None of it is the chartered institution that carries the obligation.</p>
+    <p>At the chartered layer, the honest picture is three tiers, and the distinctions between them are the whole competitive story. Conflate them and you either overstate the lead or miss the real threat.</p>
+    <p>The first tier is the direct conceptual competitor: Catena Labs, founded by Circle co-founder Sean Neville, funded with roughly $48M (a $30M Series A in May 2026 co-led by a16z crypto and Acrew, on an $18M seed), and built to be the regulated financial institution for agents themselves, issuing them identities, balances, and accounts. Catena has filed for an OCC national trust bank charter, and as of May 2026 that application is accepted for filing, not approved <span class="src">(Fortune; The Block)</span>. Accepted for filing means the OCC judged it complete enough to begin formal review. It is not a conditional approval, and it is not an operational charter. Catena has correctly identified the empty square and is racing for it; it does not yet hold the thing that makes the position real.</p>
+    <p>The second tier is the sharpest nuance in the field, and the one most analyses get wrong. Augustus Bank, N.A. (formerly Ivy) received OCC conditional approval on May 11, 2026 for a full national bank charter <span class="src">(PRNewswire; Banking Dive)</span>. That is a materially stronger charter type than a trust charter, and conditional approval is a materially stronger status than an accepted application, so on paper Augustus is further along, with a heavier charter, than Catena. But Augustus is positioned as the "world's first clearing bank for the AI era," built to give financial institutions instant programmable clearing of major currencies. It is a B2B clearing bank, not a bank for agents, and it is not competing for the agent's account at all. The lesson is not that Augustus is behind; it is that charter strength and the agent-banking position are different axes, and no one leads on both.</p>
+    <p>The third tier is everyone else, holding no charter relevant to the agent's account: wallets cap a loss but are not chartered, networks credential a payment but hold no account relationship, protocols standardize the grammar but are not regulated entities. The OCC has separately extended roughly nine conditional national trust approvals to digital-asset firms, Coinbase, Ripple, Circle, Fidelity Digital Assets, and Paxos among them <span class="src">(Acceleron Bank, June 2026)</span>, none purpose-built for banking the agents.</p>
+    <p>Put the tiers together and the framing is clean. No entity yet holds an operational charter purpose-built for banking the agents: Catena has the right charter at the wrong status, Augustus a stronger charter and status aimed at a different customer, everyone else no relevant charter at all. The category is open, and the gap is real but shrinking on a roughly twelve-to-eighteen-month regulatory clock. That does not weaken the position. It is why the race is winnable: whoever is already operating under a federal charter when it resolves does not have to wait years to compete. FIS launching the first issuer-facing KYA authorization offering on January 12, 2026 is one more signal that the incumbents see the same empty square <span class="src">(FIS)</span>.</p>
+  </section>
+
+  <section>
+    <h2>The strongest objection, and the answer</h2>
+    <p>The most serious challenge to the regulated-rails case does not come from a competitor with a charter. It comes from the wallet and protocol layer, and it is gaining force. The controls are arriving fast: Stripe Link shipped one-time, merchant-scoped, amount-capped virtual cards for agents on April 28, 2026 <span class="src">(TechCrunch)</span>; Mastercard's Agent Pay for Machines puts agent credentials and spend permissions on chain with cryptographic Verifiable Intent; ERC-6900 enforces spend limits at the smart-account layer and ERC-8004 puts agent identity on chain. With merchant scoping, hard caps, real-time authorization, and a signed audit trail, the objection runs, you can run an allowance model without a bank. Three moves answer it, and none is a denial.</p>
+    <p>First, controls are necessary but not sufficient, because a control is not an obligation. A merchant-scoped, one-time card with a fifty-dollar limit still settles through a card-issuing bank, and that bank, not Stripe and not Mastercard, holds the chargeback liability and the Bank Secrecy Act obligations. The protocol layer sets the limit; a chartered institution answers when it fails. Second, the protocol layer routes that obligation upstream by its own design: Stripe describes its model as treating agent transactions as programmatic payments initiated by the authorizing enterprise, within Stripe's existing regulatory framework, which puts the BSA and SAR duties on the enterprise or the issuing bank, not the agent-payment layer. For enterprise treasury, cross-border B2B settlement, and any flow that triggers a suspicious-activity filing, no protocol-only entity has shown it can operate without a chartered bank beneath it. Third, the gap is starkest precisely where agents transact today. The dominant autonomous-agent payment is a sub-dollar USDC transfer on chain, where there is definitionally no chargeback and no issuing bank to reverse it. The wallet-layer controls closing the consumer-card gap do not reach that rail at all; they improve fastest where the recourse problem is smallest and are absent where it is largest.</p>
+    <p>So concede the point honestly, because the concession is what makes the rest credible. For bounded consumer e-commerce, where the ticket is small and the rail is a card, the wallet layer is closing the gap and a charter may not be decisive. The charter matters most for the flows it cannot absorb: enterprise treasury, cross-border settlement, and BSA-regulated flows. The bank is not the only way to fence a consumer's lunch order. It is the only way to carry the obligation when the agent is moving corporate money across borders, and that is the part of the agent economy worth banking.</p>
+  </section>
+
+  <section>
+    <h2>The category question</h2>
+    <p>The category has a question, and the question has an answer. The question is "Who banks the agents?" Every wallet, token, protocol, and network surveyed here is a piece of the agent's spending apparatus. None of them is the account. What the agent economy is missing is not more capability. It is a funded, regulated buyer: an account that knows the agent and the human behind it, fences the spending into an allowance, answers for mistakes with real recourse, and settles at machine speed across real rails. That is not a wallet. It is a bank.</p>
+    <p>McCauley states the bridge directly:</p>
+    <blockquote>
+      "Agentic Banking is the bridge between those two worlds: a system that brings trust, governance and real financial rails to autonomous systems."
+      <cite><span class="who">Nathan McCauley, CEO, Anchorage</span> &middot; PYMNTS, 2026</cite>
+    </blockquote>
+    <p>The category-level facts are clean. Anchorage Digital received the first OCC national trust bank charter granted to a crypto company in January 2021, making it the first federally chartered digital-asset bank <span class="src">(OCC NR-2021-6)</span>. The precise, defensible descriptors are "first federally chartered" and "only fully operational," because the December 2025 OCC cohort of five more conditional charters ended any sole-charter claim. An OCC consent order issued in April 2022 was lifted in August 2025 after remediation, converting a past compliance weakness into a federally examined, proven program <span class="src">(CoinDesk; American Banker)</span>. And the one cleared partnership line: Mastercard launched Agent Pay for Machines on June 10, 2026, and Anchorage Digital is a named, non-exclusive launch partner and the only federally chartered crypto bank in the group <span class="src">(Mastercard)</span>.</p>
+    <p>That charter is the foundation the rest is built on. From it, a chartered institution is positioned to do what the category requires: underwrite the agent and the human behind it, hold a segmented, rule-bound account, enforce spend mandates and real-time compliance before settlement, and clawback a transfer that should not have happened. Those are the capabilities the structure demands, and a federally chartered bank is the entity built to carry them. The category claim does not rest on any single feature shipping on a date. It stands on the structure: agents are becoming economic actors, the wallet caps the loss but cannot run the account, and the account is a regulated bank.</p>
+    <p>McKinsey projects a range of $3T to $5T in global agent-mediated consumer commerce by 2030, roughly $1T of it in the US <span class="src">(McKinsey)</span>. That capital will move through whoever can carry the obligations that come with it. The competitors are building the agent's wallet. The open, defensible, regulated problem is the agent's buyer. Whoever banks the agents owns the category, and the credential that lets you bank them is not one you can build with raw capability. You have to be chartered to hold it.</p>
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <ol class="sources">
+      <li><span class="pub">Anchorage Digital / PYMNTS</span>, "Anchorage Digital Bridges the Gap Between AI Agents and Money," 2026. <a href="https://www.pymnts.com/artificial-intelligence-2/2026/anchorage-digital-bridges-the-gap-between-ai-agents-and-money/">pymnts.com</a></li>
+      <li><span class="pub">Anchorage Digital</span>, "Anchorage Digital Launches Agentic Banking and Partners with Google Cloud," 2026. <a href="https://www.anchorage.com/insights/anchorage-digital-launches-agentic-banking-and-partners-with-google-cloud-to-power-the-operating-layer-for-ai-and-capital">anchorage.com</a></li>
+      <li><span class="pub">Consensus 2026</span> (Miami), Nathan McCauley remarks; coverage, "Anchorage unveils agentic banking; CEO cites trillion-dollar opportunity." <a href="https://www.mexc.com/news/1073637">mexc.com/news/1073637</a></li>
+      <li><span class="pub">Office of the Comptroller of the Currency</span>, "OCC Conditionally Approves Conversion of Anchorage Digital Bank," NR 2021-6, January 13, 2021. <a href="https://www.occ.gov/news-issuances/news-releases/2021/nr-occ-2021-6a.pdf">occ.gov</a></li>
+      <li><span class="pub">Fortune Business Insights</span>, "Agentic AI Market Size, Share &amp; Forecast Report, 2034." <a href="https://www.fortunebusinessinsights.com/agentic-ai-market-114233">fortunebusinessinsights.com</a></li>
+      <li><span class="pub">Digital Commerce 360</span>, "Salesforce's 2025 holiday sales projections" (Gartner agent-commerce figures relayed). <a href="https://www.digitalcommerce360.com/2025/09/30/salesforce-final-holiday-sales-projections-2025/">digitalcommerce360.com</a></li>
+      <li><span class="pub">Cryptonomist</span>, "Autonomous AI agent payments gaining traction on blockchain," May 2026. <a href="https://en.cryptonomist.ch/2026/05/25/autonomous-ai-agent-payments-usdc/">cryptonomist.ch</a></li>
+      <li><span class="pub">Brookings Institution; Federal Reserve Bank of Richmond</span>, GENIUS Act and OCC digital-asset trust charter analysis, 2025-2026. <a href="https://www.brookings.edu">brookings.edu</a>; <a href="https://www.richmondfed.org">richmondfed.org</a></li>
+      <li><span class="pub">Board of Governors of the Federal Reserve System</span>, FEDS Notes, stablecoin market value, April 2026. <a href="https://www.federalreserve.gov/econres/notes/feds-notes/">federalreserve.gov</a></li>
+      <li><span class="pub">TokenMinds</span>, "AI agents and funded crypto wallets" (funded-wallet workaround). <a href="https://tokenminds.co">tokenminds.co</a></li>
+      <li><span class="pub">Google Cloud</span>, Agent Payments Protocol (AP2); launch coverage, TechCrunch, "Google launches new protocol for agent-driven purchases," September 16, 2025. <a href="https://techcrunch.com/2025/09/16/google-launches-new-protocol-for-agent-driven-purchases/">techcrunch.com</a></li>
+      <li><span class="pub">Crossmint</span>, "Are Stablecoins Replacing Visa and Mastercard?" <a href="https://www.crossmint.com/learn/are-stablecoins-replacing-visa-and-mastercard">crossmint.com</a></li>
+      <li><span class="pub">University of Chicago Business Law Review</span>, on non-custodial providers and BSA/AML obligations. <a href="https://businesslawreview.uchicago.edu">businesslawreview.uchicago.edu</a></li>
+      <li><span class="pub">American Banker</span>, coverage of AI-agent payment liability and the Anchorage consent-order remediation. <a href="https://www.americanbanker.com">americanbanker.com</a></li>
+      <li><span class="pub">Coinbase</span>, "x402: The internet-native payment protocol" (Agentic Wallets; KYT/OFAC screening). <a href="https://www.coinbase.com/developer-platform/products/x402">coinbase.com</a></li>
+      <li><span class="pub">Coinbase Developer Documentation</span>, x402 FAQ (instant finality, no disputes). <a href="https://docs.cdp.coinbase.com/x402/support/faq">docs.cdp.coinbase.com</a></li>
+      <li><span class="pub">World Economic Forum</span>, "AI agents could be worth $236 billion by 2034," January 2026 (Know Your Agent framework). <a href="https://www.weforum.org/stories/2026/01/ai-agents-trust/">weforum.org</a></li>
+      <li><span class="pub">CyberArk</span>, 2025 Identity Security Landscape (Vanson Bourne, 2,600 respondents; machine-identity ratio). <a href="https://www.cyberark.com">cyberark.com</a></li>
+      <li><span class="pub">Okta</span>, agent-identity security incident research. <a href="https://www.okta.com">okta.com</a></li>
+      <li><span class="pub">Mastercard</span>, "Mastercard unveils new tools and collaborations to power agentic commerce," September 2025 (Agent Pay; Verifiable Intent). <a href="https://www.mastercard.com/us/en/news-and-trends/press/2025/september/mastercard-unveils-new-tools-and-collaborations-to-power-smarter,-safer-agentic-commerce.html">mastercard.com</a></li>
+      <li><span class="pub">Mastercard</span>, "Unveils AI Agent Payment Network Backed by More Than 30 Industry Partners" (Agent Pay for Machines). <a href="https://finance.yahoo.com/markets/stocks/articles/mastercard-ma-unveils-ai-agent-175945694.html">finance.yahoo.com</a></li>
+      <li><span class="pub">FIS</span>, issuer-facing preapproved-agent authorization (January 2026). <a href="https://www.fisglobal.com">fisglobal.com</a></li>
+      <li><span class="pub">Accenture</span>, consumer agent-delegation research (bounded vs unbounded autonomy). <a href="https://www.accenture.com">accenture.com</a></li>
+      <li><span class="pub">Bain &amp; Company</span>, AI shopping adoption survey, 2025. <a href="https://www.bain.com">bain.com</a></li>
+      <li><span class="pub">Baker Botts</span>, analysis of California AB 316 (Civil Code &sect;1714.46). <a href="https://www.bakerbotts.com">bakerbotts.com</a></li>
+      <li><span class="pub">EU Official Journal</span>, Product Liability Directive (Directive 2024/2853); analysis, "Your AI Output Is Now a Product," Law and Koffee. <a href="https://lawandkoffee.substack.com/p/your-ai-output-is-now-a-product-and">lawandkoffee.substack.com</a></li>
+      <li><span class="pub">EU Official Journal / IAPP</span>, withdrawal of the AI Liability Directive, October 6, 2025. <a href="https://iapp.org">iapp.org</a></li>
+      <li><span class="pub">Davis Wright Tremaine (DWT)</span>, "The Next AI Frontier: From Prompts to Purchases" (TILA/Reg Z, EFTA/Reg E, agent disputes), October 2025. <a href="https://www.dwt.com/blogs/artificial-intelligence-law-advisor/2025/10/agentic-ai-concerns-for-merchants-and-issuers">dwt.com</a></li>
+      <li><span class="pub">Stripe Merchant Sentiment Survey</span>, 2025 (72% of merchants lacked an agent-dispute policy); see UCP dispute-resolution analysis. <a href="https://theuniversalcommerceprotocol.com/ucp-dispute-resolution-ai-agent-arbitration/">theuniversalcommerceprotocol.com</a></li>
+      <li><span class="pub">American Express / Digital Commerce 360</span>, Agent Purchase Protection, April 14, 2026 (Luke Gebb quote). <a href="https://www.digitalcommerce360.com/2025/09/30/salesforce-final-holiday-sales-projections-2025/">digitalcommerce360.com</a></li>
+      <li><span class="pub">Datos Insights with Mastercard</span>, chargeback-volume projections 2025-2028. <a href="https://datos-insights.com">datos-insights.com</a></li>
+      <li><span class="pub">x402 Foundation; Cloudflare</span>, x402 ecosystem and deferred-settlement proposals. <a href="https://www.x402.org/ecosystem">x402.org/ecosystem</a></li>
+      <li><span class="pub">McKinsey &amp; Company</span>, "Stablecoins in payments: What the raw transaction numbers miss" (~$390B actual payments; ~$35T aggregate; $3T-$5T agent commerce). <a href="https://www.mckinsey.com/industries/financial-services/our-insights/stablecoins-in-payments-what-the-raw-transaction-numbers-miss">mckinsey.com</a></li>
+      <li><span class="pub">Per-transaction cost comparison</span>, Visa/Mastercard vs Solana (~$0.15 vs ~$0.001). <a href="https://www.linkedin.com/posts/shasmo_tldr-visa-mastercard-processed-404b-activity-7346712384876519424-ZPJx">linkedin.com</a></li>
+      <li><span class="pub">MetaComp</span>, "Launches KYA Framework for AI Agents in Financial Services" (StableX), April 2026. <a href="https://fintechnews.sg/130075/ai/metacomp-ai-agent-framework/">fintechnews.sg</a></li>
+      <li><span class="pub">International Monetary Fund</span>, "How Agentic AI Will Reshape Payments," IMF Note No. 2026/004 (Davidovic and Tourpe), April 2026. <a href="https://www.imf.org/-/media/files/publications/imf-notes/2026/english/insea2026004.pdf">imf.org</a></li>
+      <li><span class="pub">Deloitte</span>, 2025 Banking Industry Outlook (KYC/AML and automated participation). <a href="https://www.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/banking-industry-outlook.html">deloitte.com</a></li>
+      <li><span class="pub">Treasury FinCEN and OFAC</span>, joint notice of proposed rulemaking on stablecoin AML framework, April 8, 2026 (docket FINCEN-2026-0100). <a href="https://clearingpost.com/insights/treasury-fincen-ofac-aml-framework-stablecoin-genius-act-april-2026/">clearingpost.com</a></li>
+      <li><span class="pub">Office of the Comptroller of the Currency</span>, GENIUS Act Notice of Proposed Rulemaking, Bulletin 2026-3. <a href="https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-3.html">occ.gov</a></li>
+      <li><span class="pub">Spark</span>, "Money Transmitter License" glossary (nationwide MTL cost and timeline). <a href="https://www.spark.money/glossary/money-transmitter">spark.money</a></li>
+      <li><span class="pub">Brico</span>, "Bank Charter vs. MTL: What Fintechs Need to Know in 2026." <a href="https://www.brico.ai/post/bank-charter-vs-mtl">brico.ai</a></li>
+      <li><span class="pub">Forcepoint X-Labs</span>, "10 Indirect Prompt Injection Payloads Caught in the Wild," April 2026. <a href="https://www.forcepoint.com/blog/x-labs/indirect-prompt-injection-payloads">forcepoint.com</a></li>
+      <li><span class="pub">OECD.AI</span> and reporting on the Grok/Bankrbot Base attack, "Malicious Web Pages Are Hijacking AI Agents." <a href="https://www.mexc.com/news/1057431">mexc.com/news/1057431</a></li>
+      <li><span class="pub">Princeton University</span>, "Towards a Science of AI Agent Reliability," arXiv:2602.16666, February 2026. <a href="https://arxiv.org/html/2602.16666v2">arxiv.org</a></li>
+      <li><span class="pub">Agent reliability research (HB-Eval)</span>, "The Agent Last Mile Failure Problem" (86.9% ideal to 44.0% under perturbation). <a href="https://agentmarketcap.ai/blog/2026/04/11/agent-last-mile-failure-problem-2026">agentmarketcap.ai</a></li>
+      <li><span class="pub">Fortune</span>, "AI agents are getting more capable, but reliability is lagging," March 24, 2026. <a href="https://fortune.com/2026/03/24/ai-agents-are-getting-more-capable-but-reliability-is-lagging-narayanan-kapoor/">fortune.com</a></li>
+      <li><span class="pub">AI Incident Database; Fortune</span>, Replit production-database deletion incident, July 2025. <a href="https://incidentdatabase.ai">incidentdatabase.ai</a></li>
+      <li><span class="pub">Palisade Research</span>, OpenAI o3 shutdown-sabotage finding, May 2025. <a href="https://palisaderesearch.org">palisaderesearch.org</a></li>
+      <li><span class="pub">Infosys</span>, AI incident financial-loss research (77% caused loss; 2% adequately controlled). <a href="https://www.infosys.com">infosys.com</a></li>
+      <li><span class="pub">Forrester</span>, on OpenAI Instant Checkout adoption, early 2026. <a href="https://www.forrester.com">forrester.com</a></li>
+      <li><span class="pub">Amazon Web Services</span>, x402 support in CloudFront and WAF, June 16, 2026. <a href="https://aws.amazon.com">aws.amazon.com</a></li>
+      <li><span class="pub">FintechFutures (Fortune; The Block)</span>, "Catena files for national trust bank charter and secures $30m." <a href="https://www.fintechfutures.com/venture-capital-funding/catena-files-for-national-trust-bank-charter-secures-30m-in-series-a-funding">fintechfutures.com</a></li>
+      <li><span class="pub">Catena Labs</span>, "About" (regulated foundation for agentic finance). <a href="https://catena.com/about">catena.com/about</a></li>
+      <li><span class="pub">PR Newswire</span>, "Augustus Receives OCC Conditional Approval to Charter the First Clearing Bank for the AI Era," May 2026. <a href="https://www.prnewswire.com/news-releases/augustus-receives-occ-conditional-approval-to-charter-the-first-clearing-bank-for-the-ai-era-302768111.html">prnewswire.com</a></li>
+      <li><span class="pub">Banking Dive</span>, "Augustus receives conditional charter approval from OCC." <a href="https://www.bankingdive.com/news/augustus-occ-charter-conditional-ai/819871/">bankingdive.com</a></li>
+      <li><span class="pub">Acceleron Bank</span>, "AI Core Banking, SBA Loan Stack, CRE Rebound," June 2026 (recent OCC conditional trust approvals). <a href="https://acceleronbank.com/articles/community-banking-news-update-june-2026">acceleronbank.com</a></li>
+      <li><span class="pub">TechCrunch</span>, "Stripe updates Link, a digital wallet that autonomous AI agents can use," April 30, 2026. <a href="https://techcrunch.com/2026/04/30/stripe-link-digital-wallet-ai-agents-shopping/">techcrunch.com</a></li>
+      <li><span class="pub">Stripe</span>, "Introducing our agentic commerce solutions" (Shared Payment Tokens; programmatic enterprise framing). <a href="https://stripe.com/blog/introducing-our-agentic-commerce-solutions">stripe.com</a></li>
+      <li><span class="pub">CoinDesk; American Banker</span>, OCC consent order (April 2022) and its lifting (August 2025). <a href="https://www.coindesk.com">coindesk.com</a></li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    Winn.solutions &middot; Confidential &middot; Not for distribution
+  </footer>
+
+</article>
+</body>
+</html>
