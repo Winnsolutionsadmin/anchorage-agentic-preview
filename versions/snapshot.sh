@@ -48,6 +48,9 @@ HTML
 
 if [ "${1:-}" = "--reindex" ]; then gen_index; exit 0; fi
 
+# prevent concurrent / recursive runs (portable lock; macOS has no flock)
+LK="$VDIR/.lock.d"; mkdir "$LK" 2>/dev/null || exit 0; trap 'rmdir "$LK" 2>/dev/null' EXIT
+
 DESC="${1:-edit}"
 MAJOR=$(cat "$VDIR/.major" 2>/dev/null || echo 3)
 LAST=$(ls "$VDIR"/v${MAJOR}.*.html 2>/dev/null | sed -E "s#.*/v${MAJOR}\.([0-9]+)\.html#\1#" | sort -n | tail -1)
