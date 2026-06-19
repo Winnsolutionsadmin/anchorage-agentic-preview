@@ -624,7 +624,7 @@ const WEEKS=[
  {label:'Week 2', phase:'Co-sign to Drop', days:[['MON','Jun 29','2026-06-29'],['TUE','Jun 30','2026-06-30'],['WED','Jul 1','2026-07-01'],['THU','Jul 2','2026-07-02'],['FRI','Jul 3','2026-07-03']]}
 ];
 const DMAP={'Jun 22':'2026-06-22','Jun 23':'2026-06-23','Jun 24':'2026-06-24','Jun 25':'2026-06-25','Jun 26':'2026-06-26','Jun 29':'2026-06-29','Jun 30':'2026-06-30','Jul 1':'2026-07-01','Jul 2':'2026-07-02','Jul 3':'2026-07-03'};
-function dayToISO(s){if(!s)return null;const m=String(s).match(/\d{4}-\d{2}-\d{2}/);if(m)return m[0];for(const k in DMAP){if(String(s).includes(k))return DMAP[k];}return null;}
+function dayToISO(s){if(!s)return null;s=String(s).replace(/(Jun|Jul)\s+0(\d)/,'$1 $2');const m=s.match(/\d{4}-\d{2}-\d{2}/);if(m)return m[0];for(const k in DMAP){if(s.includes(k))return DMAP[k];}return null;}
 function dayMeta(iso){return (SPRINT_DATA.gantt.days||[]).find(x=>x.date===iso)||{};}
 function clip(s,n){s=s||'';return s.length>n?s.slice(0,n)+'…':s;}
 function miniCal(t){
