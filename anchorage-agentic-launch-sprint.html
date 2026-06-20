@@ -100,7 +100,7 @@ h3.serif{font-size:20px;font-weight:600;margin:24px 0 8px}
 .goalbar{background:linear-gradient(90deg,rgba(205,163,73,.1),rgba(205,163,73,.02));border:1px solid var(--line2);border-left:3px solid var(--brass);border-radius:8px;padding:14px 18px;margin:22px 0 6px;font-size:14.5px;color:var(--ink)}
 .goalbar b{color:var(--brass2)}
 
-/* ===== LAUNCH CALENDAR — wide owner-swimlane ===== */
+/* ===== LAUNCH CALENDAR - wide owner-swimlane ===== */
 .calbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 16px}
 .calbar .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--faint)}
 .calbar .legend .lg{display:flex;align-items:center;gap:6px}
@@ -372,3 +372,857 @@ table.t .st{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--f
     </div>
     <div class="goalbar"><b>End state:</b> every breadcrumb, paper post, partner co-sign, and press hit routes to the agentic landing page and the Agentic Banking waitlist. The waitlist is the single conversion event the whole sprint is built to produce.</div>
   </section>
+
+  <section id="calendar">
+    <div class="sh"><span class="sn">02</span><h2 class="serif">Launch Calendar</h2></div>
+    <p class="ss">The two-week run as a wide <b>owner swimlane</b>: each row is who posts, each column is the day. Every item is an <b>action card</b> with its tag chips and a proposed push time. KOL quote-tweets and replies sit in the KOL lane on the day they react to the Nathan post directly above them in the timeline. Under each day: the <b>Narrative</b> we want to land and its two supporting beliefs. The bottom <b>aligns-with</b> row shows that day&rsquo;s belief pills plus the replies and quote tweets it is built to produce, so each day reads as the desired end outcome once executed. Engagement is illustrative.</p>
+    <div class="calbar"><span class="docbtn sheet" data-gsheet="pending" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>Open logistics sheet (Google Sheets)</span>
+      <div class="legend">
+<div class="lg"><span class="dot" style="background:#5b9bd5"></span>TEASE</div>
+<div class="lg"><span class="dot" style="background:#b58bd8"></span>RESEARCH</div>
+<div class="lg"><span class="dot" style="background:#e3c578"></span>PARTNER</div>
+<div class="lg"><span class="dot" style="background:#5fb98a"></span>PROOF</div>
+<div class="lg"><span class="dot" style="background:#ec9686"></span>PR</div>
+<div class="lg"><span class="dot" style="background:#cda349"></span>LAUNCH</div>
+      </div></div>
+    <div class="calscroll"><div class="cal">
+      <div class="calhead"><div class="ch">owner / day</div>
+<div class="ch"><div class="dw">Mon</div><div class="dd">Jun 22</div><span class="dph" style="background:#5b9bd522;color:#5b9bd5">TEASE</span></div>
+<div class="ch"><div class="dw">Tue</div><div class="dd">Jun 23</div><span class="dph" style="background:#5b9bd522;color:#5b9bd5">TEASE</span></div>
+<div class="ch"><div class="dw">Wed</div><div class="dd">Jun 24</div><span class="dph" style="background:#b58bd822;color:#b58bd8">RESEARCH</span></div>
+<div class="ch"><div class="dw">Thu</div><div class="dd">Jun 25</div><span class="dph" style="background:#e3c57822;color:#e3c578">PARTNER</span></div>
+<div class="ch"><div class="dw">Fri</div><div class="dd">Jun 26</div><span class="dph" style="background:#5fb98a22;color:#5fb98a">PROOF</span></div>
+<div class="ch"><div class="dw">Mon</div><div class="dd">Jun 29</div><span class="dph" style="background:#ec968622;color:#ec9686">PR</span></div>
+<div class="ch"><div class="dw">Tue</div><div class="dd">Jun 30</div><span class="dph" style="background:#ec968622;color:#ec9686">PR</span></div>
+<div class="ch"><div class="dw">Wed</div><div class="dd">Jul 1</div><span class="dph" style="background:#cda34922;color:#cda349">LAUNCH</span></div>
+<div class="ch"><div class="dw">Thu</div><div class="dd">Jul 2</div><span class="dph" style="background:#cda34922;color:#cda349">LAUNCH</span></div>
+<div class="ch"><div class="dw">Fri</div><div class="dd">Jul 3</div><span class="dph" style="background:#cda34922;color:#cda349">LAUNCH</span></div>
+      </div>
+      <div class="calnarr"><div class="nlbl">Narrative<br>+ subs</div>
+<div class="ncell"><div class="nh">There is a question the entire agent industry has skipped, and a credible institution is the first to ask it out loud.</div><div class="nsub"><span class="sk">Sub-1:</span> Agents are about to become economic actors, and the agent stack assumes a money layer that does not exist yet.</div><div class="nsub"><span class="sk">Sub-2:</span> When a regulated bank and its CEO ask the same four words in one voice, it reads as a staked position, not a stray musing.</div></div>
+<div class="ncell"><div class="nh">The unasked question has a name and a lineage: Know Your Agent is the obvious next leg after Know Your Customer and Know Your Business.</div><div class="nsub"><span class="sk">Sub-1:</span> An agent can think; trusting it with money is a different bar, and that bar is a controls-and-controls problem the regulated world already speaks.</div><div class="nsub"><span class="sk">Sub-2:</span> The company that coins the vocabulary (KYA, proof of agent) and repeats it from CEO and brand handle is the company that owns the category.</div></div>
+<div class="ncell"><div class="nh">Anchorage just published the reference text for agentic banking, so the question it asked on Monday now has an authoritative, citable answer.</div><div class="nsub"><span class="sk">Sub-1:</span> The constraint on the agent economy was never the model; it is the money layer, and the paper makes that reframe rigorous.</div><div class="nsub"><span class="sk">Sub-2:</span> When the regulated player publishes the paper, the paper tends to become the playbook the rest of the field cites.</div></div>
+<div class="ncell"><div class="nh">A top-tier, regulator-fluent fintech investor independently arrives at the same thesis, so this is an industry shift, not one bank&#x27;s marketing.</div><div class="nsub"><span class="sk">Sub-1:</span> Every wave of finance opens with a new kind of account; the agent account is the next one, and the smart money is already naming it.</div><div class="nsub"><span class="sk">Sub-2:</span> Anchorage gets distribution into a fintech-native audience it never had on its own, and the alignment reads as genuine because each side speaks from its own seat.</div></div>
+<div class="ncell"><div class="nh">Banking an agent is the boring, hard part (segmented accounts, spending limits, verified merchants, a human on the hook), and boring is exactly the moat.</div><div class="nsub"><span class="sk">Sub-1:</span> You give an agent an allowance, not your account; a capped wallet bounds the loss but does not govern the behavior.</div><div class="nsub"><span class="sk">Sub-2:</span> When an agent pays the wrong party at 3am, someone has to pick up, and only a regulated, accountable counterparty can credibly be that someone.</div></div>
+<div class="ncell"><div class="nh">The story is now newsworthy enough to brief the press under embargo, and a named regulated bank is the on-record source.</div><div class="nsub"><span class="sk">Sub-1:</span> A co-authored thesis plus a chartered counterparty is a real story, and the embargo letter frames it for journalists before it breaks.</div><div class="nsub"><span class="sk">Sub-2:</span> A live Nathan-and-Malka fireside is on the calendar, which signals the partnership is substantive and public, not a paid placement.</div></div>
+<div class="ncell"><div class="nh">Independent press confirms Anchorage as the first regulated bank to stand up agentic banking, moving the thesis from Anchorage&#x27;s own posts to third-party record.</div><div class="nsub"><span class="sk">Sub-1:</span> The charter is the part a competitor cannot copy with a funding round, and the coverage leads with it.</div><div class="nsub"><span class="sk">Sub-2:</span> Earned coverage plus KOL amplification means the idea has escaped the brand and become a topic the industry is discussing.</div></div>
+<div class="ncell"><div class="nh">The month-long arc resolves into a product on-ramp: the Agentic Banking waitlist is open, and joining is how a builder signals they are building where agents meet money.</div><div class="nsub"><span class="sk">Sub-1:</span> This is not a better model; it is a regulated place for an agent to hold and spend under rules, with KYA at the core.</div><div class="nsub"><span class="sk">Sub-2:</span> The waitlist is framed as a builder signal rather than a product drop, which lowers the bar to join and raises intent.</div></div>
+<div class="ncell"><div class="nh">Real demand is surfacing in public, and Anchorage is co-designing the category with the builders who are raising their hand.</div><div class="nsub"><span class="sk">Sub-1:</span> Direct builder prompts (&#x27;if your agent had its own account and limits, what would you build&#x27;) turn the replies into a live roadmap of demand.</div><div class="nsub"><span class="sk">Sub-2:</span> Anchorage even hires agent-first: the agentic interview process is the proof that the company practices the future it is selling.</div></div>
+<div class="ncell"><div class="nh">Anchorage led a sequenced, multi-party movement to a credible launch, and the close credits the partners and reframes the whole sprint as one deliberate plan.</div><div class="nsub"><span class="sk">Sub-1:</span> Naming the partners signals a roster of real backers, and named partners are how an emerging category gets legitimized.</div><div class="nsub"><span class="sk">Sub-2:</span> Read the month back and the breadcrumb-to-paper-to-partner-to-waitlist sequence was a real campaign, which tells the market Anchorage executes.</div></div>
+      </div>
+      <div class="swim">
+<div class="swimlane"><div class="sl-n">Nathan McCauley</div><div class="sl-h">@nathanmccauley</div><div class="sl-d">CEO voice. Thesis, KYA, the 3am test, the reveal video.</div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip BREADCRUMB">(BREADCRUMB)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 8:47a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">WHO BANKS THE AGENTS</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard lead-card"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 12:10p ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">Today is the start of a new frontier for Anchorage.
+
+We are pivoting hard into an agentic organization.
+
+The boring parts of banking, custody, controls, knowing who is on the other side, are about to matter more than ever. Not less.
+
+Here is why.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S31</span><span class="bpill">S5</span><span class="bpill">S4</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 12:11p ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">Agents can already advise you.
+
+What most of them still cannot do is act. Hold money. Get paid. Be told no.
+
+That last part is the whole game.
+
+An agent that can transact is an economic actor. And every economic actor eventually needs an account.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S10</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip BREADCRUMB">(BREADCRUMB)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 8:52a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">KYA.
+
+KNOW YOUR AGENT.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S2</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 10:20a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">A way to think about agentic commerce.
+
+It is not a feature bolted onto the old system.
+
+It is a reset of the platform. Same way every company became an internet company. Every account is about to have an agent attached to it.
+
+The question is who holds the funds when it does.</div><div class="pills" style="margin-top:6px"><span class="bpill">S8</span><span class="bpill">S24</span><span class="bpill">S31</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 1:05p ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">For years we learned to know our customers. Know your business. KYC, KYB.
+
+Now there is a third one.
+
+Know your agent.
+
+You are not just underwriting the human who owns the bot. You are underwriting the agent itself. Its history. Its identity. What it is actually allowed to do.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S2</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard lead-card"><div class="chips"><span class="tagchip VIDEO">(VIDEO)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push Tue Jun 23, 6:30p ET (or early Wed)</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">Raw selfie to camera, shot on his phone. The breadcrumbs resolve into a committed direction: Anchorage is going all in on agentic banking. Same crux problem as custody, one layer out. We are building the bridge.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S31</span><span class="bpill">S5</span></div><div class="ill">illustrative &middot; links to hero video (see Livestreams)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Script (Google Doc)</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 11:30a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">The agent economy is mostly a controls problem wearing an AI costume.
+
+Give an agent your whole bank account and you are asking for trouble.
+
+Give it a segmented account. An allowance. A spending limit. A verified merchant on the other side. A human who is still on the hook.
+
+That is the part nobody is building yet.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S5</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip QT">(QT)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 9:25a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">This is the question we kept getting asked, so we wrote down our answer.
+
+Who banks the agents.
+
+Less about the AI than people expect. Mostly about controls, identity, and who is accountable when an agent moves money.
+
+Worth a read if you are building in this space.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S31</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip COMMENT">(COMMENT)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 9:40a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">One line from it I keep coming back to.
+
+When an agent pays the wrong party at three in the morning, who picks up the phone, and what can they actually do about it.
+
+If the answer is no one, it is not a bank for agents. It is an agent with a card and crossed fingers.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S4</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip BREADCRUMB">(BREADCRUMB)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 8:44a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">PROOF OF AGENT</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S11</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 12:15p ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">The proof is not a roadmap slide.
+
+We have been putting agents to work on our own internal operations. You learn fast what breaks when software is allowed to act with money.
+
+Spending limits. Segmented accounts. A verified counterparty. A human who stays accountable.
+
+Build the controls first. Then let the agent act.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S4</span><span class="bpill">S11</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 9:15a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">We are putting our thinking out, and we are opening a waitlist.
+
+It is for the people building where agents meet money. If you are building an agent that needs to hold funds, get paid, or pay a verified counterparty, come find us.
+
+We would rather build this in the open, with you, than behind a curtain.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S26</span><span class="bpill">S27</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push 10:05a ET</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">The agentic page is live.
+
+One page. What agentic banking is, who it is for, and how to get on the list.
+
+No pitch deck. If you are building an agent that needs an account, that page tells you what we are doing and how to plug in.
+
+link below. The list is open.</div><div class="pills" style="margin-top:6px"><span class="bpill">S24</span><span class="bpill">S15</span><span class="bpill">S12</span></div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip RECRUITING">(RECRUITING)</span><span class="tagchip QT">(QT)</span><span class="tagchip NATHAN">(NATHAN)</span></div><div class="pushtime">push Thu Jul 2</div><div class="who"><div class="av gen nathan">N</div><div><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="body">We run on agents internally, so it would be strange to hire any other way. If you already work like this, come build with us. QT: [the agentic-interview reveal].</div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"></div>
+      </div>
+      <div class="swim">
+<div class="swimlane"><div class="sl-n">Anchorage handle</div><div class="sl-h">@AnchorageDigital</div><div class="sl-d">Brand voice. Paper, waitlist, landing page, recruiting.</div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard lead-card"><div class="chips"><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">push Wed Jun 24, 9:00a ET</div><div class="who"><div class="av gen anchorage">A</div><div><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div><div class="body">New from Anchorage research: Who Banks the Agents.
+
+Agents are becoming economic actors. What lets them act is not a smarter model. It is regulated financial rails.
+
+Read the paper.</div><a class="papimg" href="./who-banks-the-agents.html" target="_blank" rel="noopener"><img src="assets/paper-screenshot.png" alt="Who Banks the Agents paper"><div class="cap">&#128279; Who Banks the Agents &middot; opens the full paper</div></a><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip RECRUITING">(RECRUITING)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">push Thu Jun 25</div><div class="who"><div class="av gen anchorage">A</div><div><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div><div class="body">We hire the way we bank: agent-first.
+
+Something new is coming to how we run our interviews. If you build with agents, you&#x27;re going to want to see this.
+
+More next week.</div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">push Wed Jul 1, 9:00a ET</div><div class="who"><div class="av gen anchorage">A</div><div><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div><div class="body">The Agentic Banking waitlist is open.
+
+A regulated place for your agent to hold and spend under rules. Know Your Agent at the core. An allowance, not your wallet.
+
+Join the list. Link in bio.</div><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">push Wed Jul 1, 1:30p ET</div><div class="who"><div class="av gen anchorage">A</div><div><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div><a class="papimg" href="assets/waitlist-landing.png" data-img="1" target="_blank" rel="noopener"><img src="assets/waitlist-landing.png" alt="Agentic landing page"><div class="cap">&#128279; the agentic landing page</div></a><div class="body">The agentic page is live. One page: what agentic banking is, who it is for, and how to get on the list. No pitch deck. If you are building an agent that needs an account, it tells you how to plug in.</div><div class="ill">illustrative &middot; the single landing-page announce</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip RECRUITING">(RECRUITING)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">push Thu Jul 2</div><div class="who"><div class="av gen anchorage">A</div><div><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div><div class="body">Introducing the agentic interview.
+
+We&#x27;ve been running agents inside Anchorage for a while. Now our hiring loop reflects it: bring your agent, direct it on a real problem, and show us how you work when an agent does the busywork.
+
+We&#x27;re hiring people who already live in the future we&#x27;re banking.
+
+See how it works: [link]</div><a class="papimg" href="#" data-modal="recruit" onclick="return false"><img src="assets/agentic-interview.png" alt="Agentic interview process"><div class="cap">&#128279; the agentic interview &middot; opens the 4-step process</div></a><div class="ill">illustrative</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"></div>
+      </div>
+      <div class="swim">
+<div class="swimlane"><div class="sl-n">KOLs (illustrative)</div><div class="sl-h">third-party</div><div class="sl-d">Fictional influencer personas reacting in public. QTs and replies.</div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">DO</div><div><div class="nm">Dana Okafor</div><div class="hd">@danabuilds  &#10003;</div></div></div><div class="body">Four words and I can&#x27;t stop thinking about it. Every agent demo I&#x27;ve shipped this year assumes a money layer that just... doesn&#x27;t exist yet. Somebody finally said the quiet part.
+
+QT: WHO BANKS THE AGENTS?</div><div class="qtref">re: All-caps breadcrumb: WHO BANKS THE AGENTS? (no further context).</div><div class="eng"><span class="e">&#8226; 312 replies</span><span class="e">&#8645; 540</span><span class="e">&#9829; 4100</span><span class="e">182K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">MR</div><div><div class="nm">Marcus Reilly</div><div class="hd">@mreilly_fin  &#10003;</div></div></div><div class="body">Banks spent a decade asking who is the customer. Nobody asked the obvious next one. The fact that it&#x27;s @Anchorage asking it tells you which way they&#x27;re pointed.</div><div class="qtref">re: All-caps breadcrumb: WHO BANKS THE AGENTS? (no further context).</div><div class="eng"><span class="e">&#8226; 148 replies</span><span class="e">&#8645; 210</span><span class="e">&#9829; 1900</span><span class="e">96K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">PV</div><div><div class="nm">Priya Venkat</div><div class="hd">@priya_onchain  &#10003;</div></div></div><div class="body">The agents are coming stopped being sci-fi a while ago. It&#x27;s a roadmap line item now. The banking part is the gap, and almost nobody is building for it.
+
+QT: agents can advise today. Acting is the part that needs money, and money needs rails.</div><div class="qtref">re: Short Nathan tweet: agents can advise, soon they can act, and acting requires a money laye&hellip;</div><div class="eng"><span class="e">&#8226; 201 replies</span><span class="e">&#8645; 388</span><span class="e">&#9829; 2700</span><span class="e">121K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">RM</div><div><div class="nm">Raj Malhotra</div><div class="hd">@raj_kyc  &#10003;</div></div></div><div class="body">KYA. Of course. We KYC humans, we KYB businesses, and an autonomous actor that holds and moves money is the missing third leg. Cleanest framing of the next controls decade I&#x27;ve seen.
+
+QT: KYA. Know Your Agent.</div><div class="qtref">re: KYA breadcrumb: KYA. (KNOW YOUR AGENT.) We know your client. We know your business. Now we&hellip;</div><div class="eng"><span class="e">&#8226; 276 replies</span><span class="e">&#8645; 520</span><span class="e">&#9829; 3800</span><span class="e">168K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">EF</div><div><div class="nm">Elena Fischer</div><div class="hd">@elenarisk  &#10003;</div></div></div><div class="body">Every controls team is going to seize on this acronym. It maps a brand-new problem onto language we already trust and already audit against. That&#x27;s how a control actually gets adopted.</div><div class="qtref">re: KYA breadcrumb: KYA. (KNOW YOUR AGENT.) We know your client. We know your business. Now we&hellip;</div><div class="eng"><span class="e">&#8226; 132 replies</span><span class="e">&#8645; 198</span><span class="e">&#9829; 1700</span><span class="e">88K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">LV</div><div><div class="nm">Lena Vasquez</div><div class="hd">@lenamodel  &#10003;</div></div></div><div class="body">As a model person it stings a little to admit, but he&#x27;s right. The capability curve is not the binding constraint anymore. The agent can reason fine. It can&#x27;t transact safely. That&#x27;s a rails problem and it lives outside the model.</div><div class="qtref">re: Nathan escalation: most agents stop at advise because acting touches money, and money touc&hellip;</div><div class="eng"><span class="e">&#8226; 188 replies</span><span class="e">&#8645; 341</span><span class="e">&#9829; 2900</span><span class="e">133K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">TL</div><div><div class="nm">Theo Lindqvist</div><div class="hd">@theovc  &#10003;</div></div></div><div class="body">Recorded on his phone, no script, no end card. That is the most credible way to announce something this big. You only skip the production when the substance carries it. Builders notice that.
+
+QT: [Nathan reveal video]</div><div class="qtref">re: Nathan selfie video reveal (shot on his phone, raw): Anchorage is going all in on agentic;&hellip;</div><div class="eng"><span class="e">&#8226; 244 replies</span><span class="e">&#8645; 470</span><span class="e">&#9829; 3400</span><span class="e">151K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">DO</div><div><div class="nm">Dana Okafor</div><div class="hd">@danabuilds  &#10003;</div></div></div><div class="body">The line that got me: it&#x27;s the same crux problem, one layer out. Custody was how do you hold a bearer asset safely. This is how do you let an agent move money safely. Same instinct, new actor.</div><div class="qtref">re: Nathan selfie video reveal (shot on his phone, raw): Anchorage is going all in on agentic;&hellip;</div><div class="eng"><span class="e">&#8226; 121 replies</span><span class="e">&#8645; 205</span><span class="e">&#9829; 1820</span><span class="e">92K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">HT</div><div><div class="nm">Hiroshi Tanaka</div><div class="hd">@hiro_protocol  &#10003;</div></div></div><div class="body">The bottleneck was never the model, it was the money layer. Writing it down made that obvious in a way a year of threads didn&#x27;t. This reframes the whole agent-stack conversation. Reading tonight.
+
+QT: New paper, Who Banks the Agents.</div><div class="qtref">re: Nathan announces the paper &#x27;Who Banks the Agents&#x27; with the short version: agents are econo&hellip;</div><div class="eng"><span class="e">&#8226; 144 replies</span><span class="e">&#8645; 260</span><span class="e">&#9829; 2200</span><span class="e">104K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">DO</div><div><div class="nm">Dana Okafor</div><div class="hd">@danabuilds  &#10003;</div></div></div><div class="body">The agent-driven-activity number is the stat I&#x27;m going to be quoting all quarter. One memorable number does more for a thesis than ten pages of prose, and they picked the right one.
+
+QT: [paper chart: advise -&gt; act value migration]</div><div class="qtref">re: Nathan pulls one striking stat / chart from the paper (the advise-to-act value-migration c&hellip;</div><div class="eng"><span class="e">&#8226; 168 replies</span><span class="e">&#8645; 305</span><span class="e">&#9829; 2500</span><span class="e">117K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">DC</div><div><div class="nm">DeShawn Carter</div><div class="hd">@deshawnledger  &#10003;</div></div></div><div class="body">Same move tokenization made: the value didn&#x27;t sit in the asset, it sat in the rails that let it settle. This chart says the agent value sits in the act layer, not the model. Screenshotting that.</div><div class="qtref">re: Nathan pulls one striking stat / chart from the paper (the advise-to-act value-migration c&hellip;</div><div class="eng"><span class="e">&#8226; 96 replies</span><span class="e">&#8645; 162</span><span class="e">&#9829; 1430</span><span class="e">74K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">TL</div><div><div class="nm">Theo Lindqvist</div><div class="hd">@theovc  &#10003;</div></div></div><div class="body">When a fintech firm with this track record and a chartered bank land on the same thesis from opposite seats, that&#x27;s not a placement, that&#x27;s a signal. The smart consumer-fintech money is naming the agent account.
+
+QT: glad to be building this alongside @RibbitCapital.</div><div class="qtref">re: Nathan welcomes the Ribbit / Micky Malka co-sign: two parties arriving at the same thesis &hellip;</div><div class="eng"><span class="e">&#8226; 184 replies</span><span class="e">&#8645; 330</span><span class="e">&#9829; 2700</span><span class="e">126K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">SB</div><div><div class="nm">Sofia Brenner</div><div class="hd">@sofiapays  &#10003;</div></div></div><div class="body">You would not hand a new hire the master account on day one. An allowance with limits is the obvious parallel for agents, and it makes spend controls intuitive for people who never thought about agent risk before.
+
+QT: give it an allowance, not your account.</div><div class="qtref">re: Nathan: you don&#x27;t hand an agent your whole account; you give it an allowance, a segmented &hellip;</div><div class="eng"><span class="e">&#8226; 156 replies</span><span class="e">&#8645; 272</span><span class="e">&#9829; 2300</span><span class="e">108K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">CG</div><div><div class="nm">Cade Graham</div><div class="hd">@cdngraham  &#10003;</div></div></div><div class="body">I ran bank treasury for years and was a hard skeptic on agents touching money. This is the first framing that flips me. An allowance is a real control. A capped wallet bounds the loss but doesn&#x27;t govern the behavior. Governance is the part that&#x27;s worth paying for.</div><div class="qtref">re: Nathan: you don&#x27;t hand an agent your whole account; you give it an allowance, a segmented &hellip;</div><div class="eng"><span class="e">&#8226; 103 replies</span><span class="e">&#8645; 178</span><span class="e">&#9829; 1560</span><span class="e">81K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">AB</div><div><div class="nm">Aisha Bello</div><div class="hd">@aisha_risk  &#10003;</div></div></div><div class="body">The 3am test is the sharpest articulation of agent-banking risk I&#x27;ve seen. Capability and trust are not the same axis. If no one picks up the phone, no serious money flows. Accountability is the precondition for scale, full stop.
+
+QT: when your agent pays the wrong party at 3am, who picks up?</div><div class="qtref">re: Nathan: when your agent pays the wrong party at 3am, who picks up the phone, and what can &hellip;</div><div class="eng"><span class="e">&#8226; 267 replies</span><span class="e">&#8645; 490</span><span class="e">&#9829; 3600</span><span class="e">161K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">HT</div><div><div class="nm">Hiroshi Tanaka</div><div class="hd">@hiro_protocol  &#10003;</div></div></div><div class="body">Segmented accounts and spend limits are boring, and that&#x27;s precisely why they matter. The exciting layer is commoditizing. The boring layer is the moat, and almost nobody is doing it inside a charter.
+
+QT: a bank for agents is a controls problem, not an AI problem.</div><div class="qtref">re: Nathan week-1 close: a bank for agents is a controls problem, not an AI problem, segmented&hellip;</div><div class="eng"><span class="e">&#8226; 158 replies</span><span class="e">&#8645; 288</span><span class="e">&#9829; 2350</span><span class="e">109K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">EF</div><div><div class="nm">Elena Fischer</div><div class="hd">@elenarisk  &#10003;</div></div></div><div class="body">Verified merchants plus human-attached liability is the line. A control that doesn&#x27;t name who&#x27;s accountable isn&#x27;t a control, it&#x27;s a hope. This names it.</div><div class="qtref">re: Nathan week-1 close: a bank for agents is a controls problem, not an AI problem, segmented&hellip;</div><div class="eng"><span class="e">&#8226; 88 replies</span><span class="e">&#8645; 141</span><span class="e">&#9829; 1240</span><span class="e">67K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">TL</div><div><div class="nm">Theo Lindqvist</div><div class="hd">@theovc  &#10003;</div></div></div><div class="body">Clearing my calendar. A chartered-bank CEO and one of the sharpest fintech investors of the last fifteen years, live, on who banks the agents. That&#x27;s the conversation, not a webinar.</div><div class="qtref">re: Nathan announces the live fireside with Micky Malka on agentic banking + KYA (date/time, w&hellip;</div><div class="eng"><span class="e">&#8226; 139 replies</span><span class="e">&#8645; 248</span><span class="e">&#9829; 2100</span><span class="e">99K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">MR</div><div><div class="nm">Marcus Reilly</div><div class="hd">@mreilly_fin  &#10003;</div></div></div><div class="body">First and only fully operational federally chartered digital asset bank, now standing up agentic banking. That clause is the entire moat. Competitors can copy the product page. They cannot copy the charter with a funding round.
+
+QT: @CoinDesk, Anchorage becomes the first regulated agentic bank.</div><div class="qtref">re: Nathan QTs the CoinDesk announcement (first regulated agentic bank): keeps it understated,&hellip;</div><div class="eng"><span class="e">&#8226; 203 replies</span><span class="e">&#8645; 388</span><span class="e">&#9829; 2900</span><span class="e">138K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">RM</div><div><div class="nm">Raj Malhotra</div><div class="hd">@raj_kyc  &#10003;</div></div></div><div class="body">The understatement is the flex. Most teams would be screaming. He&#x27;s pointing at the consent-order-terminated, inside-the-perimeter part, because that&#x27;s the part that actually de-risks an agent moving money. Right instinct.</div><div class="qtref">re: Nathan QTs the CoinDesk announcement (first regulated agentic bank): keeps it understated,&hellip;</div><div class="eng"><span class="e">&#8226; 97 replies</span><span class="e">&#8645; 164</span><span class="e">&#9829; 1420</span><span class="e">76K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">MR</div><div><div class="nm">Marcus Reilly</div><div class="hd">@mreilly_fin  &#10003;</div></div></div><div class="body">Not a better model, a place to hold and spend with rules. That is the sentence the whole sprint was building toward. The discipline of keeping it about rails and limits is exactly what makes it bankable. On the list.
+
+QT: the Agentic Banking waitlist is open.</div><div class="qtref">re: Nathan opens the Agentic Banking waitlist: not a better model, a regulated place for your &hellip;</div><div class="eng"><span class="e">&#8226; 178 replies</span><span class="e">&#8645; 320</span><span class="e">&#9829; 2600</span><span class="e">122K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">DO</div><div><div class="nm">Dana Okafor</div><div class="hd">@danabuilds  &#10003;</div></div></div><div class="body">An ops agent that reconciles and pays our vendors overnight, capped per-vendor, with every payment leaving a trail I can audit in the morning. I&#x27;ve wanted to build that for a year and the missing piece was always a real account with limits. Joining.</div><div class="qtref">re: Nathan builder prompt: if your agent could hold its own balance and spend within limits, w&hellip;</div><div class="eng"><span class="e">&#8226; 142 replies</span><span class="e">&#8645; 248</span><span class="e">&#9829; 2150</span><span class="e">101K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">LV</div><div><div class="nm">Lena Vasquez</div><div class="hd">@lenamodel  &#10003;</div></div></div><div class="body">Direct builder prompts like this generate the best replies on the timeline. The thread under it is going to read like a demand roadmap for the whole category. Smart way to co-design in public.
+
+QT: if your agent had its own balance and limits, what would you build?</div><div class="qtref">re: Nathan builder prompt: if your agent could hold its own balance and spend within limits, w&hellip;</div><div class="eng"><span class="e">&#8226; 88 replies</span><span class="e">&#8645; 150</span><span class="e">&#9829; 1330</span><span class="e">72K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">CG</div><div><div class="nm">Cade Graham</div><div class="hd">@cdngraham  &#10003;</div></div></div><div class="body">Prove it on your own rails first. That&#x27;s the order of operations almost everyone skips. Dogfooding agents on your own ops before you sell the rails is the difference between a product and a press release.</div><div class="qtref">re: Nathan: we&#x27;ve been running agents inside Anchorage for a while, optimizing our own operati&hellip;</div><div class="eng"><span class="e">&#8226; 121 replies</span><span class="e">&#8645; 205</span><span class="e">&#9829; 1780</span><span class="e">89K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">LV</div><div><div class="nm">Lena Vasquez</div><div class="hd">@lenamodel  &#10003;</div></div></div><div class="body">An interview where you&#x27;re expected to bring and direct your own agent is the most honest signal a company can send about how it actually works. You can&#x27;t fake running on agents if you hire on agents.
+
+QT: we hire the way we bank. Bring your agent to the interview.</div><div class="qtref">re: Nathan QT/boost of the main-account agentic-recruiting teaser: we hire the way we bank, br&hellip;</div><div class="eng"><span class="e">&#8226; 158 replies</span><span class="e">&#8645; 290</span><span class="e">&#9829; 2350</span><span class="e">108K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">DO</div><div><div class="nm">Dana Okafor</div><div class="hd">@danabuilds  &#10003;</div></div></div><div class="body">This is a flex disguised as a job post. If your interview loop assumes the candidate has an agent, you&#x27;ve already decided what the company is. Sharp.</div><div class="qtref">re: Nathan QT/boost of the main-account agentic-recruiting teaser: we hire the way we bank, br&hellip;</div><div class="eng"><span class="e">&#8226; 84 replies</span><span class="e">&#8645; 138</span><span class="e">&#9829; 1190</span><span class="e">63K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">shortly after the Nathan post</div><div class="who"><div class="av gen kol">PV</div><div><div class="nm">Priya Venkat</div><div class="hd">@priya_onchain  &#10003;</div></div></div><div class="body">Read the last two weeks back: breadcrumb, paper, partner, waitlist. That wasn&#x27;t scattered posts, it was a campaign with a thesis. Crediting the partners at the close cements the named-partner story. Well executed.
+
+QT: thanks to the partners who put their name on this.</div><div class="qtref">re: Nathan close + gratitude: thanks to the partners who put their name on this; read the mont&hellip;</div><div class="eng"><span class="e">&#8226; 156 replies</span><span class="e">&#8645; 280</span><span class="e">&#9829; 2350</span><span class="e">111K views</span></div><div class="ill">illustrative persona &middot; projected engagement</div></div></div>
+      </div>
+      <div class="swim">
+<div class="swimlane"><div class="sl-n">Partners</div><div class="sl-h">Ribbit / Malka</div><div class="sl-d">@RibbitCapital + @mickymalka. Co-sign, thesis-level. Approve before posting.</div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">push Wed Jun 24</div><div class="who"><div class="av gen ribbit">RC</div><div><div class="nm">Ribbit Capital</div><div class="hd">@RibbitCapital</div></div></div><div class="body">Every wave of finance opens with a new kind of account. Checking. Brokerage. The card. We&#x27;ve spent fifteen years backing the companies that gave people a better one.
+
+The next account holder is an agent. @Anchorage&#x27;s paper is the clearest map we&#x27;ve seen of what it takes to put one on regulated rails.
+
+QT: New research from Anchorage, Who Banks the Agents.</div><div class="ill">illustrative &middot; partner voice, approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">push Thu Jun 25</div><div class="who"><div class="av gen malka">MM</div><div><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="body">I&#x27;ve spent my career on one bet: trust is the only product in finance that compounds. You earn it once and it pays for decades.
+
+Agents are about to become economic actors. The question isn&#x27;t whether they can act. It&#x27;s who&#x27;s accountable when they do. That&#x27;s a banking question, and it belongs inside a charter.
+
+Why we&#x27;re backing what @Anchorage is building.</div><div class="ill">illustrative &middot; partner voice, approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div><div class="acard"><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">push Thu Jun 25</div><div class="who"><div class="av gen malka">MM</div><div><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="body">An allowance, not your account. This is the part most people miss.
+
+The consumer-finance winners we backed all won on the same thing: bounded, revocable trust that a normal person could actually use. Agents need exactly that, and a bank is where it lives.
+
+QT: give it an allowance, not your wallet.</div><div class="ill">illustrative &middot; partner voice, approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">push Mon Jun 29</div><div class="who"><div class="av gen ribbit">RC</div><div><div class="nm">Ribbit Capital</div><div class="hd">@RibbitCapital</div></div></div><div class="body">Micky is sitting down live with @nathanmccauley on the question we keep coming back to: who banks the agents.
+
+Two seats, one thesis. A chartered bank and a fintness-obsessed investor on what it actually takes to let an agent hold and move money safely. Bring questions.
+
+QT: [Nathan fireside announcement]</div><div class="ill">illustrative &middot; partner voice, approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">push Tue Jun 30</div><div class="who"><div class="av gen malka">MM</div><div><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="body">The headline says first regulated agentic bank. The word that matters is regulated.
+
+We&#x27;ve watched a hundred teams try to bolt controls on later. The ones that last build inside the perimeter from day one. That&#x27;s why this one is worth backing.
+
+QT: @CoinDesk, Anchorage becomes the first regulated agentic bank.</div><div class="ill">illustrative &middot; partner voice, approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="pushtime">push Wed Jul 1</div><div class="who"><div class="av gen ribbit">RC</div><div><div class="nm">Ribbit Capital</div><div class="hd">@RibbitCapital</div></div></div><div class="body">A note to the founders and communities we&#x27;ve backed over the years: the agent account is here, and it&#x27;s being built by the most-regulated bank in the space.
+
+If you&#x27;re building anything where an agent touches money, get on the list. This is the on-ramp.
+
+QT: the Agentic Banking waitlist is open.</div><div class="ill">illustrative &middot; partner voice, approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">push Fri Jul 3</div><div class="who"><div class="av gen malka">MM</div><div><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="body">Two weeks ago @Anchorage asked who banks the agents. Today there&#x27;s a paper, a charter, and a waitlist behind the answer.
+
+Categories get built by named partners, not by one logo. Proud to be one of the names on this one. The agent economy needs rails it can trust, and now it has somewhere to point.</div><div class="ill">illustrative &middot; partner voice, approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div></div>
+      </div>
+      <div class="swim">
+<div class="swimlane"><div class="sl-n">Press</div><div class="sl-h">CoinDesk / embargo</div><div class="sl-d">Embargo letter then earned coverage. Illustrative.</div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard lead-card"><div class="chips"><span class="tagchip PRESS">(PRESS)</span></div><div class="pushtime">embargo sent Mon Jun 29 (breaks Tue 6:00a ET)</div><a class="papimg" href="#" data-modal="embargo" onclick="return false"><img src="assets/paper-screenshot.png" alt="Embargo letter / press briefing"><div class="cap">&#9993; Embargo letter / press briefing &middot; click to open</div></a><div class="body">Press briefing to credentialed journalists, under embargo until 6:00a ET Jun 30. Frames the launch before it breaks: agentic banking, KYA, the charter.</div><div class="ill">illustrative draft &middot; client review before send</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Letter (Google Doc)</span></div></div></div>
+<div class="swimcell"><div class="acard"><div class="chips"><span class="tagchip PRESS">(PRESS)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="pushtime">breaks Tue Jun 30, 6:00a ET (embargo lifts)</div><div class="who"><div class="av gen press">CD</div><div><div class="nm">CoinDesk</div><div class="hd">@CoinDesk</div></div></div><div class="body">Anchorage becomes the first regulated bank to launch agentic banking, opening a waitlist for AI agents to hold and spend on regulated rails with Know Your Agent controls.
+
+CEO Nathan McCauley: agents are becoming economic actors. What lets them act is financial rails.</div><div class="eng"><span class="e">&#8226; 240 replies</span><span class="e">&#8645; 510</span><span class="e">&#9829; 3,300</span><span class="e">410K views</span></div><div class="ill">illustrative &middot; coverage to brief toward, not secured press</div></div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+      </div>
+      <div class="swim">
+<div class="swimlane"><div class="sl-n">Live</div><div class="sl-h">fireside / AMA</div><div class="sl-d">Live interviews. Click a card for the show brief.</div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard lead-card"><div class="chips"><span class="tagchip LIVE">(LIVE INTERVIEW)</span></div><div class="pushtime">announced D6 (Mon Jun 29) &middot; airs D8-D9 (Wed Jul 1 - Thu Jul 2)</div><div class="body" style="font-weight:600;color:#fff">Who Banks the Agents: Nathan McCauley and Micky Malka, live on the agent economy and regulated rails</div><div class="qtref" style="font-style:normal">Nathan McCauley, CEO, Anchorage (@nathanmccauley) &middot; Micky Malka, Founder, Ribbit Capital (@mickymalka) &middot; [MODERATOR TBD, a credible fintech/crypto journalist or operator; suggested archetype: a respected markets-and-fintech host who can keep it substantive and out of token territory]</div><a class="papimg" href="#" data-modal="live1" onclick="return false" style="margin-top:7px"><div class="cap" style="text-align:center;padding:8px">&#128279; Open show brief (Google Doc)</div></a><div class="ill">illustrative &middot; confirm participants/date before announce</div></div></div>
+<div class="swimcell"></div>
+<div class="swimcell"><div class="acard lead-card"><div class="chips"><span class="tagchip LIVE">(LIVE INTERVIEW)</span></div><div class="pushtime">announced D8 (Wed Jul 1) &middot; airs D9-D10 (Thu Jul 2 - Fri Jul 3)</div><div class="body" style="font-weight:600;color:#fff">Building on the agent account: a live builder AMA with the Anchorage Agentic Banking team</div><div class="qtref" style="font-style:normal">[Anchorage Agentic Banking product/eng lead, TBD] &middot; Nathan McCauley, CEO (drops in for the first 10 min) &middot; [MODERATOR, Anchorage developer-relations or comms host]</div><a class="papimg" href="#" data-modal="live2" onclick="return false" style="margin-top:7px"><div class="cap" style="text-align:center;padding:8px">&#128279; Open show brief (Google Doc)</div></a><div class="ill">illustrative &middot; confirm participants/date before announce</div></div></div>
+<div class="swimcell"></div>
+<div class="swimcell"></div>
+      </div>
+      <div class="swim">
+<div class="swimlane"><div class="sl-n" style="color:var(--brass)">Aligns-with</div><div class="sl-h">belief + outcome</div><div class="sl-d">Belief pills (id only) plus the day&rsquo;s replies and QTs.</div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill">S24</span><span class="bpill">S31</span><span class="bpill">S5</span><span class="bpill">S4</span><span class="bpill">S10</span></div><div class="engsum"><b>2</b> QT &middot; <b>1</b> replies</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill">S24</span><span class="bpill">S31</span><span class="bpill">S2</span><span class="bpill">S8</span></div><div class="engsum"><b>2</b> QT &middot; <b>3</b> replies</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill">S24</span><span class="bpill">S31</span><span class="bpill">S5</span><span class="bpill">S4</span></div><div class="engsum"><b>2</b> QT &middot; <b>1</b> replies &middot; <b>1</b> partner</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill">S24</span><span class="bpill">S4</span><span class="bpill">S11</span></div><div class="engsum"><b>2</b> QT &middot; <b>1</b> replies &middot; <b>2</b> partner</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill" style="opacity:.5">-</span></div><div class="engsum"><b>2</b> QT &middot; <b>1</b> replies</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill" style="opacity:.5">-</span></div><div class="engsum"><b>1</b> replies &middot; <b>1</b> partner</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill">S24</span><span class="bpill">S26</span><span class="bpill">S27</span></div><div class="engsum"><b>1</b> QT &middot; <b>1</b> replies &middot; <b>1</b> partner</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill">S24</span><span class="bpill">S15</span><span class="bpill">S12</span></div><div class="engsum"><b>2</b> QT &middot; <b>1</b> replies &middot; <b>1</b> partner</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill" style="opacity:.5">-</span></div><div class="engsum"><b>1</b> QT &middot; <b>2</b> replies</div></div></div>
+<div class="swimcell"><div class="daystack" style="border-top:0;padding-top:0;margin-top:0"><div class="dsk">aligns with</div><div class="pills"><span class="bpill" style="opacity:.5">-</span></div><div class="engsum"><b>1</b> QT &middot; <b>1</b> partner</div></div></div>
+      </div>
+    </div></div>
+    <h3 class="serif" style="margin-top:30px">Breadcrumb reference</h3>
+    <p class="ss" style="margin-bottom:8px">Three all-caps teases open the field with no context, posted from both the Nathan and Anchorage handles in one voice.</p>
+    <div class="crumbs">
+<div class="crumb"><div class="ci"><span class="stars">&#9733; &#9733; &#9733;</span> BREADCRUMB</div><div class="cw">WHO BANKS
+THE AGENTS</div><div class="cd">The opening question. No context, no link. Just the four words, from a regulated bank.</div><div class="ct">Mon Jun 22, 8:47a ET &middot; aligns S24</div></div>
+<div class="crumb"><div class="ci"><span class="stars">&#9733; &#9733; &#9733;</span> BREADCRUMB</div><div class="cw">KYA.
+KNOW YOUR AGENT.</div><div class="cd">The vocabulary drop. Maps a new problem onto language banks already trust: KYC, KYB, now KYA.</div><div class="ct">Tue Jun 23, 8:52a ET &middot; aligns S24 &middot; S2</div></div>
+<div class="crumb"><div class="ci"><span class="stars">&#9733; &#9733; &#9733;</span> BREADCRUMB</div><div class="cw">PROOF
+OF AGENT</div><div class="cd">The controls tease. Identity and accountability for the thing acting on your behalf.</div><div class="ct">Wed Jun 25, 8:44a ET &middot; aligns S24 &middot; S11</div></div>
+    </div>
+  </section>
+
+  <section id="paper">
+    <div class="sh"><span class="sn">03</span><h2 class="serif">Research paper drop</h2></div>
+    <p class="ss"><b>"Who Banks the Agents?"</b> is the credibility engine of the sprint, and the source every paper-phase post is chopped from. It drops Day 3 (Wed Jun 24) as a tweet-thread: the Anchorage handle announces it with a clickable image of the paper, Nathan quote-tweets, the partner co-signs, and Nathan adds a comment.</p>
+    <a class="mediahero" href="./who-banks-the-agents.html" target="_blank" rel="noopener" style="max-width:760px">
+      <img src="assets/paper-screenshot.png" alt="Who Banks the Agents paper">
+      <div class="mcap"><b>&#128279; Who Banks the Agents</b> &middot; click to open the full paper (~3,800 words, evidence-backed)</div>
+    </a>
+    <div class="partmeta"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Paper draft (Google Doc)</span><span class="pill">Day 3 &middot; Jun 24</span><span class="pill">illustrative</span></div>
+
+    <h3 class="serif">The drop, in order</h3>
+    <div class="tgrid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="tw">
+        <div class="head"><div class="av gen anchorage">A</div><div class="who"><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div>
+        <div class="chips"><span class="tagchip TWEET">(TWEET)</span><span class="tagchip PARTNER" style="display:none"></span></div>
+        <div class="body">New from Anchorage research: Who Banks the Agents.
+
+Agents are becoming economic actors. What lets them act is not a smarter model. It is regulated financial rails.
+
+Read the paper.</div>
+        <a class="papimg" href="./who-banks-the-agents.html" target="_blank" rel="noopener" style="display:block;margin:11px 0 0;border:1px solid var(--line2);border-radius:9px;overflow:hidden"><img src="assets/paper-screenshot.png" alt="paper" style="width:100%;display:block"></a>
+        <div class="tstamp">9:00a ET &middot; (a) main announce, clickable paper image</div>
+        <div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div>
+      </div>
+      <div class="tw">
+        <div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div>
+        <div class="chips"><span class="tagchip QT">(QT)</span><span class="tagchip NATHAN">(NATHAN)</span></div>
+        <div class="body">This is the question we kept getting asked, so we wrote down our answer.
+
+Who banks the agents.
+
+Less about the AI than people expect. Mostly about controls, identity, and who is accountable when an agent moves money.
+
+Worth a read if you are building in this space.</div>
+        <div class="qtref" style="font-size:11px;color:var(--faint);border-left:2px solid var(--line2);padding:4px 0 4px 9px;margin-top:9px;font-style:italic">QT: Anchorage &middot; New from Anchorage research: Who Banks the Agents.</div>
+        <div class="tstamp">9:25a ET &middot; (b) Nathan quote tweet</div>
+        <div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div>
+      </div>
+      <div class="tw">
+        <div class="head"><div class="av gen ribbit">RC</div><div class="who"><div class="nm">Ribbit Capital</div><div class="hd">@RibbitCapital</div></div></div>
+        <div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div>
+        <div class="body">Every wave of finance opens with a new kind of account. Checking. Brokerage. The card. We have spent fifteen years backing the companies that gave people a better one.
+
+The next account holder is an agent. @Anchorage's paper is the clearest map we have seen of what it takes to put one on regulated rails.</div>
+        <div class="qtref" style="font-size:11px;color:var(--faint);border-left:2px solid var(--line2);padding:4px 0 4px 9px;margin-top:9px;font-style:italic">QT: New research from Anchorage, Who Banks the Agents.</div>
+        <div class="tstamp">11:10a ET &middot; (c) partner co-sign &middot; approve before posting</div>
+        <div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div>
+      </div>
+      <div class="tw">
+        <div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div>
+        <div class="chips"><span class="tagchip COMMENT">(COMMENT)</span><span class="tagchip NATHAN">(NATHAN)</span></div>
+        <div class="body">One line from it I keep coming back to.
+
+When an agent pays the wrong party at three in the morning, who picks up the phone, and what can they actually do about it.
+
+If the answer is no one, it is not a bank for agents. It is an agent with a card and crossed fingers.</div>
+        <div class="tstamp">9:40a ET &middot; (d) Nathan comment in-thread</div>
+        <div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pr">
+    <div class="sh"><span class="sn">04</span><h2 class="serif">PR &amp; press</h2></div>
+    <p class="ss">The press beat runs Day 6 to Day 7. An <b>embargo letter / press briefing</b> goes to journalists first, shown as a clickable letter thumbnail that opens the full letter. Then the <b>CoinDesk announcement</b> breaks once the embargo lifts. All copy here is illustrative and routes through client review before any outbound use.</p>
+    <div class="rib-grid" style="grid-template-columns:300px 1fr;align-items:start">
+      <a class="mediahero" href="#" data-modal="embargo" onclick="return false" style="margin:8px 0">
+        <img src="assets/paper-screenshot.png" alt="Embargo letter">
+        <div class="mcap"><b>&#9993; Embargo letter</b> &middot; press briefing &middot; click to read</div>
+      </a>
+      <div>
+        <div class="rib-stat"><div class="rl">Day 6 &middot; Mon Jun 29</div><div class="rv"><b>Embargo letter / press briefing</b> sent to credentialed journalists. Embargoed until 6:00a ET, Jun 30. Frames the launch before it breaks: agentic banking, segmented accounts, spending limits, verified-merchant controls, Know Your Agent, a human always attached to the liability.</div></div>
+        <div class="rib-stat"><div class="rl">Day 7 &middot; Tue Jun 30</div><div class="rv"><b>CoinDesk announcement tweet</b> breaks post-embargo. The main account quote-tweets it, KOLs amplify, the partner quote-tweets. The charter is the part a competitor cannot copy with a funding round, and the coverage leads with it.</div></div>
+        <div class="partmeta"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Embargo letter (Google Doc)</span><span class="pill">illustrative draft</span></div>
+      </div>
+    </div>
+    <h3 class="serif">The CoinDesk announce</h3>
+    <div class="tgrid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="tw">
+        <div class="head"><div class="av gen press">CD</div><div class="who"><div class="nm">CoinDesk</div><div class="hd">@CoinDesk</div></div></div>
+        <div class="chips"><span class="tagchip PRESS">(PRESS)</span><span class="tagchip TWEET">(TWEET)</span></div>
+        <div class="body">Anchorage becomes the first regulated bank to launch agentic banking, opening a waitlist for AI agents to hold and spend on regulated rails with "Know Your Agent" controls.
+
+CEO Nathan McCauley: "Agents are becoming economic actors. What lets them act is financial rails."</div>
+        <div class="tstamp">6:00a ET, Jun 30 &middot; embargo lifts</div>
+        <div class="eng" style="display:flex;gap:18px;margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)"><span>240 replies</span><span>510 reposts</span><span>3,300 likes</span><span>410K views</span></div>
+      </div>
+      <div class="tw">
+        <div class="head"><div class="av gen press">CD</div><div class="who"><div class="nm">CoinDesk</div><div class="hd">@CoinDesk</div></div></div>
+        <div class="chips"><span class="tagchip PRESS">(PRESS)</span><span class="tagchip COMMENT">(in-thread)</span></div>
+        <div class="body">The launch arrives with a research paper, "Who Banks the Agents," and a co-sign from Ribbit Capital founder Micky Malka. Anchorage is the only fully operational federally chartered digital asset bank.</div>
+        <div class="tstamp">6:00a ET &middot; follow-on (illustrative)</div>
+        <div class="eng" style="display:flex;gap:18px;margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)"><span>88 replies</span><span>176 reposts</span><span>1,420 likes</span><span>190K views</span></div>
+      </div>
+    </div>
+    <div class="warn">Illustrative of the coverage to brief toward, not secured press. Do not represent the CoinDesk copy as committed until CoinDesk commits. Any quote attributed to Nathan must match his approved, on-record phrasing.</div>
+  </section>
+
+  <section id="content">
+    <div class="sh"><span class="sn">05</span><h2 class="serif">Content library</h2></div>
+    <p class="ss">Every drafted piece as a tweet card with its <b>action type</b>. The full library: Nathan, KOL reactions, partner co-signs, and recruiting. Each card has a <b>Google Doc</b> placeholder for edits and comments. Filter by phase or handle. Engagement is illustrative.</p>
+    <div class="filters" id="filterPhase"><span class="lbl">Phase</span><span class="chip on" data-f="all">all</span><span class="chip" data-f="TEASE">tease</span><span class="chip" data-f="REVEAL">reveal</span><span class="chip" data-f="RESEARCH">research</span><span class="chip" data-f="PARTNER">partner</span><span class="chip" data-f="PROOF">proof</span><span class="chip" data-f="PR">pr</span><span class="chip" data-f="LAUNCH">launch</span></div>
+    <div class="tgrid" id="tweetGrid">
+<div class="tw" data-phase="TEASE" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip BREADCRUMB">(BREADCRUMB)</span></div><div class="body">WHO BANKS THE AGENTS</div><div class="tstamp">Jun 22 8:47a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip BREADCRUMB">(BREADCRUMB)</span></div><div class="body">KYA.
+
+KNOW YOUR AGENT.</div><div class="tstamp">Jun 23 8:52a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PROOF" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip BREADCRUMB">(BREADCRUMB)</span></div><div class="body">PROOF OF AGENT</div><div class="tstamp">Jun 25 8:44a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="REVEAL" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">Today is the start of a new frontier for Anchorage.
+
+We are pivoting hard into an agentic organization.
+
+The boring parts of banking, custody, controls, knowing who is on the other side, are about to matter more than ever. Not less.
+
+Here is why.</div><div class="tstamp">Jun 22 12:10p ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">Agents can already advise you.
+
+What most of them still cannot do is act. Hold money. Get paid. Be told no.
+
+That last part is the whole game.
+
+An agent that can transact is an economic actor. And every economic actor eventually needs an account.</div><div class="tstamp">Jun 22 12:11p ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">A way to think about agentic commerce.
+
+It is not a feature bolted onto the old system.
+
+It is a reset of the platform. Same way every company became an internet company. Every account is about to have an agent attached to it.
+
+The question is who holds the funds when it does.</div><div class="tstamp">Jun 23 10:20a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">For years we learned to know our customers. Know your business. KYC, KYB.
+
+Now there is a third one.
+
+Know your agent.
+
+You are not just underwriting the human who owns the bot. You are underwriting the agent itself. Its history. Its identity. What it is actually allowed to do.</div><div class="tstamp">Jun 23 1:05p ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RESEARCH" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">The agent economy is mostly a controls problem wearing an AI costume.
+
+Give an agent your whole bank account and you are asking for trouble.
+
+Give it a segmented account. An allowance. A spending limit. A verified merchant on the other side. A human who is still on the hook.
+
+That is the part nobody is building yet.</div><div class="tstamp">Jun 24 11:30a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PROOF" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">The proof is not a roadmap slide.
+
+We have been putting agents to work on our own internal operations. You learn fast what breaks when software is allowed to act with money.
+
+Spending limits. Segmented accounts. A verified counterparty. A human who stays accountable.
+
+Build the controls first. Then let the agent act.</div><div class="tstamp">Jun 25 12:15p ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RESEARCH" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip QT">(QT)</span></div><div class="body">This is the question we kept getting asked, so we wrote down our answer.
+
+Who banks the agents.
+
+Less about the AI than people expect. Mostly about controls, identity, and who is accountable when an agent moves money.
+
+Worth a read if you are building in this space.</div><div class="tstamp">Jun 24 9:25a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RESEARCH" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">One line from it I keep coming back to.
+
+When an agent pays the wrong party at three in the morning, who picks up the phone, and what can they actually do about it.
+
+If the answer is no one, it is not a bank for agents. It is an agent with a card and crossed fingers.</div><div class="tstamp">Jun 24 9:40a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">We are putting our thinking out, and we are opening a waitlist.
+
+It is for the people building where agents meet money. If you are building an agent that needs to hold funds, get paid, or pay a verified counterparty, come find us.
+
+We would rather build this in the open, with you, than behind a curtain.</div><div class="tstamp">Jun 30 9:15a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">The agentic page is live.
+
+One page. What agentic banking is, who it is for, and how to get on the list.
+
+No pitch deck. If you are building an agent that needs an account, that page tells you what we are doing and how to plug in.
+
+link below. The list is open.</div><div class="tstamp">Jul 1 10:05a ET</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@danabuilds"><div class="head"><div class="av gen kol">DO</div><div class="who"><div class="nm">Dana Okafor</div><div class="hd">@danabuilds</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">Four words and I can&#x27;t stop thinking about it. Every agent demo I&#x27;ve shipped this year assumes a money layer that just... doesn&#x27;t exist yet. Somebody finally said the quiet part.
+
+QT: WHO BANKS THE AGENTS?</div><div class="tstamp">Mon Jun 22 &middot; 312 replies / 4100 likes / 182K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@mreilly_fin"><div class="head"><div class="av gen kol">MR</div><div class="who"><div class="nm">Marcus Reilly</div><div class="hd">@mreilly_fin</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">Banks spent a decade asking who is the customer. Nobody asked the obvious next one. The fact that it&#x27;s @Anchorage asking it tells you which way they&#x27;re pointed.</div><div class="tstamp">Mon Jun 22 &middot; 148 replies / 1900 likes / 96K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@priya_onchain"><div class="head"><div class="av gen kol">PV</div><div class="who"><div class="nm">Priya Venkat</div><div class="hd">@priya_onchain</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">The agents are coming stopped being sci-fi a while ago. It&#x27;s a roadmap line item now. The banking part is the gap, and almost nobody is building for it.
+
+QT: agents can advise today. Acting is the part that needs money, and money needs rails.</div><div class="tstamp">Mon Jun 22 &middot; 201 replies / 2700 likes / 121K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@raj_kyc"><div class="head"><div class="av gen kol">RM</div><div class="who"><div class="nm">Raj Malhotra</div><div class="hd">@raj_kyc</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">KYA. Of course. We KYC humans, we KYB businesses, and an autonomous actor that holds and moves money is the missing third leg. Cleanest framing of the next controls decade I&#x27;ve seen.
+
+QT: KYA. Know Your Agent.</div><div class="tstamp">Tue Jun 23 &middot; 276 replies / 3800 likes / 168K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@elenarisk"><div class="head"><div class="av gen kol">EF</div><div class="who"><div class="nm">Elena Fischer</div><div class="hd">@elenarisk</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">Every controls team is going to seize on this acronym. It maps a brand-new problem onto language we already trust and already audit against. That&#x27;s how a control actually gets adopted.</div><div class="tstamp">Tue Jun 23 &middot; 132 replies / 1700 likes / 88K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="TEASE" data-handle="@lenamodel"><div class="head"><div class="av gen kol">LV</div><div class="who"><div class="nm">Lena Vasquez</div><div class="hd">@lenamodel</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">As a model person it stings a little to admit, but he&#x27;s right. The capability curve is not the binding constraint anymore. The agent can reason fine. It can&#x27;t transact safely. That&#x27;s a rails problem and it lives outside the model.</div><div class="tstamp">Tue Jun 23 &middot; 188 replies / 2900 likes / 133K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="REVEAL" data-handle="@theovc"><div class="head"><div class="av gen kol">TL</div><div class="who"><div class="nm">Theo Lindqvist</div><div class="hd">@theovc</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">Recorded on his phone, no script, no end card. That is the most credible way to announce something this big. You only skip the production when the substance carries it. Builders notice that.
+
+QT: [Nathan reveal video]</div><div class="tstamp">Tue Jun 23 (late) / Wed Jun 24 (early) &middot; 244 replies / 3400 likes / 151K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="REVEAL" data-handle="@danabuilds"><div class="head"><div class="av gen kol">DO</div><div class="who"><div class="nm">Dana Okafor</div><div class="hd">@danabuilds</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">The line that got me: it&#x27;s the same crux problem, one layer out. Custody was how do you hold a bearer asset safely. This is how do you let an agent move money safely. Same instinct, new actor.</div><div class="tstamp">Tue Jun 23 (late) / Wed Jun 24 (early) &middot; 121 replies / 1820 likes / 92K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RESEARCH" data-handle="@hiro_protocol"><div class="head"><div class="av gen kol">HT</div><div class="who"><div class="nm">Hiroshi Tanaka</div><div class="hd">@hiro_protocol</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">The bottleneck was never the model, it was the money layer. Writing it down made that obvious in a way a year of threads didn&#x27;t. This reframes the whole agent-stack conversation. Reading tonight.
+
+QT: New paper, Who Banks the Agents.</div><div class="tstamp">Wed Jun 24 &middot; 144 replies / 2200 likes / 104K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RESEARCH" data-handle="@danabuilds"><div class="head"><div class="av gen kol">DO</div><div class="who"><div class="nm">Dana Okafor</div><div class="hd">@danabuilds</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">The agent-driven-activity number is the stat I&#x27;m going to be quoting all quarter. One memorable number does more for a thesis than ten pages of prose, and they picked the right one.
+
+QT: [paper chart: advise -&gt; act value migration]</div><div class="tstamp">Wed Jun 24 &middot; 168 replies / 2500 likes / 117K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RESEARCH" data-handle="@deshawnledger"><div class="head"><div class="av gen kol">DC</div><div class="who"><div class="nm">DeShawn Carter</div><div class="hd">@deshawnledger</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">Same move tokenization made: the value didn&#x27;t sit in the asset, it sat in the rails that let it settle. This chart says the agent value sits in the act layer, not the model. Screenshotting that.</div><div class="tstamp">Wed Jun 24 &middot; 96 replies / 1430 likes / 74K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PARTNER" data-handle="@theovc"><div class="head"><div class="av gen kol">TL</div><div class="who"><div class="nm">Theo Lindqvist</div><div class="hd">@theovc</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">When a fintech firm with this track record and a chartered bank land on the same thesis from opposite seats, that&#x27;s not a placement, that&#x27;s a signal. The smart consumer-fintech money is naming the agent account.
+
+QT: glad to be building this alongside @RibbitCapital.</div><div class="tstamp">Thu Jun 25 &middot; 184 replies / 2700 likes / 126K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PARTNER -> PROOF" data-handle="@sofiapays"><div class="head"><div class="av gen kol">SB</div><div class="who"><div class="nm">Sofia Brenner</div><div class="hd">@sofiapays</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">You would not hand a new hire the master account on day one. An allowance with limits is the obvious parallel for agents, and it makes spend controls intuitive for people who never thought about agent risk before.
+
+QT: give it an allowance, not your account.</div><div class="tstamp">Thu Jun 25 &middot; 156 replies / 2300 likes / 108K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PARTNER -> PROOF" data-handle="@cdngraham"><div class="head"><div class="av gen kol">CG</div><div class="who"><div class="nm">Cade Graham</div><div class="hd">@cdngraham</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">I ran bank treasury for years and was a hard skeptic on agents touching money. This is the first framing that flips me. An allowance is a real control. A capped wallet bounds the loss but doesn&#x27;t govern the behavior. Governance is the part that&#x27;s worth paying for.</div><div class="tstamp">Thu Jun 25 &middot; 103 replies / 1560 likes / 81K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PROOF" data-handle="@aisha_risk"><div class="head"><div class="av gen kol">AB</div><div class="who"><div class="nm">Aisha Bello</div><div class="hd">@aisha_risk</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">The 3am test is the sharpest articulation of agent-banking risk I&#x27;ve seen. Capability and trust are not the same axis. If no one picks up the phone, no serious money flows. Accountability is the precondition for scale, full stop.
+
+QT: when your agent pays the wrong party at 3am, who picks up?</div><div class="tstamp">Fri Jun 26 &middot; 267 replies / 3600 likes / 161K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PROOF" data-handle="@hiro_protocol"><div class="head"><div class="av gen kol">HT</div><div class="who"><div class="nm">Hiroshi Tanaka</div><div class="hd">@hiro_protocol</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">Segmented accounts and spend limits are boring, and that&#x27;s precisely why they matter. The exciting layer is commoditizing. The boring layer is the moat, and almost nobody is doing it inside a charter.
+
+QT: a bank for agents is a controls problem, not an AI problem.</div><div class="tstamp">Fri Jun 26 &middot; 158 replies / 2350 likes / 109K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PROOF" data-handle="@elenarisk"><div class="head"><div class="av gen kol">EF</div><div class="who"><div class="nm">Elena Fischer</div><div class="hd">@elenarisk</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">Verified merchants plus human-attached liability is the line. A control that doesn&#x27;t name who&#x27;s accountable isn&#x27;t a control, it&#x27;s a hope. This names it.</div><div class="tstamp">Fri Jun 26 &middot; 88 replies / 1240 likes / 67K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PARTNER -> PR" data-handle="@theovc"><div class="head"><div class="av gen kol">TL</div><div class="who"><div class="nm">Theo Lindqvist</div><div class="hd">@theovc</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">Clearing my calendar. A chartered-bank CEO and one of the sharpest fintech investors of the last fifteen years, live, on who banks the agents. That&#x27;s the conversation, not a webinar.</div><div class="tstamp">Mon Jun 29 &middot; 139 replies / 2100 likes / 99K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PR" data-handle="@mreilly_fin"><div class="head"><div class="av gen kol">MR</div><div class="who"><div class="nm">Marcus Reilly</div><div class="hd">@mreilly_fin</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">First and only fully operational federally chartered digital asset bank, now standing up agentic banking. That clause is the entire moat. Competitors can copy the product page. They cannot copy the charter with a funding round.
+
+QT: @CoinDesk, Anchorage becomes the first regulated agentic bank.</div><div class="tstamp">Tue Jun 30 &middot; 203 replies / 2900 likes / 138K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PR" data-handle="@raj_kyc"><div class="head"><div class="av gen kol">RM</div><div class="who"><div class="nm">Raj Malhotra</div><div class="hd">@raj_kyc</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">The understatement is the flex. Most teams would be screaming. He&#x27;s pointing at the consent-order-terminated, inside-the-perimeter part, because that&#x27;s the part that actually de-risks an agent moving money. Right instinct.</div><div class="tstamp">Tue Jun 30 &middot; 97 replies / 1420 likes / 76K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@mreilly_fin"><div class="head"><div class="av gen kol">MR</div><div class="who"><div class="nm">Marcus Reilly</div><div class="hd">@mreilly_fin</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">Not a better model, a place to hold and spend with rules. That is the sentence the whole sprint was building toward. The discipline of keeping it about rails and limits is exactly what makes it bankable. On the list.
+
+QT: the Agentic Banking waitlist is open.</div><div class="tstamp">Wed Jul 1 &middot; 178 replies / 2600 likes / 122K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@danabuilds"><div class="head"><div class="av gen kol">DO</div><div class="who"><div class="nm">Dana Okafor</div><div class="hd">@danabuilds</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">An ops agent that reconciles and pays our vendors overnight, capped per-vendor, with every payment leaving a trail I can audit in the morning. I&#x27;ve wanted to build that for a year and the missing piece was always a real account with limits. Joining.</div><div class="tstamp">Wed Jul 1 &middot; 142 replies / 2150 likes / 101K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@lenamodel"><div class="head"><div class="av gen kol">LV</div><div class="who"><div class="nm">Lena Vasquez</div><div class="hd">@lenamodel</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">Direct builder prompts like this generate the best replies on the timeline. The thread under it is going to read like a demand roadmap for the whole category. Smart way to co-design in public.
+
+QT: if your agent had its own balance and limits, what would you build?</div><div class="tstamp">Wed Jul 1 &middot; 88 replies / 1330 likes / 72K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH + RECRUITING" data-handle="@cdngraham"><div class="head"><div class="av gen kol">CG</div><div class="who"><div class="nm">Cade Graham</div><div class="hd">@cdngraham</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">Prove it on your own rails first. That&#x27;s the order of operations almost everyone skips. Dogfooding agents on your own ops before you sell the rails is the difference between a product and a press release.</div><div class="tstamp">Thu Jul 2 &middot; 121 replies / 1780 likes / 89K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RECRUITING" data-handle="@lenamodel"><div class="head"><div class="av gen kol">LV</div><div class="who"><div class="nm">Lena Vasquez</div><div class="hd">@lenamodel</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">An interview where you&#x27;re expected to bring and direct your own agent is the most honest signal a company can send about how it actually works. You can&#x27;t fake running on agents if you hire on agents.
+
+QT: we hire the way we bank. Bring your agent to the interview.</div><div class="tstamp">Thu Jul 2 &middot; 158 replies / 2350 likes / 108K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RECRUITING" data-handle="@danabuilds"><div class="head"><div class="av gen kol">DO</div><div class="who"><div class="nm">Dana Okafor</div><div class="hd">@danabuilds</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip COMMENT">(COMMENT)</span></div><div class="body">This is a flex disguised as a job post. If your interview loop assumes the candidate has an agent, you&#x27;ve already decided what the company is. Sharp.</div><div class="tstamp">Thu Jul 2 &middot; 84 replies / 1190 likes / 63K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH CLOSE + COSIGN" data-handle="@priya_onchain"><div class="head"><div class="av gen kol">PV</div><div class="who"><div class="nm">Priya Venkat</div><div class="hd">@priya_onchain</div></div></div><div class="chips"><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span></div><div class="body">Read the last two weeks back: breadcrumb, paper, partner, waitlist. That wasn&#x27;t scattered posts, it was a campaign with a thesis. Crediting the partners at the close cements the named-partner story. Well executed.
+
+QT: thanks to the partners who put their name on this.</div><div class="tstamp">Fri Jul 3 &middot; 156 replies / 2350 likes / 111K views (illustrative)</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="RESEARCH" data-handle="@RibbitCapital"><div class="head"><div class="av gen ribbit">RC</div><div class="who"><div class="nm">Ribbit Capital</div><div class="hd">@RibbitCapital</div></div></div><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="body">Every wave of finance opens with a new kind of account. Checking. Brokerage. The card. We&#x27;ve spent fifteen years backing the companies that gave people a better one.
+
+The next account holder is an agent. @Anchorage&#x27;s paper is the clearest map we&#x27;ve seen of what it takes to put one on regulated rails.
+
+QT: New research from Anchorage, Who Banks the Agents.</div><div class="tstamp">Wed Jun 24 &middot; approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PARTNER" data-handle="@mickymalka"><div class="head"><div class="av gen malka">MM</div><div class="who"><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">I&#x27;ve spent my career on one bet: trust is the only product in finance that compounds. You earn it once and it pays for decades.
+
+Agents are about to become economic actors. The question isn&#x27;t whether they can act. It&#x27;s who&#x27;s accountable when they do. That&#x27;s a banking question, and it belongs inside a charter.
+
+Why we&#x27;re backing what @Anchorage is building.</div><div class="tstamp">Thu Jun 25 &middot; approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PARTNER" data-handle="@mickymalka"><div class="head"><div class="av gen malka">MM</div><div class="who"><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="body">An allowance, not your account. This is the part most people miss.
+
+The consumer-finance winners we backed all won on the same thing: bounded, revocable trust that a normal person could actually use. Agents need exactly that, and a bank is where it lives.
+
+QT: give it an allowance, not your wallet.</div><div class="tstamp">Thu Jun 25 &middot; approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PARTNER -> PR" data-handle="@RibbitCapital"><div class="head"><div class="av gen ribbit">RC</div><div class="who"><div class="nm">Ribbit Capital</div><div class="hd">@RibbitCapital</div></div></div><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="body">Micky is sitting down live with @nathanmccauley on the question we keep coming back to: who banks the agents.
+
+Two seats, one thesis. A chartered bank and a fintness-obsessed investor on what it actually takes to let an agent hold and move money safely. Bring questions.
+
+QT: [Nathan fireside announcement]</div><div class="tstamp">Mon Jun 29 &middot; approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="PR" data-handle="@mickymalka"><div class="head"><div class="av gen malka">MM</div><div class="who"><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="body">The headline says first regulated agentic bank. The word that matters is regulated.
+
+We&#x27;ve watched a hundred teams try to bolt controls on later. The ones that last build inside the perimeter from day one. That&#x27;s why this one is worth backing.
+
+QT: @CoinDesk, Anchorage becomes the first regulated agentic bank.</div><div class="tstamp">Tue Jun 30 &middot; approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@RibbitCapital"><div class="head"><div class="av gen ribbit">RC</div><div class="who"><div class="nm">Ribbit Capital</div><div class="hd">@RibbitCapital</div></div></div><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip QT">(QT)</span></div><div class="body">A note to the founders and communities we&#x27;ve backed over the years: the agent account is here, and it&#x27;s being built by the most-regulated bank in the space.
+
+If you&#x27;re building anything where an agent touches money, get on the list. This is the on-ramp.
+
+QT: the Agentic Banking waitlist is open.</div><div class="tstamp">Wed Jul 1 &middot; approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH CLOSE + COSIGN" data-handle="@mickymalka"><div class="head"><div class="av gen malka">MM</div><div class="who"><div class="nm">Micky Malka</div><div class="hd">@mickymalka</div></div></div><div class="chips"><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">Two weeks ago @Anchorage asked who banks the agents. Today there&#x27;s a paper, a charter, and a waitlist behind the answer.
+
+Categories get built by named partners, not by one logo. Proud to be one of the names on this one. The agent economy needs rails it can trust, and now it has somewhere to point.</div><div class="tstamp">Fri Jul 3 &middot; approve before posting</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@AnchorageDigital"><div class="head"><div class="av gen anchorage">A</div><div class="who"><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div><div class="chips"><span class="tagchip RECRUITING">(RECRUITING)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">We hire the way we bank: agent-first.
+
+Something new is coming to how we run our interviews. If you build with agents, you&#x27;re going to want to see this.
+
+More next week.</div><div class="tstamp">Thu Jun 25</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@AnchorageDigital"><div class="head"><div class="av gen anchorage">A</div><div class="who"><div class="nm">Anchorage</div><div class="hd">@AnchorageDigital</div></div></div><div class="chips"><span class="tagchip RECRUITING">(RECRUITING)</span><span class="tagchip TWEET">(TWEET)</span></div><div class="body">Introducing the agentic interview.
+
+We&#x27;ve been running agents inside Anchorage for a while. Now our hiring loop reflects it: bring your agent, direct it on a real problem, and show us how you work when an agent does the busywork.
+
+We&#x27;re hiring people who already live in the future we&#x27;re banking.
+
+See how it works: [link]</div><div class="tstamp">Thu Jul 2</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+<div class="tw" data-phase="LAUNCH" data-handle="@nathanmccauley"><div class="head"><div class="av gen nathan">N</div><div class="who"><div class="nm">Nathan McCauley</div><div class="hd">@nathanmccauley</div></div></div><div class="chips"><span class="tagchip RECRUITING">(RECRUITING)</span></div><div class="body">We run on agents internally, so it would be strange to hire any other way. If you already work like this, come build with us. QT: [the agentic-interview reveal].</div><div class="tstamp">Thu Jul 2</div><div class="doc-mini"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span></div></div>
+    </div>
+  </section>
+
+  <section id="livestreams">
+    <div class="sh"><span class="sn">06</span><h2 class="serif">Livestreams &amp; videos</h2></div>
+    <p class="ss">The moving-image pieces of the sprint: Nathan's raw selfie reveal, the live Malka fireside, and the builder AMA. Each opens a show brief or script in a Google Doc. Posters and run-of-show are illustrative.</p>
+    <a class="mediahero" href="#" data-modal="herovideo" onclick="return false" style="max-width:760px">
+      <img src="assets/hero-video-poster.png" alt="Nathan selfie video">
+      <div class="playbtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="mcap"><b>(VIDEO) Nathan's reveal</b> &middot; raw selfie, shot on his phone &middot; drops late Day 2 / early Day 3</div>
+    </a>
+    <div class="partmeta">
+      <span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Video script (Google Doc)</span>
+      <a href="#script" style="border:0"><span class="docbtn">Read the script &rarr;</span></a>
+      <span class="pill">~60 to 90 seconds &middot; one take</span>
+    </div>
+
+    <div class="rib-grid" style="margin-top:18px">
+      <div class="rib-stat">
+        <div class="rl">(LIVE INTERVIEW) 01 &middot; the fireside</div>
+        <div class="rv"><b>Who Banks the Agents: Nathan McCauley and Micky Malka</b>, live on the agent economy and regulated rails. ~25-30 min, streamed, X simulcast, audience Q&amp;A in the last 8 minutes. Announced Day 6, airs Day 8 to 9.</div>
+        <div class="partmeta" style="margin-top:10px"><span class="docbtn" data-modal="live1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Show brief (Google Doc)</span></div>
+      </div>
+      <div class="rib-stat">
+        <div class="rl">(LIVE INTERVIEW) 02 &middot; the builder AMA</div>
+        <div class="rv"><b>Building on the agent account</b>: a live builder AMA with the Anchorage Agentic Banking team. Nathan drops in for the first 10 min. ~30-40 min, X Space, driven by the waitlist thread. Announced Day 8, airs Day 9 to 10.</div>
+        <div class="partmeta" style="margin-top:10px"><span class="docbtn" data-modal="live2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Show brief (Google Doc)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="script">
+    <div class="sh"><span class="sn">07</span><h2 class="serif">Nathan's script</h2></div>
+    <p class="ss">What Nathan actually says. The <b>start-of-a-new-frontier selfie video</b>, grounded in what he has said publicly, his to amend or re-record. Raw outperforms polished here. No script on screen, no slides.</p>
+    <div class="teleprompt">
+      <div class="tpbar">
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="tpmeta"><div class="tt">Agentic Banking, Nathan McCauley</div><div class="tm">Hero video / livestream cold open &middot; raw selfie to camera &middot; ~60 to 90 seconds</div></div>
+        <span class="docbtn" data-doc="open" style="margin-left:auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Google Doc</span>
+      </div>
+      <div class="tpscript">
+        <span class="cue">[to camera]</span>
+        <p>Hey. Nathan here. No script, no slides. I wanted to say this one directly.</p>
+        <p>Today is the start of a new frontier for Anchorage. We are pivoting hard into an agentic organization.</p>
+        <span class="cue">[beat]</span>
+        <p>Here is the why.</p>
+        <p>For a while now I have kept saying the same thing. Agents are becoming real economic actors. Right now most of them can advise you. What they still cannot do is act. Hold money. Get paid. Be told no.</p>
+        <p>And the thing that lets them act is not better AI. It is financial rails.</p>
+        <span class="cue">[beat]</span>
+        <p>So the question I keep coming back to is simple.</p>
+        <p>Who banks the agents?</p>
+        <p>When an agent pays the wrong party at three in the morning, who picks up the phone. And what can they actually do about it. If the honest answer is no one, then you do not have a bank for agents. You have an agent with a card and crossed fingers.</p>
+        <span class="cue">[to camera]</span>
+        <p>Here is what most people get wrong. They think this is an AI problem. It is mostly a controls problem.</p>
+        <p>Instead of handing an agent your whole bank account, you give it a segmented one. An allowance. A spending limit. A verified merchant on the other side. A human who is still accountable.</p>
+        <p>We have spent years inside the regulatory perimeter building exactly those boring, hard parts. Custody. Controls. Knowing precisely who is on the other side of an account. That turns out to be the real work of banking the agents.</p>
+        <span class="cue">[beat]</span>
+        <p>That is what Know Your Agent is about.</p>
+        <p>Banks already do Know Your Customer and Know Your Business. We are taking it one step further. KYA. We do not just underwrite the human who owns the agent. We underwrite the agent itself. Its history. Its identity. A shared understanding of what it is and what it is allowed to do.</p>
+        <p>KYC was for people. KYA is for the things people send to act for them.</p>
+        <span class="cue">[beat]</span>
+        <p>This is not meant to be one company holding the whole thing. The industry is better when it is built in the open, by a lot of people.</p>
+        <p>So we are putting our thinking out this week. And we are opening a waitlist on our agentic page, for the people building where agents meet money.</p>
+        <p>If that is you, come find us. Get on the list.</p>
+        <p>This is the start of something. And I would rather build it in the open.</p>
+      </div>
+      <div class="tpnote"><b>Producer notes.</b> Keep it raw. One take is fine, stumbles read as human and build trust. No music, no lower-thirds, no end card on the social cut. End on one clear call to action: join the waitlist on the agentic landing page. No em dashes spoken or on screen.</div>
+    </div>
+
+    <h3 class="serif">Ready replies, when people ask "what is KYA?"</h3>
+    <div class="qcard"><div class="ql">KYA is Know Your Agent. We already do Know Your Customer and Know Your Business. KYA is the third leg: you underwrite the agent itself, its history, its identity, and what it is actually allowed to do, not just the human who owns it.</div><div class="qm"><span>ready reply &middot; aligns S24 &middot; S2</span><span class="docbtn" data-doc="open" style="font-size:9px;padding:3px 8px">Google Doc</span></div></div>
+    <div class="qcard"><div class="ql">A capped wallet bounds the loss. It does not govern the behavior. An allowance with a verified counterparty and a human on the hook is a control. That difference is the whole product.</div><div class="qm"><span>ready reply &middot; aligns S5 &middot; S4</span><span class="docbtn" data-doc="open" style="font-size:9px;padding:3px 8px">Google Doc</span></div></div>
+  </section>
+
+  <section id="partner">
+    <div class="sh"><span class="sn">08</span><h2 class="serif">Partner track</h2></div>
+    <p class="ss">The co-sign that <b>borrows a fintech-native audience Anchorage does not natively own</b>. Anchored to Ribbit-the-VC and Micky Malka-the-investor, at the thesis level: agent identity, Know Your Agent, regulated rails. Suggested copy for partner approval, every item confirmable and re-wordable by the partner.</p>
+    <div class="rib-grid">
+      <div>
+        <div class="rib-stat"><div class="rl">The partner</div><div class="rv"><b>Ribbit Capital</b> &middot; fintech-specialist venture firm, founded 2012. Backs the rails-and-front-door companies (banking, brokerage, payments, credit), which is exactly the consumer-facing audience Anchorage does not natively own. A deliberately low-profile firm, so when it attaches its name the signal is scarce and therefore loud.</div></div>
+        <div class="rib-stat"><div class="rl">The investor</div><div class="rv"><b>Micky Malka</b> &middot; founder and managing partner, Ribbit Capital. Serial fintech founder, Robinhood board member, early Coinbase backer. The relationship anchor and Nathan's fireside counterpart, credibility and portfolio access over raw follower volume.</div></div>
+      </div>
+      <div>
+        <div class="rib-stat"><div class="rl">Exposure radius (illustrative)</div><div class="rv">The consumer-fintech audience Anchorage borrows the moment Ribbit co-signs, sized by funded-user reach across the flagship portfolio: Robinhood, Coinbase, Nubank, Revolut, Brex, Affirm. Hundreds of millions of fintech-native consumers, the exact crowd for "everyone will want an agent account."</div>
+          <div class="handles"><span class="h"><b>@RibbitCapital</b> firm</span><span class="h"><b>@mickymalka</b> founder</span></div>
+        </div>
+        <div class="warn"><b>Guardrail.</b> Anchor to the VC and the thesis only. Do not name, ticker, or co-brand any token. Get Ribbit on record re: token affiliation before any co-publication references it. Keep crypto framing light for the fintech room.</div>
+      </div>
+    </div>
+    <div class="brief">
+      <details><summary>Partner posting plan, by day <span class="sm-tag"></span></summary>
+        <div class="bd">
+          <div class="bsec"><div class="bh">Day 3 &middot; Jun 24 &middot; (PARTNER)(QT)</div><div class="bb"><p><b>@RibbitCapital</b> quote-tweets the paper. "Every wave of finance opens with a new kind of account. The next account holder is an agent."</p></div></div>
+          <div class="bsec"><div class="bh">Day 4 &middot; Jun 25 &middot; (PARTNER)(TWEET) + (QT)</div><div class="bb"><p><b>@mickymalka</b> co-sign tweet ("trust is the only product in finance that compounds") plus a QT of Nathan's allowance post ("an allowance, not your account").</p></div></div>
+          <div class="bsec"><div class="bh">Day 6 &middot; Jun 29 &middot; (PARTNER)(QT)</div><div class="bb"><p><b>@RibbitCapital</b> QTs the fireside announcement. Note: the source draft carries an intentional typo cue ("fintness") flagged for a human edit to "fintech" before posting.</p></div></div>
+          <div class="bsec"><div class="bh">Day 7 &middot; Jun 30 &middot; (PARTNER)(QT)</div><div class="bb"><p><b>@mickymalka</b> QTs the CoinDesk break. "The word that matters is regulated."</p></div></div>
+          <div class="bsec"><div class="bh">Day 8 &middot; Jul 1 &middot; (PARTNER)(QT)</div><div class="bb"><p><b>@RibbitCapital</b> routes its portfolio network to the waitlist. Speaks to founders and companies, not any coin community.</p></div></div>
+          <div class="bsec"><div class="bh">Day 10 &middot; Jul 3 &middot; (PARTNER)(TWEET)</div><div class="bb"><p><b>@mickymalka</b> close: "Categories get built by named partners, not by one logo. Proud to be one of the names on this one."</p></div></div>
+          <div class="partmeta"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Partner copy (Google Doc)</span></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="recruiting">
+    <div class="sh"><span class="sn">09</span><h2 class="serif">Agentic recruiting</h2></div>
+    <p class="ss">The proof that Anchorage does not just talk agentic, it <b>hires agentically</b>. The agentic interview is Know Your Agent pointed at itself, and the strongest evidence for the whole be-agentic argument. Teaser lands Day 4, full reveal Day 9.</p>
+    <a class="mediahero" href="#" data-modal="recruit" onclick="return false" style="max-width:600px">
+      <img src="assets/agentic-interview.png" alt="Agentic interview">
+      <div class="mcap"><b>The agentic interview</b> &middot; click to open the four-step process</div>
+    </a>
+    <div class="recflow">
+      <div class="recstep"><div class="rn">1</div><div class="rs">Bring your agent</div><div class="rdd">Candidates show up with the agent and tools they actually use. We do not hand you ours. How you have set yours up is itself signal.</div></div>
+      <div class="recstep"><div class="rn">2</div><div class="rs">Direct it on a real problem</div><div class="rdd">A scoped, real-world task from the team you would join. We watch how you delegate, where you keep the human in the loop, and how you check its work.</div></div>
+      <div class="recstep"><div class="rn">3</div><div class="rs">Show the controls</div><div class="rdd">We care less about raw output and more about how you bound it: what you let the agent do, what you reserve for yourself, how you would make it safe if money were involved. Same instinct as Know Your Agent.</div></div>
+      <div class="recstep"><div class="rn">4</div><div class="rs">Debrief like a builder</div><div class="rdd">A short conversation about what worked, what you would change, and where agents help versus get in the way. We are hiring judgment, not prompt tricks.</div></div>
+    </div>
+    <div class="partmeta"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Recruiting copy (Google Doc)</span><span class="pill">illustrative &middot; confirm the loop is real before the reveal</span></div>
+  </section>
+
+  <section id="takeaways">
+    <div class="sh"><span class="sn">10</span><h2 class="serif">Takeaways &amp; action items</h2></div>
+    <p class="ss">What we agreed and who owns what. Owners are illustrative placeholders from the engagement (Jarred = Winn lead; Kate = Anchorage brand/review; Amethyst = Winn producer; Joe / Erin / Sam = Anchorage stakeholders). Confirm against the real team before this is treated as binding.</p>
+    <div class="bigclaim">The sprint is <b>one argument, repeated from many mouths</b>: agents are becoming economic actors, what lets them act is regulated rails, and that is a controls problem, not an AI problem.</div>
+    <h3 class="serif">The 8 takeaways</h3>
+    <div class="tk">
+      <div class="tkc"><div class="tkn">1</div><div class="tkt">The sprint is one argument, repeated from many mouths.</div><div class="tkb">Every day reinforces a single thesis. Breadcrumb, paper, partner, proof, waitlist is the shape.</div></div>
+      <div class="tkc"><div class="tkn">2</div><div class="tkt">KYA is the asset.</div><div class="tkb">"Know Your Agent" is the phrase we want the industry to adopt. It maps a new problem onto language banks already trust (KYC, KYB). If only one thing sticks, make it KYA.</div></div>
+      <div class="tkc"><div class="tkn">3</div><div class="tkt">KOLs are third-party voices.</div><div class="tkb">Key Opinion Leaders are independent crypto, AI, and fintech voices reacting to Nathan. They are fictional, illustrative personas standing in for real influencer amplification.</div></div>
+      <div class="tkc"><div class="tkn">4</div><div class="tkt">The partner is the VC, not a token.</div><div class="tkb">The Ribbit / Micky Malka partnership is anchored to the firm and the investor at the thesis level. No token is named, tickered, or co-branded. The single biggest association-risk control for a regulated bank.</div></div>
+      <div class="tkc"><div class="tkn">5</div><div class="tkt">Client review gates the paper and the press.</div><div class="tkb">"Who Banks the Agents" must clear Kate's review before it is chopped into posts or offered to journalists. The embargo letter and any KYA / liability language need the same clearance.</div></div>
+      <div class="tkc"><div class="tkn">6</div><div class="tkt">The funnel has one destination.</div><div class="tkb">Every thread, KOL boost, partner post, the paper, the PR, and both live interviews route to the agentic landing page and the waitlist. The waitlist is framed as a builder signal.</div></div>
+      <div class="tkc"><div class="tkn">7</div><div class="tkt">Proof beats claims.</div><div class="tkb">The "we run agents inside Anchorage" thread and the agentic-recruiting reveal are the credibility spine. They let us say "we practice this" instead of "trust us."</div></div>
+      <div class="tkc"><div class="tkn">8</div><div class="tkt">Raw beats polished for the reveal.</div><div class="tkb">Nathan's selfie video (shot on his phone, no end card) is the highest-trust moment of the sprint. Do not over-produce it.</div></div>
+    </div>
+
+    <h3 class="serif">17 action items, with owners</h3>
+    <table class="t">
+      <thead><tr><th style="width:30px">#</th><th>Action</th><th style="width:140px">Owner</th><th style="width:150px">Due / timing</th><th style="width:70px">Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>Verify Ribbit's participation</b> in the sprint (co-sign tweets + fireside) and get it in writing.</td><td class="owner">Jarred</td><td>Before D3 (Jun 24)</td><td class="st">OPEN</td></tr>
+        <tr><td>2</td><td><b>Confirm Micky Malka will post</b> the suggested partner tweets/QTs, or get his edits.</td><td class="owner">Jarred + Kate</td><td>Before D4 (Jun 25)</td><td class="st">OPEN</td></tr>
+        <tr><td>3</td><td><b>Get Ribbit on record re: token affiliation.</b> Until then, fence off all token co-branding.</td><td class="owner">Jarred</td><td>Before any co-publication</td><td class="st">OPEN</td></tr>
+        <tr><td>4</td><td><b>Client read of "Who Banks the Agents"</b> paper (Kate reads first). Gates the paper drop and the chop-into-posts plan.</td><td class="owner">Kate</td><td>Before D3 (Jun 24)</td><td class="st">OPEN</td></tr>
+        <tr><td>5</td><td><b>Clear KYA + human-attached-liability language</b> for external use (paper, PR, tweets, fireside).</td><td class="owner">Kate</td><td>Before D3</td><td class="st">OPEN</td></tr>
+        <tr><td>6</td><td><b>Lock the live fireside</b>: confirm Malka, book the moderator, set platform + date/time.</td><td class="owner">Jarred + Kate</td><td>Announce D6; airs D8-D9</td><td class="st">OPEN</td></tr>
+        <tr><td>7</td><td><b>Schedule Nathan's selfie video</b> shoot (raw, one take, on his phone).</td><td class="owner">Amethyst + Kate</td><td>Before D2 (Jun 23)</td><td class="st">OPEN</td></tr>
+        <tr><td>8</td><td><b>Assign handle ownership.</b> Who posts from @AnchorageDigital, who from @nathanmccauley, who schedules.</td><td class="owner">Kate + Amethyst</td><td>Before D1 (Jun 22)</td><td class="st">OPEN</td></tr>
+        <tr><td>9</td><td><b>Confirm the CoinDesk path.</b> The CoinDesk tweet is illustrative; pitch the embargo and confirm coverage.</td><td class="owner">Jarred</td><td>Embargo D6, breaks D7</td><td class="st">OPEN</td></tr>
+        <tr><td>10</td><td><b>Wire the agentic landing page + waitlist</b> and confirm the link is live and tracked before D8.</td><td class="owner">Anchorage + Amethyst</td><td>Before D8 (Jul 1)</td><td class="st">OPEN</td></tr>
+        <tr><td>11</td><td><b>Stand up the agentic-recruiting process</b> so inbound has somewhere to land; confirm the four-step loop is real before D9.</td><td class="owner">Anchorage HR</td><td>Before D9 (Jul 2)</td><td class="st">OPEN</td></tr>
+        <tr><td>12</td><td><b>Confirm the internal-agent-adoption claim</b> ("we've been running agents inside Anchorage") is defensible on timeline.</td><td class="owner">Kate + Anchorage eng</td><td>Before D5 (Jun 26)</td><td class="st">OPEN</td></tr>
+        <tr><td>13</td><td><b>Approve the KOL amplification plan</b> (illustrative personas) or replace with the real influencer outreach list and budget.</td><td class="owner">Jarred</td><td>Before D1</td><td class="st">OPEN</td></tr>
+        <tr><td>14</td><td><b>Decide on the 3 weekend tweets</b> (Jun 27-28), KOL-only amplification off the Mon-Fri grid, or cut them.</td><td class="owner">Amethyst</td><td>Before Jun 27</td><td class="st">OPEN</td></tr>
+        <tr><td>15</td><td><b>Stand up the Google Sheet</b> from the logistics master and assign each row an owner + a real doc link.</td><td class="owner">Amethyst</td><td>Before D1</td><td class="st">OPEN</td></tr>
+        <tr><td>16</td><td><b>Em-dash style-guide fix:</b> update the Nathan voice guide to ban em dashes so the house no-em-dash rule wins at generation time.</td><td class="owner">Jarred</td><td>Before next generation</td><td class="st">OPEN</td></tr>
+        <tr><td>17</td><td><b>Final sign-off on the full sprint deck/sheet</b> before anything ships.</td><td class="owner">Kate (+ pre-reads)</td><td>Before D1</td><td class="st">OPEN</td></tr>
+      </tbody>
+    </table>
+    <div class="partmeta"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Takeaways &amp; actions (Google Doc)</span><span class="docbtn sheet" data-gsheet="pending"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>Open logistics sheet (Google Sheets)</span></div>
+  </section>
+
+  <div class="foot">
+    <b>The Anchorage Agentic Launch Sprint</b> &middot; v4 &middot; Winn.solutions &middot; confidential review build. Unlisted and noindexed. KOL personas are fictional and illustrative. Partner copy is suggested and requires approval. Engagement numbers and mockups are illustrative projections, not performance claims. No copy here is cleared for outbound use without client review.
+  </div>
+</div>
+
+<!-- ============ MODALS ============ -->
+<div class="modal" id="modal-embargo">
+  <div class="sheet">
+    <div class="mtop"><div class="mt">Embargo letter / press briefing</div><button class="x" data-close>&times;</button></div>
+    <div class="mbody">
+      <p class="lead-l"><b>FOR IMMEDIATE RELEASE UNDER EMBARGO</b><br>Embargoed until: Tuesday, June 30, 2026, 6:00 AM ET<br>Contact: press@anchorage.com &middot; Winn.solutions comms desk</p>
+      <h4>Anchorage to launch Agentic Banking, the first regulated bank account built for AI agents</h4>
+      <p><b>Press briefing for credentialed journalists. Embargoed until 6:00 AM ET, June 30.</b></p>
+      <p>Dear [Reporter],</p>
+      <p>We are sharing this ahead of public announcement, under embargo, because the story is bigger than a product launch and we want you to have the context before it breaks.</p>
+      <p><b>The one-line version.</b> AI agents are becoming economic actors. What lets them act is not a smarter model. It is financial rails. Anchorage is opening Agentic Banking: a regulated bank account built for an AI agent, with segmented accounts, spending limits, verified-merchant controls, and Know Your Agent (KYA) identity at the core. A human owner is always attached to the liability.</p>
+      <p><b>Why it matters.</b> Today's agents can advise. They cannot truly act, because acting touches money, and money touches controls that no agent stack has solved. The constraint on the agent economy was never capability. It was the absence of a regulated place for an agent to hold and move value under rules. Anchorage, as the first and only fully operational federally chartered digital asset bank, is positioned to be that place.</p>
+      <h4>What is being announced</h4>
+      <ul><li>Agentic Banking waitlist opens to builders the week of June 30.</li><li>A new research paper, "Who Banks the Agents," lays out the thesis and the controls framework.</li><li>A live fireside between Anchorage CEO Nathan McCauley and Ribbit Capital founder Micky Malka on what it takes to put an agent on regulated rails.</li></ul>
+      <h4>Three things to understand about the framing</h4>
+      <p>1. This is a controls problem, not an AI problem. The hard part is segmented accounts, spending limits, verified merchants, and human-attached liability, not the model.<br>2. KYA is the throughline. Banks do Know Your Customer and Know Your Business. Anchorage extends the lineage to Know Your Agent.<br>3. It is built inside the regulatory perimeter on purpose. Anchorage sought the highest level of scrutiny, not the least.</p>
+      <p><b>Available for interview (embargoed):</b> Nathan McCauley, CEO. Briefing materials, the paper, and the fireside details are available on request under this embargo.</p>
+      <p>We ask that nothing be published before 6:00 AM ET on June 30. After the embargo lifts, the waitlist link and the paper will be public.</p>
+      <p>Thank you for honoring the embargo.</p>
+      <p>[Name]<br>Communications, Anchorage<br>On behalf of: Winn.solutions comms</p>
+    </div>
+    <div class="mfoot"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Open in Google Doc</span><span class="pill">illustrative draft &middot; client review before send</span></div>
+  </div>
+</div>
+
+<div class="modal" id="modal-recruit">
+  <div class="sheet">
+    <div class="mtop"><div class="mt">The Anchorage Agentic Interview, how it works</div><button class="x" data-close>&times;</button></div>
+    <div class="mbody">
+      <p class="lead-l">We have been running agents inside Anchorage for a while. Now our hiring loop reflects it. We are hiring people who already live in the future we are banking.</p>
+      <h4>1. Bring your agent</h4><p>Candidates show up with the agent and tools they actually use. We do not hand you ours. How you have set yours up is itself signal.</p>
+      <h4>2. Direct it on a real problem</h4><p>A scoped, real-world task from the team you would join. We watch how you delegate to the agent, where you keep the human in the loop, and how you check its work.</p>
+      <h4>3. Show the controls</h4><p>We care less about raw output and more about how you bound it: what you let the agent do, what you reserve for yourself, and how you would make it safe if money were involved. That is the same instinct as Know Your Agent.</p>
+      <h4>4. Debrief like a builder</h4><p>A short conversation about what worked, what you would change, and where agents help versus get in the way. We are hiring judgment, not prompt tricks.</p>
+    </div>
+    <div class="mfoot"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Open in Google Doc</span></div>
+  </div>
+</div>
+
+<div class="modal" id="modal-live1">
+  <div class="sheet">
+    <div class="mtop"><div class="mt">(LIVE INTERVIEW) Fireside show brief</div><button class="x" data-close>&times;</button></div>
+    <div class="mbody">
+      <p class="lead-l"><b>Who Banks the Agents: Nathan McCauley and Micky Malka</b>, live on the agent economy and regulated rails.</p>
+      <div class="partlist"><b>Principal:</b> Nathan McCauley, CEO, Anchorage (@nathanmccauley)<br><b>Partner:</b> Micky Malka, Founder, Ribbit Capital (@mickymalka)<br><b>Moderator:</b> TBD, a credible fintech/crypto host who keeps it substantive and out of token territory<br><b>Format:</b> Live conversation, ~25-30 min, streamed, X simulcast. Audience Q&amp;A in the last 8 minutes.</div>
+      <h4>Show brief</h4>
+      <p>A working conversation, not a webinar. Nathan and Micky come at the same shift from two seats: the chartered bank that builds the rails, and the fintech investor who has backed fifteen years of new account types. The throughline is one idea stated plainly: agents are becoming economic actors, and what lets them act is regulated financial rails, not a smarter model. Nathan owns the controls story (segmented accounts, spending limits, verified merchants, Know Your Agent, a human always on the hook) and the 3am test. Micky owns the lineage story (every wave of finance opens with a new kind of account; trust is the only product in finance that compounds). The moderator keeps it concrete, draws out the friendly tension between mission and controls, and routes the close to the waitlist. Guardrails: keep crypto framing light for a fintech room, keep any token entirely off the table, and let KYA be the phrase the audience walks out repeating. Pre-read for all three: the review-cleared paper and this brief.</p>
+    </div>
+    <div class="mfoot"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Open run-of-show (Google Doc)</span><span class="pill">illustrative &middot; confirm participants/date</span></div>
+  </div>
+</div>
+
+<div class="modal" id="modal-live2">
+  <div class="sheet">
+    <div class="mtop"><div class="mt">(LIVE INTERVIEW) Builder AMA show brief</div><button class="x" data-close>&times;</button></div>
+    <div class="mbody">
+      <p class="lead-l"><b>Building on the agent account</b>: a live builder AMA with the Anchorage Agentic Banking team.</p>
+      <div class="partlist"><b>Principal:</b> Anchorage Agentic Banking product/eng lead (TBD)<br><b>Co-host:</b> Nathan McCauley, CEO (drops in for the first 10 min)<br><b>Moderator:</b> Anchorage developer-relations or comms host<br><b>Format:</b> Live X Space / stream, ~30-40 min, builder Q&amp;A driven by the waitlist thread.</div>
+      <h4>Show brief</h4>
+      <p>A lower-key, builder-facing companion to the Malka fireside. The Agentic Banking team takes live questions from the waitlist thread: what an agent account actually is, how segmented accounts and spending limits work in practice, what Know Your Agent requires of a builder, and what a human-attached-liability model means. Nathan opens with the thesis and the order of operations (prove it on your own rails first; we have been running agents inside Anchorage), then hands to the team. The goal is to convert curiosity into qualified waitlist signups by answering the real implementation questions. Keep it honest about what is live versus on the roadmap. Everything routes back to the agentic landing page.</p>
+    </div>
+    <div class="mfoot"><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Open run-of-show (Google Doc)</span></div>
+  </div>
+</div>
+
+<div class="modal" id="modal-herovideo">
+  <div class="sheet">
+    <div class="mtop"><div class="mt">(VIDEO) Nathan's reveal</div><button class="x" data-close>&times;</button></div>
+    <div class="mbody">
+      <img src="assets/hero-video-poster.png" alt="Nathan selfie video poster" style="width:100%;border-radius:10px;border:1px solid var(--line2);margin-bottom:14px">
+      <p class="lead-l">Raw selfie to camera, shot on his phone. Not polished, ~60 to 90 seconds. The moment the breadcrumbs resolve into a committed direction. Full script is in the Nathan's script section.</p>
+      <p>Beats: the new frontier &rarr; agents as economic actors &rarr; who banks the agents &rarr; KYA &rarr; regulated rails &rarr; invite to the waitlist.</p>
+    </div>
+    <div class="mfoot"><a href="#script" data-close style="border:0"><span class="docbtn">Read the full script &rarr;</span></a><span class="docbtn" data-doc="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Video script (Google Doc)</span></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---- nav scrollspy ----
+  var links=[].slice.call(document.querySelectorAll('.lrnav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  function spy(){
+    var y=window.scrollY+140,cur=secs[0];
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s;});
+    links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+(cur&&cur.id));});
+  }
+  window.addEventListener('scroll',spy,{passive:true});spy();
+
+  // ---- modals ----
+  function openModal(id){var m=document.getElementById('modal-'+id);if(m){m.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeAll(){document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open');});document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-modal]');
+    if(t){e.preventDefault();openModal(t.getAttribute('data-modal'));return;}
+    if(e.target.closest('[data-close]')){closeAll();return;}
+    if(e.target.classList.contains('modal')){closeAll();return;}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+
+  // ---- google doc / sheet placeholder buttons ----
+  document.addEventListener('click',function(e){
+    var d=e.target.closest('[data-doc],[data-gsheet]');
+    if(d&&!d.closest('[data-modal]')&&!d.hasAttribute('data-modal')){
+      // placeholder: no-op, but give a tiny affordance
+      if(d.dataset.acked)return; d.dataset.acked=1;
+      var o=d.style.opacity; d.style.opacity=.55; setTimeout(function(){d.style.opacity=o;d.dataset.acked='';},180);
+    }
+  });
+
+  // ---- content library filter ----
+  var grid=document.getElementById('tweetGrid');
+  if(grid){
+    document.querySelectorAll('#filterPhase .chip').forEach(function(c){
+      c.addEventListener('click',function(){
+        document.querySelectorAll('#filterPhase .chip').forEach(function(x){x.classList.remove('on');});
+        c.classList.add('on');
+        var f=c.getAttribute('data-f');
+        grid.querySelectorAll('.tw').forEach(function(tw){
+          tw.style.display=(f==='all'||tw.getAttribute('data-phase')===f)?'':'none';
+        });
+      });
+    });
+  }
+
+  // ---- action cards collapse long bodies, click to expand ----
+  document.querySelectorAll('.acard').forEach(function(c){
+    var b=c.querySelector('.body');
+    if(b&&b.textContent.length>180){c.classList.add('collapsed');c.style.cursor='pointer';
+      c.addEventListener('click',function(e){if(e.target.closest('a,.docbtn,[data-modal]'))return;c.classList.toggle('collapsed');});}
+  });
+})();
+</script>
+</body>
+</html>
