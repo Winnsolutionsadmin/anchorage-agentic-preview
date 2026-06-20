@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>The Anchorage Agentic Launch Sprint &middot; Winn.solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#08111f;--navy2:#0d1b2e;--panel:#10213a;--panel2:#142845;
+  --ink:#eaf0f8;--muted:#8ba0bd;--faint:#5d7290;
+  --brass:#cda349;--brass2:#e3c578;--brassd:#9a7a2e;
+  --red:#d8654f;--green:#5fb98a;--blue:#5b9bd5;--violet:#b58bd8;
+  --line:rgba(159,184,219,.13);--line2:rgba(159,184,219,.22);
+  --nav-w:236px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Fraunces',Georgia,serif}
+.mono{font-family:'IBM Plex Mono',monospace}
+em{font-style:italic;color:var(--brass2)}
+a{color:var(--brass2);text-decoration:none;border-bottom:1px solid rgba(227,197,120,.3)}
+a:hover{border-bottom-color:var(--brass2)}
+
+.lrnav{position:fixed;top:0;left:0;width:var(--nav-w);height:100vh;overflow-y:auto;background:linear-gradient(180deg,var(--navy2),var(--navy));border-right:1px solid var(--line);padding:24px 0 40px;z-index:50}
+.lrnav .brand{padding:0 22px 16px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.lrnav .brand .k{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.lrnav .brand .t{font-size:15px;color:var(--brass2);margin-top:5px;line-height:1.25}
+.lrnav a{display:block;padding:7px 22px 7px 20px;color:var(--muted);font-size:13px;border:0;border-left:2px solid transparent}
+.lrnav a .n{color:var(--faint);font-size:10px;margin-right:8px;font-family:'IBM Plex Mono',monospace}
+.lrnav a:hover{color:var(--ink);background:rgba(159,184,219,.04)}
+.lrnav a.active{color:var(--brass2);border-left-color:var(--brass);background:rgba(205,163,73,.07)}
+.wrap{margin-left:var(--nav-w);max-width:1080px;padding:0 46px}
+.wrap.wide{max-width:1480px;padding:0 40px}
+section{padding:52px 0 10px;border-bottom:1px solid var(--line)}
+section:last-child{border-bottom:0}
+
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);letter-spacing:.1em;border:1px solid var(--line2);border-radius:4px;padding:2px 8px;white-space:nowrap}
+h1.serif{font-size:46px;line-height:1.05;font-weight:600;margin:0;letter-spacing:-.5px}
+h2.serif{font-size:29px;line-height:1.12;font-weight:600;margin:0}
+h3.serif{font-size:20px;font-weight:600;margin:24px 0 8px}
+.ss{color:var(--muted);font-size:15.5px;max-width:78ch;margin:10px 0 20px}
+.ss b{color:var(--ink)}
+.kicker{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+
+/* doc-link button (Google Doc / Sheet placeholders) */
+.docbtn{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--brass2);background:rgba(205,163,73,.08);border:1px solid var(--brassd);border-radius:8px;padding:6px 12px;cursor:pointer;transition:.13s}
+.docbtn:hover{background:rgba(205,163,73,.16);border-color:var(--brass2)}
+.docbtn svg{width:13px;height:13px;flex:0 0 13px}
+.docbtn.sheet{color:#88d0ac;border-color:#3f7d5c;background:rgba(95,185,138,.08)}
+.docbtn.sheet:hover{background:rgba(95,185,138,.16)}
+.docbtn.big{font-size:13px;padding:10px 18px;border-radius:10px}
+
+.hero{padding-top:58px}
+.hero .thesis{font-size:21px;color:var(--ink);max-width:74ch;margin:18px 0 6px;line-height:1.45}
+.hero .thesis b{color:var(--brass2);font-weight:600}
+.meta-strip{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+.meta-strip .pill{font-size:11.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:5px 12px}
+.meta-strip .pill b{color:var(--brass2);font-weight:600}
+
+/* review dashboard */
+.dash{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0 8px}
+.dcard{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 16px}
+.dcard .dk{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin-bottom:8px}
+.dcard .dv{font-family:'Fraunces',serif;font-size:30px;color:var(--ink);font-weight:600;line-height:1}
+.dcard .dd{font-size:11.5px;color:var(--muted);margin-top:7px;line-height:1.4}
+.dashrow{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 4px;align-items:center}
+
+/* breadcrumb teases */
+.crumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 6px}
+.crumb{background:linear-gradient(165deg,var(--panel2),var(--panel));border:1px solid var(--line2);border-radius:14px;padding:22px 20px;position:relative;overflow:hidden}
+.crumb::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 80% at 100% 0,rgba(205,163,73,.10),transparent 60%);pointer-events:none}
+.crumb .ci{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--brass);letter-spacing:.16em;display:flex;align-items:center;gap:7px}
+.crumb .stars{color:var(--brass2);letter-spacing:.18em;font-size:11px}
+.crumb .cw{font-family:'Fraunces',serif;font-size:23px;color:var(--ink);margin:12px 0 8px;font-weight:600;letter-spacing:.8px;line-height:1.15;white-space:pre-line}
+.crumb .cd{font-size:12.5px;color:var(--muted);line-height:1.45}
+.crumb .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--faint);margin-top:10px}
+
+/* TOP-3 drip->funnel: asymmetric editorial, NOT three squares */
+.t3{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:auto auto;gap:14px;margin:8px 0 6px}
+.t3 .lead{grid-row:1 / span 2;background:linear-gradient(158deg,rgba(205,163,73,.13),var(--panel));border:1px solid var(--brassd);border-radius:16px;padding:26px 26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.t3 .lead::after{content:'';position:absolute;right:-40px;bottom:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(205,163,73,.18),transparent 70%)}
+.t3 .sup{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px;position:relative}
+.t3 .sup.b{border-left:3px solid var(--blue)}
+.t3 .sup.c{border-left:3px solid var(--green)}
+.t3 .ph{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--brass);text-transform:uppercase}
+.t3 .lead .ph{color:var(--brass2)}
+.t3 .tt{font-family:'Fraunces',serif;font-size:22px;color:var(--ink);font-weight:600;margin:11px 0 9px;line-height:1.18}
+.t3 .lead .tt{font-size:30px;margin-top:14px}
+.t3 .bd{font-size:13px;color:var(--muted);line-height:1.5}
+.t3 .lead .bd{font-size:14.5px;color:#cfdcee;max-width:42ch}
+.t3 .num{position:absolute;top:16px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(205,163,73,.4)}
+.t3 .arrow{font-size:11px;color:var(--faint);margin-top:13px;font-family:'IBM Plex Mono',monospace}
+
+.goalbar{background:linear-gradient(90deg,rgba(205,163,73,.1),rgba(205,163,73,.02));border:1px solid var(--line2);border-left:3px solid var(--brass);border-radius:8px;padding:14px 18px;margin:22px 0 6px;font-size:14.5px;color:var(--ink)}
+.goalbar b{color:var(--brass2)}
+
+/* ===== LAUNCH CALENDAR — wide owner-swimlane ===== */
+.calbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 16px}
+.calbar .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--faint)}
+.calbar .legend .lg{display:flex;align-items:center;gap:6px}
+.calbar .legend .dot{width:8px;height:8px;border-radius:50%}
+.calscroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--navy2)}
+.cal{min-width:1850px}
+.calhead{display:grid;grid-template-columns:150px repeat(10,1fr);position:sticky;top:0;z-index:6;background:var(--panel2);border-bottom:1px solid var(--line2)}
+.calhead .ch{padding:10px 10px;border-left:1px solid var(--line);font-size:11px}
+.calhead .ch:first-child{border-left:0;display:flex;align-items:flex-end;color:var(--faint);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em}
+.calhead .ch .dw{color:var(--faint);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em}
+.calhead .ch .dd{color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:12.5px;margin-top:2px}
+.calhead .ch .dph{display:block;margin-top:5px;font-size:8px;letter-spacing:.06em;font-family:'IBM Plex Mono',monospace;padding:1px 5px;border-radius:3px}
+/* narrative band under day headers */
+.calnarr{display:grid;grid-template-columns:150px repeat(10,1fr);border-bottom:1px solid var(--line2);background:linear-gradient(180deg,rgba(20,40,69,.6),transparent)}
+.calnarr .nlbl{padding:9px 10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-family:'IBM Plex Mono',monospace;display:flex;align-items:center}
+.calnarr .ncell{padding:9px 10px;border-left:1px solid var(--line)}
+.calnarr .nh{font-size:10.5px;color:var(--ink);line-height:1.32;font-weight:600}
+.calnarr .nsub{font-size:9.5px;color:var(--muted);line-height:1.34;margin-top:5px}
+.calnarr .nsub .sk{color:var(--brass2);font-family:'IBM Plex Mono',monospace;font-size:8.5px}
+.swim{display:grid;grid-template-columns:150px repeat(10,1fr);border-bottom:1px solid var(--line)}
+.swim:last-child{border-bottom:0}
+.swimlane{padding:12px 11px;background:var(--panel2);border-right:1px solid var(--line2);position:sticky;left:0;z-index:4}
+.swimlane .sl-n{font-size:12.5px;font-weight:700;color:var(--brass2);line-height:1.2}
+.swimlane .sl-h{font-size:10px;color:var(--faint);font-family:'IBM Plex Mono',monospace;margin-top:3px}
+.swimlane .sl-d{font-size:10px;color:var(--muted);margin-top:6px;line-height:1.35}
+.swimcell{padding:8px 7px;border-left:1px solid var(--line);min-width:0;display:flex;flex-direction:column;gap:7px}
+.swimcell:first-of-type{border-left:0}
+
+/* ACTION CARD */
+.acard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 9px 8px;position:relative;transition:.13s}
+.acard:hover{border-color:var(--line2)}
+.acard.lead-card{border-color:var(--brassd);background:linear-gradient(165deg,rgba(205,163,73,.07),var(--panel))}
+.acard .chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.tagchip{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.05em;padding:2px 6px;border-radius:4px;border:1px solid var(--line2);color:var(--muted);background:var(--navy2);white-space:nowrap}
+.tagchip.TWEET{color:#cfe0f5;border-color:rgba(120,160,210,.4)}
+.tagchip.NATHAN{color:var(--brass2);border-color:var(--brassd);background:rgba(205,163,73,.08)}
+.tagchip.KOL{color:#9cc4ea;border-color:rgba(91,155,213,.4)}
+.tagchip.QT{color:#88d0ac;border-color:rgba(95,185,138,.35)}
+.tagchip.COMMENT{color:var(--muted)}
+.tagchip.PARTNER{color:#d9b3ff;border-color:rgba(181,139,216,.45);background:rgba(181,139,216,.08)}
+.tagchip.VIDEO{color:#ec9686;border-color:rgba(216,101,79,.4)}
+.tagchip.LIVE{color:#f0c98a;border-color:var(--brassd);background:rgba(205,163,73,.1)}
+.tagchip.RECRUITING{color:#9ad3c0;border-color:rgba(95,185,138,.3)}
+.tagchip.PRESS{color:#cfe0f5;border-color:rgba(120,160,210,.4)}
+.tagchip.BREADCRUMB{color:var(--faint)}
+.acard .pushtime{font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--faint);letter-spacing:.04em;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.acard .pushtime::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--brass);flex:0 0 3px}
+.acard .who{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.acard .av{width:20px;height:20px;border-radius:50%;flex:0 0 20px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:8px;color:var(--navy)}
+.av.gen.nathan{background:linear-gradient(150deg,var(--brass2),var(--brassd))}
+.av.gen.anchorage{background:linear-gradient(150deg,#cfe0f5,#7d97b8)}
+.av.gen.ribbit{background:linear-gradient(150deg,#8fd6b0,#3f9d6f)}
+.av.gen.malka{background:linear-gradient(150deg,#a7c8ef,#5377a8)}
+.av.gen.kol{background:linear-gradient(150deg,#9cc4ea,#4f7fa8)}
+.av.gen.press{background:linear-gradient(150deg,#cfd8e3,#8893a3)}
+.acard .nm{font-size:10px;font-weight:700;color:var(--ink);line-height:1.1}
+.acard .hd{font-size:9px;color:var(--faint);font-family:'IBM Plex Mono',monospace}
+.acard .body{font-size:10.5px;color:var(--ink);line-height:1.4;white-space:pre-line;word-wrap:break-word}
+.acard.collapsed .body{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.acard .qtref{font-size:9px;color:var(--faint);border-left:2px solid var(--line2);padding:3px 0 3px 7px;margin-top:6px;line-height:1.35;font-style:italic}
+.acard .eng{display:flex;gap:11px;margin-top:7px;padding-top:6px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace}
+.acard .eng .e{font-size:8.5px;color:var(--faint);display:flex;align-items:center;gap:3px}
+.acard .ill{font-size:8px;color:var(--faint);opacity:.7;margin-top:5px;font-style:italic}
+.acard .papimg{display:block;margin:6px 0 2px;border:1px solid var(--line2);border-radius:7px;overflow:hidden;cursor:pointer}
+.acard .papimg img{width:100%;display:block}
+.acard .papimg .cap{font-size:8px;color:var(--brass2);padding:3px 7px;background:var(--navy2);font-family:'IBM Plex Mono',monospace}
+.acard .reply-in{border-left:2px solid var(--line2);margin-left:4px;padding-left:7px}
+.acard .doc-mini{margin-top:6px}
+.acard .doc-mini .docbtn{font-size:8.5px;padding:3px 7px;gap:4px}
+.acard .doc-mini .docbtn svg{width:10px;height:10px}
+
+/* aligns-with ovular pills + day stack */
+.daystack{margin-top:7px;padding-top:6px;border-top:1px dashed var(--line2)}
+.daystack .dsk{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);font-family:'IBM Plex Mono',monospace;margin-bottom:5px}
+.pills{display:flex;flex-wrap:wrap;gap:4px}
+.bpill{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.02em;color:var(--brass2);background:rgba(205,163,73,.09);border:1px solid var(--brassd);border-radius:999px;padding:2px 8px;line-height:1.3;white-space:nowrap}
+.engsum{display:flex;gap:10px;margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--faint)}
+.engsum b{color:var(--muted);font-weight:500}
+
+/* generic tweet card (content library) */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 8px;align-items:center}
+.filters .lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-right:4px}
+.chip{font-size:11.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:5px 12px;cursor:pointer;user-select:none;transition:.13s}
+.chip:hover{border-color:var(--line2);color:var(--ink)}
+.chip.on{background:rgba(205,163,73,.16);border-color:var(--brassd);color:var(--brass2)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:14px}
+.tw{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 16px 16px;position:relative;transition:.15s}
+.tw:hover{border-color:var(--line2)}
+.tw .head{display:flex;align-items:center;gap:10px}
+.tw .av{width:38px;height:38px;border-radius:50%;flex:0 0 38px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--navy)}
+.tw .who .nm{font-weight:700;font-size:13.5px;color:var(--ink);display:flex;align-items:center;gap:4px;line-height:1.1}
+.tw .who .hd{color:var(--faint);font-size:12px;font-family:'IBM Plex Mono',monospace}
+.tw .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:11px}
+.tw .body{font-size:13.5px;color:var(--ink);line-height:1.46;margin:11px 0 0;white-space:pre-line;word-wrap:break-word}
+.tw .tstamp{color:var(--faint);font-size:11.5px;margin-top:11px;font-family:'IBM Plex Mono',monospace}
+.tw .doc-mini{margin-top:11px}
+
+/* script / teleprompter */
+.teleprompt{background:linear-gradient(165deg,var(--panel),var(--navy2));border:1px solid var(--brassd);border-radius:14px;margin:14px 0}
+.teleprompt .tpbar{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.teleprompt .play{width:34px;height:34px;border-radius:50%;background:rgba(205,163,73,.16);border:1px solid var(--brassd);display:flex;align-items:center;justify-content:center;color:var(--brass2);flex:0 0 34px}
+.teleprompt .tpmeta .tt{font-weight:600;color:var(--ink);font-size:15px}
+.teleprompt .tpmeta .tm{font-size:11.5px;color:var(--faint)}
+.teleprompt .tpscript{padding:16px 24px 4px}
+.teleprompt .tpscript p{font-size:16px;line-height:1.6;color:var(--ink);margin:0 0 14px;max-width:64ch}
+.teleprompt .tpscript .cue{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brass);letter-spacing:.06em;display:block;margin:4px 0 10px}
+.teleprompt .tpnote{font-size:11.5px;color:var(--faint);padding:11px 24px 14px;line-height:1.5;border-top:1px dashed var(--line2);margin-top:4px}
+.qcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--brassd);border-radius:9px;padding:13px 16px;margin:9px 0}
+.qcard .ql{font-size:15px;color:var(--ink);line-height:1.5}
+.qcard .qm{font-size:11px;color:var(--faint);margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* media hero (video poster / interview / waitlist images) */
+.mediahero{display:block;border:1px solid var(--line2);border-radius:14px;overflow:hidden;margin:14px 0;position:relative;cursor:pointer}
+.mediahero img{width:100%;display:block}
+.mediahero .mcap{position:absolute;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(0deg,rgba(8,17,31,.92),transparent);font-size:12.5px;color:var(--ink)}
+.mediahero .mcap b{color:var(--brass2)}
+.mediahero .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:rgba(8,17,31,.6);border:1.5px solid var(--brass2);display:flex;align-items:center;justify-content:center;color:var(--brass2)}
+
+/* partner / interview briefs (details) */
+.rib-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin:8px 0}
+.rib-stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+.rib-stat .rl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:7px}
+.rib-stat .rv{font-size:13.5px;color:var(--ink);line-height:1.5}
+.handles{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
+.handles .h{font-size:11.5px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--muted)}
+.handles .h b{color:var(--brass2);font-weight:600}
+.warn{background:rgba(216,101,79,.07);border:1px solid rgba(216,101,79,.28);border-left:3px solid var(--red);border-radius:8px;padding:12px 16px;margin:12px 0;font-size:13px;color:#e6b3a6;line-height:1.5}
+.warn b{color:#f0c4b8}
+.brief details{border:1px solid var(--line);border-radius:11px;margin:11px 0;background:var(--panel);overflow:hidden}
+.brief summary{padding:14px 18px;cursor:pointer;font-weight:600;font-size:14.5px;color:var(--brass2);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.brief summary::-webkit-details-marker{display:none}
+.brief summary .sm-tag{font-size:18px;color:var(--faint);font-weight:400}
+.brief details[open] summary .sm-tag::after{content:'\2212'}
+.brief details:not([open]) summary .sm-tag::after{content:'+'}
+.brief .bd{padding:2px 20px 16px}
+.bsec{margin:15px 0}
+.bsec .bh{font-size:12px;color:var(--brass);font-weight:600;margin-bottom:7px;letter-spacing:.08em;text-transform:uppercase}
+.bsec .bb{font-size:13.5px;color:var(--muted);line-height:1.55}
+.bsec .bb p{margin:0 0 9px}
+.bsec .bb ul{margin:6px 0 0;padding-left:18px}.bsec .bb li{margin:3px 0}
+.bsec .bb b{color:var(--ink)}
+.partmeta{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px;align-items:center}
+
+/* recruiting steps */
+.recflow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.recstep{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 14px;position:relative}
+.recstep .rn{font-family:'IBM Plex Mono',monospace;font-size:18px;color:rgba(205,163,73,.3);position:absolute;top:9px;right:12px}
+.recstep .rs{font-size:13.5px;color:var(--brass2);font-weight:600;margin-bottom:6px;max-width:82%}
+.recstep .rdd{font-size:11.5px;color:var(--muted);line-height:1.44}
+
+/* takeaways + action items */
+.tk{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin:14px 0 8px}
+.tkc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;position:relative}
+.tkc .tkn{font-family:'Fraunces',serif;font-size:26px;color:rgba(205,163,73,.35);position:absolute;top:12px;right:16px;font-weight:600}
+.tkc .tkt{font-size:14px;color:var(--ink);font-weight:600;margin-bottom:7px;max-width:88%;line-height:1.3}
+.tkc .tkb{font-size:12.5px;color:var(--muted);line-height:1.5}
+table.t{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0}
+table.t th,table.t td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+table.t th{background:var(--panel2);color:var(--brass2);font-weight:600;font-size:11px;letter-spacing:.04em}
+table.t td{color:var(--muted)}table.t td b{color:var(--ink)}
+table.t .owner{color:var(--brass2);font-family:'IBM Plex Mono',monospace;font-size:11.5px;white-space:nowrap}
+table.t .st{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--faint)}
+.bigclaim{font-family:'Fraunces',serif;font-size:22px;color:var(--ink);line-height:1.3;max-width:66ch;margin:14px 0;font-weight:500}
+.bigclaim b{color:var(--brass2)}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(5,10,18,.78);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:48px 20px;overflow-y:auto}
+.modal.open{display:flex}
+.modal .sheet{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line2);border-radius:16px;max-width:760px;width:100%;padding:0;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.modal .mtop{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line)}
+.modal .mtop .mt{font-family:'Fraunces',serif;font-size:18px;color:var(--brass2);font-weight:600}
+.modal .x{cursor:pointer;color:var(--muted);font-size:22px;line-height:1;border:0;background:none}
+.modal .x:hover{color:var(--ink)}
+.modal .mbody{padding:22px 28px 26px;font-size:14px;color:var(--muted);line-height:1.6;max-height:64vh;overflow-y:auto}
+.modal .mbody h4{color:var(--ink);font-size:14px;margin:16px 0 6px;font-weight:600}
+.modal .mbody p{margin:0 0 11px;white-space:pre-line}
+.modal .mbody .lead-l{color:var(--ink)}
+.modal .mbody ul{padding-left:18px;margin:6px 0}
+.modal .mfoot{padding:14px 24px 18px;border-top:1px solid var(--line);display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.modal .partlist{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0 0 12px}
+.modal .partlist b{color:var(--brass2)}
+
+.foot{padding:34px 0 60px;color:var(--faint);font-size:12px;line-height:1.6}
+.foot b{color:var(--muted)}
+
+@media(max-width:980px){
+  .lrnav{display:none}.wrap,.wrap.wide{margin-left:0;padding:0 18px}
+  .crumbs,.dash,.tgrid,.recflow,.rib-grid,.tk{grid-template-columns:1fr}
+  .t3{grid-template-columns:1fr}.t3 .lead{grid-row:auto}
+  h1.serif{font-size:33px}
+}
+</style>
+</head>
+<body>
+
+<nav class="lrnav">
+  <div class="brand">
+    <div class="k">Winn.solutions &middot; Confidential</div>
+    <div class="t serif">The Anchorage<br>Agentic Launch Sprint</div>
+  </div>
+  <a href="#overview" class="active"><span class="n">00</span>Overview &amp; review</a>
+  <a href="#funnel"><span class="n">01</span>Drip to funnel</a>
+  <a href="#calendar"><span class="n">02</span>Launch Calendar</a>
+  <a href="#paper"><span class="n">03</span>Research paper</a>
+  <a href="#pr"><span class="n">04</span>PR &amp; press</a>
+  <a href="#content"><span class="n">05</span>Content library</a>
+  <a href="#livestreams"><span class="n">06</span>Livestreams &amp; videos</a>
+  <a href="#script"><span class="n">07</span>Nathan's script</a>
+  <a href="#partner"><span class="n">08</span>Partner track</a>
+  <a href="#recruiting"><span class="n">09</span>Agentic recruiting</a>
+  <a href="#takeaways"><span class="n">10</span>Takeaways &amp; actions</a>
+</nav>
+
+<div class="wrap">
+  <section id="overview" class="hero">
+    <div class="kicker">Agentic Launch Sprint &middot; v4 &middot; Confidential review build</div>
+    <h1 class="serif">Who banks<br>the agents?</h1>
+    <p class="thesis">A two-week, multi-voice launch that makes Anchorage the name attached to one question: <b>agents are becoming economic actors, and what lets them act is regulated financial rails</b>. The whole sprint argues that banking an agent is a controls problem (segmented accounts, spending limits, Know Your Agent, a human on the hook), not an AI problem.</p>
+    <div class="meta-strip">
+      <span class="pill"><b>2 weeks</b> &middot; Mon-Fri x2</span>
+      <span class="pill">Week 1 <b>Jun 22-26</b></span>
+      <span class="pill">Week 2 <b>Jun 29 - Jul 3</b></span>
+      <span class="pill">Arc <b>tease &rarr; reveal &rarr; paper &rarr; partner &rarr; proof &rarr; launch</b></span>
+      <span class="pill">Funnel end &rarr; <b>Agentic Banking waitlist</b></span>
+    </div>
+    <div class="dashrow">
+      <span class="docbtn sheet big" data-gsheet="pending" data-doc="open" title="Opens the logistics master in Google Sheets (placeholder)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>Open logistics sheet (Google Sheets)</span>
+      <a href="#takeaways" style="border:0"><span class="docbtn big">&#9733; Takeaways &amp; action items (17)</span></a>
+    </div>
+
+    <h3 class="serif" style="margin-top:34px">Sprint review dashboard</h3>
+    <p class="ss" style="margin-bottom:10px">A fast read on what is drafted and where it routes. Every piece below has a Google Doc placeholder for edits and comments. Engagement figures across this build are <b>illustrative projections</b> for the mockup, not performance claims.</p>
+    <div class="dash">
+      <div class="dcard"><div class="dk">Sprint days</div><div class="dv">10</div><div class="dd">Mon-Fri across two weeks, Jun 22 to Jul 3.</div></div>
+      <div class="dcard"><div class="dk">Drafted pieces</div><div class="dv">52</div><div class="dd">Nathan, KOL, partner, press, recruiting, breadcrumbs, live.</div></div>
+      <div class="dcard"><div class="dk">Owners / swimlanes</div><div class="dv">6</div><div class="dd">Nathan, Anchorage handle, KOLs, partners, press, live.</div></div>
+      <div class="dcard"><div class="dk">Action items</div><div class="dv">17</div><div class="dd">Each with an owner. See <a href="#takeaways">takeaways</a>.</div></div>
+    </div>
+    <div class="dashrow">
+      <span class="pill">Tags in use:</span>
+      <span class="tagchip TWEET">(TWEET)</span><span class="tagchip NATHAN">(NATHAN)</span><span class="tagchip KOL">(KOL)</span><span class="tagchip QT">(QT)</span><span class="tagchip COMMENT">(COMMENT)</span><span class="tagchip PARTNER">(PARTNER)</span><span class="tagchip LIVE">(LIVE INTERVIEW)</span><span class="tagchip VIDEO">(VIDEO)</span><span class="tagchip RECRUITING">(RECRUITING)</span><span class="tagchip PRESS">(PRESS)</span>
+    </div>
+  </section>
+
+  <section id="funnel">
+    <div class="sh"><span class="sn">01</span><h2 class="serif">Drip to funnel</h2></div>
+    <p class="ss">The sprint is shaped as a drip that resolves into one on-ramp. It is <b>not three identical stages</b>: a wide tease seeds the question for days, the reveal and proof concentrate the argument, and everything narrows to a single waitlist door.</p>
+    <div class="t3">
+      <div class="lead">
+        <div class="ph">Stage 01 &middot; the long drip</div>
+        <div>
+          <div class="tt serif">Seed the question, then keep asking it.</div>
+          <div class="bd">All-caps breadcrumbs (WHO BANKS THE AGENTS, KYA, PROOF OF AGENT) open the field for days with no context. The CEO and the brand handle ask the same four words in one voice, so it reads as a staked position. KOLs react in public, which turns a slogan into a conversation.</div>
+        </div>
+        <div class="arrow">runs Jun 22 &rarr; ongoing &nbsp;&middot;&nbsp; widest top of funnel</div>
+      </div>
+      <div class="sup b">
+        <div class="num">02</div>
+        <div class="ph">Stage 02 &middot; concentrate</div>
+        <div class="tt serif">Resolve it into a thesis.</div>
+        <div class="bd">The raw selfie reveal, the research paper, and the Ribbit / Malka co-sign turn the tease into a citable argument with named backers. Proof week shows the controls: allowance not wallet, the 3am test, agents run internally.</div>
+      </div>
+      <div class="sup c">
+        <div class="num">03</div>
+        <div class="ph">Stage 03 &middot; one door</div>
+        <div class="tt serif">Route everything to the waitlist.</div>
+        <div class="bd">Press breaks the story, the waitlist opens, and the live fireside airs. Every thread, KOL boost, partner post, and the paper points to one agentic landing page and one signup, framed as a builder signal to lower the bar and raise intent.</div>
+      </div>
+    </div>
+    <div class="goalbar"><b>End state:</b> every breadcrumb, paper post, partner co-sign, and press hit routes to the agentic landing page and the Agentic Banking waitlist. The waitlist is the single conversion event the whole sprint is built to produce.</div>
+  </section>
