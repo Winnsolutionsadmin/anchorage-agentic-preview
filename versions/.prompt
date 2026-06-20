@@ -1,7 +1,0 @@
-[v5.1 feedback]
-GLOBAL: we don't have T-9 days. assume we launch this Thursday of next week (Jun 25, 2026 = T-0). Recompute all T-minus from there. For all tags, document-wide: if they're inside a bounding box, do NOT parenthesize them (TWEET not (TWEET)).
-Section 1 (phase map): too verbose in the boxes. The belief S circle is great but put it TOP-RIGHT corner. Make the T- dates etc. a tag/badge.
-Section 2 (Launch Calendar): KEEP THE STYLE OF v4.0 (screenshot attached - clean tweet cards: avatar, name + verified, handle, body, engagement row reply/repost/like/views, Google Doc button). Make days a bit wider if needed to achieve it. Belief ONLY ever in the top-right corner. They must look like tweets like the screenshot. Tag KOLs as KOL. Name KOLs generically: anchor_crypto_kol1, anchor_ai_kol2, etc. (not fancy fake names). Do a BETTER, BRIGHT callout of the Google Doc for editing so Kate sees it. The Google docs are trash as prose - make them TABLES, very organized. The inline papers/images in tweets are still BROKEN - fix them.
-Section 3 (subsprints): the LEFT NAV bar should show inline subsprints: SS-1 - Research Paper, SS-2 - ..., etc. Much is broken. Reflect the v4.0 tweet styling.
-Section 5 (content library): too much text and not chronological. Clean it up. Remove the guardrail.
-Section 7 (action items): don't bring up Amethyst. Columns way too wide. Consolidate, make easy next steps. Use frontend-design via a subagent on opus 4.8.
