@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<!-- Anchorage Agentic Campaign · Master Overview. Brass-on-navy house style (anchorage-style).
-     Confidential client artifact. Sprints 2-4 are PROPOSED placeholders, not committed roadmap. -->
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- The Anchorage Agentic Campaign · Master Overview. Brass-on-navy house style. Confidential. -->
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
 <title>The Anchorage Agentic Campaign · Master Overview</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D8A94A' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='12' cy='4' r='2'/%3E%3Cpath d='M12 6v15M5.5 12.5a6.5 6.5 0 0 0 13 0M5.5 12.5H3.4m17.2 0h-2.1M8.5 9.2H5.6'/%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
 :root{
   --ink:#0A1726;--ink-2:#0E2034;--ink-3:#13283F;
@@ -167,304 +161,149 @@ footer{margin-left:264px;padding:90px 60px 70px;border-top:1px solid var(--ink-l
 @media(min-width:1081px){.topbar{display:none}}
 .topbar{position:fixed;top:0;left:0;right:0;z-index:50;align-items:center;justify-content:space-between;padding:14px 22px;background:rgba(10,23,38,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--ink-line)}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
-</style>
-</head>
+
+.chart{margin-top:28px;max-width:var(--col)}
+.barrow{display:grid;grid-template-columns:200px 1fr auto;align-items:center;gap:14px;padding:9px 0;border-top:1px solid var(--ink-line-2)}
+.barrow:first-child{border-top:none}
+.barrow .bl{font-size:13.5px;color:var(--text)}.barrow .bl span{display:block;color:var(--muted-2);font-size:11px;font-family:var(--mono)}
+.bartrack{height:14px;border-radius:7px;background:var(--ink-3);overflow:hidden}
+.bartrack i{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--brass),#f0d089)}
+.bartrack i.dim{background:var(--muted-2)}
+.barrow .bv{font-family:var(--mono);font-size:13px;color:var(--brass);min-width:64px;text-align:right}
+.barrow .bv.dim{color:var(--muted-2)}
+.seg{display:flex;height:42px;border-radius:10px;overflow:hidden;margin-top:26px;max-width:var(--col);border:1px solid var(--ink-line)}
+.seg .s{display:flex;flex-direction:column;justify-content:center;padding:0 14px;font-family:var(--mono);font-size:11px;color:var(--ink);white-space:nowrap}
+.seg .s b{font-size:13px}
+.seglegend{display:flex;gap:18px;margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.seglegend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.heat{margin-top:26px;max-width:var(--col);overflow-x:auto}
+.heat table{border-collapse:collapse;font-family:var(--mono);font-size:10.5px;width:100%}
+.heat th{color:var(--muted-2);font-weight:500;text-align:center;padding:5px 4px;font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;vertical-align:bottom}
+.heat th.h{text-align:left}
+.heat td{text-align:center;padding:6px 4px;color:var(--text);border:1px solid rgba(10,23,38,.6)}
+.heat td.h{text-align:left;color:var(--text);font-family:var(--sans);font-size:12.5px;white-space:nowrap;padding-right:12px}
+.heat tr.anch td.h{color:var(--brass);font-weight:600}
+.bigstat{display:flex;flex-wrap:wrap;gap:26px;margin-top:30px;padding:22px 26px;border:1px solid var(--brass-line);border-radius:14px;background:var(--brass-soft);max-width:var(--col)}
+.bigstat .s .n{font-family:var(--serif);font-weight:600;font-size:32px;color:var(--brass);line-height:1}
+.bigstat .s .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px;max-width:24ch}
+.gantt{margin-top:26px;max-width:var(--col);display:flex;flex-direction:column;gap:8px}
+.gantt .lane{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:12px}
+.gantt .ln{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.gantt .cells{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.gantt .c{height:22px;border-radius:4px;background:var(--ink-3);position:relative}
+.gantt .c.on{background:linear-gradient(90deg,var(--brass),#e9c878)}
+.gantt .c.sig{background:var(--signal)}
+.gantt .hdr .c{background:transparent;font-family:var(--mono);font-size:9px;color:var(--muted-2);text-align:center;height:auto}
+.roadmap{grid-template-columns:repeat(4,1fr)}
+.roadmap .card{display:flex;flex-direction:column}
+.roadmap .card .cn{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.roadmap .card .sn{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--text)}
+.roadmap .card .goal{margin-top:auto;padding-top:13px;font-size:13.5px;color:var(--muted)}
+.roadmap .st{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--ink-line);border-radius:20px;padding:2px 8px;color:var(--muted-2);white-space:nowrap}
+.roadmap .st.live{color:var(--brass);border-color:var(--brass-line)}
+.roadmap .st.next{color:var(--signal);border-color:rgba(116,184,199,.4)}
+@media(max-width:980px){.roadmap{grid-template-columns:1fr 1fr}}
+</style></head>
 <body>
-<div id="progress"></div>
-<div class="fog"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i></div>
-
-<div class="topbar">
-  <div class="brandmark"><svg class="anchor-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="4" r="2"/><path d="M12 6v14M5 12a7 7 0 0 0 14 0M5 12H3m16 0h2M8 9H5"/></svg><div><div class="bm-name" style="font-size:16px">Anchorage</div></div></div>
-  <span class="rail-tag" style="margin:0">CONFIDENTIAL</span>
-</div>
-
-<nav class="rail">
-  <div class="brandmark">
-    <svg class="anchor-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v15M5.5 12.5a6.5 6.5 0 0 0 13 0M5.5 12.5H3.4m17.2 0h-2.1M8.5 9.2H5.6"/></svg>
-    <div><div class="bm-name">Anchorage</div><div class="bm-sub">× Winn.solutions</div></div>
-  </div>
-  <span class="rail-tag">CONFIDENTIAL · DRAFT</span>
-  <ul class="toc">
-    <li class="toc-group">The Frame</li>
-    <li><a href="#hero"><span class="num">00</span> Overview</a></li>
-    <li><a href="#spine"><span class="num">01</span> The Spine</a></li>
-    <li><a href="#pillars"><span class="num">02</span> Pillars &amp; Goals</a></li>
-    <li><a href="#engine"><span class="num">03</span> The Engine</a></li>
-    <li class="toc-group">The Campaign</li>
-    <li><a href="#roadmap"><span class="num">04</span> Campaign Roadmap</a></li>
-    <li><a href="#sprint1"><span class="num">05</span> Sprint 1 · Agentic Launch</a></li>
-    <li><a href="#sprint2"><span class="num">06</span> Sprint 2 · Stablecoins</a></li>
-    <li><a href="#sprint3"><span class="num">07</span> Sprint 3 · Settlement</a></li>
-    <li><a href="#sprint4"><span class="num">08</span> Sprint 4 · AI Bank</a></li>
-    <li class="toc-group">The Operating Layer</li>
-    <li><a href="#threads"><span class="num">09</span> Always-On Threads</a></li>
-    <li><a href="#run"><span class="num">10</span> Cadence &amp; The Ask</a></li>
-  </ul>
-  <div class="rail-foot">PREPARED BY WINN.SOLUTIONS<br/>2026-06-21 · Master Overview v1</div>
-</nav>
-
-<main>
-<div class="wrap">
-
-<section id="hero">
-  <div class="hero-beam"></div>
-  <div class="shell">
-    <div class="eyebrow hero-eyebrow">Campaign Map · H2 2026 · Confidential</div>
-    <h1 class="hero-title"><span class="l1">The Anchorage</span><span class="l2">Agentic Campaign</span></h1>
-    <p class="hero-thesis">One engine, run as a sequence of sprints. <b>The agentic banking launch is Sprint 1.</b></p>
-    <p class="hero-sub">The map above the sprint decks: the pillars and goals that govern every sprint, the launch in flight now, and the sprints that follow it.</p>
-    <div class="hero-meta">
-      <span>PREPARED FOR <b>Kate Roling · Erin DeMarco · Joe McNaney · Sam Gentile · Jen Hunnewell</b></span>
-      <span>BY <b>Winn.solutions</b></span>
-      <span>2026-06-21</span>
-    </div>
-    <div class="scrollcue"><span class="ln"></span> Scroll to read</div>
-  </div>
-</section>
-
-<section id="spine" class="band">
-  <div class="shell">
-    <div class="eyebrow reveal">The Spine</div>
-    <h2 class="sect reveal">Who banks the agents?</h2>
-    <p class="lead reveal d1">Every competitor is building a piece of the agent's wallet. Anchorage is the only one that can be the agent's bank.</p>
-    <div class="body reveal d2">
-      <p>As AI agents become economic actors, the thing that lets them act is regulated financial rails: a place to hold value, a way to move it, an identity for the agent itself, and controls that make all of it auditable. That is <strong>the trust layer for autonomous finance</strong>, and it is a bank problem before it is an AI problem. The load-bearing qualifier is "regulated," and Anchorage is the only fully operational federally chartered bank making the claim. That moat needs no forward-looking statement to be true.</p>
-      <p>This campaign turns one narrative into motion. Rather than a single launch, the work runs as a <strong>sequence of focused sprints</strong>, each built on the same engine, each owning one pillar of the story. Sprint 1 is live now. The sprints behind it are mapped here as proposed placeholders, so the launch reads as the first move in a campaign, not a one-off.</p>
-    </div>
-    <div class="callout reveal d2">
-      <div class="clabel">The one rule that governs everything</div>
-      <p>Every loud moment is backed by a real thing. The category, the initiative, the partner relationships, and the waitlist are real and can be teased now. The platform as generally available, named capabilities, and volume numbers are not, and stay gated. We lead on the layer where being early and chartered is the whole advantage, and gate every capability behind demoable substance.</p>
-    </div>
-  </div>
-</section>
-
-<section id="pillars">
-  <div class="shell">
-    <div class="eyebrow reveal">Pillars &amp; Goals</div>
-    <h2 class="sect reveal">Seven pillars. Three goals. One sequence.</h2>
-    <p class="lead reveal d1">The strategic foundation every sprint draws from. The pillars are the territory; the goals are what every sprint is measured against.</p>
-    <table class="tbl reveal d2">
-      <thead><tr><th>Pillar</th><th>The line it owns</th></tr></thead>
-      <tbody>
-        <tr><td>P1 · Financial infrastructure</td><td>The spine and the only agent-native ground. Know Your Agent, the allowance model, stand up the trust layer before the rail.</td></tr>
-        <tr><td>P2 · Stablecoins</td><td>The neutral rail. A regulated dollar for actors that never sleep; regulated issuance is agent-grade money.</td></tr>
-        <tr><td>P3 · Capital markets</td><td>Settlement is the rail agents run on (Atlas). Controls-first credit and clearing.</td></tr>
-        <tr><td>P4 · Anchorage products</td><td>Usable custody for agents ("assets shouldn't have a temperature"), self-custody with a perimeter, sub-custody.</td></tr>
-        <tr><td>P5 · Policy</td><td>The rulebook for autonomous money. Due process for autonomous actors. Runs as an always-on thread, not a sprint.</td></tr>
-        <tr><td>P6 · Wealth</td><td>Know Your Agent for the advisor channel; democratized access through advisors.</td></tr>
-        <tr><td>P7 · Institutions</td><td>Every bank becomes an AI bank. The enabling layer institutions plug into.</td></tr>
-      </tbody>
-    </table>
-    <div class="kicker reveal">The three campaign-level goals every sprint serves</div>
-    <div class="grid g3 reveal d1">
-      <div class="card"><div class="cn">Goal 01</div><h4>Own the category</h4><p>Anchorage is the chartered bank asking and answering "who banks the agents." Measured by tier-1 pickups using the category framing and third-party adoption of the terms.</p></div>
-      <div class="card"><div class="cn">Goal 02</div><h4>Capture an ownable audience</h4><p>Convert attention into a captured, ordered audience. Measured by waitlist and qualified inbound, with a healthy builder and institution mix.</p></div>
-      <div class="card"><div class="cn">Goal 03</div><h4>Prove it is real, without overclaiming</h4><p>Show the initiative is resourced and shipping while every capability stays gated. Measured by zero overclaim leaks, the honesty KPI.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="engine" class="band">
-  <div class="shell">
-    <div class="eyebrow reveal">The Engine</div>
-    <h2 class="sect reveal">The eight-phase suite every sprint runs.</h2>
-    <p class="lead reveal d1">One reusable launch machine. Each sprint instantiates it: a sprint compresses phases one through six into the launch window, then traction and amplify follow immediately on real numbers.</p>
-    <ul class="moves reveal d2">
-      <li><h4>Belief tease</h4><p>Open the frame in Nathan's voice before the flag goes up.</p></li>
-      <li><h4>Vision reveal</h4><p>The loud surface: the landing page and the founder video that name the line.</p></li>
-      <li><h4>Research gap</h4><p>The principle-grade paper that gives press and analysts a citeable artifact.</p></li>
-      <li><h4>Partner</h4><p>The relationship teased at category altitude, never a capability claim.</p></li>
-      <li><h4>Proof / demo</h4><p>Shipped only when the substance gate clears; otherwise held to the follow-on.</p></li>
-      <li><h4>Launch</h4><p>The category and the waitlist open. Not "the platform is generally available."</p></li>
-      <li><h4>Traction</h4><p>First numbers: waitlist size, demo views, pilots. The immediate follow-on.</p></li>
-      <li><h4>Amplify</h4><p>Media hit, partner quote-tweets, recap. Extends the cycle.</p></li>
-    </ul>
-    <div class="callout reveal d2">
-      <div class="clabel">Codify it as the /phase protocol</div>
-      <p>The immediate next step is to turn this suite into a reusable protocol so every future rollout runs the full machine, with goal-tagging and the clean-versus-counsel gate baked in. Each sprint below is the same engine pointed at a different pillar.</p>
-    </div>
-  </div>
-</section>
-
-<section id="roadmap">
-  <div class="shell">
-    <div class="eyebrow reveal">The Campaign Roadmap</div>
-    <h2 class="sect reveal">Four sprints. The launch is the first.</h2>
-    <p class="lead reveal d1">The proposed sequence. Sprints run on a roughly monthly cadence and overlap once the machine is oiled. Sprint 1 is in flight now; Sprints 2 through 4 are placeholders to design together.</p>
-    <div class="grid roadmap reveal d2">
-      <div class="card anchor">
-        <div class="cn"><span class="sn">Sprint 1</span><span class="st live">In flight</span></div>
-        <h4>Agentic Banking Launch</h4>
-        <p>P1 · Financial infrastructure / KYA. The landing page is the flag in the sand.</p>
-        <div class="goal">GOAL: own the category and open the waitlist.</div>
-      </div>
-      <div class="card">
-        <div class="cn"><span class="sn">Sprint 2</span><span class="st next">Proposed</span></div>
-        <h4><a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint2-stablecoins.html" style="color:inherit;text-decoration:none">The Neutral Rail</a></h4>
-        <p>P2 · Stablecoins. The regulated dollar agents settle in.</p>
-        <div class="goal">GOAL: own neutrality as the stablecoin position.</div>
-      </div>
-      <div class="card">
-        <div class="cn"><span class="sn">Sprint 3</span><span class="st next">Proposed</span></div>
-        <h4><a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint3-settlement.html" style="color:inherit;text-decoration:none">The Rail Agents Run On</a></h4>
-        <p>P3 · Capital markets / Atlas. Settlement as the agent rail.</p>
-        <div class="goal">GOAL: own settlement for autonomous transacting.</div>
-      </div>
-      <div class="card">
-        <div class="cn"><span class="sn">Sprint 4</span><span class="st next">Proposed</span></div>
-        <h4><a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint4-aibank.html" style="color:inherit;text-decoration:none">Every Bank Becomes an AI Bank</a></h4>
-        <p>P7 · Institutions. The enabling layer banks plug into.</p>
-        <div class="goal">GOAL: own the bank-for-banks demand engine.</div>
-      </div>
-    </div>
-    <div class="callout warn reveal d2">
-      <div class="clabel">Read this as a draft sequence, not a commitment</div>
-      <p>The order and the themes are a recommendation built from the pillar map and the four deep concepts. Sprints 2 through 4 are placeholders: principle-grade framing only, with no committed capability, timeline, partner name, or volume number. We design each one in full, the way Sprint 1 is designed, when we get there. Policy runs underneath all of them as an always-on earned-media thread rather than its own sprint.</p>
-    </div>
-  </div>
-</section>
-
-<section id="sprint1" class="band">
-  <div class="shell">
-    <div class="eyebrow reveal">Sprint 1 · P1 Financial Infrastructure / KYA</div>
-    <h2 class="sect reveal">The Agentic Banking Launch</h2>
-    <p class="lead reveal d1"><span class="tag">In flight</span> &nbsp; Compress phases one through six into the launch sprint. The landing page is the noisy flag in the sand, with talent, the waitlist, and the bot running as a parallel hype lane.</p>
-    <div class="body reveal d2">
-      <p>This is the one sprint designed in full. The summary below is the campaign-level view; the asset-by-asset build, owners, gates, and timeline live in the full Sprint 1 design deck.</p>
-    </div>
-    <div class="grid g2 reveal d2">
-      <div class="card"><div class="cn">The flag</div><h4>The landing page</h4><p>A single, loud, press-anchored page that declares the initiative and opens the waitlist. The vision reveal and the category launch fused into one surface.</p></div>
-      <div class="card"><div class="cn">The spine</div><h4>"Who Banks the Agents?" paper</h4><p>The macro gap doc that names the bottleneck and gives press a citeable artifact. Principle-grade, zero product substance.</p></div>
-      <div class="card"><div class="cn">The capture</div><h4>The signup-order waitlist</h4><p>"Join the movement, be the earliest adopters." Signup order is status; referral jumps the line. Attention becomes an ownable audience.</p></div>
-      <div class="card"><div class="cn">The engine</div><h4>The agentic hiring / triage bot</h4><p>The first-ever agentic recruiting bot. Its funny, pre-reviewed jailbreak refusals carry the accountability message; its own guardrails demonstrate the thesis.</p></div>
-      <div class="card"><div class="cn">The voice</div><h4>Nathan's two videos</h4><p>Video one declares the agentic future at launch hour. Video two is the allowance-model explainer. Anchored on verified lines, gated on the voice spine.</p></div>
-      <div class="card"><div class="cn">The amplifiers</div><h4>Partner interview · tweet run · Space</h4><p>A gate-safe partner conversation at category altitude, a Nathan-voice tweet run, and a conservatively gated Twitter Space (default hold for the follow-on).</p></div>
-    </div>
-    <div class="kicker reveal">Top three sprint goals</div>
-    <ul class="moves reveal d1">
-      <li><h4>Own the category publicly</h4><p>Three or more tier-1 pickups using the category framing within fourteen days.</p></li>
-      <li><h4>Capture an ordered, ownable audience</h4><p>Waitlist above target with a healthy builder and institution mix, plus referral-driven signups.</p></li>
-      <li><h4>Prove it is real and resourced, without claiming a shipped platform</h4><p>Qualified talent inbound, organic bot reshares, and zero overclaim leaks across every surface.</p></li>
-    </ul>
-    <div class="callout reveal d1">
-      <div class="clabel">For the full build</div>
-      <p>See the full <a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html" style="color:var(--brass);text-decoration:underline">Sprint 1 design deck</a> for every element with its owner, phase, clean-versus-counsel gate, the sourced belief that justifies it, and the sequenced timeline with dependencies.</p>
-    </div>
-  </div>
-</section>
-
-<section id="sprint2">
-  <div class="shell">
-    <div class="eyebrow reveal">Sprint 2 · P2 Stablecoins</div>
-    <h2 class="sect reveal">The Neutral Rail</h2>
-    <p class="lead reveal d1"><span class="tag sig">Placeholder · Proposed</span> &nbsp; A neutral, regulated dollar that autonomous agents settle in. The issuer war is the wrong war.</p>
-    <div class="body reveal d2">
-      <p>The angle: lead with neutrality, never a single issuer. The settlement and unit-of-account rail for agents is where stablecoins earn the most reach, riding inside the high-engagement AI story rather than as standalone daily posts. Nathan's belief grounds it: <em>"increased neutrality, not pushing any one stablecoin."</em></p>
-    </div>
-    <div class="grid g3 reveal d2">
-      <div class="card"><div class="cn">Asset</div><h4>Research paper</h4><p>The contrarian memo that anchors the sprint and plants the flag on where Anchorage stands.</p></div>
-      <div class="card"><div class="cn">Asset</div><h4>Nathan video</h4><p>The same thesis in his own voice: the neutral rail for AI and agents.</p></div>
-      <div class="card"><div class="cn">Asset</div><h4>Partner / issuer interview</h4><p>A conversation that pulls in an issuer or institution audience by osmosis.</p></div>
-    </div>
-    <div class="callout warn reveal d2">
-      <div class="clabel">Placeholder · to design</div>
-      <p>Principle-grade framing only. The specific assets, partner names, the go-to-market, and any figures are gated and get designed in full when this sprint is scheduled. Goal: be read as the default voice in regulated, neutral stablecoin issuance.</p>
-    </div>
-  </div>
-</section>
-
-<section id="sprint3" class="band">
-  <div class="shell">
-    <div class="eyebrow reveal">Sprint 3 · P3 Capital Markets / Atlas</div>
-    <h2 class="sect reveal">The Rail Agents Run On</h2>
-    <p class="lead reveal d1"><span class="tag sig">Placeholder · Proposed</span> &nbsp; Settlement is the rail agents run on. Agents executing and settling institutional trades, controls-first.</p>
-    <div class="body reveal d2">
-      <p>The angle: counterparty risk and slow settlement block autonomous transacting; agentic settlement on Atlas is the unlock. Nathan's belief grounds it: <em>"As boring as that sounds, it is actually a big unlock."</em></p>
-    </div>
-    <div class="grid g3 reveal d2">
-      <div class="card"><div class="cn">Asset</div><h4>Research paper</h4><p>The settlement-as-agent-rail thesis: why the institutional rail is the agent rail.</p></div>
-      <div class="card"><div class="cn">Asset</div><h4>Nathan video</h4><p>The founder POV on settlement and clearing for autonomous actors.</p></div>
-      <div class="card"><div class="cn">Asset</div><h4>Partner / institution interview</h4><p>A capital-markets counterpart that lends the thesis institutional weight.</p></div>
-    </div>
-    <div class="callout warn reveal d2">
-      <div class="clabel">Placeholder · to design</div>
-      <p>Principle-grade framing only; all capability, timeline, and partner specifics gated. Goal: own settlement as the rail autonomous transacting depends on.</p>
-    </div>
-  </div>
-</section>
-
-<section id="sprint4">
-  <div class="shell">
-    <div class="eyebrow reveal">Sprint 4 · P7 Institutions</div>
-    <h2 class="sect reveal">Every Bank Becomes an AI Bank</h2>
-    <p class="lead reveal d1"><span class="tag sig">Placeholder · Proposed</span> &nbsp; The chartered trust layer other banks draft off to serve their clients' agents. Welcome rivals; be the layer they build on.</p>
-    <div class="body reveal d2">
-      <p>The angle: institutions deploying agents have no chartered trust layer to plug into. Sub-custody and the bank-for-banks motion turn that gap into a demand engine, the CEO-roots-for-rivals reframe. Nathan's belief grounds it: <em>"There are now nine crypto banks. What I want is 4,000."</em></p>
-    </div>
-    <div class="grid g3 reveal d2">
-      <div class="card"><div class="cn">Asset</div><h4>Research paper</h4><p>The enabling-layer thesis: the demand side is already here, and it needs a chartered floor.</p></div>
-      <div class="card"><div class="cn">Asset</div><h4>Nathan video</h4><p>Plurality and the welcome-rivals reframe in his own voice.</p></div>
-      <div class="card"><div class="cn">Asset</div><h4>Partner / bank interview</h4><p>An institution that reads as proof the bank-for-banks motion is real.</p></div>
-    </div>
-    <div class="callout warn reveal d2">
-      <div class="clabel">Placeholder · to design</div>
-      <p>Principle-grade framing only; sub-custody specifics, partner names, and any numbers gated. Goal: own the bank-for-banks demand engine as the institutional on-ramp.</p>
-    </div>
-  </div>
-</section>
-
-<section id="threads" class="band">
-  <div class="shell">
-    <div class="eyebrow reveal">The Operating Layer</div>
-    <h2 class="sect reveal">Sprints are not the whole picture.</h2>
-    <p class="lead reveal d1">Under every sprint, four beats run continuously. They are the steady drumbeat the sprints punctuate, not one-time pushes.</p>
-    <div class="grid g2 reveal d2">
-      <div class="card"><div class="cn">Always-on</div><h4>Policy</h4><p>"Kill the rule that benefits us alone" and the rulebook for autonomous money. The rarest, most uncopyable character beat, run as earned media rather than a product sprint.</p></div>
-      <div class="card"><div class="cn">Always-on</div><h4>The circle</h4><p>A self-selecting ring of high-power founders, aligned on one set of ethics. Cross-amplification and narrative-jacking, a Nathan-channel play in a personal capacity.</p></div>
-      <div class="card"><div class="cn">Always-on</div><h4>The reply ritual</h4><p>Ten minutes a day in Nathan's own replies, the single strongest algorithm signal. Winn feeds belief-triggered suggestions inside Anchorage's guardrails.</p></div>
-      <div class="card"><div class="cn">Always-on</div><h4>The weekly livestream</h4><p>A recurring co-marketing stream at a fixed slot; partners opt in around their launches, the stablecoin team fills open weeks.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="run">
-  <div class="shell">
-    <div class="eyebrow reveal">How It Runs</div>
-    <h2 class="sect reveal">The cadence, the discipline, the ask.</h2>
-    <p class="lead reveal d1">A sprint is three to four weeks of preparation, one week of execution, roughly one per month, overlapping once the machine is oiled. The next sprint's prep starts around day ten of the current one.</p>
-    <div class="callout reveal d2">
-      <div class="clabel">The two disciplines that govern the campaign</div>
-      <p><strong>The subtraction gate.</strong> The plan is a map, not a license to build everything at once on a pre-launch platform. Pick the in-roadmap spine plus one or two beyond-roadmap bets, and park the rest behind a capacity gate.</p>
-      <p><strong>Nothing announces ahead of demoable substance.</strong> Lead the category, which costs zero product substance, and gate every capability, timeline, partner name, and volume number. The partner-named gaps are exactly what not to announce.</p>
-    </div>
-    <div class="callout warn reveal d2">
-      <div class="clabel">The standing gate on every line</div>
-      <p>Clean means principle-safe in Nathan's voice, subject to voice review. Counsel means it routes to compliance before any external use. For a federally chartered bank, that gate is permanent, and no Nathan-voice content ships until the voice spine reaches v1.0 and compliance signs off.</p>
-    </div>
-    <div class="kicker reveal">The ask</div>
-    <ul class="moves reveal d1">
-      <li><h4>Confirm the sprint sequence</h4><p>Ratify Stablecoins, then Settlement, then Every Bank Becomes an AI Bank as the order behind the launch, or reorder it with us.</p></li>
-      <li><h4>Ratify Sprint 1 in flight</h4><p>Approve the agentic banking launch as the active sprint and its category-grade narrative, gated on the voice spine and compliance.</p></li>
-      <li><h4>Codify the /phase protocol</h4><p>Make the eight-phase suite the reusable machine every future rollout runs, with goal-tagging and the gate baked in.</p></li>
-    </ul>
-  </div>
-</section>
-
-</div><!-- /.wrap -->
-</main>
-
-<footer>
-  <div class="foot-in">
-    <div class="eyebrow reveal">The bottom line</div>
-    <p class="foot-thesis reveal d1">The launch is the first flag. <b>The campaign is the sequence behind it.</b></p>
-    <div class="foot-row">
-      <span>Anchorage Digital × Winn.solutions</span>
-      <span>2026-06-21 · Master Overview v1</span>
-      <span>Confidential</span>
-    </div>
-  </div>
-</footer>
-
+<div id="progress"></div><div class="fog"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i></div>
+<div class="topbar"><div class="brandmark"><svg class="anchor-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="4" r="2"/><path d="M12 6v14M5 12a7 7 0 0 0 14 0M5 12H3m16 0h2M8 9H5"/></svg><div><div class="bm-name" style="font-size:16px">Anchorage</div></div></div><span class="rail-tag" style="margin:0">CONFIDENTIAL</span></div>
+<nav class="rail"><div class="brandmark"><svg class="anchor-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v15M5.5 12.5a6.5 6.5 0 0 0 13 0M5.5 12.5H3.4m17.2 0h-2.1M8.5 9.2H5.6"/></svg><div><div class="bm-name">Anchorage</div><div class="bm-sub">× Winn.solutions</div></div></div>
+<span class="rail-tag">MASTER · CONFIDENTIAL</span>
+<ul class="toc"><li><a href="#hero"><span class="num">00</span> Overview</a></li><li class="toc-group">The Argument</li><li><a href="#wedge"><span class="num">01</span> The wedge</a></li><li><a href="#evidence"><span class="num">02</span> What the data says</a></li><li><a href="#belief"><span class="num">03</span> Belief alignment</a></li><li class="toc-group">The Frame</li><li><a href="#pillars"><span class="num">04</span> Pillars &amp; goals</a></li><li><a href="#engine"><span class="num">05</span> The engine</a></li><li class="toc-group">The Campaign</li><li><a href="#roadmap"><span class="num">06</span> The roadmap</a></li><li><a href="#sprint1"><span class="num">07</span> Sprint 1</a></li><li><a href="#sprints"><span class="num">08</span> Sprints 2 to 4</a></li><li class="toc-group">The Operating Layer</li><li><a href="#threads"><span class="num">09</span> Always-on</a></li><li><a href="#run"><span class="num">10</span> Cadence &amp; ask</a></li></ul>
+<div class="rail-foot">PREPARED BY WINN.SOLUTIONS<br/>2026-06-22 · Master Overview v2</div></nav>
+<main><div class="wrap">
+<section id="hero"><div class="hero-beam"></div><div class="shell">
+<div class="eyebrow hero-eyebrow">Campaign Map · H2 2026 · Confidential</div>
+<h1 class="hero-title"><span class="l1">The Anchorage</span><span class="l2">Agentic Campaign</span></h1>
+<p class="hero-thesis">When an agent moves money, who is accountable? <b>That is the ground a chartered bank owns.</b></p>
+<p class="hero-sub">The campaign map above the sprint decks, rebuilt on evidence: Anchorage's own post data, the competitive field, and Nathan's scored beliefs. One engine, run as a sequence of sprints; Sprint 1 is live now.</p>
+<div class="hero-meta"><span>PREPARED FOR <b>Kate Roling · Erin DeMarco · Joe McNaney · Sam Gentile · Jen Hunnewell</b></span><span>BY <b>Winn.solutions</b></span><span>2026-06-22 · Master Overview v2</span></div>
+<div class="scrollcue"><span class="ln"></span> Scroll to read</div></div></section>
+<section id="wedge" class="band"><div class="shell">
+<div class="eyebrow reveal">The Argument</div>
+<h2 class="sect reveal">Who banks the agents?</h2>
+<p class="lead reveal d1">Every competitor is building a piece of the agent's wallet. Anchorage is the only one that can be the agent's bank, and the defensible question is not capability. It is accountability.</p>
+<div class="body reveal d2">
+<p>As agents become economic actors, what lets them act is regulated financial rails: a place to hold value, a way to move it, an identity for the agent, and controls that make all of it auditable. That is <strong>the trust layer for autonomous finance</strong>, and it is a bank problem before it is an AI problem. The load-bearing qualifier is <strong>regulated</strong>, and Anchorage is the only fully operational federally chartered bank making the claim.</p>
+<div class="callout reveal d1" style="border-left-color:var(--brass)"><p style="font-family:var(--serif);font-style:italic;font-size:18px;color:var(--text);margin:0 0 8px">&ldquo;There's a thousand things to get right. There's not one. It only takes one thing to get wrong.&rdquo;</p><p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brass);margin:0">Nathan McCauley, on security as discipline</p></div>
+<div class="callout reveal d1"><div class="clabel">The one rule that governs everything</div><p>Every loud moment is backed by a real thing. The category, the initiative, the relationships, and the waitlist are real and tease-eligible now. Platform-as-GA, named capabilities, and volume numbers stay gated. Lead the layer where being early and chartered is the whole advantage, and gate every capability behind demoable substance.</p></div>
+</div></div></section>
+<section id="evidence" class=""><div class="shell">
+<div class="eyebrow reveal">The Evidence</div>
+<h2 class="sect reveal">Why this campaign has to be different</h2>
+<p class="lead reveal d1">The full read is in the Signal Audit. Three findings set the strategy: the brand barely speaks in its own voice, what it does post under-converts, and the agentic lane is already crowded.</p>
+<div class="body reveal d2">
+<div class="reveal d1"><div class="bigstat"><div class="s"><div class="n">35.7%</div><div class="l">of Anchorage's feed is original voice (the rest is replies and reposts)</div></div><div class="s"><div class="n">24.6x</div><div class="l">behind the field on its highest-volume content category</div></div><div class="s"><div class="n">6</div><div class="l">rivals already posting the agent-account story loudly</div></div><div class="s"><div class="n">#1</div><div class="l">performing AI post in the field is a security and accountability story, not a product brag</div></div></div></div>
+<div class="reveal d1"><div class="chart"><div class="barrow"><div class="bl">Investment<span>21.1 vs 518.3 avg eng</span></div><div class="bartrack"><i style="width:100.0%"></i></div><div class="bv">24.6x</div></div><div class="barrow"><div class="bl">Brand<span>39.3 vs 810.7 avg eng</span></div><div class="bartrack"><i style="width:83.7%"></i></div><div class="bv">20.6x</div></div><div class="barrow"><div class="bl">Product Launch<span>32.1 vs 513.3 avg eng</span></div><div class="bartrack"><i style="width:65.0%"></i></div><div class="bv">16.0x</div></div><div class="barrow"><div class="bl">Event<span>24.8 vs 270.1 avg eng</span></div><div class="bartrack"><i style="width:44.3%"></i></div><div class="bv">10.9x</div></div><div class="barrow"><div class="bl">Asset Listing<span>170.5 vs 1427.1 avg eng</span></div><div class="bartrack"><i style="width:34.1%"></i></div><div class="bv">8.4x</div></div></div></div>
+<div class="callout reveal d1"><div class="clabel">The implication</div><p>A me-too agentic launch walks into a crowded room and posts in a voice that does not convert. The way out is to lead where Anchorage is unique: the accountability and trust layer, in Nathan's voice, where a chartered bank wins and no one else is standing.</p><p>Full detail, charts, and method: see <a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-signal-audit.html" style="color:inherit;text-decoration:none">The Anchorage Signal Audit</a>.</p></div>
+</div></div></section>
+<section id="belief" class="band"><div class="shell">
+<div class="eyebrow reveal">Belief Alignment</div>
+<h2 class="sect reveal">Built on what Nathan actually believes</h2>
+<p class="lead reveal d1">Scored on how often he says it and how deeply he holds it. The campaign leads on his strongest, CLEAN-to-say beliefs, and treats agentic as a flare, because by the numbers it is one of his weakest.</p>
+<div class="body reveal d2">
+<table class="tbl reveal d1"><thead><tr><th>Belief</th><th>Freq / conviction</th><th>Compliance</th><th>Role in the campaign</th></tr></thead><tbody><tr><td>Regulation as the chosen path</td><td>92 / 96</td><td>CLEAN</td><td>Sprint 4 spine: two sides of the same token</td></tr><tr><td>Security first, secure by default</td><td>72 / 90</td><td>CLEAN to mixed</td><td>Sprint 3 spine: the accountability wedge</td></tr><tr><td>Stablecoins, a 10x dollar</td><td>88 / 80</td><td>Counsel</td><td>Sprint 2 spine: replatforming the dollar</td></tr><tr><td>Enabler, bank for banks</td><td>70 / 79</td><td>Mixed</td><td>The bench sprint: every bank becomes a crypto bank</td></tr><tr><td>Agentic banking</td><td>38 / 54</td><td>Counsel</td><td>Sprint 1 only; a flare everywhere else</td></tr></tbody></table>
+<div class="callout reveal d1"><div class="clabel">The test every campaign must pass</div><p><b>Special</b> (the lane is uncontested), <b>unique</b> (only a chartered bank can say it), and <b>belief-aligned</b> (high frequency, high conviction, CLEAN). The accountability wedge passes all three. A generic agentic-capability post passes none.</p></div>
+</div></div></section>
+<section id="pillars" class=""><div class="shell">
+<div class="eyebrow reveal">Pillars &amp; Goals</div>
+<h2 class="sect reveal">Seven pillars, three goals</h2>
+<p class="lead reveal d1">The strategic foundation every sprint draws from, and what each sprint is measured against.</p>
+<div class="body reveal d2">
+<table class="tbl reveal d1"><thead><tr><th>Pillar</th><th>The line it owns</th></tr></thead><tbody><tr><td>P1 Financial infrastructure</td><td>Know Your Agent; the allowance model; the trust layer before the rail.</td></tr><tr><td>P2 Stablecoins</td><td>A 10x better dollar; core plumbing; the regulated settlement rail.</td></tr><tr><td>P3 Capital markets</td><td>Settlement is the rail; controls-first credit and clearing.</td></tr><tr><td>P4 Anchorage products</td><td>Usable custody; self-custody with a perimeter; sub-custody.</td></tr><tr><td>P5 Policy</td><td>The rulebook for autonomous money; due process; fair access.</td></tr><tr><td>P6 Wealth</td><td>Advisor-channel identity and accountability; democratized access.</td></tr><tr><td>P7 Institutions</td><td>Every bank becomes a crypto bank; the enabling infrastructure bank.</td></tr></tbody></table>
+<div class="grid g3 reveal d1"><div class="card"><div class="cn">Goal 01</div><h4>Own the category</h4><p>Be the chartered bank that owns accountability for autonomous money. Measured by tier-1 pickups using the framing and third-party term adoption.</p></div><div class="card"><div class="cn">Goal 02</div><h4>Capture an ownable audience</h4><p>Convert attention into a captured, builder-and-institution audience. Measured by waitlist and qualified inbound.</p></div><div class="card"><div class="cn">Goal 03</div><h4>Prove it, without overclaiming</h4><p>Resourced and shipping while every capability stays gated. Measured by zero overclaim leaks, the honesty KPI.</p></div></div>
+</div></div></section>
+<section id="engine" class="band"><div class="shell">
+<div class="eyebrow reveal">The Engine</div>
+<h2 class="sect reveal">The eight-phase suite every sprint runs</h2>
+<p class="lead reveal d1">One reusable launch machine. A sprint compresses phases one through six; traction and amplify follow on real numbers.</p>
+<div class="body reveal d2">
+<ul class="moves reveal d1"><li><h4>Belief tease</h4><p>Open the frame in Nathan's voice before the flag.</p></li><li><h4>Vision reveal</h4><p>The loud surface: the position piece and the founder video.</p></li><li><h4>Research gap</h4><p>The principle-grade paper that gives press a citeable artifact.</p></li><li><h4>Partner</h4><p>The relationship at category altitude, never a capability claim.</p></li><li><h4>Proof / demo</h4><p>Only when the substance gate clears; else held to the follow-on.</p></li><li><h4>Launch</h4><p>The category and the waitlist open, not the platform is GA.</p></li><li><h4>Traction</h4><p>First numbers: waitlist, demo views, pilots.</p></li><li><h4>Amplify</h4><p>Media, partner quote-tweets, recap.</p></li></ul>
+<div class="callout reveal d1"><div class="clabel">Codify it as the /phase protocol</div><p>Turn the suite into a reusable protocol so every future rollout runs the full machine with goal-tagging and the clean-versus-counsel gate baked in. Each sprint below is the same engine pointed at a different belief.</p></div>
+</div></div></section>
+<section id="roadmap" class=""><div class="shell">
+<div class="eyebrow reveal">The Campaign Roadmap</div>
+<h2 class="sect reveal">Four sprints, belief-led</h2>
+<p class="lead reveal d1">Sprint 1 is the agentic launch, in flight. The rest stand on Nathan's strongest CLEAN beliefs, each carrying a single agentic flare so the campaign stays current without being captive to it. Roughly monthly, overlapping.</p>
+<div class="body reveal d2">
+<div class="reveal d1"><div class="grid roadmap"><div class="card anchor"><div class="cn"><span class="sn">Sprint 1</span><span class="st live">In flight</span></div><h4><a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html" style="color:inherit;text-decoration:none">Agentic Banking Launch</a></h4><p>P1 · Know Your Agent</p><div class="goal">GOAL: own the category, open the waitlist.</div></div><div class="card"><div class="cn"><span class="sn">Sprint 2</span><span class="st next">Proposed</span></div><h4><a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint2-stablecoins.html" style="color:inherit;text-decoration:none">Replatforming the Dollar</a></h4><p>P2 · Stablecoins</p><div class="goal">GOAL: own the 10x-dollar narrative.</div></div><div class="card"><div class="cn"><span class="sn">Sprint 3</span><span class="st next">Proposed</span></div><h4><a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint3-security.html" style="color:inherit;text-decoration:none">A Thousand Things to Get Right</a></h4><p>P3+ · Security &amp; trust</p><div class="goal">GOAL: own accountability for autonomous money.</div></div><div class="card"><div class="cn"><span class="sn">Sprint 4</span><span class="st next">Proposed</span></div><h4><a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint4-regulation.html" style="color:inherit;text-decoration:none">Two Sides of the Same Token</a></h4><p>P5 · Regulation</p><div class="goal">GOAL: own the regulation high ground.</div></div></div></div>
+<div class="callout reveal d1"><div class="clabel">Why this order</div><p>Stablecoins is the highest-resonance pillar after the launch and the one the client already pushes. Security carries the accountability wedge, the empirically winning angle. Regulation is Nathan's single strongest CLEAN belief. Enabler (every bank becomes a crypto bank) sits on the bench. Policy runs as an always-on thread, not a sprint.</p></div>
+</div></div></section>
+<section id="sprint1" class="band"><div class="shell">
+<div class="eyebrow reveal">Sprint 1 · In Flight</div>
+<h2 class="sect reveal">The Agentic Banking Launch</h2>
+<p class="lead reveal d1">The one agentic-heavy sprint. The landing page is the noisy flag, with the waitlist and the agentic hiring bot as a parallel hype lane.</p>
+<div class="body reveal d2">
+<div class="grid g3 reveal d1"><div class="card"><div class="cn">The flag</div><h4>Landing page + waitlist</h4><p>The vision reveal and category launch fused into one surface; signup order is status.</p></div><div class="card"><div class="cn">The spine</div><h4>"Who Banks the Agents?" paper</h4><p>The macro gap doc and citeable artifact. Principle-grade, zero product substance.</p></div><div class="card"><div class="cn">The engine</div><h4>The agentic hiring bot</h4><p>Funny, pre-reviewed refusals carry the accountability message; its guardrails demonstrate the thesis.</p></div></div>
+<p>Full asset-by-asset build, owners, gates, and timeline: see the <a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html" style="color:inherit;text-decoration:none">Sprint 1 design deck</a>.</p>
+</div></div></section>
+<section id="sprints" class=""><div class="shell">
+<div class="eyebrow reveal">Sprints 2 to 4</div>
+<h2 class="sect reveal">The belief-led sprints</h2>
+<p class="lead reveal d1">Each leads on a strong CLEAN belief, runs the full eight-phase suite, and carries one agentic flare. Click any card for the full sprint design.</p>
+<div class="body reveal d2">
+<div class="grid g3 reveal d1"><div class="card"><div class="cn">Sprint 2 · P2</div><h4>Replatforming the Dollar</h4><p>Stablecoins as a 10x better dollar and the regulated settlement rail. Flare: settlement for agents. <a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint2-stablecoins.html" style="color:inherit;text-decoration:none">Open the sprint deck</a></p></div><div class="card"><div class="cn">Sprint 3 · Security</div><h4>A Thousand Things to Get Right</h4><p>Security and trust as the discipline. Flare: who is accountable when an agent moves money. <a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint3-security.html" style="color:inherit;text-decoration:none">Open the sprint deck</a></p></div><div class="card"><div class="cn">Sprint 4 · Policy</div><h4>Two Sides of the Same Token</h4><p>Regulation as the chosen path, and fair access. Flare: the rulebook for autonomous money. <a href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint4-regulation.html" style="color:inherit;text-decoration:none">Open the sprint deck</a></p></div></div>
+</div></div></section>
+<section id="threads" class="band"><div class="shell">
+<div class="eyebrow reveal">The Operating Layer</div>
+<h2 class="sect reveal">Sprints are not the whole picture</h2>
+<p class="lead reveal d1">Under every sprint, four beats run continuously.</p>
+<div class="body reveal d2">
+<div class="grid g2 reveal d1"><div class="card"><div class="cn">Always-on</div><h4>Policy</h4><p>The rulebook for autonomous money, run as earned media rather than a product sprint.</p></div><div class="card"><div class="cn">Always-on</div><h4>The circle</h4><p>A founder ring, cross-amplification and narrative-jacking, a Nathan-channel play in a personal capacity.</p></div><div class="card"><div class="cn">Always-on</div><h4>The reply ritual</h4><p>Ten minutes a day in his own replies, the single strongest algorithm signal, inside the guardrails.</p></div><div class="card"><div class="cn">Always-on</div><h4>The weekly livestream</h4><p>A recurring co-marketing stream at a fixed slot; partners opt in, the stablecoin team fills open weeks.</p></div></div>
+</div></div></section>
+<section id="run" class=""><div class="shell">
+<div class="eyebrow reveal">How It Runs</div>
+<h2 class="sect reveal">The cadence, the discipline, the ask</h2>
+<p class="lead reveal d1">A sprint is three to four weeks of preparation, one week of execution, roughly one per month, overlapping.</p>
+<div class="body reveal d2">
+<div class="callout reveal d1"><div class="clabel">The two disciplines</div><p><b>The subtraction gate.</b> The plan is a map, not a license to build everything at once on a pre-launch platform. Pick the spine plus one or two beyond-roadmap bets; park the rest.</p><p><b>Nothing announces ahead of demoable substance.</b> Lead the category, gate every capability, timeline, partner name, and volume number.</p></div>
+<div class="kicker reveal">The ask</div>
+<ul class="moves reveal d1"><li><h4>Confirm the belief-led sequence</h4><p>Ratify Stablecoins, then Security, then Regulation behind the launch, or reorder with us.</p></li><li><h4>Ratify Sprint 1 in flight</h4><p>Approve the agentic launch and its category narrative, gated on the voice spine and compliance.</p></li><li><h4>Adopt the audit's operating changes</h4><p>Speak more in original voice, lead with POV and the accountability story, measure conversion not volume.</p></li></ul>
+</div></div></section>
+</div></main>
+<footer><div class="foot-in"><div class="eyebrow reveal">The bottom line</div>
+<p class="foot-thesis reveal d1">The launch is the first flag. <b>Accountability is the ground we hold under all of it.</b></p>
+<div class="foot-row"><span>Anchorage Digital × Winn.solutions</span><span>2026-06-22 · Master Overview v2</span><span>Confidential</span></div></div></footer>
 <script>
 const prog=document.getElementById('progress');
 const onScroll=()=>{const h=document.documentElement;const sc=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(sc*100)+'%';};
@@ -476,5 +315,4 @@ const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
 const spy=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=map.get(e.target.id);if(a)a.classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
 </script>
-</body>
-</html>
+</body></html>
