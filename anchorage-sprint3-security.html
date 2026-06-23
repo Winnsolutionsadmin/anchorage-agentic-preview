@@ -238,8 +238,8 @@ footer{margin-left:264px;padding:90px 60px 70px;border-top:1px solid var(--ink-l
 .cgx-legend{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:14px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
 .cgx-legend i.lg{display:inline-block;width:18px;height:10px;border-radius:2px;margin-right:7px;vertical-align:middle}
 .cgx-legend i.lg.launch{background:linear-gradient(90deg,var(--brass),#e9c878)}
-.cgx-legend i.lg.prep{background:var(--ink-3);border:1px solid var(--ink-line)}
-.cgx-legend i.lg.bench{background:rgba(116,184,199,.5)}
+.cgx-legend i.lg.prep{background:rgba(116,184,199,.4);border:1px solid rgba(116,184,199,.65)}
+.cgx-legend i.lg.bench{background:transparent;border:1px dashed var(--brass-line)}
 .cgx-months{position:relative;height:14px;margin-left:204px;margin-right:60px;border-bottom:1px solid var(--ink-line)}
 .cgx-months span{position:absolute;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
 .cgx .acc-head.cgx-head{display:grid;grid-template-columns:16px 170px 1fr 52px;gap:10px;align-items:center}
@@ -249,9 +249,21 @@ footer{margin-left:264px;padding:90px 60px 70px;border-top:1px solid var(--ink-l
 .cgx-track{position:relative;height:26px}
 .cgx-track .bar{position:absolute;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .cgx-track .bar span{font-family:var(--mono);font-size:9px;color:#1a1206;font-weight:600;white-space:nowrap;padding:0 4px}
-.cgx-track .bar.prep{background:var(--ink-3);border:1px solid var(--ink-line)}
+.cgx-track .bar.prep{background:rgba(116,184,199,.32);border:1px solid rgba(116,184,199,.55)}.cgx-track .bar.prep span{color:#cfe6ec}
 .cgx-track .bar.launch{background:linear-gradient(90deg,var(--brass),#e9c878);box-shadow:0 0 14px rgba(216,169,74,.3);z-index:2}
-.cgx-track .bar.bench{background:rgba(116,184,199,.55)}.cgx-track .bar.bench span{color:#06222b}
+.cgx-track .bar.bench{background:transparent;border:1px dashed var(--brass-line)}.cgx-track .bar.bench span{color:var(--brass)}
+/* engine timeline (vertical connected) */
+.vtl{margin-top:26px;max-width:var(--col);position:relative;padding-left:8px}
+.vtl-row{position:relative;display:grid;grid-template-columns:46px 1fr;gap:16px;padding:0 0 22px}
+.vtl-row:last-child{padding-bottom:0}
+.vtl-row::before{content:"";position:absolute;left:22px;top:30px;bottom:-4px;width:2px;background:linear-gradient(var(--brass-line),var(--ink-line))}
+.vtl-row:last-child::before{display:none}
+.vtl-node{width:44px;height:44px;border-radius:50%;border:1px solid var(--brass-line);background:var(--brass-soft);display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--brass);z-index:2}
+.vtl-row.follow .vtl-node{border-color:var(--ink-line);background:var(--ink-2);color:var(--muted-2)}
+.vtl-c h4{font-family:var(--serif);font-weight:600;font-size:18px;margin:6px 0 4px}
+.vtl-c p{font-size:14.5px;color:var(--muted);margin:0;max-width:54ch}
+.vtl-c .ph{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.vtl-row.follow .vtl-c .ph{color:var(--muted-2)}
 .cgx-icons{display:flex;gap:6px;justify-content:flex-end;color:var(--brass)}
 .picon{width:22px;height:22px;flex:0 0 auto;opacity:.92}
 @media(max-width:720px){.cgx .acc-head.cgx-head{grid-template-columns:16px 96px 1fr 30px}.cgx-months{margin-left:124px;margin-right:38px}.picon{width:18px;height:18px}.cgx-icons .picon:nth-child(n+2){display:none}}
@@ -270,12 +282,12 @@ footer{margin-left:264px;padding:90px 60px 70px;border-top:1px solid var(--ink-l
 <div id="progress"></div><div class="fog"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i></div>
 <div class="topbar"><div class="brandmark"><svg class="anchor-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="4" r="2"/><path d="M12 6v14M5 12a7 7 0 0 0 14 0M5 12H3m16 0h2M8 9H5"/></svg><div><div class="bm-name" style="font-size:16px">Anchorage</div></div></div><span class="rail-tag" style="margin:0">CONFIDENTIAL</span></div>
 <nav class="rail"><div class="brandmark"><svg class="anchor-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v15M5.5 12.5a6.5 6.5 0 0 0 13 0M5.5 12.5H3.4m17.2 0h-2.1M8.5 9.2H5.6"/></svg><div><div class="bm-name">Anchorage</div><div class="bm-sub">× Winn.solutions</div></div></div>
-<span class="rail-tag">SPRINT 3 · PROPOSED</span>
+<span class="rail-tag">SPRINT 3 · IN PRODUCTION</span>
 <ul class="toc"><li><a href="#hero"><span class="num">00</span> Overview</a></li><li class="toc-group">The Frame</li><li><a href="#map"><span class="num">01</span> The 8-phase map</a></li><li class="toc-group">The Sprint</li><li><a href="#voice"><span class="num">02</span> The voice</a></li><li><a href="#library"><span class="num">03</span> Content library</a></li><li><a href="#partner"><span class="num">04</span> The partner beat</a></li><li class="toc-group">The Operating Layer</li><li><a href="#owners"><span class="num">05</span> Owners &amp; RACI</a></li><li><a href="#goals"><span class="num">06</span> Goals &amp; KPIs</a></li><li><a href="#gates"><span class="num">07</span> The gates</a></li></ul>
 <div class="rail-foot">PREPARED BY WINN.SOLUTIONS<br/>2026-06-22 · Sprint design v2</div></nav>
 <main><div class="wrap">
 <section id="hero"><div class="hero-beam"></div><div class="shell">
-<div class="eyebrow hero-eyebrow">Sprint 3 · Security &amp; trust (S4/S34/S11) · Proposed design</div>
+<div class="eyebrow hero-eyebrow">Sprint 3 · Security &amp; trust (S4/S34/S11) · In production</div>
 <h1 class="hero-title"><span class="l1">A Thousand Things</span><span class="l2">to Get Right</span></h1>
 <p class="hero-thesis">Security is the discipline that wins trust. <b>And it is Anchorage's home ground.</b></p>
 <p class="hero-sub">Sprint 3 of the agentic campaign. The accountability wedge: security as a design property, transparency plus oversight as best-in-breed trust. The empirically winning angle. One agentic flare.</p>
