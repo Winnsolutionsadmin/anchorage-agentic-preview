@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Anchorage x Winn · Execution Schedule · v1 2026-06-09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@350;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A1726;--ink-2:#0E2034;--ink-3:#13283F;--ink-line:#1E3450;
+  --paper:#F2ECDF;--text:#E9E3D6;--muted:#94A3B5;--muted-2:#6B7C90;
+  --brass:#D8A94A;--brass-2:#EAC36B;--signal:#74B8C7;
+  --serif:'Fraunces',serif;--sans:'Hanken Grotesk',sans-serif;--mono:'IBM Plex Mono',monospace;
+  --cols:13;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--text);font-family:var(--sans);font-weight:350;padding:48px clamp(20px,4vw,64px) 80px;min-width:1080px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--brass);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--brass)}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,40px);color:var(--paper);margin:10px 0 6px}
+.sub{color:var(--muted);max-width:880px;font-size:14.5px;line-height:1.5}
+.status{font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--brass);display:inline-block;padding:3px 10px;border-radius:3px;margin-top:14px;letter-spacing:.06em}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin:26px 0 10px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.legend i{display:inline-block;width:22px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.l-winn{background:var(--brass)}
+.l-anch{background:var(--signal)}
+.l-gate{background:transparent;border:1.5px dashed var(--signal)}
+.l-cont{background:linear-gradient(90deg,var(--brass) 60%,transparent);opacity:.55}
+.l-mile{width:10px;height:10px;background:var(--brass-2);transform:rotate(45deg);border-radius:1px}
+.gantt{border:1px solid var(--ink-line);border-radius:8px;overflow:hidden;background:var(--ink-2)}
+.weeks{display:grid;grid-template-columns:230px repeat(var(--cols),1fr);border-bottom:1px solid var(--ink-line);background:var(--ink-3)}
+.weeks div{font-family:var(--mono);font-size:10px;color:var(--muted-2);padding:8px 4px;text-align:center;border-left:1px solid var(--ink-line)}
+.weeks div:first-child{text-align:left;padding-left:14px;color:var(--brass);letter-spacing:.1em}
+.weeks .now{color:var(--brass-2)}
+.group{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--brass);text-transform:uppercase;padding:12px 14px 6px;border-top:1px solid var(--ink-line);background:var(--ink-2)}
+.group:first-of-type{border-top:none}
+.lane{display:grid;grid-template-columns:230px 1fr;align-items:stretch;border-top:1px solid rgba(30,52,80,.45)}
+.lane .label{padding:9px 14px;font-size:12.5px;color:var(--text);line-height:1.35}
+.lane .label small{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted-2);margin-top:2px}
+.track{display:grid;grid-template-columns:repeat(var(--cols),1fr);align-content:center;gap:3px 0;padding:6px 0;background-image:repeating-linear-gradient(90deg,var(--ink-line) 0 1px,transparent 1px calc(100%/13))}
+.bar{height:14px;border-radius:3px;background:var(--brass);font-family:var(--mono);font-size:9px;color:var(--ink);line-height:14px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar.anch{background:var(--signal)}
+.bar.gate{background:rgba(116,184,199,.12);border:1.5px dashed var(--signal);color:var(--signal)}
+.bar.cont{background:linear-gradient(90deg,var(--brass) 55%,rgba(216,169,74,.15));color:var(--ink)}
+.bar.cont.anch{background:linear-gradient(90deg,var(--signal) 55%,rgba(116,184,199,.15))}
+.mile{width:11px;height:11px;background:var(--brass-2);transform:rotate(45deg);border-radius:1.5px;align-self:center;justify-self:start;margin-left:4px}
+.note{margin-top:26px;border-left:2px solid var(--brass);background:var(--ink-2);padding:14px 18px;max-width:980px}
+.note .clabel{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--brass);text-transform:uppercase;margin-bottom:6px}
+.note p,.note li{font-size:13px;color:var(--muted);line-height:1.55}
+.note ul{margin:4px 0 0 18px}
+.note.warn{border-left-color:var(--signal)}
+.note.warn .clabel{color:var(--signal)}
+footer{margin-top:34px;font-family:var(--mono);font-size:10.5px;color:var(--muted-2);display:flex;gap:24px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="eyebrow">Anchorage Digital x Winn.solutions · Execution Schedule</div>
+<h1>Everything upcoming and slotted, on one timeline.</h1>
+<p class="sub">The Gantt view committed on the 06-09 call: every approved initiative mapped by priority and sequence, with Winn deliverables, Anchorage gates, and the 90-day arc. Brass bars are Winn-owned, blue bars are Anchorage-owned, dashed bars are gated on a client input, diamonds are milestones.</p>
+<div class="status">INTERNAL DRAFT v1 · 2026-06-09 · FOR JARRED REVIEW · FINAL VERSION FOLLOWS THE IN-FLIGHT-INITIATIVES AUDIT</div>
+
+<div class="legend">
+  <span><i class="l-winn"></i>Winn-owned</span>
+  <span><i class="l-anch"></i>Anchorage-owned</span>
+  <span><i class="l-gate"></i>Gated on client input</span>
+  <span><i class="l-cont"></i>Continuous / cadence</span>
+  <span><i class="l-mile"></i>&nbsp;&nbsp;Milestone</span>
+</div>
+
+<div class="gantt">
+  <div class="weeks">
+    <div>WEEK OF</div>
+    <div class="now">Jun 8</div><div>Jun 15</div><div>Jun 22</div><div>Jun 29</div><div>Jul 6</div><div>Jul 13</div><div>Jul 20</div><div>Jul 27</div><div>Aug 3</div><div>Aug 10</div><div>Aug 17</div><div>Aug 24</div><div>Aug 31</div>
+  </div>
+
+  <div class="group">Sprint 1 · Agentic banking landing page (locked 06-09)</div>
+  <div class="lane"><div class="label">Concept package to client<small>HARD 24-48H · pre-seed posts, $20-wallet hook, demo-video concept</small></div>
+    <div class="track"><div class="bar" style="grid-column:1/2">Jun 10-11</div></div></div>
+  <div class="lane"><div class="label">Client review + tweaks<small>feedback expected ~Fri 6/13</small></div>
+    <div class="track"><div class="bar anch" style="grid-column:1/2">Jun 12-13</div></div></div>
+  <div class="lane"><div class="label">Nathan pre-seed posts<small>Mon/Tue of launch week</small></div>
+    <div class="track"><div class="bar" style="grid-column:2/3">Jun 15-16</div></div></div>
+  <div class="lane"><div class="label">Page launch + tandem announce<small>Anchorage controls date · not Mon/Tue</small></div>
+    <div class="track"><div class="mile" style="grid-column:2/3"></div><div class="bar anch" style="grid-column:2/3">late wk Jun 15</div></div></div>
+  <div class="lane"><div class="label">Sustain cadence (T+30)<small>weekly newsjacks, product post, partner moment</small></div>
+    <div class="track"><div class="bar cont" style="grid-column:2/7">Jun 15 to Jul 15</div></div></div>
+
+  <div class="group">Research engine (Winn drafts · Anchorage data via Sean Chen)</div>
+  <div class="lane"><div class="label">Polish sample papers (series/01-06)<small>Nathan-fit calibration set · due Fri 6/13</small></div>
+    <div class="track"><div class="bar" style="grid-column:1/2">by Jun 13</div></div></div>
+  <div class="lane"><div class="label">Kate verdict on samples<small>"floats Nathan's boat or nope"</small></div>
+    <div class="track"><div class="bar anch" style="grid-column:2/3">wk Jun 15</div></div></div>
+  <div class="lane"><div class="label">Sprint-1 anchor memo<small>scope + Sean Chen data pull</small></div>
+    <div class="track"><div class="bar" style="grid-column:2/4">Jun 15-26</div></div></div>
+  <div class="lane"><div class="label">Per-sprint memo + quarterly flagship<small>one anchor memo per cycle</small></div>
+    <div class="track"><div class="bar cont" style="grid-column:4/14">monthly cadence from Jul</div></div></div>
+
+  <div class="group">Nathan reply-guy program</div>
+  <div class="lane"><div class="label">Guardrails + red lines doc<small>GATE · Kate owes; bipartisan, no party/admin alignment</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:1/3">Kate · wk Jun 8-15</div></div></div>
+  <div class="lane"><div class="label">Monitoring + DM channel setup<small>belief-trigger polars · Amethyst 10-min calendar block</small></div>
+    <div class="track"><div class="bar" style="grid-column:2/3">wk Jun 15</div></div></div>
+  <div class="lane"><div class="label">Live: 10-min daily ritual<small>until X becomes his natural news source</small></div>
+    <div class="track"><div class="bar cont" style="grid-column:3/14">daily from ~Jun 22</div></div></div>
+
+  <div class="group">Coalition / influencer niche</div>
+  <div class="lane"><div class="label">One-pager: champions, mechanics, manifesto<small>for Nathan to socialize</small></div>
+    <div class="track"><div class="bar" style="grid-column:1/3">Jun 9-19</div></div></div>
+  <div class="lane"><div class="label">Kang call prep + call<small>belief cluster from podcasts incl. Pomp</small></div>
+    <div class="track"><div class="bar" style="grid-column:1/2">prep</div><div class="mile" style="grid-column:2/3"></div></div></div>
+  <div class="lane"><div class="label">Seeding conversations<small>3 commitments in hand · AI Collective verbal</small></div>
+    <div class="track"><div class="bar cont" style="grid-column:2/14">continuous</div></div></div>
+  <div class="lane"><div class="label">Partial trial activation<small>30-60 days if threads align</small></div>
+    <div class="track"><div class="bar" style="grid-column:5/9">~Jul 6 to Aug 3</div></div></div>
+  <div class="lane"><div class="label">Formal-launch decision<small>~90 days</small></div>
+    <div class="track"><div class="mile" style="grid-column:13/14"></div></div></div>
+
+  <div class="group">AI team · product concepts (Victor + Zev)</div>
+  <div class="lane"><div class="label">Agentic application-flow mock-up<small>+ JD amplification ideas for Victor</small></div>
+    <div class="track"><div class="bar" style="grid-column:1/2">by Fri 6/12</div></div></div>
+  <div class="lane"><div class="label">Friday AI-team call<small>add Kate via Amethyst · pressure-test §4 concepts</small></div>
+    <div class="track"><div class="mile" style="grid-column:1/2"></div><div class="bar" style="grid-column:1/2">Jun 12</div></div></div>
+  <div class="lane"><div class="label">Concept follow-ups + feasibility map<small>which concepts, what timeline, what first</small></div>
+    <div class="track"><div class="bar" style="grid-column:2/4">wk Jun 15-26</div></div></div>
+
+  <div class="group">Livestream / co-marketing (Anchorage-owned · Casey hosts)</div>
+  <div class="lane"><div class="label">Internal alignment on format<small>Kate + social team + Casey</small></div>
+    <div class="track"><div class="bar anch" style="grid-column:1/3">wk Jun 8-15</div></div></div>
+  <div class="lane"><div class="label">First stream, then weekly fixed slot<small>partners opt in · stablecoin team fills gaps · Winn backup host</small></div>
+    <div class="track"><div class="bar cont anch" style="grid-column:3/14">weekly from ~Jun 22</div></div></div>
+
+  <div class="group">Stablecoin reframe (volume unchanged)</div>
+  <div class="lane"><div class="label">Video-first + AI-laddering<small>immediate; brand channel only, no separate handle</small></div>
+    <div class="track"><div class="bar cont anch" style="grid-column:1/14">continuous from now</div></div></div>
+  <div class="lane"><div class="label">Flag-in-the-sand research sprint<small>pending Sergio role answer for second register</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:4/7">slot ~Jul cycle</div></div></div>
+
+  <div class="group">Sprint engine (3-4 wk prep + 1 wk execution, ~monthly)</div>
+  <div class="lane"><div class="label">Sprint 2 planning<small>starts ~day 10 of Sprint 1</small></div>
+    <div class="track"><div class="bar" style="grid-column:3/6">~Jun 22 to Jul 10</div></div></div>
+  <div class="lane"><div class="label">Sprint 2 execution week<small>subject from sprint calendar (pending)</small></div>
+    <div class="track"><div class="bar" style="grid-column:6/7">wk Jul 13</div></div></div>
+  <div class="lane"><div class="label">Monthly cycle thereafter<small>overlapping prep once oiled</small></div>
+    <div class="track"><div class="bar cont" style="grid-column:7/14">Jul onward</div></div></div>
+
+  <div class="group">Narrative-jacking engine</div>
+  <div class="lane"><div class="label">Pre-cleared library build<small>after first hub essays · every target pre-approved, never partners/investors</small></div>
+    <div class="track"><div class="bar" style="grid-column:4/9">Jul to early Aug</div></div></div>
+  <div class="lane"><div class="label">Go-live<small>days 60-90 · capped at one open jack</small></div>
+    <div class="track"><div class="bar cont" style="grid-column:9/14">Aug onward</div></div></div>
+
+  <div class="group">Anchorage gates (chase if silent)</div>
+  <div class="lane"><div class="label">Official-stances reference doc<small>for hypocrisy-checking every Nathan suggestion</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:1/3">Kate/Joe · wk Jun 8-15</div></div></div>
+  <div class="lane"><div class="label">Tiered partner list (100% / likely / dream)<small>outstanding since wk of 6/2 · sprint quality depends on it</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:1/2">overdue</div></div></div>
+  <div class="lane"><div class="label">Landing-page date confirm + web-refresh access<small>Jen holds launch · Sam adds Winn Sam + sends mock</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:1/2">wk Jun 8</div></div></div>
+  <div class="lane"><div class="label">Sergio role boundary<small>"not a spokesperson" comment · decision routed in deck Next Steps</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:1/3">wk Jun 8-15</div></div></div>
+  <div class="lane"><div class="label">EXISTING in-flight initiatives list<small>NEW ASK · enables the audit Jarred committed to [20:36Z]</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:1/3">request this week</div></div></div>
+
+  <div class="group">Winn internal</div>
+  <div class="lane"><div class="label">Team recap + Jarred prioritization + internal call<small>recap EOD 6/9 · prioritization + call 6/10</small></div>
+    <div class="track"><div class="bar" style="grid-column:1/2">Jun 9-10</div></div></div>
+  <div class="lane"><div class="label">Share R5: duplicate gdoc V3 + live link<small>never edit the client's commented V2</small></div>
+    <div class="track"><div class="bar" style="grid-column:1/2">wk Jun 8</div></div></div>
+  <div class="lane"><div class="label">Audit plan vs Anchorage in-flight initiatives<small>then finalize THIS schedule + send with timestamps</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:2/3">wk Jun 15</div></div></div>
+  <div class="lane"><div class="label">Belief-field quote attribution recheck<small>GATE before any round touching the quote set</small></div>
+    <div class="track"><div class="bar" style="grid-column:2/3">wk Jun 15</div></div></div>
+  <div class="lane"><div class="label">Sergio belief index + conversion-sprint concept<small>Jonathan · gated on role boundary answer</small></div>
+    <div class="track"><div class="bar gate" style="grid-column:2/4">wk Jun 15-26</div></div></div>
+</div>
+
+<div class="note">
+  <div class="clabel">How this becomes final</div>
+  <p>This v1 maps Winn's proposed sequence. The on-call commitment has a second half: <b>audit this against what Anchorage already has in progress</b> ("you might already have other things in progress that might not align... determine how it aligns with what's capable on Anchorage's side"). Once Anchorage shares their in-flight initiatives and marketing calendar, conflicting slots get re-sequenced, the division of labor is confirmed per lane, and the final version goes to Kate with timestamps, per her ask.</p>
+</div>
+
+<div class="note warn">
+  <div class="clabel">Open dependencies that move bars</div>
+  <ul>
+    <li>Landing-page launch date (Jen controls): Sprint 1 bars shift with it.</li>
+    <li>Guardrails doc (Kate): reply-guy go-live is within days of receipt.</li>
+    <li>Partner tier list: sprint calendar subjects and partner windows.</li>
+    <li>Sergio role boundary: stablecoin second-register work and the conversion-sprint concept.</li>
+    <li>Sprint calendar lock (deck Next Steps): Sprint 2+ subjects.</li>
+  </ul>
+</div>
+
+<footer>
+  <span>SOURCES · 06-09 call [20:34Z][20:36Z][21:02Z][21:10Z] · call-2026-06-09-alignment-actions-and-deck-deltas.md · deck R5 execution-timeline table</span>
+  <span>CONFIDENTIAL · INTERNAL DRAFT</span>
+</footer>
+
+</body>
+</html>

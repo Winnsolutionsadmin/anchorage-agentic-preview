@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>The Agent Underwriting Gap · An Anchorage Research Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B;
+    --paper:#F2ECDF; --signal:#74B8C7;
+    --text:#E9E3D6; --muted:#94A3B5; --muted-2:#6B7C90;
+    --body:#CFD6DF;
+    --line:rgba(216,169,74,.18);
+    --line-2:rgba(148,163,181,.16);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    --col:760px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.62;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* ATMOSPHERE */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(120% 80% at 80% -5%, rgba(216,169,74,.07) 0%, rgba(10,23,38,0) 50%),
+      radial-gradient(90% 70% at 10% 105%, rgba(116,184,199,.05) 0%, rgba(10,23,38,0) 55%);
+    animation:fog 26s ease-in-out infinite alternate;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @keyframes fog{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+  .fog{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .fog i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.10;}
+  .fog i:nth-child(1){width:520px;height:520px;background:var(--brass);top:-120px;left:-100px;animation:drift1 34s ease-in-out infinite alternate;}
+  .fog i:nth-child(2){width:440px;height:440px;background:var(--signal);bottom:-140px;right:-120px;animation:drift2 40s ease-in-out infinite alternate;}
+  .fog i:nth-child(3){width:360px;height:360px;background:var(--brass-2);top:42%;right:-160px;animation:drift1 30s ease-in-out infinite alternate;}
+  @keyframes drift1{from{transform:translate(0,0)}to{transform:translate(60px,40px)}}
+  @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-50px,-40px)}}
+
+  /* PROGRESS */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass-2));z-index:50;transition:width .1s linear;}
+
+  /* SHELL */
+  .shell{position:relative;z-index:1;max-width:var(--col);margin:0 auto;padding:0 28px;}
+
+  .mono{font-family:var(--mono);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;
+    color:var(--brass);
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--brass);flex:none;}
+
+  /* HERO */
+  header.hero{
+    position:relative;z-index:1;
+    padding:108px 0 64px;
+    background:
+      radial-gradient(86% 130% at 76% -10%, rgba(216,169,74,.10) 0%, rgba(10,23,38,0) 56%),
+      linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(42px,7.2vw,76px);
+    font-weight:600;
+    line-height:.98;
+    letter-spacing:-.015em;
+    color:var(--paper);
+    margin-bottom:22px;
+  }
+  .hero h1 .q{color:var(--brass-2);font-style:italic;font-weight:500;}
+  .hero .subtitle{
+    font-family:var(--serif);
+    font-size:clamp(19px,2.8vw,25px);
+    font-weight:400;
+    font-style:italic;
+    color:var(--text);
+    line-height:1.32;
+    max-width:30ch;
+    border-left:3px solid var(--brass);
+    padding-left:22px;
+    margin-bottom:34px;
+  }
+  .byline{
+    font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);line-height:1.7;
+    padding-top:26px;border-top:1px solid var(--line-2);
+    max-width:62ch;
+  }
+  .byline b{color:var(--text);font-weight:600;}
+
+  /* DRAFT BANNER */
+  .draft-banner{
+    position:relative;z-index:1;
+    max-width:var(--col);margin:34px auto 0;
+    padding:0 28px;
+  }
+  .draft-banner .inner{
+    background:linear-gradient(180deg,rgba(216,169,74,.10) 0%,rgba(216,169,74,.04) 100%);
+    border:1px solid var(--brass);
+    border-left:3px solid var(--brass);
+    border-radius:10px;
+    padding:16px 22px;
+    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  }
+  .draft-banner .tag{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--brass);
+    flex:none;
+  }
+  .draft-banner .txt{
+    font-family:var(--sans);font-size:14px;line-height:1.5;
+    color:var(--text);font-weight:500;
+  }
+
+  /* SECTION RHYTHM */
+  main{position:relative;z-index:1;padding-top:18px;}
+  section.band{padding:52px 0;}
+  .sect-eyebrow{margin-top:46px;}
+  h2.sect{
+    font-family:var(--serif);
+    font-size:clamp(28px,4.4vw,40px);
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-.012em;
+    color:var(--paper);
+    margin:0 0 26px;
+  }
+  h3.sub{
+    font-family:var(--serif);
+    font-size:22px;font-weight:600;
+    color:var(--paper);
+    margin:38px 0 14px;
+  }
+
+  p{margin:0 0 22px;color:var(--body);}
+  p strong, li strong{color:var(--paper);font-weight:600;}
+  a{color:var(--brass-2);text-decoration:none;border-bottom:1px solid rgba(234,195,107,.32);transition:border-color .2s var(--ease),color .2s var(--ease);}
+  a:hover{color:var(--paper);border-color:var(--brass-2);}
+  sup.ref{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--brass);vertical-align:super;line-height:0;margin-left:1px;}
+
+  .lead{
+    font-size:20px;
+    font-weight:350;
+    line-height:1.55;
+    color:var(--text);
+    margin-bottom:26px;
+  }
+
+  /* LISTS */
+  ol.wedge{list-style:none;counter-reset:w;margin:0 0 26px;display:grid;gap:18px;}
+  ol.wedge li{
+    counter-increment:w;
+    position:relative;
+    padding:18px 22px 18px 64px;
+    background:var(--ink-2);
+    border:1px solid var(--line-2);
+    border-left:3px solid var(--brass);
+    border-radius:10px;
+    color:var(--body);
+    font-size:16.5px;line-height:1.55;
+  }
+  ol.wedge li::before{
+    content:counter(w);
+    position:absolute;left:22px;top:18px;
+    font-family:var(--mono);font-weight:600;font-size:16px;
+    color:var(--brass);
+  }
+  ol.wedge li strong{color:var(--paper);}
+
+  ul.field{list-style:none;margin:0 0 26px;display:grid;gap:16px;}
+  ul.field li{
+    position:relative;padding-left:26px;
+    color:var(--body);font-size:16.5px;line-height:1.56;
+  }
+  ul.field li::before{
+    content:"";position:absolute;left:2px;top:11px;
+    width:7px;height:7px;border:1.5px solid var(--brass);border-radius:50%;
+  }
+  ul.field li strong{color:var(--paper);font-weight:600;}
+
+  /* CALLOUT */
+  .callout{
+    background:linear-gradient(180deg,var(--ink-3) 0%,var(--ink-2) 100%);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:30px 32px;
+    margin:34px 0;
+  }
+  .callout .lab{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--brass);
+    display:block;margin-bottom:12px;
+  }
+  .callout p:last-child{margin-bottom:0;}
+  .callout.thesis p{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:21px;line-height:1.4;color:var(--paper);
+  }
+
+  /* PULL QUOTE / blockquote */
+  blockquote{
+    margin:34px 0;padding:6px 0 6px 28px;
+    border-left:3px solid var(--brass);
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:23px;line-height:1.38;color:var(--paper);
+  }
+
+  /* DIVIDER */
+  .rule{
+    height:1px;border:0;
+    background:linear-gradient(90deg,var(--line) 0%,rgba(216,169,74,0) 100%);
+    margin:46px 0;
+  }
+
+  /* SOURCES */
+  .sources{display:grid;gap:14px;margin:8px 0 0;list-style:none;counter-reset:s;}
+  .sources li{
+    padding-left:30px;position:relative;
+    font-size:14.5px;line-height:1.5;color:var(--muted);
+    counter-increment:s;
+  }
+  .sources li::before{content:counter(s);position:absolute;left:0;top:0;font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--brass);}
+  .sources li b{color:var(--text);font-weight:600;}
+  .sources li i{font-style:italic;color:var(--text);}
+  .sources li a{font-family:var(--mono);font-size:12.5px;word-break:break-all;border-bottom:none;color:var(--muted-2);}
+  .sources li a:hover{color:var(--brass-2);}
+
+  /* FOOTER */
+  footer{
+    position:relative;z-index:1;
+    border-top:1px solid var(--line);
+    margin-top:54px;
+    padding:42px 0 72px;
+    background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);
+  }
+  footer .disc{color:var(--muted-2);font-size:13.5px;line-height:1.6;font-style:italic;}
+  footer .stamp{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    color:var(--muted);margin-top:20px;
+  }
+
+  @media (max-width:760px){
+    body{font-size:16px;}
+    .shell{padding:0 20px;}
+    .draft-banner{padding:0 20px;}
+    header.hero{padding:72px 0 48px;}
+    ol.wedge li{padding-left:56px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body::before,.fog i{animation:none;}
+  }
+  @media print{
+    body{background:#fff;color:#111;}
+    body::before,body::after,.fog,#progress{display:none;}
+    .callout,blockquote,ol.wedge li,section{break-inside:avoid;}
+    a{color:#111;border:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="fog"><i></i><i></i><i></i></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="shell">
+    <div class="eyebrow">Anchorage Research · Paper 01</div>
+    <h1>The Agent Underwriting <span class="q">Gap</span></h1>
+    <p class="subtitle">What an agent needs before it touches money.</p>
+    <p class="byline">An Anchorage research paper. Pillar 1 &mdash; Financial infrastructure / agentic banking (the AI spine). Prepared for <b>Nathan McCauley</b>, Co-Founder and CEO, Anchorage Digital.</p>
+  </div>
+</header>
+
+<!-- DRAFT BANNER -->
+<div class="draft-banner">
+  <div class="inner">
+    <span class="tag">Draft &middot; Not for publication</span>
+    <span class="txt">DRAFT for Nathan McCauley / Anchorage Digital Research. Not for publication.</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- THESIS -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Thesis</div>
+      <div class="callout thesis">
+        <span class="lab">The position</span>
+        <p>The standards for the agent economy establish identity and authorization. They stop, by design, short of underwriting, custody, and accountability. Those are a bank's job.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Executive Summary</div>
+      <p>The agent economy is being built on a stack of new standards, and they are good. They give an autonomous agent a verifiable identity, a record of what it is permitted to do, and a way to pay. What they do not give it, by the explicit design of their own authors, is the thing regulated finance is built on: an answer to who underwrote the agent, who custodies the assets it acts on, and who is accountable when it fails.</p>
+      <p>That is the agent underwriting gap. It is not a flaw in the standards. It is the place where the protocol layer ends and the banking layer begins.</p>
+      <div class="callout">
+        <span class="lab">Key Finding</span>
+        <p>Every leading agent-identity standard scopes itself to identity, authorization, and auditability, and explicitly excludes underwriting, credit, and custody. The gap is structural, and it is a banking function.</p>
+      </div>
+      <p>This paper maps what the standards cover, shows where they stop, and argues that the institutions deploying capital-bearing agents will require a regulated trust layer underneath them, the same way institutional crypto required regulated custody before the capital arrived.</p>
+    </div>
+  </section>
+
+  <!-- 1. THE STANDARDS ARE REAL -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 01</div>
+      <h2 class="sect">The standards are real, and converging fast</h2>
+      <p>Agents are already transacting at scale. Coinbase's x402 payment protocol crossed more than 100 million cumulative agent transactions on the Base network in roughly three quarters, and its transaction mix shifted decisively toward real economic payments, with payments above one dollar rising from 49% to 95% of volume.<sup class="ref">1</sup> In April 2026, x402 moved to neutral governance under the Linux Foundation, with founding members spanning Circle, Visa, Mastercard, American Express, Google, Microsoft, Amazon Web Services, Stripe, Cloudflare, Shopify, and the Solana and Polygon ecosystems.<sup class="ref">2</sup> Ethereum's ERC-8004 standard for agent identity went live on mainnet in January 2026, authored by contributors from MetaMask, the Ethereum Foundation, Google, and Coinbase.<sup class="ref">3</sup> Mastercard completed its first live agentic payment in September 2025 and extended the capability across all US cardholders by November.<sup class="ref">4</sup></p>
+      <p>This is not a speculative future. It is an infrastructure build-out with the largest names in payments and technology behind it.</p>
+    </div>
+  </section>
+
+  <!-- 2. WHERE THE STANDARDS STOP -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 02</div>
+      <h2 class="sect">Where the standards stop</h2>
+      <p>Read the standards on their own terms and a consistent boundary appears.</p>
+      <p>Ethereum's ERC-8004 defines three registries, for identity, reputation, and validation, and its authors state plainly that the protocol "does not cover payments," deliberately leaving application logic off-chain.<sup class="ref">5</sup> The identity-verification incumbents Sumsub and Trulioo both define Know Your Agent as a framework for identity, authorization, and auditability, and both explicitly exclude underwriting, credit decisions, and asset custody from its scope.<sup class="ref">6</sup> Visa's Trusted Agent Protocol confirms that an agent is authorized to act for a consumer; it is authentication, not custody.<sup class="ref">7</sup> The foundational MIT Media Lab work on authenticated delegation, from January 2025, proposes extending existing identity protocols to agents and does not even use the phrase "Know Your Agent."<sup class="ref">8</sup></p>
+      <p>Two facts follow. First, Know Your Agent is a contested category, used independently by academic, vendor, payments-network, and protocol claimants. No single firm coined it, and Anchorage does not claim to.<sup class="ref">6</sup> Second, and more important, every one of these standards answers the same two questions, who is this agent and what is it allowed to do, and none answers the three a regulated institution must answer before it lets an agent touch capital: who underwrote it, who custodies what it touches, and who is accountable when it fails. As of June 2026, no financial regulator has issued a Know Your Agent standard.<sup class="ref">6</sup></p>
+      <div class="callout">
+        <span class="lab">Key Finding</span>
+        <p>The protocols establish identity and authorization. Underwriting, custody, and accountability are out of their scope on purpose. That is the gap a chartered bank fills.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. WHY THE GAP MATTERS NOW -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 03</div>
+      <h2 class="sect">Why the gap matters now</h2>
+      <p>The economic pull is real and it is being quantified by the most conservative institutions in finance. McKinsey estimates agentic AI could reduce banking operating costs by up to 20% and open a four-percentage-point return-on-tangible-equity gap between leaders and laggards.<sup class="ref">9</sup> Citi argues agentic AI could affect finance more than the internet did.<sup class="ref">10</sup> Gartner projects 40% of enterprise applications will embed task-specific AI agents by the end of 2026, up from under 5% a year earlier.<sup class="ref">11</sup></p>
+      <p>The same sources flag the discipline problem. Gartner predicts more than 40% of agentic AI projects will be canceled by the end of 2027, citing cost, unclear value, and weak risk controls.<sup class="ref">12</sup> The agent economy is arriving, and it is arriving unevenly. The agents that get near real money will be the ones a regulated institution can stand behind.</p>
+    </div>
+  </section>
+
+  <!-- 4. THE POSITION -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 04</div>
+      <h2 class="sect">The position: underwrite the agent</h2>
+      <p>The regulated-bank reading of Know Your Agent is the layer the standards leave open. It is not the identity credential, which the protocols already issue. It is underwriting the agent before it transacts, custodying the assets it acts on under segmented, governed, recoverable controls (an allowance, not the keys), and carrying the accountability a charter requires.</p>
+      <p>Anchorage's position is that these controls are not friction on the agent economy. They are its on-ramp. An agent that a regulated bank can underwrite and stand behind is an agent an institution can actually deploy against real capital. The identity standards are necessary. They are not sufficient. Sufficiency is a bank.</p>
+      <blockquote>The identity standards are necessary. They are not sufficient. Sufficiency is a bank.</blockquote>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- SOURCES -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Sources</div>
+      <ul class="sources">
+        <li>Chainalysis, "Inside x402: 100M Agentic Payments on Base," June 3, 2026. <a href="https://www.chainalysis.com/blog/x402-agentic-payments-adoption/">chainalysis.com</a></li>
+        <li>Linux Foundation, "Linux Foundation Is Launching the x402 Foundation," April 2, 2026. <a href="https://www.prnewswire.com/news-releases/linux-foundation-is-launching-the-x402-foundation-and-welcoming-the-contribution-of-the-x402-protocol-302732803.html">prnewswire.com</a></li>
+        <li>Ethereum Improvement Proposals, EIP-8004 (Trustless Agents), mainnet January 29, 2026. <a href="https://eips.ethereum.org/EIPS/eip-8004">eips.ethereum.org/EIPS/eip-8004</a></li>
+        <li>Mastercard Newsroom, agentic commerce tools and Agentic Tokens, September 2025. <a href="https://www.mastercard.com/us/en/news-and-trends/press/2025/september/mastercard-unveils-new-tools-and-collaborations-to-power-smarter,-safer-agentic-commerce.html">mastercard.com</a></li>
+        <li>Ethereum Magicians, "ERC-8004: Trustless Agents" (authors state the protocol does not cover payments). <a href="https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098">ethereum-magicians.org</a></li>
+        <li>Sumsub, "Know Your Agent" (KYA scoped to identity, authorization, and auditability, not underwriting/credit/custody), January 28, 2026. <a href="https://sumsub.com/blog/know-your-agent/">sumsub.com/blog/know-your-agent</a></li>
+        <li>Visa Newsroom, Trusted Agent Protocol within Visa Intelligent Commerce, October 14, 2025. <a href="https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21361.html">usa.visa.com</a></li>
+        <li>South, Marro, Hardjono, Mahari, et al. (MIT Media Lab), "Authenticated Delegation and Authorized AI Agents," arXiv:2501.09674, January 16, 2025. <a href="https://arxiv.org/abs/2501.09674">arxiv.org/abs/2501.09674</a></li>
+        <li>McKinsey &amp; Company, "Agentic AI Will Shake Up Banking, Shrinking Global Profit Pools." <a href="https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/agentic-ai-will-shake-up-banking-shrinking-global-profit-pools">mckinsey.com</a></li>
+        <li>Citi GPS, "Agentic AI: Finance and the 'Do It For Me' Economy," January 17, 2025. <a href="https://www.citigroup.com/global/insights/agentic-ai">citigroup.com/global/insights/agentic-ai</a></li>
+        <li>Gartner, "40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026," August 26, 2025. <a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025">gartner.com</a></li>
+        <li>Gartner, "Over 40% of Agentic AI Projects Will Be Canceled by End of 2027," June 25, 2025. <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027">gartner.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <p class="disc">Prepared by Winn.solutions for Anchorage. DRAFT for Nathan McCauley / Anchorage Digital Research &mdash; not for publication. Principle-grade research; forward-looking capability, timeline, and partnership claims are gated pending demoable substance.</p>
+    <p class="stamp">Winn.solutions · Confidential · For the Anchorage team</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var bar=document.getElementById('progress');
+    function onScroll(){
+      var h=document.documentElement;
+      var max=(h.scrollHeight-h.clientHeight)||1;
+      bar.style.width=((h.scrollTop||document.body.scrollTop)/max*100)+'%';
+    }
+    document.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Custody Must Be Usable in the Age of Agents · An Anchorage Research Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B;
+    --paper:#F2ECDF; --signal:#74B8C7;
+    --text:#E9E3D6; --muted:#94A3B5; --muted-2:#6B7C90;
+    --body:#CFD6DF;
+    --line:rgba(216,169,74,.18);
+    --line-2:rgba(148,163,181,.16);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    --col:760px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.62;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* ATMOSPHERE */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(120% 80% at 80% -5%, rgba(216,169,74,.07) 0%, rgba(10,23,38,0) 50%),
+      radial-gradient(90% 70% at 10% 105%, rgba(116,184,199,.05) 0%, rgba(10,23,38,0) 55%);
+    animation:fog 26s ease-in-out infinite alternate;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @keyframes fog{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+  .fog{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .fog i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.10;}
+  .fog i:nth-child(1){width:520px;height:520px;background:var(--brass);top:-120px;left:-100px;animation:drift1 34s ease-in-out infinite alternate;}
+  .fog i:nth-child(2){width:440px;height:440px;background:var(--signal);bottom:-140px;right:-120px;animation:drift2 40s ease-in-out infinite alternate;}
+  .fog i:nth-child(3){width:360px;height:360px;background:var(--brass-2);top:42%;right:-160px;animation:drift1 30s ease-in-out infinite alternate;}
+  @keyframes drift1{from{transform:translate(0,0)}to{transform:translate(60px,40px)}}
+  @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-50px,-40px)}}
+
+  /* PROGRESS */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass-2));z-index:50;transition:width .1s linear;}
+
+  /* SHELL */
+  .shell{position:relative;z-index:1;max-width:var(--col);margin:0 auto;padding:0 28px;}
+
+  .mono{font-family:var(--mono);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;
+    color:var(--brass);
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--brass);flex:none;}
+
+  /* DRAFT BANNER */
+  .draft-banner{
+    position:relative;z-index:2;
+    max-width:var(--col);margin:24px auto 0;padding:0 28px;
+  }
+  .draft-banner .inner{
+    background:linear-gradient(180deg,rgba(216,169,74,.10) 0%,rgba(216,169,74,.04) 100%);
+    border:1px solid var(--brass);
+    border-radius:10px;
+    padding:16px 22px;
+    display:flex;align-items:flex-start;gap:14px;
+  }
+  .draft-banner .tag{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
+    background:var(--brass);border-radius:5px;
+    padding:4px 9px;flex:none;margin-top:1px;
+  }
+  .draft-banner .txt{
+    font-family:var(--mono);font-size:12.5px;line-height:1.55;
+    color:var(--text);letter-spacing:.02em;
+  }
+
+  /* HERO */
+  header.hero{
+    position:relative;z-index:1;
+    padding:108px 0 64px;
+    background:
+      radial-gradient(86% 130% at 76% -10%, rgba(216,169,74,.10) 0%, rgba(10,23,38,0) 56%),
+      linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(42px,7.2vw,76px);
+    font-weight:600;
+    line-height:.98;
+    letter-spacing:-.015em;
+    color:var(--paper);
+    margin-bottom:22px;
+  }
+  .hero h1 .q{color:var(--brass-2);font-style:italic;font-weight:500;}
+  .hero .subtitle{
+    font-family:var(--serif);
+    font-size:clamp(19px,2.8vw,25px);
+    font-weight:400;
+    font-style:italic;
+    color:var(--text);
+    line-height:1.32;
+    max-width:30ch;
+    border-left:3px solid var(--brass);
+    padding-left:22px;
+    margin-bottom:34px;
+  }
+  .byline{
+    font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);line-height:1.7;
+    padding-top:26px;border-top:1px solid var(--line-2);
+    max-width:62ch;
+  }
+  .byline b{color:var(--text);font-weight:600;}
+
+  /* SECTION RHYTHM */
+  main{position:relative;z-index:1;padding-top:18px;}
+  section.band{padding:52px 0;}
+  .sect-eyebrow{margin-top:46px;}
+  h2.sect{
+    font-family:var(--serif);
+    font-size:clamp(28px,4.4vw,40px);
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-.012em;
+    color:var(--paper);
+    margin:0 0 26px;
+  }
+  h3.sub{
+    font-family:var(--serif);
+    font-size:22px;font-weight:600;
+    color:var(--paper);
+    margin:38px 0 14px;
+  }
+
+  p{margin:0 0 22px;color:var(--body);}
+  p strong, li strong{color:var(--paper);font-weight:600;}
+  a{color:var(--brass-2);text-decoration:none;border-bottom:1px solid rgba(234,195,107,.32);transition:border-color .2s var(--ease),color .2s var(--ease);}
+  a:hover{color:var(--paper);border-color:var(--brass-2);}
+
+  .lead{
+    font-size:20px;
+    font-weight:350;
+    line-height:1.55;
+    color:var(--text);
+    margin-bottom:26px;
+  }
+
+  /* LISTS */
+  ol.wedge{list-style:none;counter-reset:w;margin:0 0 26px;display:grid;gap:18px;}
+  ol.wedge li{
+    counter-increment:w;
+    position:relative;
+    padding:18px 22px 18px 64px;
+    background:var(--ink-2);
+    border:1px solid var(--line-2);
+    border-left:3px solid var(--brass);
+    border-radius:10px;
+    color:var(--body);
+    font-size:16.5px;line-height:1.55;
+  }
+  ol.wedge li::before{
+    content:counter(w);
+    position:absolute;left:22px;top:18px;
+    font-family:var(--mono);font-weight:600;font-size:16px;
+    color:var(--brass);
+  }
+  ol.wedge li strong{color:var(--paper);}
+
+  ul.field{list-style:none;margin:0 0 26px;display:grid;gap:16px;}
+  ul.field li{
+    position:relative;padding-left:26px;
+    color:var(--body);font-size:16.5px;line-height:1.56;
+  }
+  ul.field li::before{
+    content:"";position:absolute;left:2px;top:11px;
+    width:7px;height:7px;border:1.5px solid var(--brass);border-radius:50%;
+  }
+  ul.field li strong{color:var(--paper);font-weight:600;}
+
+  /* CALLOUT */
+  .callout{
+    background:linear-gradient(180deg,var(--ink-3) 0%,var(--ink-2) 100%);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:30px 32px;
+    margin:34px 0;
+  }
+  .callout .lab{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--brass);
+    display:block;margin-bottom:12px;
+  }
+  .callout p:last-child{margin-bottom:0;}
+  .callout.thesis p{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:21px;line-height:1.4;color:var(--paper);
+  }
+
+  /* PULL QUOTE / blockquote */
+  blockquote{
+    margin:34px 0;padding:6px 0 6px 28px;
+    border-left:3px solid var(--brass);
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:23px;line-height:1.38;color:var(--paper);
+  }
+
+  /* DIVIDER */
+  .rule{
+    height:1px;border:0;
+    background:linear-gradient(90deg,var(--line) 0%,rgba(216,169,74,0) 100%);
+    margin:46px 0;
+  }
+
+  /* SOURCES */
+  .sources{display:grid;gap:14px;margin:8px 0 0;list-style:none;}
+  .sources li{
+    padding-left:26px;position:relative;
+    font-size:14.5px;line-height:1.5;color:var(--muted);
+  }
+  .sources li::before{content:"\2192";position:absolute;left:0;color:var(--brass);font-weight:700;}
+  .sources li b{color:var(--text);font-weight:600;}
+  .sources li i{font-style:italic;color:var(--text);}
+  .sources li a{font-family:var(--mono);font-size:12.5px;word-break:break-all;border-bottom:none;color:var(--muted-2);}
+  .sources li a:hover{color:var(--brass-2);}
+
+  /* FOOTER */
+  footer{
+    position:relative;z-index:1;
+    border-top:1px solid var(--line);
+    margin-top:54px;
+    padding:42px 0 72px;
+    background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);
+  }
+  footer .disc{color:var(--muted-2);font-size:13.5px;line-height:1.6;font-style:italic;}
+  footer .stamp{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    color:var(--muted);margin-top:20px;
+  }
+
+  @media (max-width:760px){
+    body{font-size:16px;}
+    .shell{padding:0 20px;}
+    .draft-banner{padding:0 20px;}
+    header.hero{padding:72px 0 48px;}
+    ol.wedge li{padding-left:56px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body::before,.fog i{animation:none;}
+  }
+  @media print{
+    body{background:#fff;color:#111;}
+    body::before,body::after,.fog,#progress{display:none;}
+    .callout,blockquote,ol.wedge li,section{break-inside:avoid;}
+    a{color:#111;border:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="fog"><i></i><i></i><i></i></div>
+
+<!-- DRAFT BANNER -->
+<div class="draft-banner">
+  <div class="inner">
+    <span class="tag">Draft</span>
+    <span class="txt">DRAFT for Nathan McCauley / Anchorage Digital Research. Not for publication.</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="shell">
+    <div class="eyebrow">Anchorage Research · Paper 04</div>
+    <h1>Custody Must Be Usable in the Age of <span class="q">Agents</span></h1>
+    <p class="subtitle">Give the agent an allowance, not the keys.</p>
+    <p class="byline">An Anchorage research paper. Pillar 4 — Anchorage products (custody, agentic mode). Prepared for <b>Nathan McCauley</b>, Co-Founder and CEO, Anchorage Digital.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Executive Summary</div>
+      <p>For a decade the custody argument has been about temperature and ownership: cold storage versus hot wallets, self-custody versus a third party. Autonomous agents break that frame. An agent cannot operate from cold storage, and handing it the private keys is not custody, it is abdication. The institutional requirement for the agent era is custody that is usable, an arrangement where an agent can transact within governed, scoped, recoverable limits while the institution retains control. The right metaphor is not a vault and not a hot wallet. It is an allowance.</p>
+      <div class="callout">
+        <span class="lab">Key Finding</span>
+        <p>Autonomous agents require custody that is simultaneously usable and controlled. Neither cold storage nor key handover meets that bar. Segmented, governed, recoverable custody does.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">01</div>
+      <h2 class="sect">The institutional market already chose regulated custody</h2>
+      <p>The flows settle the old debate. Institutional capital moved decisively toward regulated, third-party custody, not self-custody, as it entered crypto at scale. BlackRock named Anchorage Digital Bank an eligible custodian for its spot crypto exchange-traded products, extending a relationship that already custodied its tokenized BUIDL fund. <a href="https://www.marketsmedia.com/blackrock-adds-anchorage-digital-as-custodian/">[1]</a> The asset manager 3iQ selected Anchorage to custody and run infrastructure for six exchange-traded products listed on the Toronto Stock Exchange. <a href="https://www.anchorage.com/insights/anchorage-digital-selected-by-3iq-as-infrastructure-and-custody-partner-for-digital-asset-investment-platform">[2]</a> Across the market, regulated custody, not key self-management, is the institutional default, and the OCC affirmed in 2025 that national banks may custody crypto and removed the supervisory non-objection gate. <a href="https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-16.html">[3]</a></p>
+      <p>The self-custody maximalist position, that the only safe key is your own, does not survive contact with fiduciary duty. An institution acting for clients needs recoverability, auditability, and governance that a single private key cannot provide.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">02</div>
+      <h2 class="sect">Agents change the requirement from storage to usability</h2>
+      <p>A custodied asset that an agent cannot touch is useless to the agent economy. But an agent holding the keys is an uninsurable, ungovernable risk. The resolution is custody designed for delegated, bounded use: the agent receives a scoped allowance, not the account; spending and action limits are enforced at the custody layer; every action is logged; and the institution can revoke or recover at any time.</p>
+      <p>This is the natural extension of Nathan McCauley's framing that assets should not be defined by their temperature. The relevant property is not hot or cold. It is whether the asset can be put to work under controls the institution actually holds. For an agent, that means an allowance model: enough authority to act, never enough to run away with the account.</p>
+      <div class="callout">
+        <span class="lab">Key Finding</span>
+        <p>The agent era reframes custody from a storage question to a usability-under-control question. The product is a governed allowance, not a vault and not a private key.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">03</div>
+      <h2 class="sect">Controls are the on-ramp</h2>
+      <p>The instinct in a regulated institution is to treat controls as a brake on innovation. The agent economy inverts that. An agent that no institution can govern is an agent no institution will fund. The controls, scoped permissions, enforced limits, full audit trail, recoverability, are precisely what make it safe to let an agent act on real capital. They are the on-ramp, not the brake. The same logic that brought institutional capital into custodied crypto, that capital follows control, will govern which agents are allowed near institutional balance sheets.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">04</div>
+      <h2 class="sect">The position: usable custody, from a chartered bank</h2>
+      <p>The institutional custody product for the agent era is segmented, governed, recoverable custody operated by a federally chartered trust bank, exposing agents to a scoped allowance rather than the keys. A chartered bank can offer what neither self-custody nor an unregulated wallet can: the combination of usability, governance, recoverability, and a regulator behind it. Custody stops being a place assets sit and becomes the control surface through which autonomous actors are allowed to operate. That is the version of custody the next phase requires.</p>
+      <div class="callout thesis">
+        <span class="lab">The position</span>
+        <p>The question is no longer where the keys sit. It is how an autonomous actor can use assets under governed, recoverable controls.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- SOURCES -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Sources</div>
+      <ul class="sources">
+        <li>Markets Media, "BlackRock Adds Anchorage Digital as Custodian," April 9, 2025: <a href="https://www.marketsmedia.com/blackrock-adds-anchorage-digital-as-custodian/">marketsmedia.com</a></li>
+        <li>Anchorage Digital, "Anchorage Digital Selected by 3iQ as Infrastructure and Custody Partner," May 20, 2026: <a href="https://www.anchorage.com/insights/anchorage-digital-selected-by-3iq-as-infrastructure-and-custody-partner-for-digital-asset-investment-platform">anchorage.com</a></li>
+        <li>OCC News Release 2025-16, Interpretive Letter 1183, March 7, 2025: <a href="https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-16.html">occ.treas.gov</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <p class="disc">Prepared by Winn.solutions for Anchorage. Principle-grade research; forward-looking capability, timeline, and partnership claims are gated pending demoable substance.</p>
+    <p class="stamp">Winn.solutions · Confidential · For the Anchorage team</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var bar=document.getElementById('progress');
+    function onScroll(){
+      var h=document.documentElement;
+      var max=(h.scrollHeight-h.clientHeight)||1;
+      bar.style.width=((h.scrollTop||document.body.scrollTop)/max*100)+'%';
+    }
+    document.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>The 101% Problem · An Anchorage Research Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B;
+    --paper:#F2ECDF; --signal:#74B8C7;
+    --text:#E9E3D6; --muted:#94A3B5; --muted-2:#6B7C90;
+    --body:#CFD6DF;
+    --line:rgba(216,169,74,.18);
+    --line-2:rgba(148,163,181,.16);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    --col:760px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.62;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* ATMOSPHERE */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(120% 80% at 80% -5%, rgba(216,169,74,.07) 0%, rgba(10,23,38,0) 50%),
+      radial-gradient(90% 70% at 10% 105%, rgba(116,184,199,.05) 0%, rgba(10,23,38,0) 55%);
+    animation:fog 26s ease-in-out infinite alternate;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @keyframes fog{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+  .fog{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .fog i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.10;}
+  .fog i:nth-child(1){width:520px;height:520px;background:var(--brass);top:-120px;left:-100px;animation:drift1 34s ease-in-out infinite alternate;}
+  .fog i:nth-child(2){width:440px;height:440px;background:var(--signal);bottom:-140px;right:-120px;animation:drift2 40s ease-in-out infinite alternate;}
+  .fog i:nth-child(3){width:360px;height:360px;background:var(--brass-2);top:42%;right:-160px;animation:drift1 30s ease-in-out infinite alternate;}
+  @keyframes drift1{from{transform:translate(0,0)}to{transform:translate(60px,40px)}}
+  @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-50px,-40px)}}
+
+  /* PROGRESS */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass-2));z-index:50;transition:width .1s linear;}
+
+  /* SHELL */
+  .shell{position:relative;z-index:1;max-width:var(--col);margin:0 auto;padding:0 28px;}
+
+  .mono{font-family:var(--mono);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;
+    color:var(--brass);
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--brass);flex:none;}
+
+  /* DRAFT BANNER */
+  .draft-banner{
+    position:relative;z-index:1;
+    max-width:var(--col);margin:26px auto 0;
+    padding:0 28px;
+  }
+  .draft-banner .inner{
+    background:linear-gradient(180deg,rgba(216,169,74,.12) 0%,rgba(216,169,74,.05) 100%);
+    border:1px solid var(--brass);
+    border-radius:10px;
+    padding:16px 22px;
+    display:flex;align-items:baseline;gap:14px;
+  }
+  .draft-banner .tag{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--brass);
+    flex:none;
+  }
+  .draft-banner .msg{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;
+    color:var(--text);line-height:1.6;
+  }
+
+  /* HERO */
+  header.hero{
+    position:relative;z-index:1;
+    padding:108px 0 64px;
+    background:
+      radial-gradient(86% 130% at 76% -10%, rgba(216,169,74,.10) 0%, rgba(10,23,38,0) 56%),
+      linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(42px,7.2vw,76px);
+    font-weight:600;
+    line-height:.98;
+    letter-spacing:-.015em;
+    color:var(--paper);
+    margin-bottom:22px;
+  }
+  .hero h1 .q{color:var(--brass-2);font-style:italic;font-weight:500;}
+  .hero .subtitle{
+    font-family:var(--serif);
+    font-size:clamp(19px,2.8vw,25px);
+    font-weight:400;
+    font-style:italic;
+    color:var(--text);
+    line-height:1.32;
+    max-width:34ch;
+    border-left:3px solid var(--brass);
+    padding-left:22px;
+    margin-bottom:34px;
+  }
+  .byline{
+    font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);line-height:1.7;
+    padding-top:26px;border-top:1px solid var(--line-2);
+    max-width:62ch;
+  }
+  .byline b{color:var(--text);font-weight:600;}
+
+  /* SECTION RHYTHM */
+  main{position:relative;z-index:1;padding-top:18px;}
+  section.band{padding:52px 0;}
+  .sect-eyebrow{margin-top:46px;}
+  h2.sect{
+    font-family:var(--serif);
+    font-size:clamp(28px,4.4vw,40px);
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-.012em;
+    color:var(--paper);
+    margin:0 0 26px;
+  }
+  h3.sub{
+    font-family:var(--serif);
+    font-size:22px;font-weight:600;
+    color:var(--paper);
+    margin:38px 0 14px;
+  }
+
+  p{margin:0 0 22px;color:var(--body);}
+  p strong, li strong{color:var(--paper);font-weight:600;}
+  a{color:var(--brass-2);text-decoration:none;border-bottom:1px solid rgba(234,195,107,.32);transition:border-color .2s var(--ease),color .2s var(--ease);}
+  a:hover{color:var(--paper);border-color:var(--brass-2);}
+
+  .lead{
+    font-size:20px;
+    font-weight:350;
+    line-height:1.55;
+    color:var(--text);
+    margin-bottom:26px;
+  }
+
+  /* CITATION REFS */
+  sup.ref{
+    font-family:var(--mono);font-size:10.5px;font-weight:600;
+    color:var(--brass);vertical-align:super;line-height:0;
+    padding-left:1px;
+  }
+  sup.ref a{color:var(--brass);border-bottom:none;}
+  sup.ref a:hover{color:var(--brass-2);}
+
+  /* CALLOUT */
+  .callout{
+    background:linear-gradient(180deg,var(--ink-3) 0%,var(--ink-2) 100%);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:30px 32px;
+    margin:34px 0;
+  }
+  .callout .lab{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--brass);
+    display:block;margin-bottom:12px;
+  }
+  .callout p:last-child{margin-bottom:0;}
+  .callout.thesis p{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:21px;line-height:1.4;color:var(--paper);
+  }
+  .callout.finding p{
+    font-size:17px;line-height:1.55;color:var(--text);
+  }
+  .callout.finding p strong{color:var(--paper);}
+
+  /* PULL QUOTE / blockquote */
+  blockquote{
+    margin:34px 0;padding:6px 0 6px 28px;
+    border-left:3px solid var(--brass);
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:23px;line-height:1.38;color:var(--paper);
+  }
+
+  /* DIVIDER */
+  .rule{
+    height:1px;border:0;
+    background:linear-gradient(90deg,var(--line) 0%,rgba(216,169,74,0) 100%);
+    margin:46px 0;
+  }
+
+  /* SOURCES */
+  .sources{display:grid;gap:14px;margin:8px 0 0;list-style:none;counter-reset:s;}
+  .sources li{
+    padding-left:30px;position:relative;
+    font-size:14.5px;line-height:1.5;color:var(--muted);
+    counter-increment:s;
+  }
+  .sources li::before{
+    content:counter(s);position:absolute;left:0;top:0;
+    font-family:var(--mono);font-size:12px;font-weight:600;color:var(--brass);
+  }
+  .sources li b{color:var(--text);font-weight:600;}
+  .sources li i{font-style:italic;color:var(--text);}
+  .sources li a{font-family:var(--mono);font-size:12.5px;word-break:break-all;border-bottom:none;color:var(--muted-2);}
+  .sources li a:hover{color:var(--brass-2);}
+
+  /* FOOTER */
+  footer{
+    position:relative;z-index:1;
+    border-top:1px solid var(--line);
+    margin-top:54px;
+    padding:42px 0 72px;
+    background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);
+  }
+  footer .disc{color:var(--muted-2);font-size:13.5px;line-height:1.6;font-style:italic;}
+  footer .stamp{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    color:var(--muted);margin-top:20px;
+  }
+
+  @media (max-width:760px){
+    body{font-size:16px;}
+    .shell{padding:0 20px;}
+    .draft-banner{padding:0 20px;}
+    .draft-banner .inner{flex-direction:column;gap:8px;}
+    header.hero{padding:72px 0 48px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body::before,.fog i{animation:none;}
+  }
+  @media print{
+    body{background:#fff;color:#111;}
+    body::before,body::after,.fog,#progress{display:none;}
+    .callout,blockquote,section{break-inside:avoid;}
+    a{color:#111;border:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="fog"><i></i><i></i><i></i></div>
+
+<!-- DRAFT BANNER -->
+<div class="draft-banner">
+  <div class="inner">
+    <span class="tag">Draft</span>
+    <span class="msg">DRAFT for Nathan McCauley / Anchorage Digital Research. Not for publication.</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="shell">
+    <div class="eyebrow">Anchorage Research · Paper 03</div>
+    <h1>The 101% <span class="q">Problem</span></h1>
+    <p class="subtitle">Tokenization is inevitable. Its business model is not.</p>
+    <p class="byline">Pillar 3 — Capital markets (Atlas / agentic settlement). An Anchorage research paper, prepared for <b>Nathan McCauley</b> / Anchorage Digital Research.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- THESIS -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Thesis</div>
+      <div class="callout thesis">
+        <span class="lab">The argument</span>
+        <p>Tokenized rails are vastly cheaper to run. But until the old system is switched off, issuers pay for both. The cost is not 1%. It is 101%. That gap, not the technology, is what is holding tokenization back.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Executive Summary</div>
+      <p>Tokenization is the most over-forecast and under-realized idea in capital markets. The direction is not in doubt: moving assets onto programmable rails is cheaper, faster, and available around the clock. The problem is the transition. As long as the existing settlement, custody, and compliance machinery has to keep running alongside the new rails, an issuer does not pay 1% to tokenize. It pays 101%, the cost of the new system on top of the old one it cannot yet switch off. That is the gap between the trillion-dollar forecasts and the billions actually on-chain, and it is an honest thing for a regulated institution to say out loud.</p>
+      <div class="callout finding">
+        <span class="lab">Key Finding</span>
+        <p>Roughly $31 billion of real-world assets are tokenized on-chain today, against institutional 2030 forecasts of $2 trillion to $5.5 trillion. The gap is not a technology gap. It is a transition-cost and liquidity gap.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 1</div>
+      <h2 class="sect">The realized market is small, and roughly flat</h2>
+      <p>The data is sobering against the hype. Total on-chain tokenized real-world assets, excluding stablecoins, stood at roughly $31.5 billion in June 2026, with tokenized US Treasuries at about $14.8 billion, and the category was essentially flat over the prior thirty days.<sup class="ref"><a href="#s1">1</a></sup> The Treasury segment is concentrated in a handful of institutional funds, with Circle, BlackRock's BUIDL, Ondo, and Franklin Templeton accounting for the bulk of it.<sup class="ref"><a href="#s1">1</a></sup> The starkest gap is in tokenized equities, which trade at under 1% of the volume of their traditional-market equivalents despite headline launches.<sup class="ref"><a href="#s2">2</a></sup></p>
+      <p>This is not failure. The sector grew more than 250% over the prior fifteen months.<sup class="ref"><a href="#s2">2</a></sup> But it is a fraction of what the forecasts imply.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 2</div>
+      <h2 class="sect">The forecast gap is real, and worth naming</h2>
+      <p>McKinsey's conservative institutional base case puts total tokenized market value at roughly $2 trillion by 2030, around $4 trillion in an optimistic case, and states plainly that broad adoption is "still far away."<sup class="ref"><a href="#s3">3</a></sup> Citi's base case is higher, at $5.5 trillion.<sup class="ref"><a href="#s4">4</a></sup> Against roughly $31 billion realized, that is a gap of one to two orders of magnitude.<sup class="ref"><a href="#s1">1</a></sup></p>
+      <div class="callout finding">
+        <span class="lab">Key Finding</span>
+        <p>A credible institutional voice should hold both truths at once: tokenization's direction is inevitable, and its current realized volume is one to two orders of magnitude below the forecasts. Stating the gap is what separates a bank's research from a vendor's brochure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 3</div>
+      <h2 class="sect">Why the gap exists: the 101% problem</h2>
+      <p>The gap is not because the technology does not work. It is because the transition is expensive. An issuer that tokenizes an asset does not get to retire its existing transfer agent, custodian, reconciliation, and compliance stack on day one. It runs the new rail and the old one in parallel. The operating cost of the tokenized rail may be a fraction of the legacy cost, but the issuer pays for both until the legacy system can actually be switched off. So the near-term economics are not "1% of the old cost." They are "101%," the new system layered on the old. Add unresolved regulatory fragmentation and thin secondary-market liquidity, and the cold-start problem is clear: nobody wants to be the first to bear the double cost.<sup class="ref"><a href="#s3">3</a></sup></p>
+      <blockquote>The opex of running on tokenized rails is dramatically better, which is exactly why the destination is certain, but you still have to run the whole existing thing in the meantime, which is exactly why the path is slow.</blockquote>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 4</div>
+      <h2 class="sect">The position: build the rails, do not assume the volume</h2>
+      <p>The institutional move is to build the tokenized settlement and collateral infrastructure now, while being honest that the volume arrives only when the transition cost falls. Anchorage's Atlas settlement and collateral network scaled roughly fourfold in a year to nearly 600 participants, and its acquisition of the Securitize for Advisors platform added a tokenization franchise.<sup class="ref"><a href="#s5">5</a></sup><sup class="ref"><a href="#s6">6</a></sup> That is the right posture: own the rail, custody the assets, and let the volume migrate as issuers reach the point where they can finally turn the old system off. The mistake is the brochure version that assumes the trillions arrive on their own. They do not. The institution that builds the regulated rail and tells the truth about the transition is the one that is there when the volume finally moves.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- SOURCES -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Sources</div>
+      <ul class="sources">
+        <li id="s1">rwa.xyz, <i>Asset analytics and Tokenized U.S. Treasuries</i> ($31.5B total RWA ex-stablecoins; $14.8B treasuries; concentration), June 3, 2026. <a href="https://app.rwa.xyz/treasuries">app.rwa.xyz/treasuries</a></li>
+        <li id="s2">CoinGecko, <i>RWA Report 2026</i> (sector growth; tokenized equities under 1% of TradFi volume). <a href="https://www.coingecko.com/research/publications/rwa-report-2026">coingecko.com/research/publications/rwa-report-2026</a></li>
+        <li id="s3">McKinsey &amp; Company, "From Ripples to Waves: The Transformational Power of Tokenizing Assets" (base case ~$2T by 2030; broad adoption "still far away"). <a href="https://finance.yahoo.com/news/mckinsey-sees-just-2t-tokenized-180448151.html">finance.yahoo.com</a></li>
+        <li id="s4">Citi Institute, Global Perspectives and Solutions, "Tokenization 2030" ($5.5T base case). <a href="https://www.citigroup.com/rcs/citigpa/storage/public/Citi_Institute_GPS_Report_Tokenization_2030.pdf">citigroup.com</a></li>
+        <li id="s5">Anchorage Digital, "Expanding Atlas" (nearly 600 participants), March 19, 2026. <a href="https://www.anchorage.com/insights/expanding-atlas-anchorage-digital-launches-institutional-grade-collateral-management-offering">anchorage.com</a></li>
+        <li id="s6">Anchorage Digital, "Anchorage Digital Acquires Securitize for Advisors Platform," December 15, 2025. <a href="https://www.anchorage.com/insights/anchorage-digital-acquires-securitize-advisors-platform-strengthen-wealth-management-platform">anchorage.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <p class="disc">Prepared by Winn.solutions for Anchorage. DRAFT — not for publication. Principle-grade research; forward-looking forecast, timeline, and partnership claims are gated pending demoable substance.</p>
+    <p class="stamp">Winn.solutions · Confidential · For the Anchorage team</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var bar=document.getElementById('progress');
+    function onScroll(){
+      var h=document.documentElement;
+      var max=(h.scrollHeight-h.clientHeight)||1;
+      bar.style.width=((h.scrollTop||document.body.scrollTop)/max*100)+'%';
+    }
+    document.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>The Institutionalization of Crypto · DRAFT · Anchorage Digital Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@300;350;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B;
+    --paper:#F2ECDF; --signal:#74B8C7;
+    --text:#E9E3D6; --muted:#94A3B5; --muted-2:#6B7C90;
+    --bodytext:#CFD6DF;
+    --line:rgba(216,169,74,.18);
+    --line-2:rgba(148,163,181,.16);
+    --warn:#d68a4a;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    --col:760px; --maxw:1160px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.62;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* ATMOSPHERE */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(60% 50% at 15% -5%, rgba(216,169,74,.07) 0%, rgba(10,23,38,0) 60%),
+      radial-gradient(55% 45% at 95% 8%, rgba(116,184,199,.05) 0%, rgba(10,23,38,0) 55%),
+      linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 22%, var(--ink) 100%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.025;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  #progress{
+    position:fixed;top:0;left:0;height:2px;width:0;z-index:50;
+    background:linear-gradient(90deg,var(--brass),var(--brass-2));
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+  .col{max-width:var(--col);}
+  .mono{font-family:var(--mono);}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;
+    color:var(--brass);
+    display:inline-flex;align-items:center;gap:12px;
+    margin-bottom:24px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--brass);display:inline-block;}
+
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.12;}
+
+  /* HERO */
+  .hero{
+    padding:104px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-size:clamp(40px,6vw,80px);
+    font-weight:600;
+    color:var(--paper);
+    line-height:1.0;
+    max-width:18ch;
+    margin-bottom:30px;
+    letter-spacing:-.02em;
+  }
+  .hero .subt{
+    font-family:var(--serif);
+    font-weight:400;font-style:normal;
+    font-size:clamp(20px,2.7vw,30px);
+    color:var(--brass-2);
+    line-height:1.25;
+    max-width:30ch;
+    margin-bottom:38px;
+  }
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:14px 36px;
+    font-family:var(--mono);
+    font-size:12px;letter-spacing:.06em;
+    color:var(--muted);
+    padding-top:30px;border-top:1px solid var(--line-2);
+  }
+  .hero-meta span b{color:var(--text);font-weight:600;}
+
+  /* DRAFT BANNER */
+  .draftbar{
+    margin:40px 0 0;
+    background:
+      repeating-linear-gradient(135deg, rgba(214,138,74,.05) 0 14px, rgba(214,138,74,.10) 14px 28px),
+      var(--ink-2);
+    border:1px solid rgba(214,138,74,.45);
+    border-left:4px solid var(--warn);
+    border-radius:12px;
+    padding:26px 30px;
+  }
+  .draftbar .dlabel{
+    font-family:var(--mono);
+    font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--warn);
+    display:flex;align-items:center;gap:12px;
+    margin-bottom:14px;
+  }
+  .draftbar .dlabel .blink{
+    width:8px;height:8px;border-radius:50%;background:var(--warn);
+    box-shadow:0 0 0 0 rgba(214,138,74,.55);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(214,138,74,.5);}
+    70%{box-shadow:0 0 0 9px rgba(214,138,74,0);}
+    100%{box-shadow:0 0 0 0 rgba(214,138,74,0);}
+  }
+  .draftbar p{color:var(--text);font-size:15px;line-height:1.6;max-width:none;}
+  .draftbar p + p{margin-top:12px;}
+  .draftbar b{color:var(--brass-2);font-weight:600;}
+  .draftbar .chain{
+    margin-top:18px;padding-top:16px;border-top:1px solid rgba(214,138,74,.25);
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);
+  }
+  .chain .step{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(10,23,38,.6);border:1px solid var(--line-2);
+    border-radius:20px;padding:5px 13px;color:var(--text);
+  }
+  .chain .step .n{color:var(--warn);font-weight:600;}
+  .chain .arrow{color:var(--muted-2);}
+
+  /* SECTION SHELL */
+  section{padding:62px 0;border-bottom:1px solid var(--line-2);}
+  .sec-head{margin-bottom:34px;}
+  .sec-head .tag{
+    font-family:var(--mono);
+    font-size:11.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--brass);display:block;margin-bottom:16px;
+  }
+  .sec-head h2{
+    font-size:clamp(28px,3.6vw,46px);
+    color:var(--paper);
+    margin:0 0 4px;
+    max-width:20ch;
+    letter-spacing:-.015em;
+  }
+
+  /* PROSE */
+  p.body{color:var(--bodytext);font-size:17px;line-height:1.7;max-width:var(--col);margin-bottom:22px;}
+  p.body:last-child{margin-bottom:0;}
+  p.body strong{color:var(--paper);font-weight:600;}
+  p.body sup{font-size:11px;color:var(--brass);font-family:var(--mono);font-weight:600;vertical-align:super;line-height:0;}
+  p.body sup a{color:var(--brass);text-decoration:none;}
+  p.body sup a:hover{color:var(--brass-2);text-decoration:underline;}
+
+  .lead{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(21px,2.5vw,27px);
+    line-height:1.4;
+    color:var(--paper);
+    max-width:24ch;
+    margin-bottom:30px;
+  }
+  .standfirst{
+    color:var(--text);font-size:19px;line-height:1.6;font-weight:400;
+    max-width:var(--col);margin-bottom:28px;
+  }
+  .standfirst strong{color:var(--brass-2);font-weight:600;}
+
+  /* KEY FINDING CALLOUT */
+  .finding{
+    margin:34px 0;max-width:var(--col);
+    background:linear-gradient(180deg,var(--ink-3) 0%,var(--ink-2) 100%);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brass);
+    border-radius:12px;
+    padding:26px 30px;
+  }
+  .finding .fl{
+    font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--brass);display:block;margin-bottom:12px;
+  }
+  .finding p{color:var(--paper);font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.5;margin:0;}
+
+  /* INLINE THESIS / EMPHASIS */
+  .thesis{
+    margin:34px 0;max-width:var(--col);
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(22px,2.6vw,30px);line-height:1.32;
+    color:var(--brass-2);
+    padding-left:24px;border-left:3px solid var(--brass);
+  }
+
+  /* NUMBERED CLAIM LIST */
+  .claims{counter-reset:claim;display:grid;gap:16px;max-width:var(--col);margin:30px 0;}
+  .claim{
+    display:grid;grid-template-columns:46px 1fr;gap:20px;align-items:start;
+    background:var(--ink-2);border:1px solid var(--line-2);border-radius:10px;
+    padding:22px 26px;
+  }
+  .claim::before{
+    counter-increment:claim;content:counter(claim);
+    font-family:var(--mono);font-size:26px;font-weight:600;color:var(--brass);line-height:1;
+  }
+  .claim .ctxt{color:var(--bodytext);font-size:16px;line-height:1.6;}
+  .claim .ctxt strong{color:var(--paper);font-weight:600;}
+  .claim .ctxt sup{font-size:10px;color:var(--brass);font-family:var(--mono);font-weight:600;vertical-align:super;line-height:0;}
+  .claim .ctxt sup a{color:var(--brass);text-decoration:none;}
+
+  /* SUB-HEAD (bold lead-ins within section 4) */
+  h3.sub{
+    font-family:var(--serif);font-weight:600;font-size:22px;color:var(--paper);
+    margin:30px 0 12px;max-width:var(--col);letter-spacing:-.01em;
+  }
+  h3.sub.honest{color:var(--brass-2);}
+
+  /* TABLE */
+  .tbl-wrap{max-width:var(--col);margin:30px 0;overflow-x:auto;border:1px solid var(--line-2);border-radius:10px;}
+  table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px;}
+  caption{
+    text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brass);padding:16px 20px 0;caption-side:top;
+  }
+  thead th{
+    font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);text-align:left;padding:16px 20px;
+    border-bottom:1px solid var(--line);background:var(--ink-3);
+  }
+  tbody td{
+    padding:14px 20px;border-bottom:1px solid var(--line-2);color:var(--text);vertical-align:top;
+    line-height:1.45;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even) td{background:rgba(14,32,52,.4);}
+  tbody td:first-child{color:var(--paper);font-weight:600;}
+  tbody td .src{font-family:var(--mono);font-size:11px;color:var(--brass);}
+  td.num{font-family:var(--mono);color:var(--brass-2);}
+
+  /* DECOUPLE / EVIDENCE STAT STRIP */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;max-width:var(--col);margin:30px 0;background:var(--line-2);border:1px solid var(--line-2);border-radius:10px;overflow:hidden;}
+  .stat{background:var(--ink-2);padding:22px 22px;}
+  .stat .fig{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--brass);line-height:1;letter-spacing:-.01em;}
+  .stat .lab{color:var(--muted);font-size:13px;line-height:1.4;margin-top:10px;}
+  .stat .lab sup{font-size:9px;color:var(--brass);font-family:var(--mono);}
+
+  /* METHODOLOGY */
+  .method p.body{font-size:16px;}
+
+  /* SOURCES */
+  .sources-sec{padding-top:54px;}
+  ol.sources{list-style:none;counter-reset:src;display:grid;gap:11px;max-width:var(--maxw);margin-top:10px;}
+  ol.sources li{
+    counter-increment:src;display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;
+    font-size:13.5px;line-height:1.5;color:var(--muted);padding-bottom:11px;border-bottom:1px solid rgba(148,163,181,.08);
+  }
+  ol.sources li::before{
+    content:"[" counter(src) "]";font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--brass);
+  }
+  ol.sources li .stitle{color:var(--text);}
+  ol.sources li a{color:var(--muted-2);text-decoration:none;font-family:var(--mono);font-size:11.5px;word-break:break-all;display:block;margin-top:3px;}
+  ol.sources li a:hover{color:var(--signal);text-decoration:underline;}
+
+  /* FOOTER */
+  footer{padding:50px 0 80px;}
+  footer .closing{
+    font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.4vw,26px);
+    color:var(--paper);line-height:1.4;max-width:26ch;margin-bottom:30px;
+  }
+  footer .closing b{color:var(--brass-2);font-weight:500;}
+  footer .disc{color:var(--muted-2);font-size:13px;max-width:78ch;line-height:1.65;font-style:italic;}
+  footer .stamp{
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+    color:var(--muted);margin-top:22px;
+  }
+
+  /* REVEAL MOTION */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media (max-width:760px){
+    body{font-size:16px;}
+    .wrap{padding:0 22px;}
+    .hero{padding:72px 0 48px;}
+    .claim{grid-template-columns:1fr;gap:8px;}
+    .claim::before{font-size:22px;}
+    .chain{flex-direction:column;align-items:flex-start;}
+    .chain .arrow{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .draftbar .blink{animation:none;}
+  }
+  @media print{
+    body{background:#fff;color:#111;}
+    body::before,body::after,#progress{display:none;}
+    .reveal{opacity:1;transform:none;}
+    section,.finding,.claim,.tbl-wrap,.draftbar{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Anchorage Digital Research · Flagship Paper</span>
+    <h1>The Institutionalization of Crypto</h1>
+    <p class="subt">What the 2026 drawdown proved, and why the next phase needs a bank.</p>
+    <div class="hero-meta">
+      <span><b>Author:</b> Nathan McCauley / Anchorage Digital Research</span>
+      <span><b>Date:</b> 2026-06-03</span>
+      <span><b>Version:</b> DRAFT v1</span>
+      <span><b>Basis:</b> 126 sourced findings, 16 dimensions</span>
+    </div>
+
+    <!-- DRAFT / STATUS BANNER -->
+    <div class="draftbar reveal">
+      <div class="dlabel"><span class="blink"></span>Draft &nbsp;·&nbsp; Do Not Publish &nbsp;·&nbsp; Internal Review In Progress</div>
+      <p><b>DRAFT v1. Public-data-led.</b> Every quantitative claim carries a source and an as-of date. Anchorage's internal factor research is referenced as corroboration, not printed. Claims gate applied: load-bearing figures are primary-filing / official / peer-reviewed / named-data-provider tier; secondary figures are attributed and softened; Anchorage's own superlatives are attributed, not asserted.</p>
+      <p><b>Provenance:</b> research-findings-raw.json (126 sourced findings, 16 dimensions, this folder).</p>
+      <div class="chain">
+        <span style="color:var(--warn);font-weight:600;letter-spacing:.14em;">REVIEW CHAIN</span>
+        <span class="step"><span class="n">1</span>Jarred</span><span class="arrow">→</span>
+        <span class="step"><span class="n">2</span>Anchorage editorial</span><span class="arrow">→</span>
+        <span class="step"><span class="n">3</span>Nathan</span><span class="arrow">→</span>
+        <span class="step"><span class="n">4</span>Compliance counsel</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- EXECUTIVE SUMMARY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Executive Summary</span>
+      <h2>The proof was the drawdown, not the rally</h2>
+    </div>
+
+    <p class="lead reveal">The strongest evidence that crypto has institutionalized is not the rally. It is the drawdown.</p>
+
+    <p class="body reveal">Through the first half of 2026, the digital asset market fell hard. Bitcoin traded near $67,000 to $68,000 in early June, total crypto market capitalization contracted roughly 20% in the first quarter, and May 2026 was the largest month of net redemptions from US spot Bitcoin ETFs in the year.<sup><a href="#s1">[1]</a><a href="#s2">[2]</a></sup> In a retail-driven, cycle-dependent market, that is the point at which ownership unwinds.</p>
+
+    <p class="body reveal">It did not. BlackRock's iShares Bitcoin Trust, the largest spot Bitcoin ETF, reported in its own first-quarter 10-Q that the bitcoin it held actually grew, from 770,792 to 783,744 BTC, even as its net assets fell from $67.4 billion to $53.4 billion over the same quarter.<sup><a href="#s3">[3]</a></sup> The decline was price, not redemptions. That single primary-source fact is the thesis of this paper in miniature: the holders stayed.</p>
+
+    <div class="finding reveal">
+      <span class="fl">Key Finding</span>
+      <p>Institutionalization is now a structural feature of this asset class, not a sentiment that rises and falls with price. It shows up where it counts, in who keeps holding when the market falls.</p>
+    </div>
+
+    <p class="body reveal">This paper makes four evidenced claims and then takes a position.</p>
+
+    <div class="claims reveal">
+      <div class="claim"><div class="ctxt"><strong>Ownership has broadened and stuck.</strong> Institutional ownership of spot Bitcoin ETF assets has roughly doubled year over year, advisors now drive the majority of reported holdings, and nearly three-quarters of surveyed institutions plan to increase allocations in 2026, even into the drawdown.<sup><a href="#s4">[4]</a><a href="#s5">[5]</a><a href="#s6">[6]</a></sup></div></div>
+      <div class="claim"><div class="ctxt"><strong>The market re-sorted toward size and quality.</strong> Large-cap crypto has decisively outperformed small-cap, market capitalization has concentrated in a handful of liquid, regulated, benchmarkable assets, and the long tail has collapsed. This is the signature of institutional, not retail, capital.<sup><a href="#s7">[7]</a><a href="#s8">[8]</a></sup></div></div>
+      <div class="claim"><div class="ctxt"><strong>Crypto is becoming its own asset class, not a leveraged Nasdaq.</strong> Its correlation to equities stepped up structurally after the ETFs and is regime-dependent, but it decoupled sharply during the late-2025 and 2026 selloff. Crypto trades on its own drivers now, and it has acquired the factor architecture of a mature asset class.<sup><a href="#s9">[9]</a><a href="#s10">[10]</a><a href="#s11">[11]</a></sup></div></div>
+      <div class="claim"><div class="ctxt"><strong>The asset became infrastructure.</strong> Federal charters, a stablecoin law, custody migrating onto chartered banks, and stablecoins settling trillions in real volume have turned crypto from an instrument you hold into rails you run on.<sup><a href="#s12">[12]</a><a href="#s13">[13]</a><a href="#s14">[14]</a></sup></div></div>
+    </div>
+
+    <p class="body reveal">Then the position. The next phase of this market is not another asset. It is a new kind of participant: autonomous software agents that hold balances, make payments, and act on institutional capital. The identity and payment standards being built for that world are real and converging fast, but they stop, by their own authors' design, short of the things regulated finance is built on: underwriting the actor, custodying the assets, and standing behind the controls.<sup><a href="#s15">[15]</a><a href="#s16">[16]</a></sup> Those are banking functions. The institutions that deployed capital into regulated, custodied crypto infrastructure will demand the same before they let an agent touch it. Anchorage's view is that the controls are the on-ramp, not the brake, and that Know Your Agent, done from inside a federally chartered trust bank, is the layer the standards leave open.</p>
+  </div>
+</section>
+
+<!-- SECTION 1 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">01 · Structural, and the proof is the drawdown</span>
+      <h2>Institutionalization is now structural</h2>
+    </div>
+
+    <p class="body reveal">The retail thesis of crypto held that ownership was reflexive: it climbed with price and evaporated when price fell. The 2026 data breaks that thesis.</p>
+
+    <p class="body reveal">Start with the holders. More than 1,680 distinct institutions reported holding BlackRock's IBIT in regulatory filings, including names like Goldman Sachs, Millennium, Jane Street, and Citadel.<sup><a href="#s17">[17]</a></sup> Institutional ownership of spot Bitcoin ETF assets rose to roughly 38% by the end of 2025, up from about 24% a year earlier, per Bloomberg Intelligence data compiled from 13F filings.<sup><a href="#s4">[4]</a></sup> Registered investment advisors, the channel that intermediates ordinary wealth, accounted for 50% to 60% of reported 13F exposure across 2025, per CoinShares.<sup><a href="#s5">[5]</a></sup> This is not a hedge-fund trade. It is the wealth-management system adopting an asset class.</p>
+
+    <p class="body reveal">The intent data points the same way, and it was gathered into the downturn. In the Coinbase and EY-Parthenon 2026 institutional survey of 351 investors, 73% said they planned to increase digital-asset allocations in 2026, 66% already held exposure through spot ETFs, and the share of firms allocating more than 5% of assets under management to digital assets was projected to rise from 18% to 29% within the year.<sup><a href="#s6">[6]</a></sup> Allocators do not deepen exposure to an asset they consider a passing retail mania.</p>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="fig">~38%</div><div class="lab">Institutional share of spot BTC ETF assets, Q4 2025, up from ~24% a year earlier<sup>[4]</sup></div></div>
+      <div class="stat"><div class="fig">73%</div><div class="lab">Surveyed institutions planning to increase digital-asset allocations in 2026<sup>[6]</sup></div></div>
+      <div class="stat"><div class="fig">1,680+</div><div class="lab">Distinct institutions reporting IBIT holdings in regulatory filings<sup>[17]</sup></div></div>
+    </div>
+
+    <p class="body reveal">The marquee channels opened, too. Morgan Stanley, the first wirehouse to authorize its roughly 15,000 advisors to actively solicit spot Bitcoin ETFs, went on to launch its own bank-issued spot Bitcoin product in April 2026.<sup><a href="#s18">[18]</a></sup> When the largest US wealth-distribution network builds its own access, the question has shifted from whether to hold to how much.</p>
+
+    <p class="body reveal">Maturity also looks like two-sided behavior, and 2026 delivered that. A sovereign wealth vehicle, Abu Dhabi's Mubadala, continued accumulating IBIT through the first quarter.<sup><a href="#s19">[19]</a></sup> A US public pension, Wisconsin's investment board, exited entirely.<sup><a href="#s20">[20]</a></sup> The largest US academic endowment, Harvard, trimmed its position by roughly 43% but kept the Bitcoin ETF as its single largest disclosed listed holding.<sup><a href="#s20">[20]</a></sup> Some bought, some sold, some rebalanced. That is what an institutional asset class looks like. It is not what a bubble looks like.</p>
+
+    <div class="tbl-wrap reveal">
+      <table>
+        <caption>Two-sided institutional behavior, Q1 2026 13F disclosures</caption>
+        <thead>
+          <tr><th>Institution</th><th>Type</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mubadala (Abu Dhabi)</td><td>Sovereign wealth vehicle</td><td>Continued accumulating IBIT through Q1<sup class="src" style="margin-left:4px;"> [19]</sup></td></tr>
+          <tr><td>Wisconsin SWIB</td><td>US public pension</td><td>Exited the position entirely<sup class="src" style="margin-left:4px;"> [20]</sup></td></tr>
+          <tr><td>Harvard endowment</td><td>Largest US academic endowment</td><td>Trimmed ~43%; ETF remains single largest disclosed listed holding<sup class="src" style="margin-left:4px;"> [20]</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="finding reveal">
+      <span class="fl">Key Finding</span>
+      <p>The signature of institutionalization is not unanimity of conviction. It is the presence of disciplined, disclosed, two-sided institutional behavior, persisting through a price decline.</p>
+    </div>
+
+    <p class="body reveal">None of this would have been possible without a change in the rules, and that change is itself evidence of institutionalization. In a thirteen-month window, the United States rescinded the accounting treatment that kept crypto off bank balance sheets (SAB 122, replacing SAB 121, January 2025), issued an executive order directing federal support for digital assets (EO 14178, January 2025), affirmed that national banks may custody crypto and removed the supervisory non-objection gate (OCC Interpretive Letter 1183, March 2025), dismissed its flagship enforcement action against Coinbase (February 2025), and approved generic listing standards that compressed crypto ETP time-to-market from many months to roughly sixty to seventy-five days (September 2025).<sup><a href="#s21">[21]</a><a href="#s22">[22]</a><a href="#s23">[23]</a><a href="#s24">[24]</a><a href="#s25">[25]</a></sup> The plumbing was rebuilt. Capital followed the plumbing.</p>
+
+    <div class="tbl-wrap reveal">
+      <table>
+        <caption>The thirteen-month regulatory rebuild</caption>
+        <thead>
+          <tr><th>Action</th><th>Instrument</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Crypto can sit on bank balance sheets</td><td>SAB 122 (rescinds SAB 121)</td><td class="num">Jan 2025<sup class="src"> [21]</sup></td></tr>
+          <tr><td>Federal support for digital assets</td><td>Executive Order 14178</td><td class="num">Jan 2025<sup class="src"> [22]</sup></td></tr>
+          <tr><td>Flagship enforcement action dropped</td><td>SEC dismisses Coinbase case</td><td class="num">Feb 2025<sup class="src"> [24]</sup></td></tr>
+          <tr><td>National banks may custody crypto; non-objection gate removed</td><td>OCC Interpretive Letter 1183</td><td class="num">Mar 2025<sup class="src"> [23]</sup></td></tr>
+          <tr><td>Crypto ETP time-to-market compressed to ~60–75 days</td><td>Generic listing standards</td><td class="num">Sep 2025<sup class="src"> [25]</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">02 · The fingerprint of institutional capital</span>
+      <h2>The market re-sorted toward size and quality</h2>
+    </div>
+
+    <p class="body reveal">If institutional capital had truly arrived, it would leave a fingerprint, and the fingerprint is unmistakable: a flight to size, liquidity, and benchmarkability.</p>
+
+    <p class="body reveal">Over three years, the MarketVector Digital Assets 100 Large-Cap Index returned roughly +97% while its Small-Cap counterpart returned roughly -69%; over five years the gap is wider still, with the small-cap index sitting near multi-year lows.<sup><a href="#s7">[7]</a></sup> The small-cap gauge offered no diversification benefit on the way down, retaining a correlation near 0.9 to large-cap crypto while badly underperforming it.<sup><a href="#s26">[26]</a></sup> The "alt season" thesis, that capital rotates down the risk curve into the long tail, did not survive contact with institutional flows.</p>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="fig">+97%</div><div class="lab">MarketVector Digital Assets 100 Large-Cap, ~3-year return<sup>[7]</sup></div></div>
+      <div class="stat"><div class="fig">-69%</div><div class="lab">MarketVector Digital Assets 100 Small-Cap, ~3-year return<sup>[7]</sup></div></div>
+      <div class="stat"><div class="fig">~0.9</div><div class="lab">Small-cap correlation to large-cap: no diversification benefit on the way down<sup>[26]</sup></div></div>
+    </div>
+
+    <p class="body reveal">Concentration tells the same story. Bitcoin dominance ended the first quarter of 2026 at 55.8% of total crypto market capitalization, with Ethereum at 9.3%, so the two largest assets alone accounted for roughly 65% of the asset class.<sup><a href="#s8">[8]</a></sup> Bitcoin represented 64.9% of the combined market cap of the top ten cryptoassets, down from 87% in 2014, with regulated stablecoins now a structural 11.6% share of that top ten.<sup><a href="#s27">[27]</a></sup> The top ten assets hold roughly four-fifths of all crypto market value.<sup><a href="#s27">[27]</a></sup> Capital concentrated where institutions can actually operate: the liquid, regulated, indexable top of the market.</p>
+
+    <div class="finding reveal">
+      <span class="fl">Key Finding</span>
+      <p>Institutional capital does not buy the whole market. It buys the part of the market that is liquid enough to enter and exit at scale, regulated enough to custody, and benchmarkable enough to report. In 2024 through 2026, that part won, and the rest collapsed.</p>
+    </div>
+
+    <p class="body reveal">This re-sorting is precisely what factor research detects, and it is worth being clear about what is and is not proprietary here. The inversion of the crypto size premium, from a historical small-cap tilt toward large-cap outperformance, is observable in public index data (MarketVector) and in the published academic record on crypto factors.<sup><a href="#s7">[7]</a><a href="#s28">[28]</a></sup> It is also, independently, what Anchorage's internal factor research has measured. We reference that internal corroboration without publishing its figures; the public record alone establishes the point.</p>
+
+    <p class="body reveal">The deeper reading is the one Nathan McCauley has made publicly: the spot ETF did not create demand, it unlocked latent demand that already existed. The 2026 data refines that claim. The demand that the ETF unlocked is discriminating. It is concentrating in the assets that institutions can hold inside regulated structures, and it is leaving the rest behind.</p>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">03 · Its own drivers now</span>
+      <h2>Crypto is becoming its own asset class, not a leveraged Nasdaq</h2>
+    </div>
+
+    <p class="body reveal">A common shorthand holds that bitcoin is simply a high-beta proxy for the Nasdaq, a risk-on bet that rises and falls with technology equities at an amplified rate. The evidence supports a more precise, and more interesting, conclusion.</p>
+
+    <p class="body reveal">The structural floor of crypto's correlation to equities did rise with institutionalization. Academic regression on daily returns found bitcoin's correlation to the Nasdaq 100 climbed from roughly -0.10 before 2021 to an annual high near 0.76 in 2024, reaching a 180-day rolling peak of 0.87 after MicroStrategy entered the Nasdaq 100, the highest in the 2018 to 2025 sample, and the paper attributes the rise to institutional adoption rather than to transient risk sentiment.<sup><a href="#s9">[9]</a></sup> Institutionalization tied crypto more tightly to the broader market. That is real.</p>
+
+    <p class="body reveal">But the linkage is regime-dependent, not a fixed beta, and it broke when it mattered. Coin Metrics put bitcoin's market beta to the S&P 500 well above 1 through much of 2024 and trending lower into 2025.<sup><a href="#s10">[10]</a></sup> After the April 2025 tariff selloff, Kaiko found bitcoin's 90-day correlation to the Nasdaq fell to 0.27, its lowest since September 2024, before recovering to around 0.42.<sup><a href="#s29">[29]</a></sup> By early December 2025, as bitcoin fell roughly 27% from its October peak while the Nasdaq 100 sat about 2% off record highs, the 20-day correlation went negative, to -0.43.<sup><a href="#s11">[11]</a></sup> K33 found that bitcoin's beta actually declined during the strongest equity rallies, the opposite of what a leveraged-Nasdaq framing predicts.<sup><a href="#s30">[30]</a></sup></p>
+
+    <div class="tbl-wrap reveal">
+      <table>
+        <caption>BTC-to-equity correlation is regime-dependent, not a fixed beta</caption>
+        <thead>
+          <tr><th>Window / regime</th><th>Measure</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Pre-2021 baseline</td><td>BTC ↔ Nasdaq 100 correlation</td><td class="num">~ -0.10<sup class="src"> [9]</sup></td></tr>
+          <tr><td>2024 annual high</td><td>BTC ↔ Nasdaq 100 correlation</td><td class="num">~0.76<sup class="src"> [9]</sup></td></tr>
+          <tr><td>Post-MicroStrategy Nasdaq entry</td><td>180-day rolling peak</td><td class="num">0.87<sup class="src"> [9]</sup></td></tr>
+          <tr><td>After April 2025 tariff selloff</td><td>90-day correlation to Nasdaq</td><td class="num">0.27 → 0.42<sup class="src"> [29]</sup></td></tr>
+          <tr><td>Early Dec 2025 drawdown</td><td>20-day correlation</td><td class="num">-0.43<sup class="src"> [11]</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="finding reveal">
+      <span class="fl">Key Finding</span>
+      <p>Crypto's correlation to equities is structurally elevated versus the pre-2021 era but regime-dependent, and it decoupled sharply in the 2025 to 2026 drawdown. Crypto is not a leveraged technology-equity proxy. It is becoming an independent institutional asset class with its own risk drivers.</p>
+    </div>
+
+    <p class="body reveal">That independence is not only a correlation story. It is a structural one. The academic literature now documents a stable factor architecture for crypto returns that mirrors mature asset classes: a three-factor model of market, size, and momentum prices the cross-section of returns (Liu, Tsyvinski, and Wu, Journal of Finance, 2022); downside beta is a separately priced risk (Journal of Banking and Finance, 2021); a machine-learning trend factor survives transaction costs and is not subsumed by the others (Journal of Financial and Quantitative Analysis, 2025); and blockchain-fundamentals factors price returns at least as well as return-based factors (2023).<sup><a href="#s28">[28]</a><a href="#s31">[31]</a><a href="#s32">[32]</a><a href="#s33">[33]</a></sup> An asset class with a published, peer-reviewed factor structure is an asset class that institutions can model, hedge, and allocate to on their own terms. This is the analytical lineage Anchorage's own factor research sits within.</p>
+
+    <div class="tbl-wrap reveal">
+      <table>
+        <caption>The peer-reviewed factor architecture for crypto returns</caption>
+        <thead>
+          <tr><th>Factor finding</th><th>Source</th><th>Venue / year</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Three-factor model (market, size, momentum) prices the cross-section</td><td>Liu, Tsyvinski &amp; Wu</td><td>Journal of Finance, 2022<sup class="src"> [28]</sup></td></tr>
+          <tr><td>Downside beta is a separately priced risk</td><td>Zhang, Li, Xiong &amp; Wang</td><td>J. Banking &amp; Finance, 2021<sup class="src"> [31]</sup></td></tr>
+          <tr><td>ML trend factor survives transaction costs, not subsumed</td><td>Fieberg et al.</td><td>JFQA, 2025<sup class="src"> [32]</sup></td></tr>
+          <tr><td>Blockchain-fundamentals factors price returns ≥ return-based factors</td><td>Bhambhwani et al.</td><td>JIFMIM, 2023<sup class="src"> [33]</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body reveal">For an institution, the implication is the one that matters: crypto is no longer a satellite bet on technology momentum. It is a distinct exposure that requires its own custody, its own risk framework, and its own infrastructure.</p>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">04 · From asset to infrastructure</span>
+      <h2>The asset became something you build on</h2>
+    </div>
+
+    <p class="body reveal">The clearest sign that an asset class has institutionalized is that it stops being only something you hold and becomes something you build on. By 2026, crypto had crossed that line.</p>
+
+    <h3 class="sub reveal">Charters</h3>
+    <p class="body reveal">Anchorage Digital became the first crypto-native firm to operate a national trust bank charter from the Office of the Comptroller of the Currency, in 2021.<sup><a href="#s12">[12]</a></sup> In December 2025, the OCC conditionally approved five more crypto-native national trust charters in a single action, for Circle, Ripple, BitGo, Fidelity Digital Assets, and Paxos.<sup><a href="#s34">[34]</a></sup> The federal banking system is absorbing digital assets into its own perimeter.</p>
+
+    <h3 class="sub reveal">A stablecoin law</h3>
+    <p class="body reveal">The GENIUS Act, the first US federal framework for payment stablecoins, was signed into law on July 18, 2025 as Public Law 119-27, on bipartisan votes (Senate 68-30, House 308-122).<sup><a href="#s13">[13]</a></sup> It requires full reserve backing in cash and short-term Treasuries, monthly public reserve disclosures, and limits issuance to regulated entities. The OCC issued its implementing proposed rule in February 2026.<sup><a href="#s35">[35]</a></sup> A market-structure bill, the CLARITY Act, advanced through Senate Banking on a bipartisan 15-9 vote in May 2026, though it is not yet law.<sup><a href="#s36">[36]</a></sup></p>
+
+    <h3 class="sub reveal">Custody migrating onto chartered banks</h3>
+    <p class="body reveal">BlackRock named Anchorage Digital Bank an eligible custodian for its spot crypto exchange-traded products, extending a relationship that already custodied BlackRock's tokenized BUIDL fund.<sup><a href="#s37">[37]</a></sup> The asset manager 3iQ selected Anchorage to custody and run infrastructure for six exchange-traded products listed on the Toronto Stock Exchange.<sup><a href="#s38">[38]</a></sup> U.S. Bank, a custodian with more than $11.7 trillion in assets under custody and administration, was selected to hold the reserves backing Anchorage's payment stablecoins, a structure that pairs a traditional custodian with a chartered crypto bank.<sup><a href="#s14">[14]</a></sup> Anchorage's Atlas settlement and collateral network scaled roughly fourfold in a year to nearly 600 participants.<sup><a href="#s39">[39]</a></sup> Regulated capital wants regulated custody, and it is moving there.</p>
+
+    <h3 class="sub reveal">Stablecoins as settlement infrastructure</h3>
+    <p class="body reveal">This is where the rails are most visible. Circle reported USDC in circulation grew 28% year over year to $77 billion in the first quarter of 2026, with on-chain transaction volume up 263% to $21.5 trillion, surpassing USDT's volume for the first time since 2019.<sup><a href="#s40">[40]</a></sup> Chainalysis estimated $28 trillion in real, adjusted stablecoin economic volume in 2025, growing at a 133% annual rate since 2023.<sup><a href="#s41">[41]</a></sup> The institutional use cases are now concrete: Western Union launched USDPT, a federally regulated dollar stablecoin issued by Anchorage Digital Bank on Solana, as a 24/7 settlement alternative to SWIFT across its network of more than 550,000 agent locations.<sup><a href="#s42">[42]</a></sup> State Street and Galaxy launched a tokenized liquidity fund that settles in PayPal's stablecoin.<sup><a href="#s43">[43]</a></sup> Visa and Mastercard are settling and routing in stablecoins directly.<sup><a href="#s44">[44]</a></sup></p>
+
+    <div class="stats reveal">
+      <div class="stat"><div class="fig">$77B</div><div class="lab">USDC in circulation, Q1 2026, up 28% YoY<sup>[40]</sup></div></div>
+      <div class="stat"><div class="fig">$21.5T</div><div class="lab">USDC on-chain volume, up 263%; surpassed USDT for the first time since 2019<sup>[40]</sup></div></div>
+      <div class="stat"><div class="fig">$28T</div><div class="lab">Real, adjusted stablecoin economic volume, 2025 (Chainalysis)<sup>[41]</sup></div></div>
+      <div class="stat"><div class="fig">550k+</div><div class="lab">Western Union agent locations served by USDPT, issued by Anchorage Digital Bank<sup>[42]</sup></div></div>
+    </div>
+
+    <p class="body reveal">A note on attribution. Anchorage describes itself as the first federally chartered stablecoin issuer under the GENIUS Act and markets USDtb as America's first federally regulated stablecoin.<sup><a href="#s45">[45]</a></sup> Those are Anchorage's own characterizations of its position, and we present them as such.</p>
+
+    <h3 class="sub honest reveal">The honest exception: tokenization</h3>
+    <p class="body reveal">Not every part of this story is ahead of schedule, and a credible institutional paper should say so. Total on-chain tokenized real-world assets, excluding stablecoins, stood at roughly $31.5 billion in June 2026, with tokenized US Treasuries at about $14.8 billion, concentrated in a handful of institutional funds, and the category was roughly flat over the prior thirty days.<sup><a href="#s46">[46]</a></sup> Tokenized equities trade at under 1% of the volume of their traditional-market equivalents.<sup><a href="#s47">[47]</a></sup> Against McKinsey's conservative 2030 base case of $2 trillion to $4 trillion, and Citi's $5.5 trillion, the realized figure is one to two orders of magnitude smaller.<sup><a href="#s48">[48]</a><a href="#s49">[49]</a></sup> The direction of tokenization is not in doubt. Its realized business model and secondary-market liquidity are not yet here. Building the rails is necessary; assuming the volume will arrive on its own is not warranted by the data.</p>
+
+    <div class="finding reveal">
+      <span class="fl">Key Finding</span>
+      <p>Institutionalization is no longer a flow story. It is an infrastructure story. The assets that matter are now custodied by chartered banks, settled in regulated stablecoins, and governed by federal law. The exception, tokenization of assets beyond cash, marks where the infrastructure is built but the volume has not yet followed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">05 · A new kind of participant</span>
+      <h2>The next frontier is the autonomous agent</h2>
+    </div>
+
+    <p class="body reveal">Everything above describes capital and infrastructure. The next phase introduces a new actor: the autonomous agent.</p>
+
+    <p class="body reveal">The economic case is being made by the most conservative institutions in finance. McKinsey estimates agentic AI could reduce banking operating costs by up to 20%, open a four-percentage-point return-on-tangible-equity gap between leaders and laggards, and put as much as 10% of the industry's roughly $1.2 trillion profit pool at risk over five to ten years.<sup><a href="#s50">[50]</a></sup> Citi argues agentic AI could affect finance more than the internet did, and names financial services the second-largest consumer of generative AI.<sup><a href="#s51">[51]</a></sup> Gartner projects that 40% of enterprise applications will embed task-specific AI agents by the end of 2026, up from under 5% in 2025.<sup><a href="#s52">[52]</a></sup> Boston Consulting Group finds agentic AI has reached 35% enterprise adoption in two years.<sup><a href="#s53">[53]</a></sup></p>
+
+    <p class="body reveal">A discipline note belongs here, because the same sources that size the opportunity also flag the risk. Gartner predicts that more than 40% of agentic AI projects will be canceled by the end of 2027, citing cost, unclear value, and weak risk controls.<sup><a href="#s54">[54]</a></sup> The agent economy is arriving, and it is arriving unevenly. The firms that govern it well will be the ones whose agents are allowed near real money.</p>
+
+    <p class="body reveal">That is not hypothetical, because agents are already transacting. Coinbase's x402 payment protocol crossed more than 100 million cumulative agent transactions on the Base network in roughly three quarters, with the transaction mix shifting decisively toward real economic payments.<sup><a href="#s55">[55]</a></sup> In April 2026, x402 moved to neutral governance under the Linux Foundation, with founding members spanning Circle, Visa, Mastercard, American Express, Google, Microsoft, Amazon Web Services, Stripe, Cloudflare, Shopify, and the Solana and Polygon ecosystems; Google made it the default stablecoin rail in its agentic payments protocol.<sup><a href="#s56">[56]</a></sup> Ethereum's ERC-8004 standard for agent identity went live on mainnet in January 2026, authored by contributors from MetaMask, the Ethereum Foundation, Google, and Coinbase.<sup><a href="#s57">[57]</a></sup> Mastercard completed its first live agentic payment in September 2025 and rolled the capability across all US cardholders by November.<sup><a href="#s58">[58]</a></sup> Analysts project US agentic commerce revenue could reach $1 trillion by 2030 (ICSC and McKinsey) and account for 10% to 20% of online retail (Morgan Stanley).<sup><a href="#s59">[59]</a><a href="#s60">[60]</a></sup></p>
+
+    <div class="thesis reveal">The trajectory is clear. Agents will not stop at retail microtransactions. They will hold balances, manage collateral, execute against portfolios, and act on institutional capital.</div>
+  </div>
+</section>
+
+<!-- SECTION 6 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">06 · The load-bearing observation</span>
+      <h2>The gap the standards leave open</h2>
+    </div>
+
+    <p class="body reveal">Here is the load-bearing observation of this paper. The standards being built for the agent economy are good, they are converging, and they were deliberately designed to stop short of the functions regulated finance depends on.</p>
+
+    <p class="body reveal">Consider what the standards actually cover. The MIT Media Lab's foundational January 2025 work proposes authenticated, authorized, auditable delegation to AI agents by extending existing identity protocols, and it does not even use the phrase "Know Your Agent."<sup><a href="#s61">[61]</a></sup> Skyfire positions itself as a leader of Know Your Agent, issuing signed credentials that bind an agent to a verified human and its permissions.<sup><a href="#s62">[62]</a></sup> Experian launched its own Know Your Agent framework using Skyfire's protocol as the identity layer.<sup><a href="#s63">[63]</a></sup> The identity-verification incumbents Sumsub and Trulioo both use the same three-word label, and both scope it explicitly to identity, authorization, and auditability, and explicitly not to underwriting, credit decisions, or asset custody.<sup><a href="#s15">[15]</a></sup> Ethereum's ERC-8004 defines identity, reputation, and validation registries and, in its authors' own words, "does not cover payments," leaving application logic off-chain.<sup><a href="#s16">[16]</a></sup> Visa's Trusted Agent Protocol confirms that an agent is authorized to act for a consumer; it is authentication, not custody.<sup><a href="#s64">[64]</a></sup></p>
+
+    <div class="tbl-wrap reveal">
+      <table>
+        <caption>What the standards cover, and what they leave to banks</caption>
+        <thead>
+          <tr><th>Standard / claimant</th><th>What it establishes</th><th>Explicitly not</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MIT Media Lab (Jan 2025)</td><td>Authenticated, authorized, auditable delegation; does not use "Know Your Agent"<sup class="src"> [61]</sup></td><td>Underwriting, custody</td></tr>
+          <tr><td>Skyfire</td><td>Signed credentials binding an agent to a verified human + permissions<sup class="src"> [62]</sup></td><td>Custody, accountability</td></tr>
+          <tr><td>Experian</td><td>Know Your Agent framework on Skyfire's identity layer<sup class="src"> [63]</sup></td><td>Custody, accountability</td></tr>
+          <tr><td>Sumsub &amp; Trulioo</td><td>Identity, authorization, auditability<sup class="src"> [15]</sup></td><td>Underwriting, credit decisions, asset custody</td></tr>
+          <tr><td>Ethereum ERC-8004</td><td>Identity, reputation, validation registries<sup class="src"> [16]</sup></td><td>"Does not cover payments"</td></tr>
+          <tr><td>Visa Trusted Agent Protocol</td><td>Confirms an agent is authorized to act for a consumer<sup class="src"> [64]</sup></td><td>Custody (it is authentication)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body reveal">Two facts follow. First, Know Your Agent is a contested category, not any single firm's coinage, with academic, vendor, payments-network, and protocol claimants all using the term. Anchorage does not own it, and this paper does not claim otherwise. Second, and more important, every one of these standards answers the same two questions, "who is this agent, and what is it allowed to do," and none of them answers the three questions that a regulated institution must answer before it lets an agent touch its capital: who underwrites the agent, who custodies the assets it acts on, and who is accountable when it fails. As of June 2026, no financial regulator has issued a Know Your Agent standard.<sup><a href="#s15">[15]</a></sup></p>
+
+    <div class="finding reveal">
+      <span class="fl">Key Finding</span>
+      <p>The agent-economy standards establish identity and authorization. They do not, by design, establish underwriting, custody, or accountability. That gap is not a flaw in the standards. It is a banking function the standards correctly leave to banks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">07 · The position</span>
+      <h2>Know Your Agent, from inside a regulated bank</h2>
+    </div>
+
+    <p class="lead reveal">The pattern of the last three years is the argument for the next three.</p>
+
+    <p class="body reveal">Institutional capital did not flow into crypto until it could be held in regulated, custodied, benchmarkable structures. When those structures arrived, the capital came, and it stayed through a drawdown. The agent economy will follow the same path. Institutions will not deploy autonomous agents against real capital until the agent can be underwritten, the assets it touches can be custodied under governed controls, and a regulated entity stands behind the outcome.</p>
+
+    <p class="body reveal">That is the regulated-bank reading of Know Your Agent. It is not the identity layer, which the standards already provide. It is the layer above and beneath the identity layer: underwriting the agent before it transacts, custodying the assets it acts on with segmented, governed, recoverable controls (an allowance, not the keys), and carrying the accountability that a charter requires. Anchorage's position is that these controls are not friction on the agent economy. They are its on-ramp. An agent that a regulated bank can stand behind is an agent that an institution can actually use.</p>
+
+    <p class="body reveal">This is the continuation of a single thesis. Crypto institutionalized because the regulated layer made it usable at scale. The agent economy will institutionalize the same way, or it will stall in the same place tokenization has, with the rails built and the institutional volume waiting on the trust layer.</p>
+
+    <p class="body reveal">The recommendation is direct. Institutions preparing to deploy capital-bearing agents should require a regulated trust layer underneath them, and the firms building agent infrastructure should build on one. The identity standards are necessary. They are not sufficient.</p>
+
+    <div class="thesis reveal" style="font-size:clamp(26px,3.4vw,40px);">Sufficiency is a bank.</div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="method">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Methodology</span>
+      <h2>How this paper was built</h2>
+    </div>
+
+    <p class="body reveal">This paper is built on public data, gathered and source-tagged in June 2026. Every quantitative claim carries a numbered citation with a source and an as-of date. Sources are confined to the class an institution can verify independently: primary regulatory and corporate filings (SEC, OCC, CFTC, the White House, Congress, company 10-Qs, 8-Ks, 13Fs, and official press releases), peer-reviewed academic literature, named data providers (CoinGecko, rwa.xyz, Chainalysis, CoinShares, MarketVector, Fintel, Coin Metrics, Kaiko), and named institutional research (McKinsey, Citi, BCG, Gartner, Fidelity, a16z, Grayscale, Coinbase Institutional).</p>
+
+    <p class="body reveal">Where figures rest on secondary reporting, that is stated and the figure is softened or attributed. Cumulative spot Bitcoin ETF net-flow figures show genuine cross-source variance in the $55 billion to $58 billion range because the standard flow tracker was not directly accessible; this paper therefore cites per-fund primary filings rather than a precise cumulative aggregate. Anchorage's own first-mover and "America's first" claims are presented as Anchorage's characterizations. Anchorage's internal factor research is referenced as independent corroboration of publicly observable findings, and its proprietary figures are not published. The full 126-finding source ledger underlying this paper is retained at research-findings-raw.json.</p>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sources-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Sources</span>
+      <h2>Citations, with as-of dates</h2>
+    </div>
+    <ol class="sources reveal">
+      <li id="s1"><div><span class="stitle">Blockhead, "Crypto Markets: Bitcoin Slides Below $67,000 as ETF Outflows Mount" (citing SoSoValue and Yahoo Finance), June 3, 2026.</span><a href="https://www.blockhead.co/2026/06/03/crypto-markets-bitcoin-slides-below-67-000-as-etf-outflows-mount/">https://www.blockhead.co/2026/06/03/crypto-markets-bitcoin-slides-below-67-000-as-etf-outflows-mount/</a></div></li>
+      <li id="s2"><div><span class="stitle">CoinGecko 2026 Q1 Crypto Industry Report, April 16, 2026.</span><a href="https://www.coingecko.com/research/publications/2026-q1-crypto-industry-report">https://www.coingecko.com/research/publications/2026-q1-crypto-industry-report</a></div></li>
+      <li id="s3"><div><span class="stitle">SEC EDGAR, iShares Bitcoin Trust ETF Form 10-Q (Q1 2026), filed May 7, 2026.</span><a href="https://www.sec.gov/Archives/edgar/data/0001980994/000143774926015538/bit20260331_10q.htm">https://www.sec.gov/Archives/edgar/data/0001980994/000143774926015538/bit20260331_10q.htm</a></div></li>
+      <li id="s4"><div><span class="stitle">Bloomberg Intelligence 13F analysis, via CCN (institutional share of spot Bitcoin ETF assets ~38% Q4 2025, up from ~24%).</span><a href="https://www.ccn.com/news/crypto/bitcoin-etf-holders-list-btc-investors-sec-13f-filing/">https://www.ccn.com/news/crypto/bitcoin-etf-holders-list-btc-investors-sec-13f-filing/</a></div></li>
+      <li id="s5"><div><span class="stitle">CoinShares, "13F Filings of Bitcoin ETFs, Q4 2025 Institutional Report," March 3, 2026.</span><a href="https://coinshares.com/insights/research-data/13f-fillings-of-bitcoin-etfs-q4-2025-institutional-report/">https://coinshares.com/insights/research-data/13f-fillings-of-bitcoin-etfs-q4-2025-institutional-report/</a></div></li>
+      <li id="s6"><div><span class="stitle">Coinbase and EY-Parthenon, "2026 Institutional Investor Digital Assets Survey," January 2026.</span><a href="https://assets.ctfassets.net/k3n74unfin40/1VXexCsHWsStj4GyXXHy1V/8104e825cab674204f34e6a2d4177657/2026_Institutional_Investor_Survey_Coinbase_E_Y.pdf">https://assets.ctfassets.net/k3n74unfin40/1VXexCsHWsStj4GyXXHy1V/8104e825cab674204f34e6a2d4177657/2026_Institutional_Investor_Survey_Coinbase_E_Y.pdf</a></div></li>
+      <li id="s7"><div><span class="stitle">MarketVector Indexes, Digital Assets 100 Large-Cap (MVDALC) and Small-Cap (MVDASC) index pages, live June 3, 2026.</span><a href="https://www.marketvector.com/indexes/digital-assets/marketvector-digital-assets-100-large-cap">https://www.marketvector.com/indexes/digital-assets/marketvector-digital-assets-100-large-cap</a></div></li>
+      <li id="s8"><div><span class="stitle">CoinGecko 2026 Q1 Crypto Industry Report (BTC dominance 55.8%, ETH 9.31% at Q1 2026 end).</span><a href="https://www.coingecko.com/research/publications/2026-q1-crypto-industry-report">https://www.coingecko.com/research/publications/2026-q1-crypto-industry-report</a></div></li>
+      <li id="s9"><div><span class="stitle">Di Wu, "Institutional Adoption and Correlation Dynamics: Bitcoin's Evolving Role in Financial Markets," University of Texas at Dallas, arXiv:2501.09911.</span><a href="https://arxiv.org/abs/2501.09911">https://arxiv.org/abs/2501.09911</a></div></li>
+      <li id="s10"><div><span class="stitle">Coin Metrics, "Is Bitcoin Decoupling from the Market?" State of the Network, Issue 310, May 6, 2025.</span><a href="https://coinmetrics.substack.com/p/state-of-the-network-issue-310">https://coinmetrics.substack.com/p/state-of-the-network-issue-310</a></div></li>
+      <li id="s11"><div><span class="stitle">CoinDesk, "Bitcoin's Negative Correlation With Nasdaq Persists," December 4, 2025.</span><a href="https://www.coindesk.com/markets/2025/12/04/bitcoin-s-negative-correlation-with-nasdaq-persists-and-history-suggests-a-bottom-may-be-forming">https://www.coindesk.com/markets/2025/12/04/bitcoin-s-negative-correlation-with-nasdaq-persists-and-history-suggests-a-bottom-may-be-forming</a></div></li>
+      <li id="s12"><div><span class="stitle">Banking Dive, on OCC national trust charter approvals (Anchorage first operational, 2021).</span><a href="https://www.bankingdive.com/news/occ-national-trust-bank-charter-approve-circle-paxos-ripple-bitgo-gould-crypto/807799/">https://www.bankingdive.com/news/occ-national-trust-bank-charter-approve-circle-paxos-ripple-bitgo-gould-crypto/807799/</a></div></li>
+      <li id="s13"><div><span class="stitle">Congress.gov / GPO, GENIUS Act enrolled law, Public Law 119-27, signed July 18, 2025.</span><a href="https://www.congress.gov/119/plaws/publ27/PLAW-119publ27.pdf">https://www.congress.gov/119/plaws/publ27/PLAW-119publ27.pdf</a></div></li>
+      <li id="s14"><div><span class="stitle">U.S. Bancorp Investor Relations, "U.S. Bank selected to provide custody services for reserves backing payment stablecoins from Anchorage Digital Bank," October 8, 2025.</span><a href="https://ir.usbank.com/news-events/news/news-details/2025/U-S--Bank-selected-to-provide-custody-services-for-reserves-backing-payment-stablecoins-from-Anchorage-Digital-Bank/default.aspx">https://ir.usbank.com/news-events/news/news-details/2025/U-S--Bank-selected-to-provide-custody-services-for-reserves-backing-payment-stablecoins-from-Anchorage-Digital-Bank/default.aspx</a></div></li>
+      <li id="s15"><div><span class="stitle">Sumsub, "Know Your Agent" (KYA scoped to identity, authorization, and auditability, not underwriting/credit/custody), January 28, 2026.</span><a href="https://sumsub.com/blog/know-your-agent/">https://sumsub.com/blog/know-your-agent/</a></div></li>
+      <li id="s16"><div><span class="stitle">Ethereum Magicians, "ERC-8004: Trustless Agents" (authors state the protocol does not cover payments), mainnet January 29, 2026.</span><a href="https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098">https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098</a></div></li>
+      <li id="s17"><div><span class="stitle">Fintel, IBIT institutional ownership (1,683 institutional filers).</span><a href="https://fintel.io/so/us/ibit">https://fintel.io/so/us/ibit</a></div></li>
+      <li id="s18"><div><span class="stitle">WealthManagement.com, "Morgan Stanley OKs Advisors to Pitch Spot Bitcoin ETFs," and Morgan Stanley Bitcoin Trust S-1/A, SEC EDGAR CIK 0002103612.</span><a href="https://www.wealthmanagement.com/investment-news/report-morgan-stanley-oks-advisors-to-pitch-spot-bitcoin-etfs">https://www.wealthmanagement.com/investment-news/report-morgan-stanley-oks-advisors-to-pitch-spot-bitcoin-etfs</a></div></li>
+      <li id="s19"><div><span class="stitle">SEC EDGAR, Mubadala Investment Co. Form 13F-HR (IBIT position, Q1 2026), filed May 15, 2026.</span><a href="https://www.sec.gov/Archives/edgar/data/1704268/000114036126021535/informationtable.xml">https://www.sec.gov/Archives/edgar/data/1704268/000114036126021535/informationtable.xml</a></div></li>
+      <li id="s20"><div><span class="stitle">CoinDesk and CryptoSlate, Q1 2026 13F analysis (Wisconsin SWIB exit; Harvard endowment trim, IBIT remains largest disclosed listed holding).</span><a href="https://www.coindesk.com/markets/2025/11/15/harvard-endowment-takes-rare-leap-into-bitcoin-with-usd443m-bet-on-blackrock-s-ibit">https://www.coindesk.com/markets/2025/11/15/harvard-endowment-takes-rare-leap-into-bitcoin-with-usd443m-bet-on-blackrock-s-ibit</a></div></li>
+      <li id="s21"><div><span class="stitle">KPMG Financial Reporting View, "SEC Rescinds SAB 121" (SAB 122, January 23, 2025).</span><a href="https://kpmg.com/us/en/frv/reference-library/2025/sec-rescinds-sab-121.html">https://kpmg.com/us/en/frv/reference-library/2025/sec-rescinds-sab-121.html</a></div></li>
+      <li id="s22"><div><span class="stitle">The White House, Executive Order 14178, "Strengthening American Leadership in Digital Financial Technology," January 23, 2025.</span><a href="https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/">https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/</a></div></li>
+      <li id="s23"><div><span class="stitle">OCC News Release 2025-16, Interpretive Letter 1183, March 7, 2025.</span><a href="https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-16.html">https://www.occ.treas.gov/news-issuances/news-releases/2025/nr-occ-2025-16.html</a></div></li>
+      <li id="s24"><div><span class="stitle">CoinDesk, "Coinbase Case Dropped by U.S. SEC," February 27, 2025.</span><a href="https://www.coindesk.com/policy/2025/02/27/coinbase-case-dropped-by-u-s-sec-as-agency-reverses-crypto-stance">https://www.coindesk.com/policy/2025/02/27/coinbase-case-dropped-by-u-s-sec-as-agency-reverses-crypto-stance</a></div></li>
+      <li id="s25"><div><span class="stitle">Dechert OnPoint, "Generic Listing Standards for Crypto and Commodity ETPs," on the SEC order of September 17, 2025.</span><a href="https://www.dechert.com/knowledge/onpoint/2025/10/generic-listing-standards-for-crypto-and-commodity-etps--what-it.html">https://www.dechert.com/knowledge/onpoint/2025/10/generic-listing-standards-for-crypto-and-commodity-etps--what-it.html</a></div></li>
+      <li id="s26"><div><span class="stitle">AInvest, citing MarketVector Digital Assets 100 Small-Cap Index (~0.9 correlation to large-cap while underperforming), late 2025.</span><a href="https://www.ainvest.com/news/small-cap-crypto-tokens-high-risk-reward-bet-2025-2512/">https://www.ainvest.com/news/small-cap-crypto-tokens-high-risk-reward-bet-2025-2512/</a></div></li>
+      <li id="s27"><div><span class="stitle">CoinGecko Research, "Top 10 Cryptos 2014 to 2026" (BTC 64.9% of top-10; top-10 ~82% of total), June 1, 2026.</span><a href="https://www.coingecko.com/research/publications/top-10-cryptos-2014-to-2026">https://www.coingecko.com/research/publications/top-10-cryptos-2014-to-2026</a></div></li>
+      <li id="s28"><div><span class="stitle">Liu, Tsyvinski, and Wu, "Common Risk Factors in Cryptocurrency," Journal of Finance, Vol. 77, Issue 2 (2022); NBER Working Paper 25882.</span><a href="https://www.nber.org/system/files/working_papers/w25882/w25882.pdf">https://www.nber.org/system/files/working_papers/w25882/w25882.pdf</a></div></li>
+      <li id="s29"><div><span class="stitle">Kaiko Research, via CoinMarketCap (BTC 90-day correlation to Nasdaq fell to 0.27, recovered to 0.42), 2025.</span><a href="https://coinmarketcap.com/headlines/news/bitcoin-sees-sharp-decline-in-correlation-with-tech-equities-kaiko-says/">https://coinmarketcap.com/headlines/news/bitcoin-sees-sharp-decline-in-correlation-with-tech-equities-kaiko-says/</a></div></li>
+      <li id="s30"><div><span class="stitle">K33 Research, via FXStreet (BTC beta declined during equity rallies), May 12, 2026.</span><a href="https://www.fxstreet.com/cryptocurrencies/news/bitcoin-fails-to-match-us-equities-surge-despite-strong-nasdaq-correlation-k33-202605122306">https://www.fxstreet.com/cryptocurrencies/news/bitcoin-fails-to-match-us-equities-surge-despite-strong-nasdaq-correlation-k33-202605122306</a></div></li>
+      <li id="s31"><div><span class="stitle">Zhang, Li, Xiong, and Wang, "Downside Risk and the Cross-Section of Cryptocurrency Returns," Journal of Banking and Finance, Vol. 133 (2021).</span><a href="https://ideas.repec.org/a/eee/jbfina/v133y2021ics0378426621002053.html">https://ideas.repec.org/a/eee/jbfina/v133y2021ics0378426621002053.html</a></div></li>
+      <li id="s32"><div><span class="stitle">Fieberg, Liedtke, Poddig, Walker, and Zaremba, "A Trend Factor for the Cross-Section of Cryptocurrency Returns," Journal of Financial and Quantitative Analysis, Vol. 60, Issue 7 (2025).</span><a href="https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/trend-factor-for-the-cross-section-of-cryptocurrency-returns/4C1509ACBA33D5DCAF0AC24379148178">https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/trend-factor-for-the-cross-section-of-cryptocurrency-returns/4C1509ACBA33D5DCAF0AC24379148178</a></div></li>
+      <li id="s33"><div><span class="stitle">Bhambhwani, Delikouras, and Korniotis, "Blockchain Characteristics and Cryptocurrency Returns," Journal of International Financial Markets, Institutions and Money (2023).</span><a href="https://www.sciencedirect.com/science/article/abs/pii/S1042443123000562">https://www.sciencedirect.com/science/article/abs/pii/S1042443123000562</a></div></li>
+      <li id="s34"><div><span class="stitle">OCC News Release NR-OCC-2025-125 (five national trust charter conditional approvals: Circle, Ripple, BitGo, Fidelity, Paxos), December 12, 2025.</span><a href="https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-125.html">https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-125.html</a></div></li>
+      <li id="s35"><div><span class="stitle">OCC Bulletin 2026-3, GENIUS Act NPRM, February 25, 2026.</span><a href="https://occ.treas.gov/news-issuances/bulletins/2026/bulletin-2026-3.html">https://occ.treas.gov/news-issuances/bulletins/2026/bulletin-2026-3.html</a></div></li>
+      <li id="s36"><div><span class="stitle">U.S. Senate Committee on Banking, Housing, and Urban Affairs, CLARITY Act committee advancement (15-9), May 14, 2026.</span><a href="https://www.banking.senate.gov/newsroom/majority/chairman-scott-senate-banking-committee-advance-clarity-act-in-historic-bipartisan-vote">https://www.banking.senate.gov/newsroom/majority/chairman-scott-senate-banking-committee-advance-clarity-act-in-historic-bipartisan-vote</a></div></li>
+      <li id="s37"><div><span class="stitle">Markets Media, "BlackRock Adds Anchorage Digital as Custodian," April 9, 2025.</span><a href="https://www.marketsmedia.com/blackrock-adds-anchorage-digital-as-custodian/">https://www.marketsmedia.com/blackrock-adds-anchorage-digital-as-custodian/</a></div></li>
+      <li id="s38"><div><span class="stitle">Anchorage Digital, "Anchorage Digital Selected by 3iQ as Infrastructure and Custody Partner," May 20, 2026.</span><a href="https://www.anchorage.com/insights/anchorage-digital-selected-by-3iq-as-infrastructure-and-custody-partner-for-digital-asset-investment-platform">https://www.anchorage.com/insights/anchorage-digital-selected-by-3iq-as-infrastructure-and-custody-partner-for-digital-asset-investment-platform</a></div></li>
+      <li id="s39"><div><span class="stitle">Anchorage Digital, "Expanding Atlas: Anchorage Digital Launches Institutional-Grade Collateral Management Offering" (nearly 600 participants), March 19, 2026.</span><a href="https://www.anchorage.com/insights/expanding-atlas-anchorage-digital-launches-institutional-grade-collateral-management-offering">https://www.anchorage.com/insights/expanding-atlas-anchorage-digital-launches-institutional-grade-collateral-management-offering</a></div></li>
+      <li id="s40"><div><span class="stitle">Circle Internet Group, Q1 2026 Results (USDC $77B in circulation, $21.5T on-chain volume), May 11, 2026.</span><a href="https://www.circle.com/pressroom/circle-reports-first-quarter-2026-results">https://www.circle.com/pressroom/circle-reports-first-quarter-2026-results</a></div></li>
+      <li id="s41"><div><span class="stitle">Chainalysis, "Stablecoin Utility and the Future of Payments" ($28T adjusted volume, 2025), April 8, 2026.</span><a href="https://www.chainalysis.com/blog/stablecoin-utility-future-of-payments/">https://www.chainalysis.com/blog/stablecoin-utility-future-of-payments/</a></div></li>
+      <li id="s42"><div><span class="stitle">Anchorage Digital, "Western Union Launches USDPT, a Federally Regulated Digital Dollar" (issued by Anchorage Digital Bank), May 4, 2026.</span><a href="https://www.anchorage.com/insights/western-union-launches-usdpt-a-federally-regulated-digital-dollar">https://www.anchorage.com/insights/western-union-launches-usdpt-a-federally-regulated-digital-dollar</a></div></li>
+      <li id="s43"><div><span class="stitle">State Street Investment Management, with Galaxy Digital and Ondo, tokenized liquidity fund settling in PYUSD, May 5, 2026.</span><a href="https://investors.statestreet.com/investor-news-events/press-releases/news-details/2025/State-Street-Investment-Management-and-Galaxy-Digital-Partner-to-Tokenize-Private-Liquidity-Fund-With-Planned-Seed-Investment-from-Ondo/default.aspx">https://investors.statestreet.com/investor-news-events/press-releases/news-details/2025/State-Street-Investment-Management-and-Galaxy-Digital-Partner-to-Tokenize-Private-Liquidity-Fund-With-Planned-Seed-Investment-from-Ondo/default.aspx</a></div></li>
+      <li id="s44"><div><span class="stitle">crypto.news, on Visa stablecoin settlement scale and card-network stablecoin integration (secondary reporting; figures attributed).</span><a href="https://crypto.news/stablecoins-now-move-more-money-than-visa-and-mastercard-combined/">https://crypto.news/stablecoins-now-move-more-money-than-visa-and-mastercard-combined/</a></div></li>
+      <li id="s45"><div><span class="stitle">Anchorage Digital, "Anchorage Digital Issues USDtb, America's First Federally Regulated Stablecoin" (Anchorage's own characterization), October 14, 2025.</span><a href="https://www.anchorage.com/insights/anchorage-digital-issues-usdtb-americas-first-federally-regulated-stablecoin">https://www.anchorage.com/insights/anchorage-digital-issues-usdtb-americas-first-federally-regulated-stablecoin</a></div></li>
+      <li id="s46"><div><span class="stitle">rwa.xyz, Asset analytics dashboard and Tokenized U.S. Treasuries ($31.5B total RWA ex-stablecoins; $14.8B treasuries), June 3, 2026.</span><a href="https://app.rwa.xyz/treasuries">https://app.rwa.xyz/treasuries</a></div></li>
+      <li id="s47"><div><span class="stitle">CoinGecko RWA Report 2026 (tokenized equities under 1% of TradFi volume).</span><a href="https://www.coingecko.com/research/publications/rwa-report-2026">https://www.coingecko.com/research/publications/rwa-report-2026</a></div></li>
+      <li id="s48"><div><span class="stitle">McKinsey &amp; Company, "From Ripples to Waves: The Transformational Power of Tokenizing Assets" (base case ~$2T by 2030), via Yahoo Finance / CoinDesk, 2024.</span><a href="https://finance.yahoo.com/news/mckinsey-sees-just-2t-tokenized-180448151.html">https://finance.yahoo.com/news/mckinsey-sees-just-2t-tokenized-180448151.html</a></div></li>
+      <li id="s49"><div><span class="stitle">Citi Institute, Global Perspectives and Solutions, "Tokenization 2030" ($5.5T base case).</span><a href="https://www.citigroup.com/rcs/citigpa/storage/public/Citi_Institute_GPS_Report_Tokenization_2030.pdf">https://www.citigroup.com/rcs/citigpa/storage/public/Citi_Institute_GPS_Report_Tokenization_2030.pdf</a></div></li>
+      <li id="s50"><div><span class="stitle">McKinsey &amp; Company, "Agentic AI Will Shake Up Banking, Shrinking Global Profit Pools" (up to 20% opex reduction; ~$1.2T profit pool, ~10% at risk; +4pp ROTE).</span><a href="https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/agentic-ai-will-shake-up-banking-shrinking-global-profit-pools">https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/agentic-ai-will-shake-up-banking-shrinking-global-profit-pools</a></div></li>
+      <li id="s51"><div><span class="stitle">Citi GPS, "Agentic AI: Finance and the 'Do It For Me' Economy," January 17, 2025.</span><a href="https://www.citigroup.com/global/insights/agentic-ai">https://www.citigroup.com/global/insights/agentic-ai</a></div></li>
+      <li id="s52"><div><span class="stitle">Gartner, "40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026," August 26, 2025.</span><a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025">https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025</a></div></li>
+      <li id="s53"><div><span class="stitle">Boston Consulting Group, "How Agents Are Accelerating the Next Wave of AI Value Creation," 2025.</span><a href="https://www.bcg.com/publications/2025/agents-accelerate-next-wave-of-ai-value-creation">https://www.bcg.com/publications/2025/agents-accelerate-next-wave-of-ai-value-creation</a></div></li>
+      <li id="s54"><div><span class="stitle">Gartner, "Over 40% of Agentic AI Projects Will Be Canceled by End of 2027," June 25, 2025.</span><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027">https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027</a></div></li>
+      <li id="s55"><div><span class="stitle">Chainalysis, "Inside x402: 100M Agentic Payments on Base," June 3, 2026.</span><a href="https://www.chainalysis.com/blog/x402-agentic-payments-adoption/">https://www.chainalysis.com/blog/x402-agentic-payments-adoption/</a></div></li>
+      <li id="s56"><div><span class="stitle">Linux Foundation, "Linux Foundation Is Launching the x402 Foundation," April 2, 2026.</span><a href="https://www.prnewswire.com/news-releases/linux-foundation-is-launching-the-x402-foundation-and-welcoming-the-contribution-of-the-x402-protocol-302732803.html">https://www.prnewswire.com/news-releases/linux-foundation-is-launching-the-x402-foundation-and-welcoming-the-contribution-of-the-x402-protocol-302732803.html</a></div></li>
+      <li id="s57"><div><span class="stitle">Ethereum Improvement Proposals, EIP-8004 (Trustless Agents), mainnet January 29, 2026.</span><a href="https://eips.ethereum.org/EIPS/eip-8004">https://eips.ethereum.org/EIPS/eip-8004</a></div></li>
+      <li id="s58"><div><span class="stitle">Mastercard Newsroom, agentic commerce tools and Agentic Tokens, September 2025.</span><a href="https://www.mastercard.com/us/en/news-and-trends/press/2025/september/mastercard-unveils-new-tools-and-collaborations-to-power-smarter,-safer-agentic-commerce.html">https://www.mastercard.com/us/en/news-and-trends/press/2025/september/mastercard-unveils-new-tools-and-collaborations-to-power-smarter,-safer-agentic-commerce.html</a></div></li>
+      <li id="s59"><div><span class="stitle">ICSC and McKinsey &amp; Company, via Retail Dive (US agentic commerce ~$1T by 2030), May 2026.</span><a href="https://www.retaildive.com/news/agentic-commerce-us-one-trillion-2030/818936/">https://www.retaildive.com/news/agentic-commerce-us-one-trillion-2030/818936/</a></div></li>
+      <li id="s60"><div><span class="stitle">Morgan Stanley, "Agentic Commerce Market Impact Outlook" ($190B-$385B US e-commerce, 10-20% of online retail, by 2030).</span><a href="https://www.morganstanley.com/insights/articles/agentic-commerce-market-impact-outlook">https://www.morganstanley.com/insights/articles/agentic-commerce-market-impact-outlook</a></div></li>
+      <li id="s61"><div><span class="stitle">South, Marro, Hardjono, Mahari, et al. (MIT Media Lab), "Authenticated Delegation and Authorized AI Agents," arXiv:2501.09674, January 16, 2025.</span><a href="https://arxiv.org/abs/2501.09674">https://arxiv.org/abs/2501.09674</a></div></li>
+      <li id="s62"><div><span class="stitle">Skyfire, "Know Your Agent (KYA)," September 5, 2024.</span><a href="https://skyfire.xyz/know-your-agent-kya/">https://skyfire.xyz/know-your-agent-kya/</a></div></li>
+      <li id="s63"><div><span class="stitle">Skyfire, "Skyfire's KYA Protocol Is Now the Identity Layer for Experian's Know Your Agent Framework," April 30, 2026.</span><a href="https://skyfire.xyz/skyfires-kya-protocol-is-now-the-identity-layer-for-experians-know-your-agent-framework/">https://skyfire.xyz/skyfires-kya-protocol-is-now-the-identity-layer-for-experians-know-your-agent-framework/</a></div></li>
+      <li id="s64"><div><span class="stitle">Visa Newsroom, Trusted Agent Protocol within Visa Intelligent Commerce, October 14, 2025.</span><a href="https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21361.html">https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.21361.html</a></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p class="closing">Crypto institutionalized because the regulated layer made it usable at scale. <b>The agent economy will institutionalize the same way.</b></p>
+    <p class="disc">DRAFT v1, built 2026-06-03 from 126 source-tagged research findings. Not for publication. Review chain: Jarred, then Anchorage editorial, then Nathan, then compliance counsel. The deck's existing BTC-to-Nasdaq correlation claim (the 26%-to-40% / beta-0.9-1.0 figure) is contradicted by this research and is flagged separately for correction in the deck and in data-provenance.md.</p>
+    <p class="stamp">Anchorage Digital Research · Prepared by Winn.solutions · Confidential · noindex</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress bar
+  var progress = document.getElementById('progress');
+  function setProgress(){
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop || document.body.scrollTop);
+    var height = (h.scrollHeight - h.clientHeight) || 1;
+    progress.style.width = (scrolled / height * 100) + '%';
+  }
+  window.addEventListener('scroll', setProgress, {passive:true});
+  window.addEventListener('resize', setProgress);
+  setProgress();
+
+  // Reveal on scroll
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }
+</script>
+
+</body>
+</html>

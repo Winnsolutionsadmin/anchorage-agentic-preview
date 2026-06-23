@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>The Issuer War Is the Wrong War · An Anchorage Research Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1726; --ink-2:#0E2034; --ink-3:#13283F;
+    --brass:#D8A94A; --brass-2:#EAC36B;
+    --paper:#F2ECDF; --signal:#74B8C7;
+    --text:#E9E3D6; --muted:#94A3B5; --muted-2:#6B7C90;
+    --body:#CFD6DF;
+    --line:rgba(216,169,74,.18);
+    --line-2:rgba(148,163,181,.16);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+    --col:760px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.62;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* ATMOSPHERE */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(120% 80% at 80% -5%, rgba(216,169,74,.07) 0%, rgba(10,23,38,0) 50%),
+      radial-gradient(90% 70% at 10% 105%, rgba(116,184,199,.05) 0%, rgba(10,23,38,0) 55%);
+    animation:fog 26s ease-in-out infinite alternate;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @keyframes fog{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+  .fog{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .fog i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.10;}
+  .fog i:nth-child(1){width:520px;height:520px;background:var(--brass);top:-120px;left:-100px;animation:drift1 34s ease-in-out infinite alternate;}
+  .fog i:nth-child(2){width:440px;height:440px;background:var(--signal);bottom:-140px;right:-120px;animation:drift2 40s ease-in-out infinite alternate;}
+  .fog i:nth-child(3){width:360px;height:360px;background:var(--brass-2);top:42%;right:-160px;animation:drift1 30s ease-in-out infinite alternate;}
+  @keyframes drift1{from{transform:translate(0,0)}to{transform:translate(60px,40px)}}
+  @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-50px,-40px)}}
+
+  /* PROGRESS */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--brass),var(--brass-2));z-index:50;transition:width .1s linear;}
+
+  /* SHELL */
+  .shell{position:relative;z-index:1;max-width:var(--col);margin:0 auto;padding:0 28px;}
+
+  .mono{font-family:var(--mono);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;
+    color:var(--brass);
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--brass);flex:none;}
+
+  /* DRAFT BANNER */
+  .draft-banner{
+    position:relative;z-index:1;
+    max-width:var(--col);margin:22px auto 0;padding:0 28px;
+  }
+  .draft-banner .inner{
+    background:linear-gradient(180deg,rgba(216,169,74,.10) 0%,rgba(216,169,74,.04) 100%);
+    border:1px solid var(--brass);
+    border-radius:10px;
+    padding:14px 20px;
+    font-family:var(--mono);
+    font-size:12px;font-weight:500;
+    letter-spacing:.04em;
+    color:var(--brass-2);
+    line-height:1.55;
+  }
+  .draft-banner .inner b{color:var(--paper);font-weight:600;}
+
+  /* HERO */
+  header.hero{
+    position:relative;z-index:1;
+    padding:108px 0 64px;
+    background:
+      radial-gradient(86% 130% at 76% -10%, rgba(216,169,74,.10) 0%, rgba(10,23,38,0) 56%),
+      linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(42px,7.2vw,76px);
+    font-weight:600;
+    line-height:.98;
+    letter-spacing:-.015em;
+    color:var(--paper);
+    margin-bottom:22px;
+  }
+  .hero h1 .q{color:var(--brass-2);font-style:italic;font-weight:500;}
+  .hero .subtitle{
+    font-family:var(--serif);
+    font-size:clamp(19px,2.8vw,25px);
+    font-weight:400;
+    font-style:italic;
+    color:var(--text);
+    line-height:1.32;
+    max-width:30ch;
+    border-left:3px solid var(--brass);
+    padding-left:22px;
+    margin-bottom:34px;
+  }
+  .byline{
+    font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);line-height:1.7;
+    padding-top:26px;border-top:1px solid var(--line-2);
+    max-width:62ch;
+  }
+  .byline b{color:var(--text);font-weight:600;}
+
+  /* SECTION RHYTHM */
+  main{position:relative;z-index:1;padding-top:18px;}
+  section.band{padding:52px 0;}
+  .sect-eyebrow{margin-top:46px;}
+  h2.sect{
+    font-family:var(--serif);
+    font-size:clamp(28px,4.4vw,40px);
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-.012em;
+    color:var(--paper);
+    margin:0 0 26px;
+  }
+  h3.sub{
+    font-family:var(--serif);
+    font-size:22px;font-weight:600;
+    color:var(--paper);
+    margin:38px 0 14px;
+  }
+
+  p{margin:0 0 22px;color:var(--body);}
+  p strong, li strong{color:var(--paper);font-weight:600;}
+  a{color:var(--brass-2);text-decoration:none;border-bottom:1px solid rgba(234,195,107,.32);transition:border-color .2s var(--ease),color .2s var(--ease);}
+  a:hover{color:var(--paper);border-color:var(--brass-2);}
+  sup a{font-family:var(--mono);font-size:11px;border-bottom:none;color:var(--brass);padding:0 1px;}
+  sup a:hover{color:var(--paper);}
+
+  .lead{
+    font-size:20px;
+    font-weight:350;
+    line-height:1.55;
+    color:var(--text);
+    margin-bottom:26px;
+  }
+
+  /* LISTS */
+  ol.wedge{list-style:none;counter-reset:w;margin:0 0 26px;display:grid;gap:18px;}
+  ol.wedge li{
+    counter-increment:w;
+    position:relative;
+    padding:18px 22px 18px 64px;
+    background:var(--ink-2);
+    border:1px solid var(--line-2);
+    border-left:3px solid var(--brass);
+    border-radius:10px;
+    color:var(--body);
+    font-size:16.5px;line-height:1.55;
+  }
+  ol.wedge li::before{
+    content:counter(w);
+    position:absolute;left:22px;top:18px;
+    font-family:var(--mono);font-weight:600;font-size:16px;
+    color:var(--brass);
+  }
+  ol.wedge li strong{color:var(--paper);}
+
+  ul.field{list-style:none;margin:0 0 26px;display:grid;gap:16px;}
+  ul.field li{
+    position:relative;padding-left:26px;
+    color:var(--body);font-size:16.5px;line-height:1.56;
+  }
+  ul.field li::before{
+    content:"";position:absolute;left:2px;top:11px;
+    width:7px;height:7px;border:1.5px solid var(--brass);border-radius:50%;
+  }
+  ul.field li strong{color:var(--paper);font-weight:600;}
+
+  /* CALLOUT */
+  .callout{
+    background:linear-gradient(180deg,var(--ink-3) 0%,var(--ink-2) 100%);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:30px 32px;
+    margin:34px 0;
+  }
+  .callout .lab{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--brass);
+    display:block;margin-bottom:12px;
+  }
+  .callout p:last-child{margin-bottom:0;}
+  .callout.thesis p{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:21px;line-height:1.4;color:var(--paper);
+  }
+
+  /* PULL QUOTE / blockquote */
+  blockquote{
+    margin:34px 0;padding:6px 0 6px 28px;
+    border-left:3px solid var(--brass);
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:23px;line-height:1.38;color:var(--paper);
+  }
+
+  /* DIVIDER */
+  .rule{
+    height:1px;border:0;
+    background:linear-gradient(90deg,var(--line) 0%,rgba(216,169,74,0) 100%);
+    margin:46px 0;
+  }
+
+  /* SOURCES */
+  .sources{display:grid;gap:14px;margin:8px 0 0;list-style:none;counter-reset:s;}
+  .sources li{
+    padding-left:30px;position:relative;
+    font-size:14.5px;line-height:1.5;color:var(--muted);
+    counter-increment:s;
+  }
+  .sources li::before{content:counter(s);position:absolute;left:0;top:0;font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--brass);}
+  .sources li b{color:var(--text);font-weight:600;}
+  .sources li i{font-style:italic;color:var(--text);}
+  .sources li a{font-family:var(--mono);font-size:12.5px;word-break:break-all;border-bottom:none;color:var(--muted-2);}
+  .sources li a:hover{color:var(--brass-2);}
+
+  /* FOOTER */
+  footer{
+    position:relative;z-index:1;
+    border-top:1px solid var(--line);
+    margin-top:54px;
+    padding:42px 0 72px;
+    background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);
+  }
+  footer .disc{color:var(--muted-2);font-size:13.5px;line-height:1.6;font-style:italic;}
+  footer .stamp{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    color:var(--muted);margin-top:20px;
+  }
+
+  @media (max-width:760px){
+    body{font-size:16px;}
+    .shell{padding:0 20px;}
+    header.hero{padding:72px 0 48px;}
+    ol.wedge li{padding-left:56px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body::before,.fog i{animation:none;}
+  }
+  @media print{
+    body{background:#fff;color:#111;}
+    body::before,body::after,.fog,#progress{display:none;}
+    .callout,blockquote,ol.wedge li,section{break-inside:avoid;}
+    a{color:#111;border:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="fog"><i></i><i></i><i></i></div>
+
+<!-- DRAFT BANNER -->
+<div class="draft-banner">
+  <div class="inner"><b>DRAFT</b> for Nathan McCauley / Anchorage Digital Research. Not for publication.</div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="shell">
+    <div class="eyebrow">Anchorage Research · Paper 02 · Pillar 2 — Stablecoins</div>
+    <h1>The Issuer War Is the <span class="q">Wrong War</span></h1>
+    <p class="subtitle">The case for neutral, regulated settlement.</p>
+    <p class="byline">The market is fighting over which stablecoin wins. The institutions that matter are not choosing a brand. They are choosing a settlement layer. Neutrality, not a house token, is the institutional product. Prepared for <b>Nathan McCauley</b> / Anchorage Digital Research.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Executive Summary</div>
+      <p>The popular framing of the stablecoin market is a contest between issuers: Tether against Circle, the incumbent against the challenger, with market-cap share as the scoreboard. That framing is a distraction. The institutions adopting stablecoins are not picking a favorite token. They are adopting a settlement rail, and what they want from a rail is neutrality, regulatory standing, and the ability to move dollars at any hour. The winner of the issuer war is not the question that decides the market. The question is who provides the regulated, neutral infrastructure underneath all of them.</p>
+      <div class="callout">
+        <span class="lab">Key Finding</span>
+        <p>Stablecoins crossed from speculative instrument to settlement infrastructure in 2025 and 2026. The institutional decision is not which issuer to back; it is which regulated settlement layer to build on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 01</div>
+      <h2 class="sect">Stablecoins are now settlement infrastructure</h2>
+      <p>The volume tells the story. Chainalysis estimated $28 trillion in real, adjusted stablecoin economic volume in 2025, growing at a 133% annual rate since 2023.<sup><a href="#s1">[1]</a></sup> Circle reported USDC on-chain transaction volume of $21.5 trillion in the first quarter of 2026 alone, up 263% year over year, with circulation up 28% to $77 billion.<sup><a href="#s2">[2]</a></sup> a16z described 2025 as "the year the world came onchain," with stablecoins rivaling the major card networks by volume.<sup><a href="#s3">[3]</a></sup></p>
+      <p>The use cases are now concrete and institutional. Western Union launched USDPT, a federally regulated dollar stablecoin issued by Anchorage Digital Bank on Solana, as a 24/7 settlement alternative to SWIFT across its network of more than 550,000 agent locations.<sup><a href="#s4">[4]</a></sup> State Street and Galaxy launched a tokenized liquidity fund that settles in PayPal's stablecoin.<sup><a href="#s5">[5]</a></sup> Visa and Mastercard route and settle in stablecoins directly.<sup><a href="#s6">[6]</a></sup> This is treasury and payments infrastructure, not a trading chip.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 02</div>
+      <h2 class="sect">The market is concentrated, but the institutional question is neutrality</h2>
+      <p>Concentration is real. Tether's USDT held roughly $188 billion and about 59% of stablecoin supply, with USDC the clear second near $76 billion, so the two together account for roughly 82% of the market, not the 93% figure that circulates in secondary summaries.<sup><a href="#s7">[7]</a></sup> USDC's transaction volume is now gaining on, and by some measures passing, USDT's.<sup><a href="#s2">[2]</a></sup></p>
+      <p>But for an institution, the share contest is the wrong lens. A bank settling client flows, a fund moving subscriptions and redemptions, a payments company bridging currencies, none of these wants to bet its rail on the outcome of a branding war. It wants a settlement layer it can use regardless of which token is on top, backed by reserves it can verify, under a regulator it recognizes. That is the institutional product: neutral, regulated settlement. Nathan McCauley's stated view is that increasing neutrality, rather than pushing any single house stablecoin, is the position that serves an institution best.</p>
+      <div class="callout">
+        <span class="lab">Key Finding</span>
+        <p>Market-cap share answers a question institutions are not asking. They are not buying a token; they are buying settlement. The durable institutional position is neutral and regulated, not brand-committed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="band">
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 03</div>
+      <h2 class="sect">Regulation made the rail real</h2>
+      <p>The neutrality thesis only works because the rail is now regulated. The GENIUS Act, the first US federal framework for payment stablecoins, was signed into law in July 2025, requiring full reserve backing in cash and short-term Treasuries, monthly public reserve disclosures, and issuance limited to regulated entities.<sup><a href="#s8">[8]</a></sup> The OCC issued its implementing proposed rule in February 2026.<sup><a href="#s9">[9]</a></sup> Reserve custody is itself professionalizing: U.S. Bank, a custodian with more than $11.7 trillion in assets under custody and administration, was selected to hold the reserves backing Anchorage's payment stablecoins.<sup><a href="#s10">[10]</a></sup> BlackRock's 2026 outlook reframed stablecoins as financial-system infrastructure, "the bridge between traditional finance and digital liquidity," in the words of its global head of market development.<sup><a href="#s11">[11]</a></sup></p>
+      <p>A note on attribution. Anchorage describes itself as the first federally chartered stablecoin issuer under the GENIUS Act and markets USDtb as America's first federally regulated stablecoin.<sup><a href="#s12">[12]</a></sup> Those are Anchorage's own characterizations, presented as such.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Section 04</div>
+      <h2 class="sect">The position: be the neutral, regulated layer</h2>
+      <p>The strategic conclusion is to stop fighting the issuer war and provide the ground it is fought on. A federally chartered trust bank can issue, custody reserves for, and settle multiple stablecoins on a neutral, regulated basis. That is more valuable, and more durable, than betting the franchise on one token's market share. As agents begin to pay agents, the demand for a neutral, regulated, always-on dollar will only grow, because an autonomous payment system cannot be tied to the commercial fortunes of a single issuer.</p>
+      <div class="callout thesis">
+        <span class="lab">The position</span>
+        <p>The right product is the settlement layer. The right posture is neutral. The right operator is a bank.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- SOURCES -->
+  <section>
+    <div class="shell">
+      <div class="eyebrow sect-eyebrow">Sources</div>
+      <ul class="sources">
+        <li id="s1">Chainalysis, <i>Stablecoin Utility and the Future of Payments</i> ($28T adjusted volume, 2025), April 8, 2026. <a href="https://www.chainalysis.com/blog/stablecoin-utility-future-of-payments/">chainalysis.com/blog/stablecoin-utility-future-of-payments</a></li>
+        <li id="s2">Circle Internet Group, Q1 2026 Results (USDC $77B in circulation, +28%; $21.5T on-chain volume, +263%), May 11, 2026. <a href="https://www.circle.com/pressroom/circle-reports-first-quarter-2026-results">circle.com/pressroom/circle-reports-first-quarter-2026-results</a></li>
+        <li id="s3">a16z crypto, <i>State of Crypto 2025.</i> <a href="https://a16zcrypto.com/posts/article/state-of-crypto-report-2025/">a16zcrypto.com/posts/article/state-of-crypto-report-2025</a></li>
+        <li id="s4">Anchorage Digital, "Western Union Launches USDPT, a Federally Regulated Digital Dollar" (issued by Anchorage Digital Bank), May 4, 2026. <a href="https://www.anchorage.com/insights/western-union-launches-usdpt-a-federally-regulated-digital-dollar">anchorage.com</a></li>
+        <li id="s5">State Street Investment Management, with Galaxy Digital and Ondo, tokenized liquidity fund settling in PYUSD, May 5, 2026. <a href="https://investors.statestreet.com/investor-news-events/press-releases/news-details/2025/State-Street-Investment-Management-and-Galaxy-Digital-Partner-to-Tokenize-Private-Liquidity-Fund-With-Planned-Seed-Investment-from-Ondo/default.aspx">investors.statestreet.com</a></li>
+        <li id="s6">crypto.news, on Visa and Mastercard stablecoin settlement (secondary; figures attributed). <a href="https://crypto.news/stablecoins-now-move-more-money-than-visa-and-mastercard-combined/">crypto.news</a></li>
+        <li id="s7">CoinGecko, Tether and USDC market data; combined share reconciled against total stablecoin cap (~82%, not 93%), June 3, 2026. <a href="https://www.coingecko.com/en/coins/tether">coingecko.com/en/coins/tether</a></li>
+        <li id="s8">Congress.gov / GPO, GENIUS Act enrolled law, Public Law 119-27, signed July 18, 2025. <a href="https://www.congress.gov/119/plaws/publ27/PLAW-119publ27.pdf">congress.gov/119/plaws/publ27</a></li>
+        <li id="s9">OCC Bulletin 2026-3, GENIUS Act NPRM, February 25, 2026. <a href="https://occ.treas.gov/news-issuances/bulletins/2026/bulletin-2026-3.html">occ.treas.gov/news-issuances/bulletins/2026/bulletin-2026-3</a></li>
+        <li id="s10">U.S. Bancorp Investor Relations, custody for reserves backing Anchorage Digital Bank payment stablecoins, October 8, 2025. <a href="https://ir.usbank.com/news-events/news/news-details/2025/U-S--Bank-selected-to-provide-custody-services-for-reserves-backing-payment-stablecoins-from-Anchorage-Digital-Bank/default.aspx">ir.usbank.com</a></li>
+        <li id="s11">CoinDesk, on the BlackRock Investment Institute 2026 Outlook (Samara Cohen on stablecoins as the bridge), December 3, 2025. <a href="https://www.coindesk.com/business/2025/12/03/u-s-debt-growth-will-drive-crypto-s-gains-blackrock-says-in-report-on-ai">coindesk.com</a></li>
+        <li id="s12">Anchorage Digital, "Anchorage Digital Issues USDtb, America's First Federally Regulated Stablecoin" (Anchorage's own characterization), October 14, 2025. <a href="https://www.anchorage.com/insights/anchorage-digital-issues-usdtb-americas-first-federally-regulated-stablecoin">anchorage.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell">
+    <p class="disc">DRAFT for Nathan McCauley / Anchorage Digital Research. Not for publication. Prepared by Winn.solutions for Anchorage. Principle-grade research; forward-looking capability, timeline, and partnership claims are gated pending demoable substance.</p>
+    <p class="stamp">Winn.solutions · Confidential · For the Anchorage team</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var bar=document.getElementById('progress');
+    function onScroll(){
+      var h=document.documentElement;
+      var max=(h.scrollHeight-h.clientHeight)||1;
+      bar.style.width=((h.scrollTop||document.body.scrollTop)/max*100)+'%';
+    }
+    document.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
