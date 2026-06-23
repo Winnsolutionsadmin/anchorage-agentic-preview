@@ -139,6 +139,39 @@ footer b{color:var(--brass);font-weight:500}
   body::before,.fog i{animation:none}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== doc-hub v7: belief column + deck/docx tags + sub-sprint grid ===== */
+.board.v7{grid-template-columns:minmax(268px,.8fr) minmax(0,2fr);align-items:start}
+@media(max-width:1080px){.board.v7{grid-template-columns:1fr}}
+.campaign-head{margin-top:18px}
+.ss-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.ss-grid{grid-template-columns:1fr}}
+.docnode{border:1px solid var(--ink-line);border-radius:12px;padding:14px 15px;background:var(--ink-2);
+  transition:border-color .35s var(--ease),box-shadow .35s var(--ease)}
+.docnode:hover{border-color:var(--brass-line);box-shadow:0 12px 30px rgba(0,0,0,.30)}
+.docnode.primary{border-left:3px solid var(--brass)}
+.docnode.disabled{opacity:.6}
+.docnode .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.docnode .type{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.docnode.child .type{color:var(--muted)}
+.docnode h3{font-family:var(--serif);font-weight:600;font-size:16px;margin:7px 0 4px;color:var(--paper);line-height:1.2}
+.ss-grid .docnode h3{font-size:14.5px}
+.docnode p{font-size:12px;color:var(--muted);margin:0;line-height:1.46}
+.tags{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 12px;border-radius:30px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--brass-line);color:var(--brass);background:var(--brass-soft);
+  transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease)}
+.tag.deck:hover{transform:translateY(-1px);border-color:var(--brass);background:rgba(216,169,74,.20)}
+.tag.hub{border-color:var(--signal-line);color:var(--signal);background:var(--signal-soft)}
+.tag.hub:hover{transform:translateY(-1px);border-color:var(--signal)}
+.tag.disabled{color:var(--muted-2);border-color:var(--ink-line);background:transparent;opacity:.5;cursor:not-allowed;pointer-events:none}
+.tag .x{opacity:.75}
+.ss-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-2);
+  margin:24px 0 2px;display:flex;align-items:center;gap:12px}
+.ss-label::after{content:"";flex:1;height:1px;background:var(--ink-line)}
+.ss-label .diamond{width:7px;height:7px;background:var(--brass);transform:rotate(45deg);display:inline-block}
+
 </style>
 </head>
 <body>
@@ -154,289 +187,108 @@ footer b{color:var(--brass);font-weight:500}
   </header>
 
   <div class="intro reveal">
-    <div class="eyebrow">GTM Program · Document Hub · H2 2026</div>
-    <h1 class="title">Every document in the program, by stage.</h1>
-    <p class="lead">One place for the whole engagement. Stages run left to right: what is <b>finalized</b>, what is <b>in production</b>, and what is <b>pending your review and greenlight</b>. Each deck branches to the documents it depends on, the way a thread branches to its companion posts.</p>
+    <div class="eyebrow">Agentic Banking · Sprint 1 · Document Hub · H2 2026</div>
+    <h1 class="title">The agentic banking launch, and its six sub-sprints.</h1>
+    <p class="lead">One campaign, run as <b>six sub-sprints</b>. The launch deck and its execution schedule sit at the top; each sub-sprint branches to the document it depends on. Every link points to its <b>live host</b>, so nothing breaks when shared. <b>Deck</b> opens the built artifact; <b>Docx</b> stays greyed until the Google Doc round lands.</p>
     <div class="legend">
-      <span class="lg"><i class="dot final"></i>Finalized</span>
-      <span class="lg"><i class="dot prod"></i>In production</span>
-      <span class="lg"><i class="dot pending"></i>Pending review</span>
-      <span class="lg"><i class="dot plan"></i>Drafting / on bench</span>
-      <span class="br"><i class="diamond"></i>branches to its associated documents</span>
+      <span class="lg"><i class="dot final"></i>Finalized · live</span>
+      <span class="lg"><i class="dot pending"></i>Built · pending greenlight</span>
+      <span class="lg"><i class="dot plan"></i>Not yet built</span>
+      <span class="br"><i class="diamond"></i>branches to its associated document</span>
     </div>
   </div>
 
-  <div class="board">
+  <div class="board v7">
 
-    <!-- ============ COLUMN 1 · FINALIZED ============ -->
+    <!-- ============ LEFT · FINALIZED · BELIEF FIELDS ============ -->
     <section class="col c-final reveal">
       <div class="col-head">
         <div class="col-kicker"><span>Finalized</span><span class="col-count">Signed off · live</span></div>
-        <h2>The strategy</h2>
-        <p class="col-sub">The H2 2026 strategy, approved and live. The foundation every sprint is measured against.</p>
+        <h2>Belief fields</h2>
+        <p class="col-sub">The research-grade belief maps the voice and content are built from. One per principal.</p>
       </div>
 
       <div class="node">
-        <a class="doc primary" href="https://winnsolutionsadmin.github.io/anchorage-deck-3662c8/" target="_blank" rel="noopener">
-          <div class="top"><span class="type">Strategy Deck</span><span class="st st-final">Finalized</span></div>
-          <h3>The Anchorage Strategy · H2 2026</h3>
-          <p>The full interactive scrollytelling deck. Nathan as the AI opinion leader; Anchorage as the regulated rail for agentic finance.</p>
-          <div class="go">open ↗</div>
-        </a>
-        <div class="branches">
-          <div class="branch">
-            <a class="doc child" href="research-institutionalization-of-crypto.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Research Paper</span><span class="st st-ready">Foundational · draft</span></div>
-              <h3>The Institutionalization of Crypto</h3>
-              <p>The flagship research thesis underpinning the strategy.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="h2-strategy-master.docx">
-              <div class="top"><span class="type">Word Master</span><span class="st st-final">Finalized</span></div>
-              <h3>H2 Strategy · Master (Word)</h3>
-              <p>The content-parity Word version, for commenting. Download.</p>
-              <div class="go">download ↓</div>
-            </a>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="research-agenda-2026.docx">
-              <div class="top"><span class="type">Word Doc</span><span class="st st-ready">Reference</span></div>
-              <h3>Research Agenda 2026</h3>
-              <p>The standing slate of research the program draws from. Download.</p>
-              <div class="go">download ↓</div>
-            </a>
-          </div>
+        <div class="docnode primary">
+          <div class="top"><span class="type">Belief Field</span><span class="st st-final">Finalized</span></div>
+          <h3>Nathan McCauley</h3>
+          <p>32 public beliefs · 883 sourced quotes. The canonical 3D belief-field map and explorer.</p>
+          <div class="tags"><a class="tag hub" href="https://winnsolutionsadmin.github.io/belief-field/" target="_blank" rel="noopener">Open hub <span class="x">↗</span></a></div>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="docnode primary disabled">
+          <div class="top"><span class="type">Belief Field</span><span class="st st-plan">Not yet built</span></div>
+          <h3>Viktor</h3>
+          <p>Builder-AMA host for Sprint 1 (SS-2). Belief field not yet built.</p>
+          <div class="tags"><span class="tag hub disabled">Hub pending</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ COLUMN 2 · IN PRODUCTION ============ -->
-    <section class="col c-prod reveal">
-      <div class="col-head">
-        <div class="col-kicker"><span>In Production</span><span class="col-count">Sprints 2–5 · building</span></div>
-        <h2>The sprints</h2>
-        <p class="col-sub">Belief-led, mostly non-agentic sprints across the pillars, in active production with their research papers and content maps.</p>
-      </div>
-
-      <!-- Sprint 2 -->
-      <div class="node">
-        <a class="doc primary" href="anchorage-sprint2-stablecoins.html" target="_blank" rel="noopener">
-          <div class="top"><span class="type">Sprint 2 · Stablecoins</span><span class="st st-prod">In production</span></div>
-          <h3>Replatforming the Dollar</h3>
-          <p>Neutrality by design: a regulated bank makes any compliant dollar safe, without picking a winner.</p>
-          <div class="go">open ↗</div>
-        </a>
-        <div class="branches">
-          <div class="branch">
-            <a class="doc child" href="research-issuer-war-wrong-war.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Research Paper</span><span class="st st-prod">Ready</span></div>
-              <h3>The Issuer War Is the Wrong War</h3>
-              <p>The case for neutral, regulated settlement.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="anchorage-sprint2-stablecoins.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Content Map</span><span class="st st-prod">In deck</span></div>
-              <h3>Content library · 12 paired posts</h3>
-              <p>Nathan tweets paired with @Anchorage companions, gated by phase.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch plan">
-            <div class="doc child disabled">
-              <div class="top"><span class="type">Interview</span><span class="st st-plan">Planned</span></div>
-              <h3>Partner conversation</h3>
-              <p>Category-level, friendly-only. Candidate sourcing in progress.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sprint 3 -->
-      <div class="node">
-        <a class="doc primary" href="anchorage-sprint3-security.html" target="_blank" rel="noopener">
-          <div class="top"><span class="type">Sprint 3 · Security</span><span class="st st-prod">In production</span></div>
-          <h3>A Thousand Things to Get Right</h3>
-          <p>Secure by default; transparency plus federal oversight as best-in-breed trust.</p>
-          <div class="go">open ↗</div>
-        </a>
-        <div class="branches">
-          <div class="branch plan">
-            <div class="doc child disabled">
-              <div class="top"><span class="type">Research Paper</span><span class="st st-plan">Drafting</span></div>
-              <h3>A Thousand Things to Get Right</h3>
-              <p>Secure-by-default trust as the moat. In drafting.</p>
-            </div>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="anchorage-sprint3-security.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Content Map</span><span class="st st-prod">In deck</span></div>
-              <h3>Content library · 12 paired posts</h3>
-              <p>The drafted, gated content run for the sprint.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch plan">
-            <div class="doc child disabled">
-              <div class="top"><span class="type">Interview</span><span class="st st-plan">Planned</span></div>
-              <h3>Google Cloud · a16z · security voice</h3>
-              <p>Secure-infra beat, friendly-only. Candidates identified.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sprint 4 -->
-      <div class="node">
-        <a class="doc primary" href="anchorage-sprint4-regulation.html" target="_blank" rel="noopener">
-          <div class="top"><span class="type">Sprint 4 · Regulation</span><span class="st st-prod">In production</span></div>
-          <h3>Two Sides of the Same Token</h3>
-          <p>Fair access and due process; volunteering for regulation as the rulebook for autonomous money.</p>
-          <div class="go">open ↗</div>
-        </a>
-        <div class="branches">
-          <div class="branch plan">
-            <div class="doc child disabled">
-              <div class="top"><span class="type">Research Paper</span><span class="st st-plan">Drafting</span></div>
-              <h3>Two Sides of the Same Token</h3>
-              <p>Fair access and due process; debanking as procedural injustice. In drafting.</p>
-            </div>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="anchorage-sprint4-regulation.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Content Map</span><span class="st st-prod">In deck</span></div>
-              <h3>Content library · 12 paired posts</h3>
-              <p>The drafted, gated content run for the sprint.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch plan">
-            <div class="doc child disabled">
-              <div class="top"><span class="type">Interview</span><span class="st st-plan">Planned</span></div>
-              <h3>Policy / regulation voice</h3>
-              <p>Category-level conversation, friendly-only.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sprint 5 / Bench -->
-      <div class="node">
-        <div class="doc primary disabled">
-          <div class="top"><span class="type">Sprint 5 · Institutions</span><span class="st st-plan">On bench</span></div>
-          <h3>Every Bank Becomes a Crypto Bank</h3>
-          <p>The enabling-infrastructure bank-for-banks motion. Themed and ready to design in full when scheduled.</p>
-        </div>
-        <div class="branches">
-          <div class="branch">
-            <a class="doc child" href="research-101-percent-problem.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Research Paper</span><span class="st st-prod">Ready</span></div>
-              <h3>The 101% Problem</h3>
-              <p>Tokenization is inevitable. Its business model is not.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch plan">
-            <div class="doc child disabled">
-              <div class="top"><span class="type">Interview</span><span class="st st-plan">Planned</span></div>
-              <h3>Visa · Cantor Fitzgerald · regional bank</h3>
-              <p>An enabling-layer conversation. Candidates identified.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ COLUMN 3 · PENDING REVIEW ============ -->
+    <!-- ============ RIGHT · THE AGENTIC CAMPAIGN ============ -->
     <section class="col c-pending reveal">
       <div class="col-head">
-        <div class="col-kicker"><span>Pending Review / Greenlight</span><span class="col-count">Awaiting your sign-off</span></div>
-        <h2>For your review</h2>
-        <p class="col-sub">Built and ready, waiting on your greenlight: the campaign overview, the first sprint and its assets, and the supporting analysis.</p>
+        <div class="col-kicker"><span>The Agentic Campaign</span><span class="col-count">Sprint 1 · pending greenlight</span></div>
+        <h2>The agentic banking launch</h2>
+        <p class="col-sub">The one agentic-led sprint, built and ready for flight: the launch deck, the execution schedule, and the six sub-sprints that feed the funnel.</p>
       </div>
 
-      <!-- Master campaign deck -->
-      <div class="node">
-        <a class="doc primary" href="anchorage-campaign-overview.html" target="_blank" rel="noopener">
-          <div class="top"><span class="type">Master Campaign Deck</span><span class="st st-pending">Pending review</span></div>
-          <h3>The Anchorage Campaign · Master Overview</h3>
-          <p>The top-level map: one belief-led campaign run as five sprints across the pillars, on a single interactive timeline.</p>
-          <div class="go">open ↗</div>
-        </a>
-        <div class="branches">
-          <div class="branch">
-            <a class="doc child" href="execution-schedule.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Schedule</span><span class="st st-pending">v1</span></div>
-              <h3>Execution Schedule</h3>
-              <p>Everything upcoming and slotted, on one timeline.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sprint 1 -->
-      <div class="node">
-        <a class="doc primary" href="anchorage-agentic-launch-sprint.html" target="_blank" rel="noopener">
-          <div class="top"><span class="type">Sprint 1 · Agentic Banking</span><span class="st st-pending">Ready for flight</span></div>
+      <div class="campaign-head">
+        <div class="docnode primary">
+          <div class="top"><span class="type">Sprint 1 · Launch Deck</span><span class="st st-pending">Ready for flight</span></div>
           <h3>The Agentic Banking Launch</h3>
-          <p>Built, not yet launched. The one agentic-led sprint: KYA, the allowance model, and the waitlist. Awaiting greenlight.</p>
-          <div class="go">open ↗</div>
-        </a>
-        <div class="branches">
-          <div class="branch">
-            <a class="doc child" href="research-agent-underwriting-gap.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Research Paper</span><span class="st st-ready">Ready</span></div>
-              <h3>The Agent Underwriting Gap</h3>
-              <p>What an agent needs before it touches money.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="research-custody-age-of-agents.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Research Paper</span><span class="st st-ready">Ready</span></div>
-              <h3>Custody in the Age of Agents</h3>
-              <p>Give the agent an allowance, not the keys.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="sprint1-onepager.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">One-Pager</span><span class="st st-ready">Ready</span></div>
-              <h3>Sprint 1 One-Pager</h3>
-              <p>The single-page summary of the launch sprint.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch">
-            <a class="doc child" href="who-banks-the-agents-megadeck.html" target="_blank" rel="noopener">
-              <div class="top"><span class="type">Supporting Deck</span><span class="st st-ready">Ready</span></div>
-              <h3>Who Banks the Agents? · Megadeck</h3>
-              <p>The long-form supporting deck behind the launch thesis.</p>
-              <div class="go">open ↗</div>
-            </a>
-          </div>
-          <div class="branch plan">
-            <div class="doc child disabled">
-              <div class="top"><span class="type">Interview</span><span class="st st-plan">Friendly-only</span></div>
-              <h3>Ribbit Capital · Micky Malka</h3>
-              <p>Founder-to-investor on why the agent economy needs a chartered trust anchor.</p>
-            </div>
-          </div>
+          <p>Built, not yet launched: KYA, the allowance model, and the waitlist. The full interactive sprint deck. Awaiting greenlight.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
         </div>
       </div>
 
-      <!-- Signal audit -->
-      <div class="node">
-        <a class="doc primary" href="anchorage-signal-audit.html" target="_blank" rel="noopener">
-          <div class="top"><span class="type">Analysis</span><span class="st st-pending">Pending review</span></div>
-          <h3>The Signal Audit</h3>
-          <p>What wins in the field: the read of Anchorage's own posts and the competitor landscape that the campaign is built on.</p>
-          <div class="go">open ↗</div>
-        </a>
+      <div class="ss-label"><i class="diamond"></i>Depends on · execution &amp; the six sub-sprints</div>
+
+      <div class="ss-grid">
+        <div class="docnode child">
+          <div class="top"><span class="type">Schedule</span><span class="st st-pending">v1</span></div>
+          <h3>Execution Schedule</h3>
+          <p>Everything upcoming and slotted, on one timeline.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/execution-schedule.html" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
+        </div>
+        <div class="docnode child">
+          <div class="top"><span class="type">SS-1 · T+1 · Research Paper</span></div>
+          <h3>Who Banks the Agents</h3>
+          <p>The credibility engine of the sprint — the source every paper-phase post is chopped from. Drops as a thread.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/who-banks-the-agents-v2.html" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
+        </div>
+        <div class="docnode child">
+          <div class="top"><span class="type">SS-2 · T-0 · Live Interview</span></div>
+          <h3>Nathan × Micky Malka, + builder AMA</h3>
+          <p>The fireside (airs T-0) and the builder AMA (T+6), hosted by Viktor. The partner proof, in public.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html#ss-2" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
+        </div>
+        <div class="docnode child">
+          <div class="top"><span class="type">SS-3 · T-2 · Video</span></div>
+          <h3>Nathan’s video</h3>
+          <p>The reveal: a raw selfie where the breadcrumbs resolve into a committed direction.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html#ss-3" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
+        </div>
+        <div class="docnode child">
+          <div class="top"><span class="type">SS-4 · Script</span></div>
+          <h3>Nathan’s script</h3>
+          <p>What Nathan actually says — the start-of-a-new-frontier selfie, his to amend or re-record.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html#ss-4" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
+        </div>
+        <div class="docnode child">
+          <div class="top"><span class="type">SS-5 · T+7 · Recruiting</span></div>
+          <h3>Agentic recruiting</h3>
+          <p>Recruiting agentic engineers: builders who can prompt, direct, and bound AI agents.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html#ss-5" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
+        </div>
+        <div class="docnode child">
+          <div class="top"><span class="type">SS-6 · T-2→T-0 · Press</span></div>
+          <h3>Press &amp; embargo briefing</h3>
+          <p>The embargoed press headline under the campaign banner: agentic accountability starts with an anchor.</p>
+          <div class="tags"><a class="tag deck" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-agentic-launch-sprint.html#ss-6" target="_blank" rel="noopener">Deck <span class="x">↗</span></a><span class="tag docx disabled">Docx</span></div>
+        </div>
       </div>
     </section>
 
