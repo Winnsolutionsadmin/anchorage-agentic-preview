@@ -4,10 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
-<title>The Anchorage Strategy · AI &amp; Agentic GTM · v3</title>
+<title>The Anchorage Strategy · AI &amp; Agentic GTM · v4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
 :root{
   --ink:#0A1726;--ink-2:#0E2034;--ink-3:#13283F;
@@ -21,14 +21,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:var(--text);font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.62;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(1100px 700px at 78% -8%, rgba(216,169,74,.13), transparent 60%),radial-gradient(900px 800px at 12% 20%, rgba(116,184,199,.06), transparent 55%),radial-gradient(900px 700px at 30% 60%, rgba(216,169,74,.06), transparent 60%),radial-gradient(1200px 1000px at 50% 120%, rgba(19,40,63,.7), transparent 60%);
-  background-size:175% 175%;animation:fog 44s ease-in-out infinite alternate}
-@keyframes fog{0%{background-position:0% 12%;opacity:.42}50%{background-position:62% 50%;opacity:.64}100%{background-position:26% 86%;opacity:.5}}
-body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .wrap{position:relative;z-index:2}
-#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:linear-gradient(90deg,var(--brass),#f0d089);box-shadow:0 0 14px rgba(216,169,74,.6)}
 
 .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);display:flex;align-items:center;gap:12px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--brass);opacity:.7}
@@ -43,7 +36,6 @@ em{font-style:italic}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 
 .callout{position:relative;background:linear-gradient(180deg,var(--ink-2),rgba(14,32,52,.55));border:1px solid var(--ink-line);border-left:2px solid var(--brass);border-radius:12px;padding:26px 30px;margin:34px 0 0;max-width:var(--col)}
 .callout .clabel{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
@@ -105,12 +97,6 @@ em{font-style:italic}
 .bf-stats .s .n{font-family:var(--serif);font-weight:600;font-size:26px;color:var(--brass);line-height:1}
 .bf-stats .s .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 
-footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line);position:relative;z-index:2}
-.foot-in{max-width:var(--maxw);margin:0 auto}
-.foot-thesis{font-family:var(--serif);font-size:clamp(24px,3.4vw,38px);font-weight:600;line-height:1.18;max-width:22ch}
-.foot-thesis b{color:var(--brass)}
-.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;margin-top:46px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted-2);text-transform:uppercase}
-
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
 /* belief->brand cascade cards */
 .casc-belief{font-style:italic;font-family:var(--serif);font-size:15px;color:#DDE4EC;border-left:2px solid var(--brass);padding-left:13px;line-height:1.45}
@@ -119,7 +105,6 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
 <style>
   /* ===== 16:9 slide framing on top of the house-style base ===== */
   html,body{overflow-x:hidden;background:#070f1a}
-  body::before,body::after{display:none}
   .deck{display:flex;flex-direction:column;align-items:center;gap:26px;padding:34px 0 60px}
   .slide{width:1280px;height:720px;position:relative;overflow:hidden;flex:0 0 auto;
     background:var(--ink);border:1px solid var(--ink-line);border-radius:6px;
@@ -130,8 +115,6 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
       radial-gradient(900px 600px at 84% -12%, rgba(216,169,74,.15), transparent 60%),
       radial-gradient(760px 680px at 8% 16%, rgba(116,184,199,.07), transparent 55%),
       radial-gradient(1000px 820px at 50% 124%, rgba(19,40,63,.75), transparent 60%)}
-  .slide::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   .slide>*{position:relative;z-index:2;width:100%;max-width:none}
   .slide .reveal{opacity:1;transform:none}
   .slide p{max-width:none}
@@ -181,32 +164,18 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
   .slide .osmosis{flex-direction:row}
   .slide .osmosis .mid{flex:0 0 120px;width:auto;align-self:stretch;border-top:none;border-bottom:none;border-left:1px solid var(--ink-line);border-right:1px solid var(--ink-line)}
 
-  /* ===== v3 image-slide helpers (layout only, house tokens) ===== */
-  .slide.imgslide{justify-content:flex-start;padding-top:54px}
-  .imghead{flex:0 0 auto}
-  .imgwrap{flex:1 1 auto;display:flex;align-items:center;justify-content:center;margin-top:18px;min-height:0;width:100%}
-  .imgwrap img{max-width:100%;max-height:560px;width:auto;height:auto;object-fit:contain;border-radius:8px;border:1px solid var(--ink-line);background:#0b1422}
-  .imgcap{flex:0 0 auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted-2);margin-top:12px}
-  .imgcap b{color:var(--brass);font-weight:500}
+  /* ===== belief-field image slide (the ONE allowed raster, the WebGL 3D viz) ===== */
+  .slide.bfslide{justify-content:flex-start;padding-top:54px}
+  .bfhead{flex:0 0 auto}
+  .bfwrap{flex:1 1 auto;display:flex;align-items:center;justify-content:center;margin-top:14px;min-height:0;width:100%}
+  .bfwrap img{max-width:100%;max-height:476px;width:auto;height:auto;object-fit:contain;border-radius:8px;border:1px solid var(--ink-line);background:#0b1422}
+  .bfcap{flex:0 0 auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted-2);margin-top:12px;text-align:center}
+  .bfcap b{color:var(--brass);font-weight:500}
 
-  /* two-column: text left, tall image right */
-  .twocol{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;margin-top:22px;width:100%;min-height:0}
-  .twocol .tc-text{min-width:0}
-  .twocol .tc-img{display:flex;align-items:center;justify-content:center;min-width:0;height:100%}
-  .twocol .tc-img img{max-width:100%;max-height:600px;width:auto;height:auto;object-fit:contain;border-radius:8px;border:1px solid var(--ink-line);background:#0b1422}
-  .tc-list{list-style:none;margin:18px 0 0;padding:0}
-  .tc-list li{position:relative;padding:9px 0 9px 20px;border-top:1px solid var(--ink-line-2);font-size:15px;color:var(--muted);line-height:1.5}
-  .tc-list li:first-child{border-top:none}
-  .tc-list li::before{content:"";position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;background:var(--brass)}
-  .tc-list li b{color:var(--text)}
-
-  /* near-full-bleed landscape image slide */
-  .slide.imgfull{justify-content:flex-start;padding:0}
-  .imgfull .ifbar{position:absolute;top:0;left:0;right:0;z-index:4;padding:22px 84px 16px;background:linear-gradient(180deg,rgba(7,15,26,.92),rgba(7,15,26,.55) 70%,transparent);border-bottom:1px solid var(--ink-line-2)}
-  .imgfull .ifbar .eyebrow{margin-bottom:7px}
-  .imgfull .ifbar h2{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.06;margin:0;letter-spacing:-.01em}
-  .imgfull .iffill{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;padding:96px 40px 40px}
-  .imgfull .iffill img{max-width:100%;max-height:560px;width:auto;height:auto;object-fit:contain}
+  /* ===== native inlined-infographic frame ===== */
+  .igslide{justify-content:flex-start;padding:0}
+  .igframe{position:absolute;inset:0;overflow:hidden}
+  .igscaler{position:absolute;top:0;left:0;transform-origin:top left}
 
   @media print{
     html,body{background:#fff}
@@ -215,6 +184,61 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
     .slide:last-child{page-break-after:auto}
   }
   @page{size:1280px 720px;margin:0}
+</style>
+
+<!-- ================= NAMESPACED INFOGRAPHIC CSS (prefixed so tokens cannot collide with the deck) ================= -->
+<style>
+/* ---------- ig-capmatrix (capability matrix) ---------- */
+.ig-capmatrix{--navy:#08111f;--navy2:#0d1b2e;--panel:#10213a;--panel2:#142845;--ink:#eaf0f8;--muted:#8ba0bd;--faint:#5d7290;
+  --brass:#cda349;--brass2:#e3c578;--brassd:#9a7a2e;--red:#d8654f;--green:#5fb98a;--line:rgba(159,184,219,.13);--line2:rgba(159,184,219,.22);
+  background:radial-gradient(1200px 600px at 80% -10%,rgba(205,163,73,.10),transparent 60%),radial-gradient(900px 500px at -10% 20%,rgba(109,181,214,.07),transparent 55%),var(--navy);
+  color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;width:1280px;min-height:720px;padding:0}
+.ig-capmatrix .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.ig-capmatrix .serif{font-family:'Fraunces',Georgia,serif}.ig-capmatrix .mono{font-family:'IBM Plex Mono',monospace}
+.ig-capmatrix section{padding:46px 0}
+.ig-capmatrix .sh{display:flex;align-items:baseline;gap:16px;margin-bottom:10px}
+.ig-capmatrix .sn{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--brass)}
+.ig-capmatrix h2{font-family:'Fraunces',serif;font-weight:600;font-size:32px;margin:0;letter-spacing:-.01em;max-width:none}
+.ig-capmatrix .ss{color:var(--muted);font-size:15.5px;max-width:1040px;margin:8px 0 26px}.ig-capmatrix .ss b{color:var(--ink)}
+.ig-capmatrix .mtx{overflow:hidden;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.ig-capmatrix table.cap{width:100%;border-collapse:collapse}
+.ig-capmatrix table.cap th,.ig-capmatrix table.cap td{padding:13px 12px;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line);vertical-align:middle}
+.ig-capmatrix table.cap th{font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:500;background:var(--navy2)}
+.ig-capmatrix table.cap th.catcol,.ig-capmatrix table.cap td.catcol{text-align:left;min-width:240px;max-width:240px}
+.ig-capmatrix table.cap td.catcol{font-size:13px;line-height:1.4}
+.ig-capmatrix table.cap td.catcol .cat-name{font-weight:700;color:var(--ink)}
+.ig-capmatrix table.cap td.catcol .cat-sub{font-family:'IBM Plex Mono';font-size:9.5px;color:var(--faint);letter-spacing:.02em;margin-top:3px;text-transform:none}
+.ig-capmatrix table.cap th.anccol{color:var(--red);background:linear-gradient(180deg,rgba(216,101,79,.14),var(--navy2))}
+.ig-capmatrix table.cap td.anccell{background:rgba(216,101,79,.05)}
+.ig-capmatrix table.cap tr:last-child td{border-bottom:none}
+.ig-capmatrix table.cap td:last-child,.ig-capmatrix table.cap th:last-child{border-right:none}
+.ig-capmatrix .dot{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-family:'IBM Plex Mono';font-size:13px;font-weight:600}
+.ig-capmatrix .dot.yes{background:rgba(95,185,138,.16);color:var(--green);border:1px solid rgba(95,185,138,.4)}
+.ig-capmatrix .dot.no{color:var(--faint);font-size:15px}
+.ig-capmatrix .dot.gap{background:rgba(216,101,79,.16);color:var(--red);border:1px solid rgba(216,101,79,.45);font-weight:700}
+.ig-capmatrix .mtxlegend{font-family:'IBM Plex Mono';font-size:10px;color:var(--faint);letter-spacing:.04em;margin:14px 0 0;display:flex;gap:20px;flex-wrap:wrap}
+.ig-capmatrix .mtxlegend span{display:inline-flex;align-items:center;gap:7px}
+
+/* ---------- ig-aigap (agentic shipping gap, ranked bars, rendered native, no JS) ---------- */
+.ig-aigap{--navy:#08111f;--navy2:#0d1b2e;--panel:#10213a;--panel2:#142845;--ink:#eaf0f8;--muted:#8ba0bd;--faint:#5d7290;
+  --brass:#cda349;--brass2:#e3c578;--brassd:#9a7a2e;--red:#d8654f;--green:#5fb98a;--line:rgba(159,184,219,.13);--line2:rgba(159,184,219,.22)}
+.ig-aigap .verdict{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;
+  padding:22px 28px;background:linear-gradient(135deg,var(--panel),var(--navy2));
+  border:1px solid var(--line2);border-left:3px solid var(--red);border-radius:6px}
+.ig-aigap .verdict .big{font-family:'Fraunces',serif;font-weight:600;font-size:84px;line-height:.82;color:var(--red);letter-spacing:-.03em;text-align:center}
+.ig-aigap .verdict .big span{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);letter-spacing:.2em;margin-top:12px;text-transform:uppercase;font-weight:400}
+.ig-aigap .verdict .vtext{font-size:15.5px;line-height:1.55;color:var(--ink);max-width:none}
+.ig-aigap .verdict .vtext b{color:var(--brass2);font-weight:700}
+.ig-aigap .bars{display:flex;flex-direction:column;gap:11px}
+.ig-aigap .bar-row{display:grid;grid-template-columns:200px 1fr 52px;align-items:center;gap:18px}
+.ig-aigap .bar-name{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);text-align:right;letter-spacing:.02em}
+.ig-aigap .bar-track{height:26px;background:rgba(159,184,219,.06);border-radius:3px;overflow:hidden;position:relative}
+.ig-aigap .bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--brassd),var(--brass2))}
+.ig-aigap .bar-val{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--brass2)}
+.ig-aigap .bar-cats{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--faint);letter-spacing:.02em;text-transform:uppercase;margin-top:3px}
+.ig-aigap .bar-row.zero .bar-name{color:var(--red);font-weight:600}
+.ig-aigap .bar-row.zero .bar-fill{background:repeating-linear-gradient(45deg,rgba(216,101,79,.32),rgba(216,101,79,.32) 7px,rgba(216,101,79,.12) 7px,rgba(216,101,79,.12) 14px);width:6px;border-right:2px solid var(--red)}
+.ig-aigap .bar-row.zero .bar-val{color:var(--red)}
 </style>
 </head>
 <body>
@@ -242,25 +266,22 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
     <div class="srule"></div>
   </div>
 
-  <!-- 03 the framework, belief-rooted multi-phase (TALL IMAGE: ig-phases-beliefcore.png) -->
-  <div class="slide imgslide">
+  <!-- 03 the framework, belief-rooted multi-phase -->
+  <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
-    <div class="imghead">
-      <div class="eyebrow">The framework · belief-rooted, multi-phase</div>
-      <h2 class="sect" style="font-size:33px">Every phase grows out of one belief core.</h2>
+    <div class="eyebrow">The framework · belief-rooted, multi-phase</div>
+    <h2 class="sect" style="font-size:34px">Every phase grows out of one belief core.</h2>
+    <p class="lead muted" style="margin-top:14px;max-width:90ch">The campaign is not a content calendar. It is a tree. Nathan's convictions are the root system, and each phase, the tease, the announce, the proof, the co-sign, draws from the same belief core, so the message never drifts off who he actually is.</p>
+    <div class="flow" style="margin-top:26px">
+      <div class="fstage on"><div class="fk">Root · the belief field</div><div class="ft">33 beliefs, sourced verbatim</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fstage"><div class="fk">Phase 1 · tease</div><div class="ft">Land the belief in Nathan's voice, no product</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fstage"><div class="fk">Phase 2 · announce</div><div class="ft">The Agentic Banking declaration, one native thread</div></div>
+      <div class="farrow">&rarr;</div>
+      <div class="fstage"><div class="fk">Phase 3 · proof &amp; co-sign</div><div class="ft">Third parties speak the language back</div></div>
     </div>
-    <div class="twocol">
-      <div class="tc-text">
-        <p class="lead muted" style="margin-top:0">The campaign is not a content calendar. It is a tree. Nathan's convictions are the root system, and each phase, the tease, the announce, the proof, the co-sign, draws from the same belief core, so the message never drifts off who he actually is.</p>
-        <ul class="tc-list">
-          <li><b>Root.</b> The harvested belief field, 33 beliefs, sourced verbatim.</li>
-          <li><b>Phase 1, tease.</b> Land the belief in Nathan's voice, no product.</li>
-          <li><b>Phase 2, announce.</b> The Agentic Banking declaration, one native thread.</li>
-          <li><b>Phase 3, proof and co-sign.</b> Third parties speak the language back.</li>
-        </ul>
-      </div>
-      <div class="tc-img"><img src="exec-deck-assets/ig-phases-beliefcore.png" alt="Belief-rooted multi-phase framework: phases growing from a belief core" /></div>
-    </div>
+    <div class="casc-belief" style="margin-top:28px;max-width:none"><span class="cb-lab">The arc, not a checklist</span>Phase 1 opens attention Nathan owns; 2 gives it a destination and a reason to believe; 3 makes it credible and lets the market echo it back.</div>
     <div class="srule"></div>
   </div>
 
@@ -283,14 +304,16 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
     <div class="srule"></div>
   </div>
 
-  <!-- 05 belief field (LANDSCAPE FULL-BLEED: belief-field.png) -->
-  <div class="slide imgfull">
-    <div class="sbrand" style="z-index:5">The Anchorage Strategy</div>
-    <div class="ifbar">
+  <!-- 05 belief field (the ONE allowed raster: the WebGL 3D viz, sized to fit) -->
+  <div class="slide bfslide">
+    <div class="sbrand">The Anchorage Strategy</div>
+    <div class="bfhead">
       <div class="eyebrow">The evidence · the belief field</div>
-      <h2>We are not building a thought leader. We are surfacing one already on the record.</h2>
+      <h2 class="sect" style="font-size:30px;margin-top:10px;max-width:none">We are not building a thought leader. We are surfacing one already on the record.</h2>
     </div>
-    <div class="iffill"><img src="exec-deck-assets/belief-field.png" alt="Nathan McCauley belief field: 33 beliefs across 7 sectors, each sourced to a dated public appearance" /></div>
+    <div class="bfwrap"><img src="exec-deck-assets/belief-field.png" alt="Nathan McCauley belief field: 33 beliefs across 7 sectors, each sourced to a dated public appearance, rendered as an interactive 3D map" /></div>
+    <div class="bfcap"><b>The interactive 3D belief field</b> &middot; 33 beliefs across 7 sectors, each node sourced to a dated public appearance.</div>
+    <div class="srule" style="bottom:22px"></div>
   </div>
 
   <!-- 06 belief field, the receipts -->
@@ -308,7 +331,7 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
       <div class="callout" style="margin:0"><div class="clabel">Agentic banking · S24 · core</div><p>Know Your Agent, a verifiable identity with an accountable human. The allowance model, where controls are what let it scale. <b>Both verified.</b></p></div>
       <div class="callout warn" style="margin:0"><div class="clabel">Pioneer · S2 / S5 / S31 · core</div><p>The charter framed as a trailblazing act. "Never been a better time to make their move." <b>Both verified.</b></p></div>
     </div>
-    <p class="lead muted" style="font-size:15px;margin-top:18px">Every claim is sourced to a dated public appearance. The full interactive field is the next surface we render.</p>
+    <p class="lead muted" style="font-size:15px;margin-top:18px">Every claim is sourced to a dated public appearance. The full interactive field is the surface we render next.</p>
     <div class="srule"></div>
   </div>
 
@@ -330,56 +353,95 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
     <div class="srule"></div>
   </div>
 
-  <!-- 08 the AI gap: Anchorage ships LESS AI (LANDSCAPE: ig-capability-matrix.png, large) -->
-  <div class="slide imgslide">
-    <div class="sbrand">The Anchorage Strategy</div>
-    <div class="imghead">
-      <div class="eyebrow">The hard truth · the capability matrix</div>
-      <h2 class="sect" style="font-size:33px">Best foundation in the field. Shipping the least visible AI.</h2>
-    </div>
-    <div class="imgwrap"><img src="exec-deck-assets/ig-capability-matrix.png" alt="Capability matrix: AI and agentic features shipped by Anchorage vs competitors, with Anchorage's row largely blank" /></div>
-    <div class="imgcap"><b>Read:</b> rivals are publicly shipping agent-facing AI. Anchorage's row is where the work is. The standing is ours to lose on execution, not on regulatory position.</div>
-    <div class="srule"></div>
-  </div>
-
-  <!-- 09 THE PAXOS PROOF (text-led callout + supporting gap image) -->
-  <div class="slide imgslide">
-    <div class="sbrand">The Anchorage Strategy</div>
-    <div class="imghead">
-      <div class="eyebrow">The proof · this is already costing deals</div>
-      <h2 class="sect" style="font-size:32px">Best regulatory foundation in the field. Already losing deals on AI execution.</h2>
-    </div>
-    <div class="twocol" style="grid-template-columns:1.15fr .85fr;margin-top:18px">
-      <div class="tc-text">
-        <div class="callout" style="margin-top:0;max-width:none">
-          <div class="clabel">Zev · internal · audio-verify pending</div>
-          <p style="font-size:16px;line-height:1.5">"We won the Western Union issuance deal, but they went to somebody else, Paxos, for the orchestration, payouts, and token management, because they didn't feel like we had that tech in-house."</p>
+  <!-- 08 the capability matrix · NATIVELY INLINED ig-capability-matrix -->
+  <div class="slide igslide" data-ig="capmatrix">
+    <div class="sbrand" style="z-index:6">The Anchorage Strategy</div>
+    <div class="igframe">
+      <div class="igscaler">
+        <div class="ig ig-capmatrix">
+          <div class="wrap">
+            <section>
+              <div class="sh"><span class="sn">01</span><h2 class="serif">The core agentic matrix, what rivals ship, where Anchorage is the whitespace</h2></div>
+              <p class="ss">The five core agentic capability categories competitors run as <b>live, named, externally-integrated product</b>. A filled cell means a shipped capability in-window (Oct 2025 to May 2026). Anchorage's row is the whitespace: one announced-only category, otherwise empty. <b>Every red cell is a category a rival has already shipped.</b> The standing is ours to win on execution, not on regulatory position.</p>
+              <div class="mtx"><table class="cap">
+                <thead><tr>
+                  <th class="catcol">Core agentic category</th>
+                  <th>Coinbase</th><th>Coinbase Inst.</th><th>BitGo</th><th>Robinhood</th><th>Fireblocks</th><th>Tempo</th><th class="anccol">Anchorage</th>
+                </tr></thead>
+                <tbody>
+                  <tr>
+                    <td class="catcol"><div class="cat-name">Agent payment rails</div><div class="cat-sub">open agent-to-agent / agent-initiated payment protocol (x402 · MPP)</div></td>
+                    <td><i class="dot yes">&#10003;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot yes">&#10003;</i></td><td class="anccell"><i class="dot gap">&#10007;</i></td>
+                  </tr>
+                  <tr>
+                    <td class="catcol"><div class="cat-name">Agentic trading</div><div class="cat-sub">external AI agent autonomously places &amp; rebalances trades</div></td>
+                    <td><i class="dot no">&middot;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot yes">&#10003;</i></td><td class="anccell"><i class="dot gap">&#10007;</i></td>
+                  </tr>
+                  <tr>
+                    <td class="catcol"><div class="cat-name">MCP / agent tooling</div><div class="cat-sub">MCP / CLI server exposing custody+wallet ops to any LLM</div></td>
+                    <td><i class="dot no">&middot;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot no">&middot;</i></td><td class="anccell"><i class="dot gap">&#10007;</i></td>
+                  </tr>
+                  <tr>
+                    <td class="catcol"><div class="cat-name">AI assistant / copilot</div><div class="cat-sub">in-product AI that explains markets and executes</div></td>
+                    <td><i class="dot no">&middot;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot yes">&#10003;</i></td><td class="anccell"><i class="dot gap">&#10007;</i></td>
+                  </tr>
+                  <tr>
+                    <td class="catcol"><div class="cat-name">Agent-ready spend card</div><div class="cat-sub">payment card linkable to an agent with spend rules</div></td>
+                    <td><i class="dot no">&middot;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot yes">&#10003;</i></td><td><i class="dot no">&middot;</i></td><td><i class="dot no">&middot;</i></td><td class="anccell"><i class="dot gap">&#10007;</i></td>
+                  </tr>
+                </tbody>
+              </table></div>
+              <div class="mtxlegend">
+                <span><i class="dot yes">&#10003;</i> shipped &amp; live</span>
+                <span><i class="dot no">&middot;</i> not in category</span>
+                <span><i class="dot gap">&#10007;</i> Anchorage gap to close</span>
+                <span style="color:var(--brass2)">Best foundation in the field &middot; the work is shipping the visible layer</span>
+              </div>
+            </section>
+          </div>
         </div>
-        <p class="lead muted" style="font-size:15px;margin-top:18px">The gap is execution, not standing. Anchorage held the charter and still lost the orchestration layer to a limited-purpose trust company. The fix is not more regulation. It is shipping the agentic, AI-native tech the foundation was built to carry.</p>
       </div>
-      <div class="tc-img"><img src="exec-deck-assets/ig-ai-gap.png" alt="AI capability gap bars: Anchorage scoring 0 of 5 on agent-facing AI capabilities versus competitors" /></div>
+    </div>
+    <div class="srule" style="z-index:6"></div>
+  </div>
+
+  <!-- 09 THE WESTERN UNION / PAXOS SPEED GAP -> LEAPFROG (native, no Zev attribution) -->
+  <div class="slide">
+    <div class="sbrand">The Anchorage Strategy</div>
+    <div class="eyebrow">The opportunity · speed is the only missing piece</div>
+    <h2 class="sect" style="font-size:33px">We won the issuance. We lost the orchestration on speed alone.</h2>
+    <div class="callout" style="margin-top:18px;max-width:none">
+      <div class="clabel">What just happened · Western Union</div>
+      <p style="font-size:16px;line-height:1.5">Anchorage <b>won the Western Union stablecoin issuance deal</b>, then lost the token orchestration, payouts, and management layer to <b>Paxos</b>. Not on trust, not on regulation, but because we could not stand the in-house tech up fast enough. A limited-purpose trust company took the layer a chartered bank should own. <b>The gap is speed, nothing else.</b></p>
+    </div>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card anchor"><div class="cn">Already ours</div><h4>Relationships</h4><p>The institutional counterparties, the partner pipeline, the deals already coming to our door. No one rebuilds these.</p></div>
+      <div class="card anchor"><div class="cn">Already ours</div><h4>Trust + regulation</h4><p>The only full national bank charter in crypto, OCC + MAS, the due-process posture no rival can make stick.</p></div>
+      <div class="card"><div class="cn">The one gap</div><h4>Speed</h4><p>Deployment velocity. The single thing Paxos had that we did not. And it is the one thing agentic AI is built to unlock.</p></div>
+    </div>
+    <div class="callout warn" style="margin-top:20px;max-width:none">
+      <div class="clabel">So the move is not catch-up. It is leapfrog.</div>
+      <p>Agentify Anchorage and the missing piece is solved at its source: idea to production at machine speed, on the foundation only we hold. That does not just close the Paxos gap. It <b>vaults past it</b>. It also makes the marketing real, through internal AI-adoption case studies, and positions Anchorage as <b>the McKinsey of Agentic Consultation</b>: pioneering its own clients into the new era on rails it already runs.</p>
     </div>
     <div class="srule"></div>
   </div>
 
-  <!-- 10 ANCHORAGE MUST BE AGENTIC + flywheel (TALL IMAGE: ig-agentic-ops.png) -->
-  <div class="slide imgslide">
+  <!-- 10 ANCHORAGE MUST BE AGENTIC + flywheel (native, no Zev) -->
+  <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
-    <div class="imghead">
-      <div class="eyebrow">The campaign concept · be the thing you claim</div>
-      <h2 class="sect" style="font-size:32px">To appear agentic, Anchorage must be agentic.</h2>
+    <div class="eyebrow">The campaign concept · be the thing you claim</div>
+    <h2 class="sect" style="font-size:33px">To appear agentic, Anchorage must <em style="color:var(--brass);font-style:italic">be agentic.</em></h2>
+    <p class="lead muted" style="margin-top:14px;max-width:92ch">You cannot sell the agentic bank from outside of it. A thesis the company already runs on reads as proof; the same words, narrated from a launch slide, read as positioning. The credibility to author "Agentic Banking" is earned in the operating model first.</p>
+    <div class="osmosis" style="margin-top:26px;max-width:none">
+      <div class="node"><div class="nh">Agentic operations</div><div class="nd">Triage, comms flows, and self-restarting loops accelerate Anchorage. Velocity becomes the proof.</div></div>
+      <div class="mid"><div class="ar">&rarr;</div><div class="ml">becomes</div></div>
+      <div class="node"><div class="nh">The regulated rail</div><div class="nd">The same chartered trust, custody and settlement spine is the rail partners' agents stand on.</div></div>
+      <div class="mid"><div class="ar">&rarr;</div><div class="ml">compounds</div></div>
+      <div class="node"><div class="nh">The whole industry</div><div class="nd">Out to the banks Anchorage powers. Belief S8: "in a world of 4,000 banks, we power 3,999."</div></div>
     </div>
-    <div class="twocol">
-      <div class="tc-text">
-        <p class="lead muted" style="margin-top:0">If you want to be known for AI and agentic, make Anchorage the first truly operationally agentic sound company. The credibility is the operating model, not the messaging.</p>
-        <ul class="tc-list">
-          <li><b>Velocity is the proof.</b> "From idea to platform in production for a bank in under 90 days" (Zev).</li>
-          <li><b>The flywheel.</b> Agentic operations accelerate Anchorage. The same chartered trust, custody and settlement spine becomes the regulated rail partners' agents stand on.</li>
-          <li><b>It compounds outward.</b> Out to the crypto industry and the banks Anchorage powers. Belief S8, "in a world of 4,000 banks, we power 3,999."</li>
-          <li><b>The campaign.</b> Show agentic operations accelerating Anchorage, and through Anchorage, the whole industry.</li>
-        </ul>
-      </div>
-      <div class="tc-img"><img src="exec-deck-assets/ig-agentic-ops.png" alt="Agentic operations flywheel: agentic ops accelerate Anchorage, which becomes the regulated rail for partners' agents, compounding to the industry" /></div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="callout" style="margin:0"><div class="clabel">The flywheel</div><p>Agentic ops make Anchorage faster &rarr; the proven internal layer opens to partners as a platform &rarr; trust is the distribution. <b>The internal tool becomes the rail.</b></p></div>
+      <div class="callout warn" style="margin:0"><div class="clabel">The campaign</div><p>Show agentic operations accelerating Anchorage, and through Anchorage, the whole industry. Be agentic internally, prove the value, then extend it.</p></div>
     </div>
     <div class="srule"></div>
   </div>
@@ -398,16 +460,32 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
     <div class="srule"></div>
   </div>
 
-  <!-- 12 the discipline -->
+  <!-- 12 the discipline (filled out: full slide) -->
   <div class="slide">
     <div class="sbrand">The discipline</div>
-    <div class="eyebrow">The discipline · why this is safe</div>
-    <h2 class="sect">A chartered bank can lead loudly, because of the gate.</h2>
-    <div class="split" style="margin-top:30px;max-width:none">
-      <div class="right"><h5 style="color:var(--brass)">Clean to post now</h5><ul><li>The category and the conviction</li><li>The regulatory foundation, on the record</li><li>The Know Your Agent frame</li><li>The agentic-operations story</li></ul></div>
-      <div class="wrong"><h5 style="color:var(--signal)">Counsel first, gated</h5><ul><li>Platform as generally available</li><li>Named capabilities and timelines</li><li>Partner specifics</li><li>Any volume number</li></ul></div>
+    <div class="eyebrow">The discipline · why a chartered bank can lead loudly</div>
+    <h2 class="sect" style="font-size:34px">A chartered bank can lead loudly, because of the gate.</h2>
+    <p class="lead muted" style="margin-top:12px;max-width:92ch">The restraint is the credibility. Everything in the left column is on the public record already and clean to post in Nathan's voice now. Everything on the right waits for counsel. One capability over-claim is a failed launch, regardless of every other number.</p>
+    <div class="split" style="margin-top:22px;max-width:none">
+      <div class="right"><h5 style="color:var(--brass)">Clean to post now</h5><ul>
+        <li>The category and the conviction</li>
+        <li>The regulatory foundation, on the record</li>
+        <li>The Know Your Agent frame</li>
+        <li>The agentic-operations story</li>
+        <li>The belief teases, in Nathan's own words</li>
+      </ul></div>
+      <div class="wrong"><h5 style="color:var(--signal)">Counsel first, gated</h5><ul>
+        <li>Platform as generally available</li>
+        <li>Named capabilities and timelines</li>
+        <li>Partner specifics, before contracts confirm</li>
+        <li>Any volume or adoption number</li>
+        <li>Live-product or demo claims</li>
+      </ul></div>
     </div>
-    <div class="callout warn" style="margin-top:24px;max-width:none"><div class="clabel">The rule</div><p>Nothing in your voice ships until the voice spine and compliance sign off. The restraint is the credibility. <b>One capability over-claim is a failed launch</b>, regardless of every other number.</p></div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="callout" style="margin:0"><div class="clabel">The gate</div><p>Nothing in your voice ships until the <b>voice spine</b> and <b>Anchorage compliance</b> sign off. The gate is what lets the volume be loud.</p></div>
+      <div class="callout warn" style="margin:0"><div class="clabel">The standard</div><p>Positioning, not product claims. We say the category is real and the foundation is ours, and we never claim the timeline before it is cleared.</p></div>
+    </div>
     <div class="srule"></div>
   </div>
 
@@ -415,37 +493,158 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
   <div class="slide">
     <div class="sbrand">The announce</div>
     <div class="eyebrow">The announce · launches early next week</div>
-    <h2 class="sect">One announce. Early next week. No waitlist.</h2>
-    <p class="lead muted">Target Monday 6/30 or Tuesday 7/1 (date TBD, confirm). This is the Agentic Banking announcement, declared in Nathan's voice, with the proof stacked behind it. There is no waitlist and no recruiting campaign.</p>
+    <h2 class="sect">One announce. Early next week.</h2>
+    <p class="lead muted">Target Tuesday July 1 (early next week). This is the Agentic Banking announcement, declared in Nathan's voice, with the proof stacked behind it. Positioning only, no live-product or GA claim.</p>
     <div class="grid g2" style="margin-top:24px">
       <div class="card anchor"><div class="cn">Ships at announce</div><h4>The page + the announce thread</h4><p>The Agentic Banking page goes live, and Nathan posts the 8-tweet announce thread as one native thread (verbatim, gated on voice spine + compliance).</p></div>
-      <div class="card"><div class="cn">Ships at announce</div><h4>The declare video + the paper</h4><p>The launch-hour declaration video and the "Who Banks the Agents?" paper anchor the press and the category framing.</p></div>
+      <div class="card"><div class="cn">Ships at announce</div><h4>The declaration + the paper</h4><p>Nathan's launch-hour to-camera declaration and the "Who Banks the Agents?" paper anchor the press and the category framing.</p></div>
     </div>
-    <p style="font-family:var(--mono);font-size:11.5px;color:var(--signal);margin-top:18px;letter-spacing:.04em">No waitlist. No recruiting. Positioning only, no live-product or GA claim. Three belief teases run Thu 6/26 and Fri 6/27 ahead of the announce.</p>
+    <p style="font-family:var(--mono);font-size:11.5px;color:var(--signal);margin-top:18px;letter-spacing:.04em">Positioning only, no live-product or GA claim. Belief teases run Fri 6/27 (x2) and Mon 6/30, ahead of the Tuesday announce.</p>
     <div class="srule"></div>
   </div>
 
-  <!-- 14 the tweet calendar (image: assets/tweet-calendar.png, generated separately) -->
-  <div class="slide imgslide">
+  <!-- 14 the tweet calendar · NATIVE embedded tweets w/ quote-tweet -->
+  <div class="slide tw-slide">
     <div class="sbrand">The announce</div>
-    <div class="imghead">
-      <div class="eyebrow">The tweet calendar · what and when</div>
-      <h2 class="sect" style="font-size:33px">The full run, in Nathan's voice.</h2>
+    <div class="eyebrow">The tweet calendar · what and when, in Nathan's voice</div>
+    <h2 class="sect" style="font-size:30px;margin-top:8px;max-width:none">The full run, as it will actually post.</h2>
+    <div class="tw-cols" style="margin-top:18px">
+      <!-- COLUMN A · pre-announce teases -->
+      <div class="tw-col">
+        <div class="tw-colhd"><span class="tw-ph TEASE">Phase 1 · Teases</span><span class="tw-when">Fri 6/27 &middot; Mon 6/30</span></div>
+
+        <div class="tw">
+          <div class="tw-corner"><span class="phchip TEASE">TEASE</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley<svg class="vbadge" viewBox="0 0 22 22" fill="none"><path d="M11 1.5l2.3 1.6 2.8-.2 1 2.6 2.4 1.5-.7 2.7.7 2.7-2.4 1.5-1 2.6-2.8-.2L11 20.5l-2.3-1.6-2.8.2-1-2.6L2.5 15l.7-2.7L2.5 9.6 4.9 8.1l1-2.6 2.8.2L11 1.5z" fill="#cda349"/><path d="M7.4 11.2l2.3 2.3 4.8-4.8" stroke="#08111f" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">Everyone's optimizing how smart agents are. Almost no one's asking the question that gates the whole thing: when an agent moves money, who's accountable? That's not a model problem. It's a bank problem.</div>
+          <div class="tstamp">9:30 AM · Fri Jun 27</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+
+        <div class="tw">
+          <div class="tw-corner"><span class="phchip TEASE">TEASE</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">Know Your Customer has run banking for decades. The agent economy needs the same for a new kind of customer. Know Your Agent: a verifiable identity, a track record, and an accountable human behind it.</div>
+          <div class="tstamp">10:00 AM · Mon Jun 30</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+        <div class="tw-colnote">A second tease, "give your agent an allowance, not your account," runs Fri 6/27 PM between these two.</div>
+      </div>
+
+      <!-- COLUMN B · the announce thread (with quote-tweet) -->
+      <div class="tw-col">
+        <div class="tw-colhd"><span class="tw-ph ANNOUNCE">Phase 2 · Announce thread</span><span class="tw-when">Tue 7/1 · 9:00a</span></div>
+
+        <div class="tw lead-card">
+          <div class="tw-corner"><span class="phchip ANNOUNCE">1/ ANNOUNCE</span><span class="bandchip COUNSEL">COUNSEL</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">A year ago I wrote that "Crypto Bank" would sound like "Internet Company." Descriptive for a while, then obvious. Here's the next one. Agentic Banking. Niche-sounding today. In a few years, just banking. The difference is the customers won't all be human.</div>
+          <div class="tstamp">9:00 AM · Tue Jul 1</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+
+        <!-- tweet 4: the Brian Armstrong QUOTE-TWEET -->
+        <div class="tw">
+          <div class="tw-corner"><span class="phchip ANNOUNCE">4/ QUOTE-TWEET</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">Brian Armstrong put the demand perfectly. Soon, more agents than humans, transacting. He's right.
+
+Where I'd differ is the fix. He says agents can't open a bank account, so give them a wallet. I'd say build the account. We did.</div>
+          <div class="qt">
+            <div class="qt-head"><div class="av gen anchorage" style="width:22px;height:22px;flex:0 0 22px;font-size:9px">BA</div><span class="qt-nm">Brian Armstrong{vbs}</span><span class="qt-hd">@brian_armstrong</span></div>
+            <div class="qt-body">Soon there will be more AI agents than humans transacting online. They can't open a bank account, so they'll need crypto wallets to participate in the economy.</div>
+          </div>
+          <div class="tstamp">9:03 AM · Tue Jul 1</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+      </div>
+
+      <!-- COLUMN C · follow-ups -->
+      <div class="tw-col">
+        <div class="tw-colhd"><span class="tw-ph FOLLOW">Phase 3 · Follow-ups</span><span class="tw-when">Announce +1 &middot; +2 &middot; +3</span></div>
+
+        <div class="tw">
+          <div class="tw-corner"><span class="phchip FOLLOW">+1 FOLLOW</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">Three-day ACH is a fine pace for a person. It's a joke for software making a thousand decisions a second.
+
+Agentic commerce isn't a feature bolted onto the old system. It's a reset of the platform. Money is about to move at machine speed.</div>
+          <div class="tstamp">11:00 AM · Wed Jul 2</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+
+        <div class="tw">
+          <div class="tw-corner"><span class="phchip FOLLOW">+2 FOLLOW</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">I started a bank for a customer that didn't exist yet.
+
+For most of that time the customer was an institution. Now a stranger one is showing up. An autonomous agent. Software that acts on its own and has to pay for things.</div>
+          <div class="tstamp">1:00 PM · Thu Jul 3</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+        <div class="tw-colnote">A third follow-up, the buyer-side wedge ("the hard part is the agent that buys"), runs Announce +2.</div>
+      </div>
     </div>
-    <div class="imgwrap"><img src="exec-deck-assets/tweet-calendar.png" alt="Full tweet calendar rendered as embedded tweets: belief teases Thu 6/26 and Fri 6/27, the 8-tweet announce thread, and follow-ups +1/+2/+3" /></div>
-    <div class="imgcap"><b>DRAFT,</b> pending voice spine v1.0 + Anchorage compliance. Teases Thu 6/26 (x2) and Fri 6/27, the 8-tweet announce thread early next week, then follow-ups on +1 / +2 / +3.</div>
+    <div class="tw-foot">DRAFT, pending voice spine v1.0 + Anchorage compliance. A representative cut of the run: belief teases Fri 6/27 (x2) and Mon 6/30, the 8-tweet announce thread Tue 7/1 (tweet 4 quote-tweets Brian Armstrong), then follow-ups across the same week. Full thread and calendar in the companion doc. Engagement illustrative.</div>
     <div class="srule"></div>
   </div>
 
-  <!-- 15 the ask -->
+  <!-- 15 the selfie video + pre-brief -->
+  <div class="slide">
+    <div class="sbrand">The assets</div>
+    <div class="eyebrow">Asset 1 · Nathan's selfie video + pre-brief</div>
+    <h2 class="sect" style="font-size:33px">One selfie-style video. Shot from the phone, in his voice.</h2>
+    <p class="lead muted" style="margin-top:12px;max-width:92ch">Not a produced studio piece. A direct-to-camera, founder-shot declaration that lands the category the same hour the page goes live. Authentic beats polished. Below is the pre-brief, the points Nathan must hit on camera.</p>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card anchor"><div class="cn">Format</div><h4>Selfie, ~60-90 seconds</h4><p>Phone camera, eye-level, no script read. One take feel. Posts natively as the visual anchor to the announce thread.</p></div>
+      <div class="card"><div class="cn">Tone</div><h4>Conviction, not pitch</h4><p>He is naming a category he already believes in, not selling a product. Positioning only, no GA or capability claim.</p></div>
+    </div>
+    <div class="callout" style="margin-top:20px;max-width:none">
+      <div class="clabel">Pre-brief · the points to hit on camera</div>
+      <ul style="margin:0;padding-left:18px;color:#D4DAE3;font-size:15px;line-height:1.65">
+        <li>"A year ago 'Crypto Bank' sounded like 'Internet Company.' Here's the next one: <b>Agentic Banking</b>."</li>
+        <li>The economy is about to have participants who aren't people, software that earns, holds, and spends.</li>
+        <li>When an agent moves money, a <b>bank</b> stands behind it, not a model, not a wallet. We're the only federally chartered crypto bank.</li>
+        <li>You give an agent an <b>allowance</b>, not your account, segmented, controlled, revocable.</li>
+        <li><b>Know Your Agent</b> is the next decade's KYC. The agent acts; a person owns it.</li>
+        <li>Close on "more soon", no demo, no timeline, no number.</li>
+      </ul>
+    </div>
+    <div class="srule"></div>
+  </div>
+
+  <!-- 16 the live interview -->
+  <div class="slide">
+    <div class="sbrand">The assets</div>
+    <div class="eyebrow">Asset 2 · the live interview</div>
+    <h2 class="sect" style="font-size:33px">A moderated live conversation. Nathan and Zev, on the record.</h2>
+    <p class="lead muted" style="margin-top:12px;max-width:92ch">A live, moderated discussion between Nathan and Zev, run by a moderator, another Anchorage exec, or Jarred can step in if needed. Long-form proof that the category has depth, not just a slogan. Format and themes below.</p>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card anchor"><div class="cn">Who</div><h4>Nathan + Zev</h4><p>Founder conviction meets the product and orchestration reality. Moderated by an Anchorage exec (or Jarred steps in if needed).</p></div>
+      <div class="card"><div class="cn">Format</div><h4>Live, ~25-30 min</h4><p>Moderated conversation, light structure, real questions. Streamed or recorded for the amplify beat. Gated on compliance for any specifics.</p></div>
+      <div class="card"><div class="cn">When</div><h4>Amplify window</h4><p>Runs after the announce, feeding the post-launch media beat. Not the launch-hour piece, the depth that follows it.</p></div>
+    </div>
+    <div class="callout warn" style="margin-top:20px;max-width:none">
+      <div class="clabel">The 3-4 themes</div>
+      <ul style="margin:0;padding-left:18px;color:#D4DAE3;font-size:15px;line-height:1.65">
+        <li><b>Who banks the agents?</b> Why the unsolved problem is a bank problem, not a wallet problem.</li>
+        <li><b>The charter as the moat.</b> What a full national bank charter lets an agent do that a trust company cannot.</li>
+        <li><b>Know Your Agent.</b> Identity, allowance, and the accountable human, the controls that let it scale.</li>
+        <li><b>Building at speed.</b> Becoming operationally agentic, and why that is the unlock, not a constraint.</li>
+      </ul>
+    </div>
+    <div class="srule"></div>
+  </div>
+
+  <!-- 17 the ask -->
   <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
     <div class="eyebrow">What we need from you</div>
     <h2 class="sect">Four moves.</h2>
     <ol class="moves" style="max-width:none;margin-top:24px">
-      <li><h4>Record the two videos</h4><p>The launch-hour declaration and the allowance-model explainer. These anchor the announce.</p></li>
+      <li><h4>Record the selfie video and sit for the live interview</h4><p>The selfie declaration anchors the announce; the moderated conversation with Zev carries the depth into the amplify beat.</p></li>
       <li><h4>Post the announce thread, once cleared</h4><p>After the voice spine and compliance sign off. The 8-tweet thread and the belief teases, not before.</p></li>
-      <li><h4>Close the AI-execution gap</h4><p>The foundation is the best in the field. The deals we are losing are lost on tech execution. Ship the agentic, AI-native layer.</p></li>
+      <li><h4>Close the speed gap, agentify Anchorage</h4><p>The foundation is the best in the field. The deals we lose are lost on deployment speed. Be operationally agentic and leapfrog.</p></li>
       <li><h4>Endorse KYA as the lead</h4><p>One conviction carries the category. We resist the urge to say everything at once.</p></li>
     </ol>
     <div class="callout" style="margin-top:18px;max-width:none"><div class="clabel">Fast-follow + alignment</div><p>A live web dashboard, the relationship ring and belief field rendered, is the next surface. This executes the scope your team greenlit on the <b>2026-06-09 alignment call</b>.</p></div>
@@ -453,5 +652,108 @@ footer{margin-left:0;padding:90px 60px 70px;border-top:1px solid var(--ink-line)
   </div>
 
 </div>
+
+<!-- ===== native tweet-card styling for slide 14 (namespaced under .tw-slide) ===== -->
+<style>
+  .tw-slide{justify-content:flex-start;padding-top:40px;padding-bottom:42px}
+  .tw-slide h2.sect{font-size:27px}
+  .tw-slide .tw-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;flex:1 1 auto;min-height:0}
+  .tw-slide .tw-col{display:flex;flex-direction:column;gap:9px;min-width:0}
+  .tw-slide .tw-colhd{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--ink-line)}
+  .tw-slide .tw-ph{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+  .tw-slide .tw-ph.TEASE{color:#9cc4ea}.tw-slide .tw-ph.ANNOUNCE{color:var(--brass-2)}.tw-slide .tw-ph.FOLLOW{color:#88d0ac}
+  .tw-slide .tw-when{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;color:var(--muted-2);white-space:nowrap}
+  .tw-slide .tw{background:#10213a;border:1px solid rgba(159,184,219,.13);border-radius:12px;padding:10px 12px;position:relative}
+  .tw-slide .tw.lead-card{border-color:#9a7a2e;background:linear-gradient(165deg,rgba(205,163,73,.06),#10213a)}
+  .tw-slide .tw-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .tw-slide .av{width:28px;height:28px;border-radius:50%;flex:0 0 28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px;color:#08111f}
+  .tw-slide .av.gen.nathan{background:linear-gradient(150deg,#e3c578,#9a7a2e)}
+  .tw-slide .av.gen.anchorage{background:linear-gradient(150deg,#cfe0f5,#7d97b8)}
+  .tw-slide .who{min-width:0}
+  .tw-slide .who .nm{font-weight:700;font-size:12px;color:#eaf0f8;display:flex;align-items:center;gap:4px;line-height:1.1}
+  .tw-slide .who .hd{color:#5d7290;font-size:10.5px}
+  .tw-slide .vbadge{width:13px;height:13px;flex:0 0 13px}
+  .tw-slide .body{font-size:11px;color:#eaf0f8;line-height:1.42;white-space:pre-wrap;word-wrap:break-word;margin:0}
+  .tw-slide .tstamp{color:#5d7290;font-family:var(--mono);font-size:9px;margin-top:7px}
+  .tw-slide .eng{display:flex;gap:13px;margin-top:7px;padding-top:7px;border-top:1px solid rgba(159,184,219,.13)}
+  .tw-slide .eng .e{display:flex;align-items:center;gap:4px;color:#5d7290;font-size:10px;font-family:var(--mono)}
+  .tw-slide .eng .e svg{width:12px;height:12px;opacity:.78}
+  .tw-slide .eng .e.like svg{color:#e0607f}
+  .tw-slide .tw-corner{position:absolute;top:9px;right:10px;display:flex;gap:4px;align-items:center}
+  .tw-slide .phchip{font-size:7.5px;letter-spacing:.06em;padding:2px 5px;border-radius:4px;font-family:var(--mono);font-weight:600}
+  .tw-slide .phchip.TEASE{background:rgba(91,155,213,.18);color:#9cc4ea}
+  .tw-slide .phchip.ANNOUNCE{background:rgba(205,163,73,.18);color:#e3c578}
+  .tw-slide .phchip.FOLLOW{background:rgba(95,185,138,.16);color:#88d0ac}
+  .tw-slide .bandchip{font-size:7.5px;letter-spacing:.05em;padding:2px 5px;border-radius:4px;font-family:var(--mono);font-weight:600}
+  .tw-slide .bandchip.CLEAN{background:rgba(95,185,138,.14);color:#5fb98a}
+  .tw-slide .bandchip.COUNSEL{background:rgba(216,101,79,.13);color:#e8a08f}
+  /* quote-tweet nested card */
+  .tw-slide .qt{margin-top:7px;border:1px solid rgba(159,184,219,.22);border-radius:10px;padding:7px 10px;background:rgba(13,27,46,.6)}
+  .tw-slide .qt-head{display:flex;align-items:center;gap:5px;margin-bottom:4px;flex-wrap:wrap}
+  .tw-slide .qt-nm{font-weight:700;font-size:10.5px;color:#eaf0f8;display:flex;align-items:center;gap:3px}
+  .tw-slide .qt-hd{color:#5d7290;font-size:9.5px}
+  .tw-slide .qt-body{font-size:10px;color:#c3cedd;line-height:1.38;margin:0}
+  .tw-slide .tw-colnote{font-family:var(--mono);font-size:8.5px;letter-spacing:.02em;color:var(--muted-2);line-height:1.45;padding:7px 10px;border:1px dashed var(--ink-line);border-radius:9px;margin-top:1px}
+  .tw-slide .tw-foot{flex:0 0 auto;font-family:var(--mono);font-size:9px;letter-spacing:.02em;color:var(--muted-2);margin-top:10px;line-height:1.45;max-width:none}
+</style>
+
+<script>
+/* ---- inline-tweet glue: verified glyph + engagement icons + plausible counts (no JS-rendered layout; print-safe because we also run it pre-paint) ---- */
+(function(){
+  var VB='<svg class="vbadge" viewBox="0 0 22 22" fill="none"><path d="M11 1.5l2.3 1.6 2.8-.2 1 2.6 2.4 1.5-.7 2.7.7 2.7-2.4 1.5-1 2.6-2.8-.2L11 20.5l-2.3-1.6-2.8.2-1-2.6L2.5 15l.7-2.7L2.5 9.6 4.9 8.1l1-2.6 2.8.2L11 1.5z" fill="#cda349"/><path d="M7.4 11.2l2.3 2.3 4.8-4.8" stroke="#08111f" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var VBS='<svg class="vbadge" viewBox="0 0 22 22" fill="none" style="width:12px;height:12px"><path d="M11 1.5l2.3 1.6 2.8-.2 1 2.6 2.4 1.5-.7 2.7.7 2.7-2.4 1.5-1 2.6-2.8-.2L11 20.5l-2.3-1.6-2.8.2-1-2.6L2.5 15l.7-2.7L2.5 9.6 4.9 8.1l1-2.6 2.8.2L11 1.5z" fill="#cda349"/><path d="M7.4 11.2l2.3 2.3 4.8-4.8" stroke="#08111f" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var IC={
+    reply:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-11.9 7.6L3 21l1.9-6A8.4 8.4 0 1 1 21 11.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    repost:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2l4 4-4 4M7 22l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 6H8a5 5 0 0 0-5 5M3 18h13a5 5 0 0 0 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    like:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.4 2 5 5.3 5c2 0 3.4 1.1 4.4 2.4C10.6 6.1 12 5 14 5c3.3 0 4.9 3.4 3.3 6.8C19.5 16.4 12 21 12 21z"/></svg>',
+    views:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20V10M9 20V4M15 20v-8M21 20V8" stroke-linecap="round"/></svg>'
+  };
+  // plausible illustrative engagement, varied per card
+  var SETS=[[188,642,3100,'214K'],[96,271,1700,'88K'],[142,503,2400,'151K'],[233,1200,5400,'512K'],[174,820,3900,'342K'],[121,388,2100,'128K'],[88,206,1500,'72K'],[64,177,980,'61K'],[110,341,1900,'104K']];
+  function run(){
+    document.querySelectorAll('.tw-slide').forEach(function(slide){
+      slide.innerHTML = slide.innerHTML.replace(/\{vb\}/g,VB).replace(/\{vbs\}/g,VBS);
+      var cards=slide.querySelectorAll('.tw');
+      cards.forEach(function(c,i){
+        var s=SETS[i%SETS.length];
+        c.innerHTML=c.innerHTML
+          .replace('{rep}',IC.reply+s[0])
+          .replace('{rt}',IC.repost+s[1])
+          .replace('{lk}',IC.like+(s[2]>=1000?(s[2]/1000).toFixed(1).replace(/\.0$/,'')+'K':s[2]))
+          .replace('{vw}',IC.views+s[3]);
+      });
+    });
+  }
+  run();
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+})();
+</script>
+
+<!-- ===== infographic auto-scaler: fit the inlined 1280-wide infographic into the slide (no clip, no title overlap) ===== -->
+<script>
+(function(){
+  function fit(){
+    document.querySelectorAll('.igslide').forEach(function(slide){
+      var scaler=slide.querySelector('.igscaler');
+      var ig=slide.querySelector('.ig');
+      if(!scaler||!ig)return;
+      scaler.style.transform='none';
+      var natW=ig.scrollWidth, natH=ig.scrollHeight;
+      var availW=slide.clientWidth, availH=slide.clientHeight;
+      // leave a small top margin so the sbrand label never collides
+      var padTop=26, padX=0;
+      var s=Math.min((availW-padX*2)/natW, (availH-padTop)/natH, 1);
+      scaler.style.transform='translateX('+((availW-natW*s)/2)+'px) translateY('+padTop+'px) scale('+s+')';
+    });
+  }
+  fit();
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  // run again after fonts settle
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
+  setTimeout(fit,400);
+})();
+</script>
+
 </body>
 </html>
