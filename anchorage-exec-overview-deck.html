@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
-<title>The Anchorage Strategy · AI &amp; Agentic GTM · v4</title>
+<title>The Anchorage Strategy · AI &amp; Agentic GTM · v5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -145,6 +145,55 @@ em{font-style:italic}
   .fstage .ft{font-family:var(--serif);font-weight:600;font-size:17px;margin-top:9px;line-height:1.22}
   .farrow{flex:0 0 40px;display:grid;place-items:center;color:var(--brass);font-size:18px;background:radial-gradient(circle at 50% 50%,var(--brass-soft),transparent 70%)}
 
+  /* aligned "foundation" slides: regulatory + wedge + discipline share a prominent header treatment */
+  .slide.regslide{justify-content:flex-start;padding-top:58px}
+  .slide.regslide>h2.sect{letter-spacing:-.012em;line-height:1.04}
+
+  /* the ask slide: tighten the moves list so it fits the frame */
+  .slide.askslide .moves li{padding:13px 0 13px 60px}
+  .slide.askslide .moves li::before{top:12px}
+  .slide.askslide .moves h4{font-size:18px}
+  .slide.askslide .moves p{font-size:14.5px}
+
+  /* closing schedule + resources slide */
+  .slide.closeslide{justify-content:flex-start}
+  .closegrid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;width:100%;flex:1 1 auto;min-height:0}
+  .closecol{display:flex;flex-direction:column;min-width:0}
+  .closehd{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);padding-bottom:10px;border-bottom:1px solid var(--ink-line);margin-bottom:12px}
+  .schedtbl{width:100%;border-collapse:collapse;font-size:12px}
+  .schedtbl th{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);text-align:left;padding:5px 8px;border-bottom:1px solid var(--ink-line)}
+  .schedtbl td{padding:5.5px 8px;border-bottom:1px solid var(--ink-line-2);color:#CFD6DF;vertical-align:middle}
+  .schedtbl td.idc{font-family:var(--mono);font-size:10px;color:var(--muted-2);white-space:nowrap}
+  .schedtbl .schip{font-family:var(--mono);font-size:7.5px;letter-spacing:.04em;padding:2px 5px;border-radius:4px;font-weight:600;white-space:nowrap}
+  .schedtbl .schip.TEASE{background:rgba(91,155,213,.18);color:#9cc4ea}
+  .schedtbl .schip.ANN{background:rgba(205,163,73,.18);color:#e3c578}
+  .schedtbl .schip.FOL{background:rgba(95,185,138,.16);color:#88d0ac}
+  .masterlink{display:flex;flex-direction:column;gap:3px;margin-top:14px;padding:13px 16px;border:1px solid var(--brass-line);border-radius:10px;background:var(--brass-soft);text-decoration:none;transition:.3s var(--ease)}
+  .masterlink:hover{background:rgba(216,169,74,.18)}
+  .masterlink .ml-k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+  .masterlink .ml-t{font-size:13px;color:#CFD6DF;line-height:1.4}
+  .reslink{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:center;padding:11px 14px;border:1px solid var(--ink-line);border-radius:10px;background:var(--ink-2);text-decoration:none;margin-bottom:9px;transition:.3s var(--ease)}
+  .reslink:hover{border-color:var(--brass-line);background:var(--ink-3);transform:translateX(2px)}
+  .reslink .rn{font-family:var(--mono);font-size:12px;color:var(--brass);border:1px solid var(--brass-line);border-radius:7px;width:30px;height:30px;display:grid;place-items:center}
+  .reslink .rt{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--text);line-height:1.15}
+  .reslink .rd{font-size:12px;color:var(--muted);line-height:1.35;margin-top:2px}
+  .closenote{font-family:var(--mono);font-size:9px;letter-spacing:.02em;color:var(--muted-2);line-height:1.5;margin-top:8px}
+
+  /* belief -> traction phase map (3 columns x phases) */
+  .phasemap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%}
+  .pcol{border:1px solid var(--ink-line);border-radius:12px;background:var(--ink-2);padding:16px 16px 14px;display:flex;flex-direction:column;gap:10px}
+  .pcol.setup{border-top:2px solid var(--signal)}
+  .pcol.prove{border-top:2px solid var(--brass)}
+  .pcol.compound{border-top:2px solid var(--brass-2)}
+  .pcol-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);padding-bottom:8px;border-bottom:1px solid var(--ink-line-2)}
+  .pcol.setup .pcol-h{color:var(--signal)}
+  .pm{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start}
+  .pm .pmn{font-family:var(--mono);font-size:12px;color:var(--brass);border:1px solid var(--brass-line);border-radius:50%;width:26px;height:26px;display:grid;place-items:center}
+  .pcol.setup .pm .pmn{color:var(--signal);border-color:rgba(116,184,199,.4)}
+  .pm .pmt{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.15}
+  .pm .pmd{font-size:12.5px;color:var(--muted);line-height:1.4;margin-top:3px}
+  .pm-note{font-family:var(--mono);font-size:9.5px;letter-spacing:.02em;color:var(--muted-2);line-height:1.5;padding-top:9px;margin-top:2px;border-top:1px dashed var(--ink-line)}
+
   /* phase strip */
   .phases{display:flex;gap:0;margin-top:30px;border:1px solid var(--ink-line);border-radius:14px;overflow:hidden;background:var(--ink-2)}
   .phase{flex:1;padding:20px 22px;border-right:1px solid var(--ink-line)}
@@ -171,6 +220,16 @@ em{font-style:italic}
   .bfwrap img{max-width:100%;max-height:476px;width:auto;height:auto;object-fit:contain;border-radius:8px;border:1px solid var(--ink-line);background:#0b1422}
   .bfcap{flex:0 0 auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted-2);margin-top:12px;text-align:center}
   .bfcap b{color:var(--brass);font-weight:500}
+
+  /* ===== merged belief-field slide: receipts left, the ONE allowed raster right ===== */
+  .slide.bfmerge{justify-content:flex-start;padding-top:54px}
+  .bfsplit{display:grid;grid-template-columns:0.92fr 1.08fr;gap:26px;width:100%;flex:1 1 auto;align-items:stretch;min-height:0}
+  .bfleft{display:flex;flex-direction:column;min-width:0}
+  .bfright{display:flex;flex-direction:column;min-width:0;justify-content:center}
+  .bfimgwrap{flex:1 1 auto;display:flex;align-items:center;justify-content:center;min-height:0;border-radius:8px;border:1px solid var(--ink-line);background:#0b1422;overflow:hidden}
+  .bfimgwrap img{max-width:100%;max-height:430px;width:auto;height:auto;object-fit:contain}
+  .bfcap2{flex:0 0 auto;font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--muted-2);margin-top:10px;text-align:center}
+  .bfcap2 b{color:var(--brass);font-weight:500}
 
   /* ===== native inlined-infographic frame ===== */
   .igslide{justify-content:flex-start;padding:0}
@@ -251,7 +310,7 @@ em{font-style:italic}
     <h1 class="cover-title">AI &amp; Agentic<span class="alt">Go-to-Market</span></h1>
     <p class="cover-thesis">Nathan as the ignition. <b>The category as the payload.</b></p>
     <p class="cover-sub">Lead with what Nathan actually believes, published in his own voice. The category follows. The company compounds behind it.</p>
-    <div class="hero-meta"><span><b>Prepared for</b> Nathan McCauley</span><span><b>Via</b> Kate Roling</span><span><b>2026-06-25</b></span></div>
+    <div class="hero-meta"><span><b>Prepared for</b> Nathan McCauley</span><span><b>Via</b> Winn.solutions</span><span><b>2026-06-25</b></span></div>
   </div>
 
   <!-- 02 thesis -->
@@ -266,94 +325,116 @@ em{font-style:italic}
     <div class="srule"></div>
   </div>
 
-  <!-- 03 the framework, belief-rooted multi-phase -->
+  <!-- 03 the mechanic (slides 3+4 combined) · belief -> posts -> category -> company -->
   <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
-    <div class="eyebrow">The framework · belief-rooted, multi-phase</div>
-    <h2 class="sect" style="font-size:34px">Every phase grows out of one belief core.</h2>
-    <p class="lead muted" style="margin-top:14px;max-width:90ch">The campaign is not a content calendar. It is a tree. Nathan's convictions are the root system, and each phase, the tease, the announce, the proof, the co-sign, draws from the same belief core, so the message never drifts off who he actually is.</p>
-    <div class="flow" style="margin-top:26px">
-      <div class="fstage on"><div class="fk">Root · the belief field</div><div class="ft">33 beliefs, sourced verbatim</div></div>
+    <div class="eyebrow">How it works · belief-rooted, one mechanic</div>
+    <h2 class="sect" style="font-size:34px">Nathan's beliefs set the company's direction.</h2>
+    <p class="lead muted" style="margin-top:12px;max-width:92ch">This is not a content calendar. It is a tree. Nathan's convictions are the root system; his posts name the line; the category is the term the market reaches for; and Anchorage's verticals sit underneath as proof. Every phase draws from the same belief core, so the message never drifts off who he actually is.</p>
+    <div class="flow" style="margin-top:24px">
+      <div class="fstage"><div class="fk">01 · conviction</div><div class="ft">What Nathan actually believes, on the record</div></div>
       <div class="farrow">&rarr;</div>
-      <div class="fstage"><div class="fk">Phase 1 · tease</div><div class="ft">Land the belief in Nathan's voice, no product</div></div>
-      <div class="farrow">&rarr;</div>
-      <div class="fstage"><div class="fk">Phase 2 · announce</div><div class="ft">The Agentic Banking declaration, one native thread</div></div>
-      <div class="farrow">&rarr;</div>
-      <div class="fstage"><div class="fk">Phase 3 · proof &amp; co-sign</div><div class="ft">Third parties speak the language back</div></div>
-    </div>
-    <div class="casc-belief" style="margin-top:28px;max-width:none"><span class="cb-lab">The arc, not a checklist</span>Phase 1 opens attention Nathan owns; 2 gives it a destination and a reason to believe; 3 makes it credible and lets the market echo it back.</div>
-    <div class="srule"></div>
-  </div>
-
-  <!-- 04 the mechanic / flow -->
-  <div class="slide">
-    <div class="sbrand">The Anchorage Strategy</div>
-    <div class="eyebrow">How it works · the whole ask</div>
-    <h2 class="sect">Your beliefs set the company's direction.</h2>
-    <p class="lead muted">We lead with your convictions, your posts name the line, and the product sits underneath as proof.</p>
-    <div class="flow">
-      <div class="fstage"><div class="fk">01 · conviction</div><div class="ft">What you actually believe</div></div>
-      <div class="farrow">&rarr;</div>
-      <div class="fstage"><div class="fk">02 · your posts</div><div class="ft">You name the line, in your voice</div></div>
+      <div class="fstage"><div class="fk">02 · his posts</div><div class="ft">Nathan names the line, in his own voice</div></div>
       <div class="farrow">&rarr;</div>
       <div class="fstage"><div class="fk">03 · the category</div><div class="ft">The term the market reaches for</div></div>
       <div class="farrow">&rarr;</div>
-      <div class="fstage on"><div class="fk">04 · the company</div><div class="ft">Anchorage's verticals become proof points</div></div>
+      <div class="fstage on"><div class="fk">04 · the company</div><div class="ft">Anchorage's verticals become the proof points</div></div>
     </div>
-    <div class="casc-belief" style="margin-top:30px;max-width:none"><span class="cb-lab">Belief S2 · verified</span>"We are proof that crypto companies can operate safely and soundly within the regulatory perimeter." &nbsp;<span style="color:var(--muted-2);font-style:normal;font-family:var(--sans);font-size:13px">, Nathan McCauley</span></div>
+    <div class="casc-belief" style="margin-top:24px;max-width:none"><span class="cb-lab">Belief · Regulation chosen on purpose</span>"We are proof that crypto companies can operate safely and soundly within the regulatory perimeter." &nbsp;<span style="color:var(--muted-2);font-style:normal;font-family:var(--sans);font-size:13px">, Nathan McCauley · Senate Banking testimony, 2025</span></div>
     <div class="srule"></div>
   </div>
 
-  <!-- 05 belief field (the ONE allowed raster: the WebGL 3D viz, sized to fit) -->
-  <div class="slide bfslide">
-    <div class="sbrand">The Anchorage Strategy</div>
-    <div class="bfhead">
-      <div class="eyebrow">The evidence · the belief field</div>
-      <h2 class="sect" style="font-size:30px;margin-top:10px;max-width:none">We are not building a thought leader. We are surfacing one already on the record.</h2>
-    </div>
-    <div class="bfwrap"><img src="exec-deck-assets/belief-field.png" alt="Nathan McCauley belief field: 33 beliefs across 7 sectors, each sourced to a dated public appearance, rendered as an interactive 3D map" /></div>
-    <div class="bfcap"><b>The interactive 3D belief field</b> &middot; 33 beliefs across 7 sectors, each node sourced to a dated public appearance.</div>
-    <div class="srule" style="bottom:22px"></div>
-  </div>
-
-  <!-- 06 belief field, the receipts -->
+  <!-- 04 NEW · the belief -> traction phase map (8-phase funnel, from ig-phases-beliefcore) -->
   <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
-    <div class="eyebrow">Why leading with beliefs is safe, not spin</div>
-    <h2 class="sect">It is evidenced. The receipts are attached.</h2>
-    <div class="bf-stats" style="margin-top:26px;max-width:none">
-      <div class="s"><div class="n">33</div><div class="l">beliefs mapped</div></div>
-      <div class="s"><div class="n">7</div><div class="l">sectors</div></div>
-      <div class="s"><div class="n">1,000+</div><div class="l">verbatim quotes</div></div>
-      <div class="s"><div class="n">75</div><div class="l">sourced appearances</div></div>
+    <div class="eyebrow">The arc · belief to traction, eight phases</div>
+    <h2 class="sect" style="font-size:32px">A launch is not one post. It is an arc that grows from the belief core.</h2>
+    <p class="lead muted" style="margin-top:10px;max-width:94ch">Rivals push each product through a sequence of phases: <b style="color:var(--text)">belief tease &rarr; vision &rarr; research &rarr; partner &rarr; proof &rarr; launch &rarr; traction &rarr; amplify</b>. What separates the field is not how many things ship, but how far down that funnel each one is carried. The whole arc roots in Nathan's belief field and ends with the market echoing the category back.</p>
+    <div class="phasemap" style="margin-top:22px">
+      <div class="pcol setup">
+        <div class="pcol-h">Phases 1-3 · set up the category</div>
+        <div class="pm"><span class="pmn">1</span><div><div class="pmt">Belief tease</div><div class="pmd">Nathan's worldview, off the company handle. No product named. Seeds the category.</div></div></div>
+        <div class="pm"><span class="pmn">2</span><div><div class="pmt">Vision</div><div class="pmd">One category-defining declaration: Agentic Banking. Nathan's to-camera vision, page live.</div></div></div>
+        <div class="pm"><span class="pmn">3</span><div><div class="pmt">Research gap</div><div class="pmd">"Who Banks the Agents?" The paper that names the unsolved problem before the CTA.</div></div></div>
+      </div>
+      <div class="pcol prove">
+        <div class="pcol-h">Phases 4-6 · prove and ship</div>
+        <div class="pm"><span class="pmn">4</span><div><div class="pmt">Partner</div><div class="pmd">A named go-live partner, re-surfaced across the arc, not one isolated logo post.</div></div></div>
+        <div class="pm"><span class="pmn">5</span><div><div class="pmt">Proof</div><div class="pmd">The demo or build-story: an agent holds USD and clears a payment under charter compliance.</div></div></div>
+        <div class="pm"><span class="pmn">6</span><div><div class="pmt">Launch</div><div class="pmd">The "now open to design partners" beat with a real door, not a keynote that vanishes.</div></div></div>
+      </div>
+      <div class="pcol compound">
+        <div class="pcol-h">Phases 7-8 · compound it</div>
+        <div class="pm"><span class="pmn">7</span><div><div class="pmt">Traction</div><div class="pmd">The first concrete adoption number Nathan can cite as proof the category is real.</div></div></div>
+        <div class="pm"><span class="pmn">8</span><div><div class="pmt">Amplify</div><div class="pmd">Media hits and recaps tie back to the thesis and feed the next campaign's Phase 1.</div></div></div>
+        <div class="pm-note">Read it as a relay, not a checklist. 1 opens attention Nathan owns; 2-3 give it a destination; 4-5 make it credible; 6 captures it; 7-8 prove it and reload.</div>
+      </div>
     </div>
-    <div class="grid g2" style="margin-top:24px">
-      <div class="callout" style="margin:0"><div class="clabel">Agentic banking · S24 · core</div><p>Know Your Agent, a verifiable identity with an accountable human. The allowance model, where controls are what let it scale. <b>Both verified.</b></p></div>
-      <div class="callout warn" style="margin:0"><div class="clabel">Pioneer · S2 / S5 / S31 · core</div><p>The charter framed as a trailblazing act. "Never been a better time to make their move." <b>Both verified.</b></p></div>
-    </div>
-    <p class="lead muted" style="font-size:15px;margin-top:18px">Every claim is sourced to a dated public appearance. The full interactive field is the surface we render next.</p>
     <div class="srule"></div>
   </div>
 
-  <!-- 07 WHY ANCHORAGE: the regulatory foundation (lead this hard) -->
-  <div class="slide">
+  <!-- 05 belief field (slides 5+6 merged): receipts/info LEFT, the ONE allowed raster RIGHT -->
+  <div class="slide bfmerge">
+    <div class="sbrand">The Anchorage Strategy</div>
+    <div class="eyebrow">The evidence · the belief field</div>
+    <h2 class="sect" style="font-size:29px;margin-top:8px;max-width:none">Not building a thought leader. Surfacing one already on the record.</h2>
+    <div class="bfsplit" style="margin-top:18px">
+      <!-- LEFT: the receipts / info -->
+      <div class="bfleft">
+        <div class="bf-stats" style="margin-top:0;max-width:none;padding:14px 18px;gap:18px">
+          <div class="s"><div class="n">33</div><div class="l">beliefs mapped</div></div>
+          <div class="s"><div class="n">7</div><div class="l">sectors</div></div>
+          <div class="s"><div class="n">1,000+</div><div class="l">verbatim quotes</div></div>
+          <div class="s"><div class="n">75</div><div class="l">sourced appearances</div></div>
+        </div>
+        <div class="callout" style="margin:14px 0 0;padding:16px 18px"><div class="clabel">Agentic banking · core</div><p style="font-size:14px">Know Your Agent: a verifiable identity with an accountable human. The allowance model, where controls are what let it scale. <b>Sourced verbatim.</b></p></div>
+        <div class="callout warn" style="margin:12px 0 0;padding:16px 18px"><div class="clabel">Regulation chosen on purpose · core</div><p style="font-size:14px">The charter framed as a trailblazing act, the highest scrutiny sought on purpose. <b>On the public record.</b></p></div>
+        <p class="lead muted" style="font-size:13.5px;margin-top:14px;max-width:none">Every claim is sourced to a dated public appearance. Leading with beliefs is evidenced, not spin, the receipts are attached.</p>
+      </div>
+      <!-- RIGHT: the belief-field screenshot (the ONE allowed raster, the WebGL 3D viz) -->
+      <div class="bfright">
+        <div class="bfimgwrap"><img src="exec-deck-assets/belief-field.png" alt="Nathan McCauley belief field: 33 beliefs across 7 sectors, each sourced to a dated public appearance, rendered as an interactive 3D map" /></div>
+        <div class="bfcap2"><b>The interactive 3D belief field</b> &middot; 33 beliefs, 7 sectors, each node sourced.</div>
+      </div>
+    </div>
+    <div class="srule"></div>
+  </div>
+
+  <!-- 07 WHY ANCHORAGE: the regulatory foundation · THE FACT-CHECKED SPINE (prominent) -->
+  <div class="slide regslide">
     <div class="sbrand">The Anchorage Strategy</div>
     <div class="eyebrow">Why Anchorage · the foundation no one else has</div>
-    <h2 class="sect">Only Anchorage can actually be the agent's bank.</h2>
-    <div class="stats" style="margin-top:24px">
+    <h2 class="sect" style="font-size:46px;max-width:22ch">Only Anchorage can actually be the agent's bank.</h2>
+    <p class="lead muted" style="margin-top:12px;max-width:90ch">This is the fact-checked spine of the whole case. Everyone can build the agent's wallet. Only a chartered bank can hold the agent's funded account, run real fiat rails, and stand behind it. That foundation is not a marketing claim, it is on the regulatory record.</p>
+    <div class="stats" style="margin-top:26px">
       <div class="stat"><div class="n">1 of 1</div><div class="l">full national bank charter in crypto. Holds an agent's funded USD account and runs real fiat rails</div></div>
       <div class="stat"><div class="n">~600</div><div class="l">Atlas settlement participants, tens of billions settled, roughly 4x year over year</div></div>
-      <div class="stat"><div class="n">OCC + MAS</div><div class="l">regulated across two jurisdictions, United States and Singapore</div></div>
-      <div class="stat"><div class="n">On purpose</div><div class="l">belief S2, we sought the highest scrutiny we could. The scrutiny is the trust model</div></div>
+      <div class="stat"><div class="n">OCC + MAS</div><div class="l">regulated across two jurisdictions, the United States and Singapore</div></div>
+      <div class="stat"><div class="n">On purpose</div><div class="l">Anchorage sought the highest scrutiny it could get. The scrutiny is the trust model</div></div>
     </div>
     <div class="grid g2" style="margin-top:22px">
-      <div class="callout" style="margin:0"><div class="clabel">The Dec 2025 OCC wave got a different charter</div><p>Circle, Ripple, BitGo, Fidelity Digital Assets and Paxos were granted <b>limited-purpose trust</b> charters. No deposits, no FDIC, no lending, no fiat rails. <b>They cannot be the agent's bank.</b></p></div>
+      <div class="callout" style="margin:0"><div class="clabel">The Dec 2025 OCC wave got a different charter</div><p>Circle, Ripple, BitGo, Fidelity Digital Assets and [redacted] were granted <b>limited-purpose trust</b> charters. No deposits, no FDIC, no lending, no fiat rails. <b>They cannot be the agent's bank.</b></p></div>
       <div class="callout warn" style="margin:0"><div class="clabel">The bundle, not just the charter</div><p>Charter plus Atlas scale plus custody depth plus multi-jurisdiction plus a KYA head start. An accountable-human, due-process posture only a regulated bank can make stick.</p></div>
     </div>
     <div class="srule"></div>
   </div>
 
-  <!-- 08 the capability matrix · NATIVELY INLINED ig-capability-matrix -->
+  <!-- 08 the wedge (relocated to pair with the regulatory spine; aligned structurally) -->
+  <div class="slide regslide">
+    <div class="sbrand">The Anchorage Strategy</div>
+    <div class="eyebrow">The wedge · the same foundation, one move out</div>
+    <h2 class="sect" style="font-size:38px;max-width:24ch">Everyone is building the agent's wallet. Only a bank can be the agent's <em style="color:var(--brass);font-style:italic">bank</em>.</h2>
+    <p class="lead muted" style="margin-top:12px;max-width:90ch">The regulatory foundation is what makes this gap Anchorage's to take. The seller side is saturating. The funded, identified, accountable account is the piece no wallet can be, and it is unclaimed.</p>
+    <div class="osmosis" style="margin-top:24px;max-width:none">
+      <div class="node"><div class="nh">The crowded seller side</div><div class="nd">Wallets, checkout, catalogs, Stripe, Circle, Visa, OpenAI. Saturating now.</div></div>
+      <div class="mid"><div class="ar">&rarr;</div><div class="ml">the gap</div></div>
+      <div class="node"><div class="nh">The agent's bank</div><div class="nd">A funded, KYA-identified, regulated USD account with real fiat rails and an accountable human. Unclaimed.</div></div>
+    </div>
+    <div class="callout" style="margin-top:22px;max-width:none"><div class="clabel">The single belief that carries the category</div><p><b>KYA, Know Your Agent, carries the category.</b> The honest frame is controls, not "AI is revolutionary." It is the conviction Nathan leads with and the one the whole arc roots in.</p></div>
+    <div class="srule"></div>
+  </div>
+
+  <!-- 09 the capability matrix · NATIVELY INLINED ig-capability-matrix -->
   <div class="slide igslide" data-ig="capmatrix">
     <div class="sbrand" style="z-index:6">The Anchorage Strategy</div>
     <div class="igframe">
@@ -362,7 +443,7 @@ em{font-style:italic}
           <div class="wrap">
             <section>
               <div class="sh"><span class="sn">01</span><h2 class="serif">The core agentic matrix, what rivals ship, where Anchorage is the whitespace</h2></div>
-              <p class="ss">The five core agentic capability categories competitors run as <b>live, named, externally-integrated product</b>. A filled cell means a shipped capability in-window (Oct 2025 to May 2026). Anchorage's row is the whitespace: one announced-only category, otherwise empty. <b>Every red cell is a category a rival has already shipped.</b> The standing is ours to win on execution, not on regulatory position.</p>
+              <p class="ss">The five core agentic capability categories competitors run as <b>live, named, externally-integrated product</b>. A filled cell means a shipped capability in-window (Oct 2025 to May 2026). Anchorage's row is the whitespace: one announced-only category, otherwise empty. <b>Every red cell is a category a rival has already shipped.</b> The standing is Anchorage's to win on execution, not on regulatory position.</p>
               <div class="mtx"><table class="cap">
                 <thead><tr>
                   <th class="catcol">Core agentic category</th>
@@ -405,66 +486,70 @@ em{font-style:italic}
     <div class="srule" style="z-index:6"></div>
   </div>
 
-  <!-- 09 THE WESTERN UNION / PAXOS SPEED GAP -> LEAPFROG (native, no Zev attribution) -->
+  <!-- 09 LEAD CTA · AGENTIFY ANCHORAGE (from the launch deck) -->
   <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
-    <div class="eyebrow">The opportunity · speed is the only missing piece</div>
-    <h2 class="sect" style="font-size:33px">We won the issuance. We lost the orchestration on speed alone.</h2>
-    <div class="callout" style="margin-top:18px;max-width:none">
-      <div class="clabel">What just happened · Western Union</div>
-      <p style="font-size:16px;line-height:1.5">Anchorage <b>won the Western Union stablecoin issuance deal</b>, then lost the token orchestration, payouts, and management layer to <b>Paxos</b>. Not on trust, not on regulation, but because we could not stand the in-house tech up fast enough. A limited-purpose trust company took the layer a chartered bank should own. <b>The gap is speed, nothing else.</b></p>
+    <div class="eyebrow">The call to action · agentify Anchorage</div>
+    <h2 class="sect" style="font-size:37px;max-width:26ch">To ship like an agentic company, Anchorage has to <em style="color:var(--brass);font-style:italic">run</em> like one.</h2>
+    <p class="lead muted" style="margin-top:10px;max-width:96ch;font-size:16px">This is the recommendation we lead with. Before the deeper considerations, the single highest-leverage move: make Anchorage operationally agentic. Shipping at machine speed is not bought from a vendor, it is built, and it takes agentic training and implementation inside the company first.</p>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card anchor"><div class="cn">The move</div><h4>Be agentic internally</h4><p>Adopt triage, comms, and self-restarting loops in Anchorage's own coordination layer. Recommend-only, fully gated, fully logged. Velocity becomes the proof.</p></div>
+      <div class="card anchor"><div class="cn">What it takes</div><h4>Training + implementation</h4><p>Agentic output is a capability Anchorage installs, the tooling, the playbooks, and the change-management to put governed agents into real workflows. This is the work we propose to run.</p></div>
+      <div class="card"><div class="cn">Why it pays</div><h4>The marketing gets real</h4><p>Internal AI-adoption case studies make the launch true, not just stated. It positions Anchorage as the McKinsey of Agentic Consultation: pioneering its own clients on rails it already runs.</p></div>
     </div>
-    <div class="grid g3" style="margin-top:22px">
-      <div class="card anchor"><div class="cn">Already ours</div><h4>Relationships</h4><p>The institutional counterparties, the partner pipeline, the deals already coming to our door. No one rebuilds these.</p></div>
-      <div class="card anchor"><div class="cn">Already ours</div><h4>Trust + regulation</h4><p>The only full national bank charter in crypto, OCC + MAS, the due-process posture no rival can make stick.</p></div>
-      <div class="card"><div class="cn">The one gap</div><h4>Speed</h4><p>Deployment velocity. The single thing Paxos had that we did not. And it is the one thing agentic AI is built to unlock.</p></div>
-    </div>
-    <div class="callout warn" style="margin-top:20px;max-width:none">
-      <div class="clabel">So the move is not catch-up. It is leapfrog.</div>
-      <p>Agentify Anchorage and the missing piece is solved at its source: idea to production at machine speed, on the foundation only we hold. That does not just close the Paxos gap. It <b>vaults past it</b>. It also makes the marketing real, through internal AI-adoption case studies, and positions Anchorage as <b>the McKinsey of Agentic Consultation</b>: pioneering its own clients into the new era on rails it already runs.</p>
+    <div class="callout warn" style="margin-top:14px;max-width:none;padding:16px 22px">
+      <div class="clabel">The output datapoint · flagged</div>
+      <p style="font-size:14px;margin:0">Industry reporting on agentic adoption in knowledge work points to roughly a <b>2-5x lift in per-employee output</b> on agent-suited tasks. <span style="color:var(--signal)">Flag: this is an external, illustrative industry range, not measured Anchorage data, and not a claim to publish externally without its own primary source.</span> The internal pilot is exactly how Anchorage establishes its own real number.</p>
     </div>
     <div class="srule"></div>
   </div>
 
-  <!-- 10 ANCHORAGE MUST BE AGENTIC + flywheel (native, no Zev) -->
+  <!-- 10 FOOD FOR THOUGHT · ANCHORAGE MUST BE AGENTIC + flywheel (agentic-future first) -->
   <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
-    <div class="eyebrow">The campaign concept · be the thing you claim</div>
+    <div class="eyebrow">Food for thought · be the thing you claim</div>
     <h2 class="sect" style="font-size:33px">To appear agentic, Anchorage must <em style="color:var(--brass);font-style:italic">be agentic.</em></h2>
-    <p class="lead muted" style="margin-top:14px;max-width:92ch">You cannot sell the agentic bank from outside of it. A thesis the company already runs on reads as proof; the same words, narrated from a launch slide, read as positioning. The credibility to author "Agentic Banking" is earned in the operating model first.</p>
-    <div class="osmosis" style="margin-top:26px;max-width:none">
+    <p class="lead muted" style="margin-top:14px;max-width:92ch">An extra consideration worth sitting with. You cannot sell the agentic bank from outside of it. A thesis the company already runs on reads as proof; the same words, narrated from a launch slide, read as positioning. The credibility to author "Agentic Banking" is earned in the operating model first.</p>
+    <div class="osmosis" style="margin-top:24px;max-width:none">
       <div class="node"><div class="nh">Agentic operations</div><div class="nd">Triage, comms flows, and self-restarting loops accelerate Anchorage. Velocity becomes the proof.</div></div>
       <div class="mid"><div class="ar">&rarr;</div><div class="ml">becomes</div></div>
       <div class="node"><div class="nh">The regulated rail</div><div class="nd">The same chartered trust, custody and settlement spine is the rail partners' agents stand on.</div></div>
       <div class="mid"><div class="ar">&rarr;</div><div class="ml">compounds</div></div>
-      <div class="node"><div class="nh">The whole industry</div><div class="nd">Out to the banks Anchorage powers. Belief S8: "in a world of 4,000 banks, we power 3,999."</div></div>
+      <div class="node"><div class="nh">The whole industry</div><div class="nd">Out to the banks Anchorage powers. "In a world of 4,000 banks, we're powering 3,999 of them."</div></div>
     </div>
-    <div class="grid g2" style="margin-top:20px">
+    <div class="grid g2" style="margin-top:18px">
       <div class="callout" style="margin:0"><div class="clabel">The flywheel</div><p>Agentic ops make Anchorage faster &rarr; the proven internal layer opens to partners as a platform &rarr; trust is the distribution. <b>The internal tool becomes the rail.</b></p></div>
       <div class="callout warn" style="margin:0"><div class="clabel">The campaign</div><p>Show agentic operations accelerating Anchorage, and through Anchorage, the whole industry. Be agentic internally, prove the value, then extend it.</p></div>
     </div>
     <div class="srule"></div>
   </div>
 
-  <!-- 11 the wedge -->
+  <!-- 11 FOOD FOR THOUGHT · THE WESTERN UNION / [redacted] SPEED GAP -> LEAPFROG -->
   <div class="slide">
     <div class="sbrand">The Anchorage Strategy</div>
-    <div class="eyebrow">The wedge</div>
-    <h2 class="sect">Everyone is building the agent's wallet.<br>Only a bank can be the agent's <em style="color:var(--brass);font-style:italic">bank</em>.</h2>
-    <div class="osmosis" style="margin-top:34px;max-width:none">
-      <div class="node"><div class="nh">The crowded seller side</div><div class="nd">Wallets, checkout, catalogs, Stripe, Circle, Visa, OpenAI. Saturating now.</div></div>
-      <div class="mid"><div class="ar">&rarr;</div><div class="ml">the gap</div></div>
-      <div class="node"><div class="nh">The agent's bank</div><div class="nd">A funded, KYA-identified, regulated USD account with real fiat rails and an accountable human. Unclaimed.</div></div>
+    <div class="eyebrow">Food for thought · speed is the only missing piece</div>
+    <h2 class="sect" style="font-size:31px">Anchorage won the issuance. It lost the orchestration on speed alone.</h2>
+    <div class="callout" style="margin-top:13px;max-width:none;padding:15px 22px">
+      <div class="clabel">An extra consideration · Western Union</div>
+      <p style="font-size:14.5px;line-height:1.45;margin:0">Anchorage <b>won the Western Union stablecoin issuance deal</b>, then lost the token orchestration, payouts, and management layer to <b>[redacted]</b>. Not on trust, not on regulation, but because the in-house tech could not be stood up fast enough. A limited-purpose trust company took the layer a chartered bank should own. <b>The gap is speed, nothing else.</b></p>
     </div>
-    <p class="lead muted" style="margin-top:26px"><b style="color:var(--text)">KYA, Know Your Agent, is the single belief that carries the category.</b> The honest frame is controls, not "AI is revolutionary."</p>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card anchor" style="padding:18px"><div class="cn">Already Anchorage's</div><h4>Relationships</h4><p>The institutional counterparties, the partner pipeline, the deals already coming to its door. No one rebuilds these.</p></div>
+      <div class="card anchor" style="padding:18px"><div class="cn">Already Anchorage's</div><h4>Trust + regulation</h4><p>The only full national bank charter in crypto, OCC + MAS, the due-process posture no rival can make stick.</p></div>
+      <div class="card" style="padding:18px"><div class="cn">The one gap</div><h4>Speed</h4><p>Deployment velocity. The single thing [redacted] had that Anchorage did not. And it is the one thing agentic AI is built to unlock.</p></div>
+    </div>
+    <div class="callout warn" style="margin-top:13px;max-width:none;padding:15px 22px">
+      <div class="clabel">So the move is not catch-up. It is leapfrog.</div>
+      <p style="font-size:14.5px;margin:0">Agentify Anchorage and the missing piece is solved at its source: idea to production at machine speed, on the foundation only Anchorage holds. That does not just close the [redacted] gap. It <b>vaults past it</b>, and makes the marketing real through internal AI-adoption case studies.</p>
+    </div>
     <div class="srule"></div>
   </div>
 
-  <!-- 12 the discipline (filled out: full slide) -->
-  <div class="slide">
+  <!-- 12 the discipline (aligned with regulatory + wedge via regslide) -->
+  <div class="slide regslide">
     <div class="sbrand">The discipline</div>
     <div class="eyebrow">The discipline · why a chartered bank can lead loudly</div>
-    <h2 class="sect" style="font-size:34px">A chartered bank can lead loudly, because of the gate.</h2>
+    <h2 class="sect" style="font-size:38px;max-width:24ch">A chartered bank can lead loudly, because of the gate.</h2>
     <p class="lead muted" style="margin-top:12px;max-width:92ch">The restraint is the credibility. Everything in the left column is on the public record already and clean to post in Nathan's voice now. Everything on the right waits for counsel. One capability over-claim is a failed launch, regardless of every other number.</p>
     <div class="split" style="margin-top:22px;max-width:none">
       <div class="right"><h5 style="color:var(--brass)">Clean to post now</h5><ul>
@@ -484,7 +569,7 @@ em{font-style:italic}
     </div>
     <div class="grid g2" style="margin-top:20px">
       <div class="callout" style="margin:0"><div class="clabel">The gate</div><p>Nothing in your voice ships until the <b>voice spine</b> and <b>Anchorage compliance</b> sign off. The gate is what lets the volume be loud.</p></div>
-      <div class="callout warn" style="margin:0"><div class="clabel">The standard</div><p>Positioning, not product claims. We say the category is real and the foundation is ours, and we never claim the timeline before it is cleared.</p></div>
+      <div class="callout warn" style="margin:0"><div class="clabel">The standard</div><p>Positioning, not product claims. The category is real and the foundation is Anchorage's, and the timeline is never claimed before it is cleared.</p></div>
     </div>
     <div class="srule"></div>
   </div>
@@ -503,151 +588,228 @@ em{font-style:italic}
     <div class="srule"></div>
   </div>
 
-  <!-- 14 the tweet calendar · NATIVE embedded tweets w/ quote-tweet -->
+  <!-- 14 the tweet calendar · DOC-DRIVEN rebuild · real Nathan tweets, no competitor QT -->
   <div class="slide tw-slide">
     <div class="sbrand">The announce</div>
-    <div class="eyebrow">The tweet calendar · what and when, in Nathan's voice</div>
-    <h2 class="sect" style="font-size:30px;margin-top:8px;max-width:none">The full run, as it will actually post.</h2>
-    <div class="tw-cols" style="margin-top:18px">
-      <!-- COLUMN A · pre-announce teases -->
+    <div class="eyebrow">The tweet calendar · doc-driven, in Nathan's own voice</div>
+    <h2 class="sect" style="font-size:28px;margin-top:8px;max-width:none">The run, as it actually posts. Only Nathan's content.</h2>
+    <div class="tw-cols" style="margin-top:16px">
+      <!-- COLUMN A · pre-announce belief breadcrumbs -->
       <div class="tw-col">
-        <div class="tw-colhd"><span class="tw-ph TEASE">Phase 1 · Teases</span><span class="tw-when">Fri 6/27 &middot; Mon 6/30</span></div>
+        <div class="tw-colhd"><span class="tw-ph TEASE">Phase 1 · Belief teases</span><span class="tw-when">Fri 6/27 &middot; Mon 6/30</span></div>
 
         <div class="tw">
-          <div class="tw-corner"><span class="phchip TEASE">TEASE</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-corner"><span class="idtag">#nm-t1</span><span class="phchip TEASE">TEASE</span><span class="bandchip CLEAN">CLEAN</span></div>
           <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley<svg class="vbadge" viewBox="0 0 22 22" fill="none"><path d="M11 1.5l2.3 1.6 2.8-.2 1 2.6 2.4 1.5-.7 2.7.7 2.7-2.4 1.5-1 2.6-2.8-.2L11 20.5l-2.3-1.6-2.8.2-1-2.6L2.5 15l.7-2.7L2.5 9.6 4.9 8.1l1-2.6 2.8.2L11 1.5z" fill="#cda349"/><path d="M7.4 11.2l2.3 2.3 4.8-4.8" stroke="#08111f" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="hd">@nathanmccauley</div></div></div>
-          <div class="body">Everyone's optimizing how smart agents are. Almost no one's asking the question that gates the whole thing: when an agent moves money, who's accountable? That's not a model problem. It's a bank problem.</div>
+          <div class="body">Agents can already advise you. Imagine a world where they can earn and spend money, and even act autonomously. This is the start of the agentic evolution into an economic actor, and economic actors cannot be fully realized while being unbanked.</div>
           <div class="tstamp">9:30 AM · Fri Jun 27</div>
           <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
         </div>
 
         <div class="tw">
-          <div class="tw-corner"><span class="phchip TEASE">TEASE</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-corner"><span class="idtag">#nm-t2</span><span class="phchip TEASE">TEASE</span><span class="bandchip CLEAN">CLEAN</span></div>
           <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
-          <div class="body">Know Your Customer has run banking for decades. The agent economy needs the same for a new kind of customer. Know Your Agent: a verifiable identity, a track record, and an accountable human behind it.</div>
+          <div class="body">Rails are our prohibitor to technological acceleration. Not models. #ReBank</div>
           <div class="tstamp">10:00 AM · Mon Jun 30</div>
           <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
         </div>
-        <div class="tw-colnote">A second tease, "give your agent an allowance, not your account," runs Fri 6/27 PM between these two.</div>
+        <div class="tw-colnote">One-word breadcrumbs seed each beat first: "WHO BANKS THE AGENTS" then "KYA," posted ahead of the full teases. No product, no link. Land the belief.</div>
       </div>
 
-      <!-- COLUMN B · the announce thread (with quote-tweet) -->
+      <!-- COLUMN B · the announce -->
       <div class="tw-col">
-        <div class="tw-colhd"><span class="tw-ph ANNOUNCE">Phase 2 · Announce thread</span><span class="tw-when">Tue 7/1 · 9:00a</span></div>
+        <div class="tw-colhd"><span class="tw-ph ANNOUNCE">Phase 2 · Announce</span><span class="tw-when">Tue 7/1 · 9:00a</span></div>
 
         <div class="tw lead-card">
-          <div class="tw-corner"><span class="phchip ANNOUNCE">1/ ANNOUNCE</span><span class="bandchip COUNSEL">COUNSEL</span></div>
-          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
-          <div class="body">A year ago I wrote that "Crypto Bank" would sound like "Internet Company." Descriptive for a while, then obvious. Here's the next one. Agentic Banking. Niche-sounding today. In a few years, just banking. The difference is the customers won't all be human.</div>
+          <div class="tw-corner"><span class="idtag">#anc-a0</span><span class="phchip ANNOUNCE">BRAND</span><span class="bandchip COUNSEL">COUNSEL</span></div>
+          <div class="tw-head"><div class="av gen anchorage">A</div><div class="who"><div class="nm">Anchorage{vb}</div><div class="hd">@Anchorage</div></div></div>
+          <div class="body">Today: the agentic banking landing page is live. A regulated place for an institution's agent to hold and spend under rules, with KYA at the core. Anchorage is opening to design partners. This is the start of the work, not the end.</div>
           <div class="tstamp">9:00 AM · Tue Jul 1</div>
           <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
         </div>
 
-        <!-- tweet 4: the Brian Armstrong QUOTE-TWEET -->
         <div class="tw">
-          <div class="tw-corner"><span class="phchip ANNOUNCE">4/ QUOTE-TWEET</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-corner"><span class="idtag">#nm-a1</span><span class="phchip ANNOUNCE">NATHAN</span><span class="bandchip COUNSEL">COUNSEL</span></div>
           <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
-          <div class="body">Brian Armstrong put the demand perfectly. Soon, more agents than humans, transacting. He's right.
+          <div class="body">Agentic banking is live for institutions. A regulated place for your agent to hold and spend under rules, with KYA at the core. Give it an allowance, not your whole account. If you are building where agents meet money, become a design partner: [link].</div>
+          <div class="tstamp">9:05 AM · Tue Jul 1</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
 
-Where I'd differ is the fix. He says agents can't open a bank account, so give them a wallet. I'd say build the account. We did.</div>
-          <div class="qt">
-            <div class="qt-head"><div class="av gen anchorage" style="width:22px;height:22px;flex:0 0 22px;font-size:9px">BA</div><span class="qt-nm">Brian Armstrong{vbs}</span><span class="qt-hd">@brian_armstrong</span></div>
-            <div class="qt-body">Soon there will be more AI agents than humans transacting online. They can't open a bank account, so they'll need crypto wallets to participate in the economy.</div>
-          </div>
-          <div class="tstamp">9:03 AM · Tue Jul 1</div>
+        <div class="tw">
+          <div class="tw-corner"><span class="idtag">#nm-a2</span><span class="phchip ANNOUNCE">NATHAN</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">If your agent could have its own regulated bank account and spend within limits, what would you build?</div>
+          <div class="tstamp">11:30 AM · Tue Jul 1</div>
           <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
         </div>
       </div>
 
       <!-- COLUMN C · follow-ups -->
       <div class="tw-col">
-        <div class="tw-colhd"><span class="tw-ph FOLLOW">Phase 3 · Follow-ups</span><span class="tw-when">Announce +1 &middot; +2 &middot; +3</span></div>
+        <div class="tw-colhd"><span class="tw-ph FOLLOW">Phase 3 · Follow-ups</span><span class="tw-when">Wed 7/2 &middot; Thu 7/3</span></div>
 
         <div class="tw">
-          <div class="tw-corner"><span class="phchip FOLLOW">+1 FOLLOW</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-corner"><span class="idtag">#nm-f1</span><span class="phchip FOLLOW">FOLLOW</span><span class="bandchip CLEAN">CLEAN</span></div>
           <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
-          <div class="body">Three-day ACH is a fine pace for a person. It's a joke for software making a thousand decisions a second.
-
-Agentic commerce isn't a feature bolted onto the old system. It's a reset of the platform. Money is about to move at machine speed.</div>
-          <div class="tstamp">11:00 AM · Wed Jul 2</div>
+          <div class="body">When your agent pays the wrong party at 3am, who picks up the phone, and what can they actually do about it? If the honest answer is no one, you do not have a bank for agents.</div>
+          <div class="tstamp">10:00 AM · Wed Jul 2</div>
           <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
         </div>
 
         <div class="tw">
-          <div class="tw-corner"><span class="phchip FOLLOW">+2 FOLLOW</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-corner"><span class="idtag">#nm-f2</span><span class="phchip FOLLOW">FOLLOW</span><span class="bandchip CLEAN">CLEAN</span></div>
           <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
-          <div class="body">I started a bank for a customer that didn't exist yet.
-
-For most of that time the customer was an institution. Now a stranger one is showing up. An autonomous agent. Software that acts on its own and has to pay for things.</div>
-          <div class="tstamp">1:00 PM · Thu Jul 3</div>
+          <div class="body">You do not hand an agent your whole account. You give it an allowance. A segmented account with spending limits and a verified merchant on the other side. Scoped permissions, like you would give a new hire.</div>
+          <div class="tstamp">1:00 PM · Wed Jul 2</div>
           <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
         </div>
-        <div class="tw-colnote">A third follow-up, the buyer-side wedge ("the hard part is the agent that buys"), runs Announce +2.</div>
+
+        <div class="tw">
+          <div class="tw-corner"><span class="idtag">#nm-f3</span><span class="phchip FOLLOW">FOLLOW</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">A bank for agents is a controls problem, not an AI problem. Segmented accounts, spending limits, verified merchants, and a human attached to the liability. Boring is the moat.</div>
+          <div class="tstamp">10:00 AM · Thu Jul 3</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
       </div>
     </div>
-    <div class="tw-foot">DRAFT, pending voice spine v1.0 + Anchorage compliance. A representative cut of the run: belief teases Fri 6/27 (x2) and Mon 6/30, the 8-tweet announce thread Tue 7/1 (tweet 4 quote-tweets Brian Armstrong), then follow-ups across the same week. Full thread and calendar in the companion doc. Engagement illustrative.</div>
+    <div class="tw-foot">DRAFT, pending voice spine v1.0 + Anchorage compliance. Pulled from the doc-driven Sprint 1 calendar: belief breadcrumbs and teases Fri 6/27 + Mon 6/30, the announce Tue 7/1 (brand handle + Nathan), follow-ups Wed 7/2 + Thu 7/3. Tweet IDs are draft references; the live thread, the research-paper and selfie-video beats, and the full calendar live in the companion tweet master. Engagement illustrative.</div>
     <div class="srule"></div>
   </div>
 
-  <!-- 15 the selfie video + pre-brief -->
-  <div class="slide">
+  <!-- 15 the selfie video · closes hard on KYA · with the embedded-tweet sample -->
+  <div class="slide tw-slide" style="padding-top:46px">
     <div class="sbrand">The assets</div>
-    <div class="eyebrow">Asset 1 · Nathan's selfie video + pre-brief</div>
-    <h2 class="sect" style="font-size:33px">One selfie-style video. Shot from the phone, in his voice.</h2>
-    <p class="lead muted" style="margin-top:12px;max-width:92ch">Not a produced studio piece. A direct-to-camera, founder-shot declaration that lands the category the same hour the page goes live. Authentic beats polished. Below is the pre-brief, the points Nathan must hit on camera.</p>
-    <div class="grid g2" style="margin-top:20px">
-      <div class="card anchor"><div class="cn">Format</div><h4>Selfie, ~60-90 seconds</h4><p>Phone camera, eye-level, no script read. One take feel. Posts natively as the visual anchor to the announce thread.</p></div>
-      <div class="card"><div class="cn">Tone</div><h4>Conviction, not pitch</h4><p>He is naming a category he already believes in, not selling a product. Positioning only, no GA or capability claim.</p></div>
-    </div>
-    <div class="callout" style="margin-top:20px;max-width:none">
-      <div class="clabel">Pre-brief · the points to hit on camera</div>
-      <ul style="margin:0;padding-left:18px;color:#D4DAE3;font-size:15px;line-height:1.65">
-        <li>"A year ago 'Crypto Bank' sounded like 'Internet Company.' Here's the next one: <b>Agentic Banking</b>."</li>
-        <li>The economy is about to have participants who aren't people, software that earns, holds, and spends.</li>
-        <li>When an agent moves money, a <b>bank</b> stands behind it, not a model, not a wallet. We're the only federally chartered crypto bank.</li>
-        <li>You give an agent an <b>allowance</b>, not your account, segmented, controlled, revocable.</li>
-        <li><b>Know Your Agent</b> is the next decade's KYC. The agent acts; a person owns it.</li>
-        <li>Close on "more soon", no demo, no timeline, no number.</li>
-      </ul>
+    <div class="eyebrow">Asset 1 · Nathan's selfie video · closes on KYA</div>
+    <h2 class="sect" style="font-size:28px;margin-top:6px;max-width:none">One selfie video. Shot from the phone, in his voice, closing on Know Your Agent.</h2>
+    <div class="bfsplit" style="margin-top:16px;grid-template-columns:1.05fr 0.95fr">
+      <!-- LEFT: brief, ending on the KYA close -->
+      <div class="bfleft">
+        <div class="grid g2" style="margin-top:0;gap:12px">
+          <div class="card anchor" style="padding:16px"><div class="cn">Format</div><h4 style="font-size:18px">Selfie, ~60-90s</h4><p>Phone camera, eye-level, no script read. One-take feel. The visual anchor that posts with the announce.</p></div>
+          <div class="card" style="padding:16px"><div class="cn">Tone</div><h4 style="font-size:18px">Conviction, not pitch</h4><p>Naming a category he already believes in. Positioning only, no GA or capability claim.</p></div>
+        </div>
+        <div class="callout" style="margin:12px 0 0;padding:15px 18px">
+          <div class="clabel">The points to hit · land the last one hardest</div>
+          <ul style="margin:0;padding-left:17px;color:#D4DAE3;font-size:13.5px;line-height:1.55">
+            <li>The economy is about to have participants who aren't people, software that earns, holds, and spends.</li>
+            <li>When an agent moves money, a <b>bank</b> stands behind it, not a model, not a wallet. Anchorage is the first federally chartered crypto bank.</li>
+            <li>You give an agent an <b>allowance</b>, not your account, segmented, controlled, revocable.</li>
+          </ul>
+        </div>
+        <div class="callout warn" style="margin:10px 0 0;padding:15px 18px">
+          <div class="clabel">Close hard on KYA</div>
+          <p style="font-size:13.5px;margin:0"><b style="color:var(--text)">Know Your Agent is the next decade's KYC.</b> The agent acts; a person owns it. That is the line the video ends on, then "more soon." No demo, no timeline, no number.</p>
+        </div>
+      </div>
+      <!-- RIGHT: the embedded-tweet sample (real selfie-video tweet, doc-driven) -->
+      <div class="bfright" style="justify-content:flex-start">
+        <div class="tw-colhd" style="margin-top:2px"><span class="tw-ph ANNOUNCE">How it posts · embedded video tweet</span></div>
+        <div class="tw lead-card" style="margin-top:10px">
+          <div class="tw-corner"><span class="idtag">#nm-vid</span><span class="phchip ANNOUNCE">VIDEO</span><span class="bandchip COUNSEL">COUNSEL</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">Hey. Nathan here. No script, no slides. Today is the start of a new frontier for Anchorage. The question I keep coming back to is simple: who banks the agents?</div>
+          <div class="vidframe"><span class="vidplay">&#9654;</span><span class="vidlbl">0:00 / 1:12 · selfie video</span></div>
+          <div class="tstamp">9:02 AM · Tue Jul 1</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+        <div class="bfcap2" style="margin-top:10px">Posts natively as a video tweet alongside the announce. Engagement illustrative.</div>
+      </div>
     </div>
     <div class="srule"></div>
   </div>
 
-  <!-- 16 the live interview -->
-  <div class="slide">
+  <!-- 16 the live interview · shows the promo tweet + sharper bullets -->
+  <div class="slide tw-slide" style="padding-top:46px">
     <div class="sbrand">The assets</div>
-    <div class="eyebrow">Asset 2 · the live interview</div>
-    <h2 class="sect" style="font-size:33px">A moderated live conversation. Nathan and Zev, on the record.</h2>
-    <p class="lead muted" style="margin-top:12px;max-width:92ch">A live, moderated discussion between Nathan and Zev, run by a moderator, another Anchorage exec, or Jarred can step in if needed. Long-form proof that the category has depth, not just a slogan. Format and themes below.</p>
-    <div class="grid g3" style="margin-top:20px">
-      <div class="card anchor"><div class="cn">Who</div><h4>Nathan + Zev</h4><p>Founder conviction meets the product and orchestration reality. Moderated by an Anchorage exec (or Jarred steps in if needed).</p></div>
-      <div class="card"><div class="cn">Format</div><h4>Live, ~25-30 min</h4><p>Moderated conversation, light structure, real questions. Streamed or recorded for the amplify beat. Gated on compliance for any specifics.</p></div>
-      <div class="card"><div class="cn">When</div><h4>Amplify window</h4><p>Runs after the announce, feeding the post-launch media beat. Not the launch-hour piece, the depth that follows it.</p></div>
-    </div>
-    <div class="callout warn" style="margin-top:20px;max-width:none">
-      <div class="clabel">The 3-4 themes</div>
-      <ul style="margin:0;padding-left:18px;color:#D4DAE3;font-size:15px;line-height:1.65">
-        <li><b>Who banks the agents?</b> Why the unsolved problem is a bank problem, not a wallet problem.</li>
-        <li><b>The charter as the moat.</b> What a full national bank charter lets an agent do that a trust company cannot.</li>
-        <li><b>Know Your Agent.</b> Identity, allowance, and the accountable human, the controls that let it scale.</li>
-        <li><b>Building at speed.</b> Becoming operationally agentic, and why that is the unlock, not a constraint.</li>
-      </ul>
+    <div class="eyebrow">Asset 2 · the live interview · promo + talking points</div>
+    <h2 class="sect" style="font-size:28px;margin-top:6px;max-width:none">A moderated live conversation. Nathan, on the record, on agentic banking and KYA.</h2>
+    <div class="bfsplit" style="margin-top:16px;grid-template-columns:1.05fr 0.95fr">
+      <!-- LEFT: format + sharpened talking points -->
+      <div class="bfleft">
+        <div class="grid g2" style="margin-top:0;gap:12px">
+          <div class="card anchor" style="padding:16px"><div class="cn">Format</div><h4 style="font-size:18px">Live, ~25-30 min</h4><p>A moderated conversation, not a pitch. Light structure, real questions, X simulcast, audience Q&amp;A at the end. Moderated by an Anchorage exec, with Jarred able to step in.</p></div>
+          <div class="card" style="padding:16px"><div class="cn">When</div><h4 style="font-size:18px">Amplify window</h4><p>Announced ahead, airs after the announce. The depth that follows the launch-hour beat, not the beat itself.</p></div>
+        </div>
+        <div class="callout warn" style="margin:12px 0 0;padding:15px 18px">
+          <div class="clabel">Sharper talking points · one line, one landing</div>
+          <ul style="margin:0;padding-left:17px;color:#D4DAE3;font-size:13.5px;line-height:1.55">
+            <li><b>Who banks the agents?</b> It is a bank problem, not a wallet problem. A wallet holds value; it cannot be accountable when an agent spends.</li>
+            <li><b>The charter is the moat.</b> A full national bank charter holds an agent's USD, custodies its crypto, issues its card. A trust company cannot.</li>
+            <li><b>KYA is the discipline.</b> Verifiable identity, an allowance not the whole account, and the human on the liability. Controls are what let it scale.</li>
+            <li><b>Boring is the moat.</b> The hard, durable part is controls and accountability, the work banks have done for a hundred years.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- RIGHT: the promo tweet Nathan posts about the interview -->
+      <div class="bfright" style="justify-content:flex-start">
+        <div class="tw-colhd" style="margin-top:2px"><span class="tw-ph ANNOUNCE">The promo tweet Nathan posts</span></div>
+        <div class="tw lead-card" style="margin-top:10px">
+          <div class="tw-corner"><span class="idtag">#nm-live</span><span class="phchip ANNOUNCE">LIVE</span><span class="bandchip CLEAN">CLEAN</span></div>
+          <div class="tw-head"><div class="av gen nathan">NM</div><div class="who"><div class="nm">Nathan McCauley{vb}</div><div class="hd">@nathanmccauley</div></div></div>
+          <div class="body">Going live on agentic banking and KYA. A moderated conversation, not a pitch. Date and where to watch below.</div>
+          <div class="vidframe"><span class="vidplay">&#9654;</span><span class="vidlbl">LIVE · agentic banking &amp; KYA</span></div>
+          <div class="tstamp">10:00 AM · Thu Jul 3</div>
+          <div class="eng"><span class="e">{rep}</span><span class="e">{rt}</span><span class="e like">{lk}</span><span class="e">{vw}</span></div>
+        </div>
+        <div class="bfcap2" style="margin-top:10px">Announced ahead of the airing, drives to the stream. Engagement illustrative.</div>
+      </div>
     </div>
     <div class="srule"></div>
   </div>
 
   <!-- 17 the ask -->
-  <div class="slide">
+  <div class="slide askslide">
     <div class="sbrand">The Anchorage Strategy</div>
     <div class="eyebrow">What we need from you</div>
     <h2 class="sect">Four moves.</h2>
-    <ol class="moves" style="max-width:none;margin-top:24px">
-      <li><h4>Record the selfie video and sit for the live interview</h4><p>The selfie declaration anchors the announce; the moderated conversation with Zev carries the depth into the amplify beat.</p></li>
-      <li><h4>Post the announce thread, once cleared</h4><p>After the voice spine and compliance sign off. The 8-tweet thread and the belief teases, not before.</p></li>
-      <li><h4>Close the speed gap, agentify Anchorage</h4><p>The foundation is the best in the field. The deals we lose are lost on deployment speed. Be operationally agentic and leapfrog.</p></li>
+    <ol class="moves" style="max-width:none;margin-top:18px">
+      <li><h4>Record the selfie video and sit for the live interview</h4><p>The selfie declaration anchors the announce; the moderated conversation carries the depth into the amplify beat.</p></li>
+      <li><h4>Post the calendar, once cleared</h4><p>After the voice spine and compliance sign off. The belief teases, the announce, and the follow-ups, in Nathan's voice, not before.</p></li>
+      <li><h4>Close the speed gap, agentify Anchorage</h4><p>The foundation is the best in the field. The deals Anchorage loses are lost on deployment speed. Become operationally agentic and leapfrog.</p></li>
       <li><h4>Endorse KYA as the lead</h4><p>One conviction carries the category. We resist the urge to say everything at once.</p></li>
     </ol>
     <div class="callout" style="margin-top:18px;max-width:none"><div class="clabel">Fast-follow + alignment</div><p>A live web dashboard, the relationship ring and belief field rendered, is the next surface. This executes the scope your team greenlit on the <b>2026-06-09 alignment call</b>.</p></div>
+    <div class="srule"></div>
+  </div>
+
+  <!-- 18 CLOSING · the schedule, the tweet master, and the resources block -->
+  <div class="slide closeslide" style="padding-top:50px">
+    <div class="sbrand">The Anchorage Strategy</div>
+    <div class="eyebrow">The schedule &amp; the resources</div>
+    <h2 class="sect" style="font-size:32px;max-width:none">Everything, in one place. Ready when you are.</h2>
+    <div class="closegrid" style="margin-top:18px">
+      <!-- LEFT: the tweet schedule with IDs -->
+      <div class="closecol">
+        <div class="closehd">The tweet schedule &middot; draft IDs</div>
+        <table class="schedtbl">
+          <thead><tr><th>ID</th><th>When</th><th>Phase</th><th>What</th></tr></thead>
+          <tbody>
+            <tr><td class="idc">#nm-t1</td><td>Fri 6/27 · 9:30a</td><td><span class="schip TEASE">TEASE</span></td><td>"Agents can already advise you…"</td></tr>
+            <tr><td class="idc">#nm-t2</td><td>Mon 6/30 · 10:00a</td><td><span class="schip TEASE">TEASE</span></td><td>"Rails are our prohibitor…" #ReBank</td></tr>
+            <tr><td class="idc">#anc-a0</td><td>Tue 7/1 · 9:00a</td><td><span class="schip ANN">BRAND</span></td><td>Page live, opening to design partners</td></tr>
+            <tr><td class="idc">#nm-a1</td><td>Tue 7/1 · 9:05a</td><td><span class="schip ANN">ANNOUNCE</span></td><td>"Agentic banking is live for institutions…"</td></tr>
+            <tr><td class="idc">#nm-a2</td><td>Tue 7/1 · 11:30a</td><td><span class="schip ANN">ANNOUNCE</span></td><td>"…what would you build?"</td></tr>
+            <tr><td class="idc">#nm-f1</td><td>Wed 7/2 · 10:00a</td><td><span class="schip FOL">FOLLOW</span></td><td>"…who picks up the phone at 3am?"</td></tr>
+            <tr><td class="idc">#nm-f2</td><td>Wed 7/2 · 1:00p</td><td><span class="schip FOL">FOLLOW</span></td><td>"…give it an allowance."</td></tr>
+            <tr><td class="idc">#nm-f3</td><td>Thu 7/3 · 10:00a</td><td><span class="schip FOL">FOLLOW</span></td><td>"Boring is the moat."</td></tr>
+            <tr><td class="idc">#nm-live</td><td>Thu 7/3 · 10:00a</td><td><span class="schip ANN">LIVE</span></td><td>Live-interview promo</td></tr>
+          </tbody>
+        </table>
+        <a class="masterlink" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint1-docdriven.html" target="_blank" rel="noopener"><span class="ml-k">Tweet master</span><span class="ml-t">The full doc-driven calendar, every tweet, breadcrumb, paper and video beat, with dates and phases</span></a>
+      </div>
+      <!-- RIGHT: the resources block, in order -->
+      <div class="closecol">
+        <div class="closehd">Resources</div>
+        <a class="reslink" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint1-docdriven.html" target="_blank" rel="noopener"><span class="rn">01</span><div><div class="rt">Agentic launch · Sprint 1 deck</div><div class="rd">The doc-driven Sprint 1 launch deck, the source of this calendar.</div></div></a>
+        <a class="reslink" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/anchorage-sprint1-docdriven.html" target="_blank" rel="noopener"><span class="rn">02</span><div><div class="rt">Tweet master doc</div><div class="rd">Every tweet, reply, and beat with dates, phases, and claim bands.</div></div></a>
+        <a class="reslink" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/who-banks-the-agents-megadeck.html" target="_blank" rel="noopener"><span class="rn">03</span><div><div class="rt">Master research &amp; overview</div><div class="rd">"Who Banks the Agents" 39-page megadeck, the full research and overview.</div></div></a>
+        <a class="reslink" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/agentic-banking-launch-campaign.html" target="_blank" rel="noopener"><span class="rn">+</span><div><div class="rt">Agentic launch campaign deck</div><div class="rd">The end-to-end campaign plan the launch motion runs on.</div></div></a>
+        <a class="reslink" href="https://winnsolutionsadmin.github.io/anchorage-agentic-preview/who-banks-the-agents-megadeck.html" target="_blank" rel="noopener"><span class="rn">+</span><div><div class="rt">The 39-page megadeck</div><div class="rd">The deep reference for the belief-to-traction funnel and the full case.</div></div></a>
+        <div class="closenote">DRAFT. All copy pending voice spine v1.0 + Anchorage compliance. Tweet IDs are draft references; live IDs attach on posting.</div>
+      </div>
+    </div>
     <div class="srule"></div>
   </div>
 
@@ -680,6 +842,10 @@ For most of that time the customer was an institution. Now a stranger one is sho
   .tw-slide .eng .e svg{width:12px;height:12px;opacity:.78}
   .tw-slide .eng .e.like svg{color:#e0607f}
   .tw-slide .tw-corner{position:absolute;top:9px;right:10px;display:flex;gap:4px;align-items:center}
+  .tw-slide .idtag{font-family:var(--mono);font-size:7.5px;letter-spacing:.04em;padding:2px 5px;border-radius:4px;background:rgba(159,184,219,.08);color:var(--muted-2);border:1px solid var(--ink-line)}
+  .tw-slide .vidframe{margin-top:8px;height:120px;border-radius:9px;border:1px solid rgba(159,184,219,.18);background:radial-gradient(circle at 50% 42%,rgba(205,163,73,.14),rgba(13,27,46,.9));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+  .tw-slide .vidplay{width:34px;height:34px;border-radius:50%;background:rgba(234,240,248,.92);color:#0d1b2e;display:grid;place-items:center;font-size:13px;padding-left:2px}
+  .tw-slide .vidlbl{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;color:var(--muted-2)}
   .tw-slide .phchip{font-size:7.5px;letter-spacing:.06em;padding:2px 5px;border-radius:4px;font-family:var(--mono);font-weight:600}
   .tw-slide .phchip.TEASE{background:rgba(91,155,213,.18);color:#9cc4ea}
   .tw-slide .phchip.ANNOUNCE{background:rgba(205,163,73,.18);color:#e3c578}
